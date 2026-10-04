@@ -16,21 +16,27 @@
         .question-box { transition: all 0.2s ease-in-out; }
         .question-box:hover { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1); border-color: #bfdbfe; }
         
+        /* Cải tiến hiển thị đáp án thành từng khối riêng biệt */
         .option-label { cursor: pointer; transition: all 0.2s; }
-        .option-label:hover span { background-color: #f8fafc; border-color: #cbd5e1; }
+        .option-label:hover { background-color: #eff6ff; border-color: #bfdbfe; }
         
         /* Đáp án khi được chọn */
         .option-label input:checked + span { 
-            background: linear-gradient(to right, #eff6ff, #dbeafe);
-            border-color: #3b82f6; 
             color: #1e40af;
             font-weight: bold;
+        }
+        .option-label:has(input:checked) {
+            background: linear-gradient(to right, #eff6ff, #dbeafe);
+            border-color: #3b82f6; 
             box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
         }
         
         /* Đáp án đúng/sai */
-        .correct-ans { background: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
-        .wrong-ans { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .correct-ans-box { background: #dcfce7 !important; border-color: #22c55e !important; }
+        .correct-ans-text { color: #166534 !important; font-weight: bold !important; }
+        
+        .wrong-ans-box { background: #fee2e2 !important; border-color: #ef4444 !important; }
+        .wrong-ans-text { color: #991b1b !important; }
         
         .reading-passage { font-family: 'Times New Roman', Times, serif; }
         
@@ -49,75 +55,69 @@
 </head>
 <body class="min-h-screen flex flex-col text-gray-800">
 
-    <!-- HEADER SIÊU GỌN (Tất cả chung 1 hàng) -->
+    <!-- HEADER SIÊU GỌN -->
     <header class="glass-header text-white sticky top-0 z-40 h-[56px] flex items-center">
-        <div class="max-w-[1500px] w-full mx-auto px-4 flex justify-between items-center">
+        <div class="max-w-[1500px] w-full mx-auto px-2 md:px-4 flex justify-between items-center">
             
-            <!-- Tabs Lớp học (Thu gọn) -->
             <div class="flex space-x-1">
-                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-5 py-1.5 bg-gray-50 text-blue-800 font-bold rounded-md shadow-sm text-sm transition-colors">Lớp 10</button>
-                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-5 py-1.5 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-sm transition-colors">Lớp 11</button>
-                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-5 py-1.5 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-sm transition-colors">Lớp 12</button>
+                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-3 md:px-5 py-1.5 bg-gray-50 text-blue-800 font-bold rounded-md shadow-sm text-xs md:text-sm transition-colors">Lớp 10</button>
+                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-3 md:px-5 py-1.5 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-xs md:text-sm transition-colors">Lớp 11</button>
+                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-3 md:px-5 py-1.5 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-xs md:text-sm transition-colors">Lớp 12</button>
             </div>
             
-            <!-- Tiêu đề chính -->
             <h1 class="text-sm md:text-lg lg:text-xl font-bold uppercase tracking-wider hidden sm:block truncate px-4 drop-shadow-md">
                 Ngân hàng đề thi Tiếng Anh 2026
             </h1>
             
-            <!-- Đồng hồ -->
-            <div class="text-base md:text-lg font-black bg-white/20 backdrop-blur-md px-4 py-1 rounded border border-white/30 shadow-inner flex-shrink-0 tracking-widest" id="timer-display">
+            <div class="text-base md:text-lg font-black bg-white/20 backdrop-blur-md px-3 py-1 rounded border border-white/30 shadow-inner flex-shrink-0 tracking-widest" id="timer-display">
                 50:00
             </div>
         </div>
     </header>
 
     <!-- MAIN LAYOUT -->
-    <div class="max-w-[1500px] mx-auto w-full flex-grow flex flex-col md:flex-row p-3 gap-4 items-start">
+    <div class="max-w-[1500px] mx-auto w-full flex-grow flex flex-col lg:flex-row p-3 gap-4 items-start">
         
-        <!-- SIDEBAR (Menu Unit & Test) -->
-        <aside class="w-full md:w-[240px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-gray-200 md:sticky md:top-[70px] z-20 overflow-hidden">
+        <!-- SIDEBAR -->
+        <aside class="w-full lg:w-[240px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-gray-200 lg:sticky lg:top-[70px] z-20 overflow-hidden">
             <h2 class="text-base font-bold text-blue-900 bg-blue-50/50 p-3 border-b border-gray-200 flex items-center">
                 <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
                 Danh sách bài thi
             </h2>
-            <div id="units-container" class="max-h-[calc(100vh-140px)] overflow-y-auto custom-scrollbar bg-gray-50/30">
-                <!-- Được sinh bằng JS -->
+            <div id="units-container" class="max-h-[30vh] lg:max-h-[calc(100vh-140px)] overflow-y-auto custom-scrollbar bg-gray-50/30">
+                <!-- Sinh bằng JS -->
             </div>
         </aside>
 
-        <!-- MAIN CONTENT (Khung làm bài) -->
-        <main class="w-full flex-grow min-w-0 bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 relative">
+        <!-- MAIN CONTENT -->
+        <main class="w-full flex-grow min-w-0 bg-white rounded-xl shadow-sm border border-gray-200 p-3 md:p-6 relative">
             
             <div id="welcome-screen" class="text-center py-16">
                 <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-50 mb-4 border border-blue-100">
                     <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 </div>
                 <h2 class="text-2xl font-bold text-gray-800 mb-2">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
-                <p class="text-gray-500 font-medium">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
+                <p class="text-gray-500 font-medium text-sm md:text-base">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu. <br><span class="text-blue-600">(Lớp 10 Unit 1 Test 1 và Lớp 12 Unit 1 Test 1 đã có sẵn dữ liệu)</span></p>
             </div>
 
             <div id="test-screen" class="hidden-element">
                 <div class="flex justify-between items-end border-b border-gray-200 pb-3 mb-5">
                     <div>
-                        <h2 class="text-2xl md:text-3xl font-bold text-blue-800" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
-                        <p class="text-sm text-indigo-600 mt-1 font-semibold">Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026</p>
+                        <h2 class="text-2xl md:text-3xl font-bold text-blue-800" id="current-test-title">Đề thi</h2>
+                        <p class="text-xs md:text-sm text-indigo-600 mt-1 font-semibold">Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026</p>
                     </div>
                 </div>
                 
-                <!-- Khung chứa bài thi -->
-                <div id="questions-container" class="space-y-6">
-                    <!-- Sinh bằng JS -->
-                </div>
+                <div id="questions-container" class="space-y-6"></div>
 
                 <div class="mt-8 pt-6 border-t border-gray-200 flex justify-center">
-                    <button onclick="submitTest()" id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 text-lg rounded-lg shadow-md transition-all">
+                    <button onclick="submitTest()" id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 text-lg rounded-lg shadow-md transition-all w-full md:w-auto">
                         NỘP BÀI & XEM ĐIỂM
                     </button>
                 </div>
             </div>
 
-            <!-- Màn hình kết quả -->
+            <!-- Kết quả -->
             <div id="result-screen" class="hidden-element text-center py-10">
                 <h2 class="text-3xl font-bold text-green-600 mb-2">Hoàn thành bài thi!</h2>
                 <div class="text-6xl font-black text-blue-700 my-6" id="score-display">10/10</div>
@@ -131,13 +131,13 @@
 
     <!-- FOOTER -->
     <footer class="bg-gray-800 text-center py-4 mt-auto border-t-2 border-blue-500 shadow-inner">
-        <p class="font-bold text-white text-sm">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
-        <p class="text-sm mt-1 text-yellow-400 font-semibold">Bản quyền thuộc về số ĐT chính chủ: 0943930787</p>
+        <p class="font-bold text-white text-xs md:text-sm">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
+        <p class="text-xs md:text-sm mt-1 text-yellow-400 font-semibold">Bản quyền thuộc về số ĐT chính chủ: 0943930787</p>
     </footer>
 
-    <!-- PASSWORD MODAL (Mở khóa mềm) -->
+    <!-- PASSWORD MODAL -->
     <div id="password-modal" class="hidden-element fixed inset-0 bg-gray-900/70 backdrop-blur-sm flex justify-center items-center z-[100] p-4">
-        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full border border-gray-100 relative">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full border border-gray-100 relative">
             <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Mở khóa nội dung</h3>
             <p class="text-gray-500 mb-6 text-center text-sm">Nhập mật khẩu học sinh để làm toàn bộ các đề thi tiếp theo.</p>
             <input type="password" id="password-input" class="w-full bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 transition-all text-center mb-2 font-medium" placeholder="Mật khẩu...">
@@ -153,7 +153,8 @@
 
     <script>
         /* =========================================================================
-           DATABASE ĐỀ THI - FORMAT 2026 (Giữ nguyên)
+           DATABASE ĐỀ THI - FORMAT 2026 
+           (Giữ nguyên 100% dữ liệu đề thi Lớp 10 và Lớp 12 của thầy)
         ========================================================================= */
         const ins1 = "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.";
         const ins2 = "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a cohesive and coherent exchange or text in each of the following questions from 7 to 11.";
@@ -211,34 +212,80 @@
                         { instruction: ins6, text: "Which of the following statements would the writer NOT agree with?", options: ["Handwritten and typed notes led to varied degrees of conceptual understanding.", "The slow speed of writing by hand turns out to be an advantage over typing.", "Students are unaware of the change in notetaking methods in class.", "Universities generally approve of prohibiting laptop use in classrooms."], answer: 3 },
                         { instruction: ins6, text: "In which paragraph does the writer mention a cognitive process?", options: ["Paragraph 2", "Paragraph 1", "Paragraph 3", "Paragraph 4"], answer: 2 },
                         { instruction: ins6, text: "In which paragraph does the writer warn against an overgeneralisation?", options: ["Paragraph 2", "Paragraph 1", "Paragraph 3", "Paragraph 4"], answer: 3 }
-                    ], 
-                    2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [] 
-                },
-                2: { 1: [], 2: [] }, 
+                    ]
+                }
             },
             11: { 1: { 1: [] } },
-            12: { 1: { 1: [] } }
+            12: { 
+                1: { 
+                    1: [
+                        { instruction: ins1, passage: "GLOBAL YOUTH LEADERSHIP SUMMIT 2026\n\nAre you ready to unlock your leadership potential? Join the Global Youth Leadership Summit this October! If you (1)______ to develop essential life skills, this is the perfect opportunity. The main objective is to boost participants' (2)______ in public speaking and teamwork. During the summit, we will have various interactive activities (3)______ by experienced international mentors. Furthermore, intensive workshops will teach you how to (4)______ with conflicts effectively in a multicultural environment. These experiences guarantee that you will grow maturely. We aspire to (5)______ a sense of global responsibility among the youth. Remember that great leaders are made, not born. (6)______, please complete the registration form on our website before September 15th.", text: "", options: ["wish", "wished", "wishing", "are wished"], answer: 0 },
+                        { instruction: ins1, text: "", options: ["confidence", "confident", "confidently", "confide"], answer: 0 },
+                        { instruction: ins1, text: "", options: ["organise", "organising", "organised", "to organise"], answer: 2 },
+                        { instruction: ins1, text: "", options: ["deal", "solve", "overcome", "address"], answer: 0 },
+                        { instruction: ins1, text: "", options: ["foster", "discover", "invent", "recover"], answer: 0 },
+                        { instruction: ins1, text: "", options: ["To apply", "Applying", "Apply", "Applied"], answer: 0 },
+
+                        { instruction: ins2, text: "Subject: Invitation to Guest Lecture\na. We are thrilled to invite you to speak at our upcoming seminar on AI in Education.\nb. Dear Dr. Nguyen,\nc. Please RSVP by this Friday so we can finalize the schedule.\nd. The event will take place on November 12th in the Main Hall.\ne. Best regards,\nSarah Johnson", options: ["b - a - d - c - e", "b - c - a - d - e", "b - d - a - c - e", "a - b - d - c - e"], answer: 0 },
+                        { instruction: ins2, text: "a. Mai: Yes, I'd love to! What time should we meet?\nb. Tom: Are you free this weekend? There is a new exhibition at the art museum.\nc. Tom: Let's meet at 9 AM at the main entrance.", options: ["b - a - c", "a - b - c", "b - c - a", "c - b - a"], answer: 0 },
+                        { instruction: ins2, text: "a. First, it helps you stay organized and keep track of deadlines.\nb. Time management is a crucial skill for high school students preparing for graduation.\nc. Finally, it significantly reduces stress before major exams.\nd. Second, you can achieve your learning goals faster by prioritizing important tasks.", options: ["b - a - d - c", "a - b - d - c", "b - d - a - c", "b - c - a - d"], answer: 0 },
+                        { instruction: ins2, text: "a. Interviewer: What do you consider your greatest strength?\nb. Applicant: Well, I am very adaptable and can work well under pressure.\nc. Interviewer: Can you give me an example of that in your previous job?\nd. Applicant: Certainly. Last year, our team had to meet a tight deadline and I took the lead to re-organize the workflow.\ne. Interviewer: That sounds impressive.", options: ["a - b - c - d - e", "b - a - c - d - e", "a - c - b - d - e", "c - d - a - b - e"], answer: 0 },
+                        { instruction: ins2, text: "a. Consequently, urban areas are facing severe housing shortages and traffic congestion.\nb. In recent years, a massive wave of rural-to-urban migration has occurred.\nc. To solve this, the government is planning to build satellite cities.\nd. People move to big cities in search of better employment and education opportunities.\ne. This demographic shift has fundamentally changed the social structure of the country.", options: ["b - d - e - a - c", "b - e - d - c - a", "d - b - e - a - c", "b - a - d - e - c"], answer: 0 },
+
+                        { instruction: ins3, passage: "Lifelong learning is the continuous pursuit of knowledge for personal or professional reasons. In today's fast-paced world, where technology evolves rapidly, it is essential ________(12). Many professionals ________(13) often find themselves left behind in the competitive job market. It is not merely about career advancement; ________(14). We should embrace new ideas ________(15) – reading books, attending seminars, or taking online courses. The digital age has made learning resources more accessible than ever before. ________(16). It can be found in the curiosity to explore the unknown and the desire to improve oneself daily.", text: "", options: ["to adapt to new changes and acquire new skills", "adapting to new changes and acquire new skills", "adapt to new changes and acquire new skills", "for adapting to new changes and acquire new skills"], answer: 0 },
+                        { instruction: ins3, text: "", options: ["who refuse to update their knowledge", "whose knowledge is refused to update", "refusing updating their knowledge", "that refuses to update their knowledge"], answer: 0 },
+                        { instruction: ins3, text: "", options: ["it is also about personal growth and mental agility", "but also about personal growth and mental agility", "also about personal growth and mental agility", "it is about personal growth and mental agility also"], answer: 0 },
+                        { instruction: ins3, text: "", options: ["through various channels", "by various channels", "on various channels", "in various channels"], answer: 0 },
+                        { instruction: ins3, text: "", options: ["Ultimately, learning is not confined to a classroom", "Therefore, a classroom is not confined to learning", "However, learning is confined to a classroom", "Consequently, learning is not confined to a classroom"], answer: 0 },
+
+                        { instruction: ins4, passage: "Artificial Intelligence (AI) is rapidly transforming the landscape of education, offering both unprecedented opportunities and unique challenges. One of the most significant impacts of AI is the personalization of learning. Traditional classrooms often adopt a 'one-size-fits-all' approach, which can leave some students struggling while others are bored. AI-powered educational software can analyze a student's learning speed, identify their weak points, and tailor the curriculum to meet their specific needs. This adaptive learning ensures that students fully grasp a concept before moving on to the next.\n\nMoreover, AI administrative tools are alleviating the burden on teachers. Grading multiple-choice tests and checking homework can be automated, allowing educators to dedicate more time to lesson planning and one-on-one student interaction. Virtual tutors and chatbots are also available 24/7 to answer students' queries, providing immediate feedback that accelerates the learning process.\n\nHowever, the integration of AI in education is not without controversy. There are growing concerns regarding data privacy. AI systems require vast amounts of student data to function effectively, raising questions about who has access to this sensitive information and how it is protected. Furthermore, critics argue that over-reliance on AI could diminish human interaction, which is crucial for developing emotional intelligence and social skills. While AI can simulate conversation, it lacks the genuine empathy and understanding that a human teacher provides.\n\nAs schools continue to adopt these technologies, striking a balance becomes imperative. AI should be viewed as a tool to augment the educational experience, not as a replacement for human educators. The future of education lies in a blended approach, where technology handles data and personalization, while teachers focus on mentorship, critical thinking, and emotional support.", text: "What is the main topic of the passage?", options: ["The history of technology in schools", "The role and impact of AI in education", "How to program AI educational software", "The dangers of data privacy in schools"], answer: 1 },
+                        { instruction: ins4, text: "The word 'unprecedented' in paragraph 1 is closest in meaning to ______.", options: ["unimportant", "never known before", "predictable", "temporary"], answer: 1 },
+                        { instruction: ins4, text: "According to paragraph 1, how does AI help personalize learning?", options: ["By making all students learn at the exact same speed", "By analyzing learning speed and tailoring the curriculum", "By replacing textbooks with tablet computers", "By allowing students to skip difficult concepts"], answer: 1 },
+                        { instruction: ins4, text: "The word 'alleviating' in paragraph 2 is closest in meaning to ______.", options: ["increasing", "reducing", "ignoring", "causing"], answer: 1 },
+                        { instruction: ins4, text: "According to paragraph 2, what is a benefit of automating grading?", options: ["Teachers can take more vacations", "Teachers have more time for lesson planning and student interaction", "Students get higher grades automatically", "Schools can hire fewer teachers"], answer: 1 },
+                        { instruction: ins4, text: "What concern is raised in paragraph 3 regarding AI?", options: ["It is too expensive for most schools", "It cannot grade essays accurately", "It raises data privacy issues", "It makes students lazy"], answer: 2 },
+                        { instruction: ins4, text: "The word 'it' in paragraph 3 refers to ______.", options: ["human interaction", "emotional intelligence", "AI", "social skill"], answer: 2 },
+                        { instruction: ins4, text: "According to critics, what does AI lack compared to human teachers?", options: ["The ability to answer questions 24/7", "Genuine empathy and understanding", "Access to vast amounts of data", "The ability to grade tests"], answer: 1 },
+                        { instruction: ins4, text: "What does the author suggest in the final paragraph?", options: ["AI should completely replace human teachers in the future.", "Schools should ban AI to protect student data.", "A blended approach using both AI and human teachers is ideal.", "Teachers should learn how to program AI systems."], answer: 2 },
+                        { instruction: ins4, text: "Which of the following can be inferred from the passage?", options: ["The 'one-size-fits-all' approach is the most effective teaching method.", "AI has made human teachers completely obsolete.", "The implementation of AI in schools requires careful consideration of ethics and privacy.", "Virtual tutors are better at providing emotional support than teachers."], answer: 2 },
+
+                        { instruction: ins5, passage: "MASTER ENGLISH ONLINE\n\nAre you struggling to improve your English speaking skills? Join our comprehensive online course designed specifically for high school students. The more you practice with our native speakers, (27)______ fluent you will become! Our curriculum focuses on real-life communication, vocabulary expansion, and exam preparation. (28)______, we provide weekly mock tests to track your progress. You don't need to worry about the schedule as (29)______ morning and evening classes are available to suit your needs. Students (30)______ complete all assignments on time to receive a certificate of completion. Applications (31)______ be submitted via our mobile app by July 20th. Don't miss this (32)______ opportunity to master English from the comfort of your home!", text: "", options: ["the more", "more", "most", "the most"], answer: 0 },
+                        { instruction: ins5, text: "", options: ["However", "Therefore", "Additionally", "Otherwise"], answer: 2 },
+                        { instruction: ins5, text: "", options: ["neither", "either", "none", "both"], answer: 3 },
+                        { instruction: ins5, text: "", options: ["must", "can", "may", "ought"], answer: 0 },
+                        { instruction: ins5, text: "", options: ["should", "need", "have", "would"], answer: 0 },
+                        { instruction: ins5, text: "", options: ["golden", "wooden", "hidden", "sudden"], answer: 0 },
+
+                        { instruction: ins6, passage: "Urbanization is the process by which large numbers of people become permanently concentrated in relatively small areas, forming cities. While urbanization has been a driving force for economic growth and innovation, it also presents significant challenges to sustainable development, particularly in developing nations.\n\nOn the positive side, cities are the engines of the global economy. They generate the majority of the world's GDP and offer diverse employment opportunities. The concentration of people facilitates the rapid exchange of ideas, fostering technological advancements and cultural development. Furthermore, providing essential services such as healthcare, education, and public transportation is often more cost-effective in densely populated areas compared to rural regions.\n\nHowever, the rapid pace of urbanization often outstrips the capacity of local governments to provide adequate infrastructure. This leads to the proliferation of slums and informal settlements, where millions live without access to clean water, sanitation, or electricity. Traffic congestion and air pollution are ubiquitous in mega-cities, posing severe health risks to residents. The expansion of urban areas also encroaches on agricultural land and natural habitats, threatening biodiversity and food security.\n\nTo address these issues, urban planners are advocating for 'smart cities'—urban areas that use digital technology and data analysis to optimize city functions and drive economic growth while improving the quality of life for citizens. Sustainable urban development requires a holistic approach, integrating green spaces, promoting public transit, and implementing strict environmental regulations. Ultimately, the goal is to create inclusive, safe, resilient, and sustainable cities for future generations.", text: "What is the primary focus of the passage?", options: ["The history of ancient cities", "The economic benefits of rural areas", "The dual nature of urbanization: benefits and challenges", "How to build a smart city from scratch"], answer: 2 },
+                        { instruction: ins6, text: "According to paragraph 2, why is providing essential services often easier in cities?", options: ["Because rural areas do not need healthcare", "Because cities have more money than rural areas", "Because it is more cost-effective in densely populated areas", "Because people in cities are healthier"], answer: 2 },
+                        { instruction: ins6, text: "The word 'outstrips' in paragraph 3 is closest in meaning to ______.", options: ["falls behind", "exceeds", "matches", "supports"], answer: 1 },
+                        { instruction: ins6, text: "Which of the following is a negative consequence of rapid urbanization mentioned in paragraph 3?", options: ["A decrease in technological advancements", "The proliferation of slums and informal settlements", "An overabundance of clean water", "A lack of cultural development"], answer: 1 },
+                        { instruction: ins6, text: "The word 'ubiquitous' in paragraph 3 means ______.", options: ["rare", "hidden", "found everywhere", "decreasing"], answer: 2 },
+                        { instruction: ins6, text: "What is the main characteristic of a 'smart city' according to paragraph 4?", options: ["It is built entirely underground.", "It bans all private vehicles.", "It uses digital technology and data analysis to optimize functions.", "It relies solely on agricultural economy."], answer: 2 },
+                        { instruction: ins6, text: "What does the author imply about sustainable urban development?", options: ["It is impossible to achieve in developing nations.", "It requires a combination of green spaces, public transit, and regulations.", "It focuses only on economic growth.", "It is the sole responsibility of ordinary citizens."], answer: 1 },
+                        { instruction: ins6, text: "Which of the following would be the best title for the passage?", options: ["The Decline of Rural Areas", "Urbanization: A Double-Edged Sword", "The Technology of Smart Cities", "How to Stop Urban Growth"], answer: 1 }
+                    ]
+                }
+            }
         };
 
         /* =========================================================================
-           LOGIC XỬ LÝ
+           LOGIC HOẠT ĐỘNG
         ========================================================================= */
         let currentGrade = 10;
         let currentUnit = 1;
         let currentTest = 1;
         let timerInterval = null;
-        let timeLeft = 50 * 60; // 50 phút
+        let timeLeft = 50 * 60;
         let isSubmitted = false;
-        
         let isUnlocked = false; 
         let pendingAction = null; 
 
         document.addEventListener('DOMContentLoaded', () => { renderSidebar(); });
 
         function selectGrade(grade) {
-            if (!isUnlocked && grade !== 10) { 
-                pendingAction = { type: 'grade', val: grade };
-                showPasswordModal(); return; 
+            if (!isUnlocked && (grade !== 10 && grade !== 12)) { 
+                pendingAction = { type: 'grade', val: grade }; showPasswordModal(); return; 
             }
             currentGrade = grade;
             [10, 11, 12].forEach(g => {
@@ -246,11 +293,9 @@
                 if (g === grade) {
                     btn.classList.replace('bg-white/20', 'bg-gray-50');
                     btn.classList.replace('text-white', 'text-blue-800');
-                    btn.classList.replace('font-semibold', 'font-bold');
                 } else {
                     btn.classList.replace('bg-gray-50', 'bg-white/20');
                     btn.classList.replace('text-blue-800', 'text-white');
-                    btn.classList.replace('font-bold', 'font-semibold');
                 }
             });
             renderSidebar();
@@ -264,10 +309,10 @@
             container.innerHTML = '';
             for (let u = 1; u <= 10; u++) {
                 const unitDiv = document.createElement('div');
-                unitDiv.className = 'border-b border-gray-200 last:border-b-0';
+                unitDiv.className = 'border-b border-gray-200';
                 
                 const unitHeader = document.createElement('div');
-                unitHeader.className = 'px-4 py-2.5 font-bold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-blue-50 transition-colors text-sm';
+                unitHeader.className = 'px-4 py-2.5 font-bold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-blue-50';
                 unitHeader.innerHTML = `<span>Unit ${u}</span> <span class="text-[10px] text-gray-400">▼</span>`;
                 unitHeader.onclick = () => toggleUnit(u);
                 
@@ -277,7 +322,7 @@
                 
                 for (let t = 1; t <= 10; t++) {
                     const testBtn = document.createElement('button');
-                    testBtn.className = 'text-left px-6 py-2 text-sm text-gray-600 hover:bg-blue-100 hover:text-blue-700 border-b border-gray-50 transition-colors last:border-b-0';
+                    testBtn.className = 'text-left px-6 py-2.5 text-sm text-gray-600 hover:bg-blue-100 hover:text-blue-700 border-b border-gray-50';
                     testBtn.innerText = `Test ${t}`;
                     testBtn.onclick = () => selectTest(u, t);
                     testsContainer.appendChild(testBtn);
@@ -289,7 +334,7 @@
         }
 
         function toggleUnit(unit) {
-            if (!isUnlocked && (currentGrade !== 10 || unit !== 1)) {
+            if (!isUnlocked && unit !== 1) {
                 pendingAction = { type: 'unit', val: unit }; showPasswordModal(); return;
             }
             const testsDiv = document.getElementById(`unit-${unit}-tests`);
@@ -297,7 +342,7 @@
         }
 
         function selectTest(unit, test) {
-            if (!isUnlocked && (currentGrade !== 10 || unit !== 1)) {
+            if (!isUnlocked && test !== 1) {
                 pendingAction = { type: 'test', unit: unit, test: test }; showPasswordModal(); return;
             }
             currentUnit = unit; currentTest = test; isSubmitted = false;
@@ -352,36 +397,38 @@
                     
                     q.options.forEach((opt, oIdx) => {
                         optionsHtml += `
-                            <label class="option-label flex items-center space-x-2 p-2 rounded border border-transparent hover:bg-gray-50 transition-colors w-full cursor-pointer">
-                                <input type="radio" name="q_${index}" value="${oIdx}" class="w-4 h-4 text-blue-600 cursor-pointer">
-                                <span class="flex-grow p-1 rounded text-gray-700 text-sm md:text-base transition-colors" id="span_q_${index}_opt_${oIdx}">
-                                    <strong class="text-blue-800">${labels[oIdx]}.</strong> ${opt}
+                            <label class="option-label flex items-start space-x-2 p-3 rounded-lg border border-gray-200 bg-white w-full h-full cursor-pointer relative" id="box_q_${index}_opt_${oIdx}">
+                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-5 h-5 text-blue-600 flex-shrink-0 cursor-pointer">
+                                <span class="flex-grow text-gray-800 text-sm md:text-base transition-colors leading-snug break-words">
+                                    <strong class="text-blue-800 font-bold mr-1">${labels[oIdx]}.</strong> ${opt}
                                 </span>
                             </label>
                         `;
                     });
 
                     let qTextHtml = q.text ? q.text.replace(/\n/g, '<br>') : '';
-                    let questionTextClass = "text-gray-800 font-medium text-base ml-1 mt-1";
+                    let questionTextClass = "text-gray-800 font-medium text-base md:text-lg ml-1 mt-1 leading-relaxed";
                     
                     if (isArrangement) {
-                        questionTextClass = "text-lg font-bold text-blue-900 bg-blue-50 p-4 rounded-lg border border-blue-100 shadow-sm mt-2 mb-3 block leading-relaxed";
+                        questionTextClass = "text-base md:text-lg font-bold text-blue-900 bg-blue-50 p-4 rounded-lg border border-blue-100 shadow-sm mt-3 mb-4 block leading-relaxed";
                     }
 
-                    // Tùy chỉnh Layout ngang cho các đáp án
-                    // Nếu là phần đọc hiểu (cột bé) -> 2 cột. Nếu phần thường (full width) -> 4 cột.
-                    const gridClass = isReading ? "grid-cols-1 xl:grid-cols-2" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-4";
+                    // Tùy chỉnh Layout ngang cho đáp án:
+                    // Điện thoại (isReading hay không): LUÔN LÀ 1 CỘT (grid-cols-1) ĐỂ MỖI ĐÁP ÁN 1 DÒNG.
+                    // Màn hình lớn: Bài đọc -> 1 cột hoặc 2 cột. Bài thường -> 4 cột.
+                    const gridClass = isReading ? "grid-cols-1 lg:grid-cols-1 xl:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4";
 
                     questionsHtml += `
-                        <div class="question-box bg-white p-4 md:p-5 rounded-xl border border-gray-100 shadow-sm mb-4" id="qbox_${index}">
+                        <div class="question-box bg-white p-4 md:p-6 rounded-xl border border-gray-100 shadow-sm mb-5" id="qbox_${index}">
                             ${qTextHtml ? 
-                                `<div class="mb-3">
-                                    <span class="font-bold text-blue-700 text-base">Question ${index + 1}:</span>
+                                `<div class="mb-4">
+                                    <span class="font-bold text-blue-700 text-lg">Question ${index + 1}:</span>
                                     <div class="${questionTextClass}">${qTextHtml}</div>
                                 </div>` 
-                                : `<div class="mb-2"><span class="font-bold text-blue-700 text-base">Question ${index + 1}:</span></div>`
+                                : `<div class="mb-3"><span class="font-bold text-blue-700 text-lg">Question ${index + 1}:</span></div>`
                             }
-                            <div class="grid ${gridClass} gap-1 mt-2 md:ml-2">
+                            <!-- Khu vực đáp án sử dụng Grid, trên điện thoại chắc chắn là grid-cols-1 -->
+                            <div class="grid ${gridClass} gap-3 md:ml-1 mt-2">
                                 ${optionsHtml}
                             </div>
                         </div>
@@ -390,22 +437,23 @@
 
                 if (isReading) {
                     const formattedPassage = group.passage.replace(/\n/g, '<br><br>');
-                    // FIX LỖI STICKY: items-start và max-height
+                    // ĐỔI lg:flex-row và lg:sticky ĐỂ FIX LỖI STICKY TRÊN ĐIỆN THOẠI
                     html += `
-                        <div class="flex flex-col md:flex-row gap-5 mb-10 pb-8 border-b border-dashed border-gray-300 items-start">
+                        <div class="flex flex-col lg:flex-row gap-5 lg:gap-8 mb-10 pb-8 border-b border-dashed border-gray-300 items-start">
                             
-                            <!-- BÀI ĐỌC (BÊN TRÁI - STICKY) -->
-                            <div class="md:w-[55%] sticky top-[70px] z-10 w-full self-start">
+                            <!-- BÀI ĐỌC (BÊN TRÁI) -->
+                            <!-- Trên đt: không sticky, max height 50vh. Trên máy tính: sticky, max height 100vh-90px -->
+                            <div class="lg:w-[55%] lg:sticky lg:top-[70px] z-10 w-full self-start">
                                 <div class="font-bold text-white bg-blue-600 text-xs md:text-sm px-4 py-2 rounded-t-lg shadow-sm">
                                     ${group.instruction}
                                 </div>
-                                <div class="reading-passage bg-blue-50/30 border border-blue-100 p-4 md:p-6 rounded-b-lg text-gray-900 text-justify leading-relaxed text-base md:text-lg overflow-y-auto custom-scrollbar" style="max-height: calc(100vh - 90px);">
+                                <div class="reading-passage bg-blue-50/30 border border-blue-100 p-4 md:p-6 rounded-b-lg text-gray-900 text-justify leading-relaxed text-base md:text-lg overflow-y-auto custom-scrollbar max-h-[50vh] lg:max-h-[calc(100vh-90px)]">
                                     ${formattedPassage}
                                 </div>
                             </div>
                             
                             <!-- CÂU HỎI (BÊN PHẢI) -->
-                            <div class="md:w-[45%] w-full mt-4 md:mt-0">
+                            <div class="lg:w-[45%] w-full mt-2 lg:mt-0">
                                 ${questionsHtml}
                             </div>
                         </div>
@@ -441,16 +489,27 @@
                 const correctAnsIdx = q.answer;
                 
                 document.querySelectorAll(`input[name="q_${index}"]`).forEach(input => input.disabled = true);
+                
+                // Đổi màu cả khối đáp án đúng
+                const correctBox = document.getElementById(`box_q_${index}_opt_${correctAnsIdx}`);
                 const correctSpan = document.getElementById(`span_q_${index}_opt_${correctAnsIdx}`);
-                if(correctSpan) correctSpan.classList.add('correct-ans');
+                if(correctBox) {
+                    correctBox.classList.add('correct-ans-box');
+                    correctSpan.classList.add('correct-ans-text');
+                }
 
                 if (selected) {
                     const selectedIdx = parseInt(selected.value);
                     if (selectedIdx === correctAnsIdx) {
                         correctCount++;
                     } else {
+                        // Đổi màu cả khối đáp án sai
+                        const wrongBox = document.getElementById(`box_q_${index}_opt_${selectedIdx}`);
                         const wrongSpan = document.getElementById(`span_q_${index}_opt_${selectedIdx}`);
-                        if(wrongSpan) wrongSpan.classList.add('wrong-ans');
+                        if(wrongBox) {
+                            wrongBox.classList.add('wrong-ans-box');
+                            wrongSpan.classList.add('wrong-ans-text');
+                        }
                     }
                 }
             });
