@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGÂN HÀNG ĐỀ THI TIẾNG ANH 10-11-12</title>
+    <title>NGÂN HÀNG ĐỀ THI TIẾNG ANH 10-11-12 (FORMAT 2026)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -14,6 +14,7 @@
         .option-label input:checked + span { background-color: #ebf8ff; border-color: #3182ce; font-weight: bold;}
         .correct-ans { background-color: #c6f6d5 !important; border-color: #38a169 !important; }
         .wrong-ans { background-color: #fed7d7 !important; border-color: #e53e3e !important; }
+        .reading-passage { font-family: 'Times New Roman', Times, serif; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -21,51 +22,51 @@
     <!-- MAIN APP CONTAINER -->
     <div id="app-container" class="flex-grow flex flex-col">
         <!-- Header -->
-        <header class="bg-blue-700 text-white shadow-md sticky top-0 z-10">
+        <header class="bg-blue-800 text-white shadow-md sticky top-0 z-10">
             <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                <h1 class="text-xl md:text-2xl font-bold">NGÂN HÀNG ĐỀ THI TIẾNG ANH</h1>
-                <div class="text-lg font-semibold bg-blue-800 px-3 py-1 rounded" id="timer-display">
-                    00:00
+                <h1 class="text-xl md:text-2xl font-bold uppercase">Ngân hàng đề thi Tiếng Anh 2026</h1>
+                <div class="text-lg font-bold bg-blue-900 px-4 py-1 rounded shadow-inner" id="timer-display">
+                    50:00
                 </div>
             </div>
             <!-- Grade Tabs -->
             <div class="max-w-7xl mx-auto px-4 flex space-x-1 mt-2 overflow-x-auto">
-                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-6 py-2 bg-white text-blue-700 font-bold rounded-t-lg transition-colors">Lớp 10</button>
-                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 font-bold rounded-t-lg transition-colors">Lớp 11</button>
-                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 font-bold rounded-t-lg transition-colors">Lớp 12</button>
+                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-6 py-2 bg-white text-blue-800 font-bold rounded-t-lg transition-colors">Lớp 10</button>
+                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-6 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 11</button>
+                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-6 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 12</button>
             </div>
         </header>
 
         <div class="max-w-7xl mx-auto w-full flex-grow flex flex-col md:flex-row p-4 gap-6">
             <!-- Sidebar (Units & Tests) -->
-            <aside class="md:w-1/4 bg-white rounded-lg shadow-sm p-4 border border-gray-200 h-fit">
-                <h2 class="text-lg font-bold text-gray-800 mb-4 border-b pb-2" id="sidebar-title">Danh sách bài thi</h2>
+            <aside class="md:w-1/4 bg-white rounded-lg shadow p-4 border border-gray-200 h-fit">
+                <h2 class="text-lg font-bold text-gray-800 mb-4 border-b pb-2">Danh sách bài thi</h2>
                 <div id="units-container" class="space-y-2">
-                    <!-- Units and tests will be rendered here by JS -->
+                    <!-- Được sinh bằng JS -->
                 </div>
             </aside>
 
             <!-- Main Content Area -->
-            <main class="md:w-3/4 bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <main class="md:w-3/4 bg-white rounded-lg shadow p-6 border border-gray-200">
                 <div id="welcome-screen" class="text-center py-12">
-                    <h2 class="text-2xl font-bold text-gray-700 mb-4">Chào mừng đến với hệ thống ôn tập</h2>
+                    <h2 class="text-2xl font-bold text-gray-700 mb-4">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
                     <p class="text-gray-600">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
                 </div>
 
                 <div id="test-screen" class="hidden-element">
                     <div class="flex justify-between items-end border-b pb-4 mb-6">
                         <div>
-                            <h2 class="text-2xl font-bold text-blue-700" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
-                            <p class="text-sm text-gray-500 mt-1">Định dạng cấu trúc đề thi Tốt nghiệp THPT 2026</p>
+                            <h2 class="text-2xl font-bold text-blue-800" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
+                            <p class="text-sm text-gray-500 mt-1 font-semibold">Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026</p>
                         </div>
                     </div>
                     
-                    <div id="questions-container" class="space-y-6">
-                        <!-- Questions rendered by JS -->
+                    <div id="questions-container" class="space-y-4">
+                        <!-- Code render câu hỏi nằm ở đây -->
                     </div>
 
                     <div class="mt-8 pt-6 border-t flex justify-center">
-                        <button onclick="submitTest()" id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                        <button onclick="submitTest()" id="submit-btn" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-10 rounded-lg shadow-md transition-transform transform hover:scale-105">
                             Nộp bài & Xem điểm
                         </button>
                     </div>
@@ -74,119 +75,151 @@
                 <!-- Result Screen -->
                 <div id="result-screen" class="hidden-element text-center py-8">
                     <h2 class="text-3xl font-bold text-green-600 mb-2">Hoàn thành bài thi!</h2>
-                    <div class="text-6xl font-black text-blue-700 my-6" id="score-display">10/10</div>
-                    <p class="text-gray-600 mb-8">Kéo lên trên để xem chi tiết đáp án của từng câu hỏi.</p>
-                    <button onclick="continueAfterResult()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-md">
-                        Tiếp tục
+                    <div class="text-6xl font-black text-blue-800 my-6" id="score-display">10/10</div>
+                    <p class="text-gray-600 mb-8 font-medium">Bạn có thể cuộn lên trên để xem lại đáp án chi tiết.</p>
+                    <button onclick="continueAfterResult()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-md">
+                        Tiếp tục hệ thống
                     </button>
                 </div>
             </main>
         </div>
 
-        <footer class="bg-gray-800 text-center p-4 text-gray-300 mt-auto">
-            <p>Hệ thống Ngân hàng Đề thi Tiếng Anh THPT</p>
+        <footer class="bg-gray-900 text-center p-4 text-gray-300 mt-auto">
+            <p class="font-bold">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
             <p class="text-sm mt-1">Bản quyền thuộc về số ĐT: 0943.930.787</p>
         </footer>
     </div>
 
     <!-- PASSWORD MODAL -->
-    <div id="password-modal" class="hidden-element fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50 p-4">
-        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full animate-bounce-short">
+    <div id="password-modal" class="hidden-element fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full">
             <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Yêu cầu quyền truy cập</h3>
-            <p class="text-gray-600 mb-6 text-center text-sm">Nội dung này đã bị khóa. Vui lòng nhập mật khẩu để tiếp tục.</p>
+            <p class="text-gray-600 mb-6 text-center text-sm">Các bài thi tiếp theo đã bị khóa. Vui lòng nhập mật khẩu học sinh để tiếp tục.</p>
             <input type="password" id="password-input" class="w-full border-2 border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 mb-4" placeholder="Nhập mật khẩu...">
-            <p id="password-error" class="text-red-500 text-sm mb-4 hidden-element text-center">Mật khẩu không chính xác!</p>
-            <button onclick="checkPassword()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-colors">
+            <p id="password-error" class="text-red-500 text-sm mb-4 hidden-element text-center font-bold">Mật khẩu không chính xác!</p>
+            <button onclick="checkPassword()" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-lg transition-colors">
                 Xác nhận
             </button>
         </div>
     </div>
 
-    <!-- BLOCK SCREEN -->
+    <!-- FINAL BLOCK SCREEN -->
     <div id="block-screen" class="hidden-element fixed inset-0 bg-white z-[9999] flex justify-center items-center p-4">
-        <h1 class="text-4xl md:text-6xl font-black text-red-600 text-center leading-tight">
+        <h1 class="text-3xl md:text-5xl font-black text-red-600 text-center leading-relaxed max-w-4xl border-4 border-red-600 p-10 rounded-2xl shadow-2xl">
             LH Thầy Tiến qua điện thoại<br>0943930787 để làm tiếp.
         </h1>
     </div>
 
     <script>
         /* =========================================================================
-           DATABASE (JSON/Object)
-           Định dạng đề thi Tốt nghiệp THPT 2026 môn Tiếng Anh.
-           - Mỗi câu hỏi có: id, text (nội dung), options (mảng 4 đáp án), answer (index 0-3 của đáp án đúng).
+           DATABASE ĐỀ THI - FORMAT 2026
+           - passage: Dành cho đoạn văn bài đọc (chỉ chèn ở câu hỏi đầu tiên của đoạn)
+           - text: Nội dung câu hỏi (chấp nhận thẻ \n để xuống dòng, JS sẽ parse thành <br>)
         ========================================================================= */
+        const ins1 = "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.";
+        const ins2 = "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a cohesive and coherent exchange or text in each of the following questions from 7 to 11.";
+        const ins3 = "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 12 to 16.";
+        const ins4 = "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 17 to 26.";
+        const ins5 = "Read the following advertisement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 27 to 32.";
+        const ins6 = "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.";
+
         const examDatabase = {
-            10: { // LỚP 10
-                1: { // UNIT 1
-                    1: [ // TEST 1 (MẪU)
-                        // PHẦN I: Ngữ âm
-                        { id: 1, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the word whose underlined part differs from the other three in pronunciation.", text: "A. w<u>a</u>sh B. p<u>a</u>rt C. p<u>a</u>ss D. f<u>a</u>ther", options: ["wash", "part", "pass", "father"], answer: 0 },
-                        { id: 2, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the word that differs from the other three in the position of primary stress.", text: "A. family B. chore C. routine D. duty", options: ["family", "routine", "duty", "housewife"], answer: 1 },
-                        // PHẦN II: Từ vựng & Ngữ pháp (Trắc nghiệm)
-                        { id: 3, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the correct answer to each of the following questions.", text: "My mother is responsible for ________ the cooking and grocery shopping.", options: ["doing", "making", "taking", "getting"], answer: 0 },
-                        { id: 4, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the correct answer to each of the following questions.", text: "When everyone contributes to household chores, it creates a positive family ________.", options: ["atmosphere", "weather", "climate", "condition"], answer: 0 },
-                        { id: 5, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the correct answer to each of the following questions.", text: "Look at those dark clouds! It ________ rain soon.", options: ["is going to", "will", "is raining", "rains"], answer: 0 },
-                        // PHẦN III: Đọc điền khuyết (Cloze Test) - Form 2026 thường cấu trúc theo đoạn văn
-                        { id: 6, type: "multiple_choice", instruction: "Read the following passage and mark the letter A, B, C, or D to indicate the correct word or phrase that best fits each of the numbered blanks.", text: "Family life has changed significantly over the last few decades. In the past, the father was typically the breadwinner, (6) _______ the mother stayed at home to take care of the children.", options: ["while", "because", "despite", "therefore"], answer: 0 },
-                        { id: 7, type: "multiple_choice", instruction: "Read the following passage and mark the letter A, B, C, or D to indicate the correct word or phrase that best fits each of the numbered blanks.", text: "Today, many families are dual-income families, meaning both parents (7) _______ out of the home.", options: ["work", "works", "working", "worked"], answer: 0 },
-                        // PHẦN IV: Sắp xếp câu / Viết lại câu (Form 2026 có thể hỏi trắc nghiệm cách sắp xếp đúng)
-                        { id: 8, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the sentence that is closest in meaning to the given sentence.", text: "\"I will help you with the dishes,\" said my brother.", options: ["My brother offered to help me with the dishes.", "My brother denied helping me with the dishes.", "My brother admitted helping me with the dishes.", "My brother promised not to help me with the dishes."], answer: 0 },
-                    ],
-                    2: [], // Để trống, thầy tự copy format của Test 1 và dán vào đây
-                    3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [] // ... Test 3 đến 10
+            10: { 
+                1: { 
+                    1: [ // TEST 1 - LỚP 10 - UNIT 1
+                        // PART 1: LEAFLET
+                        { instruction: ins1, passage: "GREEN HANDS CAMPAIGN\n\nThe School Youth Union is officially launching the \"Green Hands\" eco-friendly campaign. We invite every student to participate in this vital project. If everyone (1)______ together, we will make a difference at our school. The primary goal is to expand students' (2)______ of plastic pollution. To achieve this, the school will have colour-coded bins (3)______ in the schoolyard. Also, waste-disposal workshops will be held to teach students to (4)______ out plastics properly. These sessions ensure resources are reused effectively. We aim to (5)______ sustainable habits through consistent daily activities. We firmly believe that small individual efforts will turn into long-lasting changes. Volunteers will help remove plastics from every corner of the schoolyard. Please sign up online. Your (6)______ is essential for success. Don't miss out – join hands with us today!",
+                          text: "", options: ["work", "worked", "have worked", "works"], answer: 3 },
+                        { instruction: ins1, text: "", options: ["focus", "attention", "emphasis", "knowledge"], answer: 3 },
+                        { instruction: ins1, text: "", options: ["install", "being installed", "installed", "installing"], answer: 2 },
+                        { instruction: ins1, text: "", options: ["catch", "check", "fill", "sort"], answer: 3 },
+                        { instruction: ins1, text: "", options: ["promote", "protect", "provide", "produce"], answer: 0 },
+                        { instruction: ins1, text: "", options: ["cooperate", "cooperation", "cooperatively", "cooperative"], answer: 1 },
+
+                        // PART 2: ARRANGEMENT
+                        { instruction: ins2, text: "Dear Mr Tran,\na. To accept this scholarship, please sign the attached agreement and submit it before 15 July.\nb. Your performance during the selection process reflects dedication and potential.\nc. The grant covers full tuition for the programme and a monthly allowance of $500.\nd. It is our great pleasure to inform you that you have been selected as a recipient of the Pinnacle Scholarship for the 2026-2027 academic year.\ne. Should you have questions regarding the terms or conditions, please contact our admissions office.\nYours sincerely,", options: ["d - c - e - a - b", "d - e - b - c - a", "d - b - c - a - e", "d - a - e - b - c"], answer: 2 },
+                        { instruction: ins2, text: "a. Customer: Here you are. Thanks for your help.\nb. Customer: I've booked an online ticket for the concert this weekend, but haven't got the confirmation email.\nc. Assistant: Please show me the receipt and I'll check it immediately.", options: ["b - a - c", "a - b - c", "b - c - a", "a - c - b"], answer: 2 },
+                        { instruction: ins2, text: "a. The convenience, however, carries inherent risks, because every connected device is a potential entry point for hackers to steal sensitive data.\nb. Smart homes have become essential features of modern life, transforming how individuals manage their domestic environments efficiently.\nc. The integrated systems offer convenience, such as turning off the oven from afar or locking doors with a single smartphone tap.\nd. Anyone investing in smart hardware should carefully weigh the appeal of automation against the time and care required to keep a home network secure.\ne. A poorly updated router or a default password left unchanged has, in several recent reported cases, allowed strangers to listen in on private family conversations.", options: ["e - d - c - a - b", "c - a - d - b - e", "b - c - a - e - d", "d - e - b - c - a"], answer: 2 },
+                        { instruction: ins2, text: "a. Celine: Why do you say so?\nb. Celine: I've been considering taking a gap year. What's your view?\nc. Celine: Thanks. I'll think about it.\nd. Steward: The thing is, your studies won't be interrupted.\ne. Steward: If I were you, I would go to university right after graduating from high school.", options: ["b - e - a - d - c", "b - d - a - e - c", "a - d - b - e - c", "a - e - b - d - c"], answer: 0 },
+                        { instruction: ins2, text: "a. Early data from the first quarter revealed a fifteen percent reduction in peak-hour delays and noticeably cleaner air across central wards.\nb. Motorists entering the central zone had to pay a fee, with the generated revenue allocated for cycle lanes and bus routes.\nc. Years of unchecked expansion of private vehicle ownership had rendered the commute in Stoneville the slowest in the region.\nd. The encouraging outcomes suggested that the scheme would be expanded to other districts.\ne. The city authorities implemented a simple yet controversial intervention: charging a congestion fee.", options: ["b - a - d - e - c", "c - e - b - a - d", "e - b - d - c - a", "a - e - d - c - b"], answer: 1 },
+
+                        // PART 3: CLOZE TEST (PASSAGE)
+                        { instruction: ins3, passage: "Among the many paradoxes surrounding money, one deserves particular attention: the wealth that truly counts is precisely the wealth you cannot observe. When a sleek Lamborghini glides past, it is normal _______(12). Closer inspection often tells a different story. A large number of those who drive luxury vehicles are, in fact, only modest earners ________(13) to the privilege of being seen in such a car. It is uncertain to say whether someone driving a car worth one hundred thousand pounds is affluent. Yet the certain thing is that they have one hundred thousand pounds less than they did before they got the car, or one hundred thousand pounds more in debt. (14)______.\n\nWe tend to judge wealth by what we see as visible details are the only evidence we have access to. Nobody walks around displaying a printout of their savings, (15)______ – handbags, holiday villas, posts on social networks – to decide who is prospering. Contemporary marketing has fed this habit, packaging the illusion of success as a saleable product. (16)______. It hides in the upgrade declined, the jewellery left in the display case, the watch never bought, the wardrobe never expanded and the business-class seat politely waved away.\n\nIn short, wealth is whatever money has not yet been swapped for tangible goods. That is why distinguishing wealthy from rich deserves careful thought; mistaking one for the other has quietly ruined many a budget.",
+                          text: "", options: ["for concluding that the person must be doing well behind the wheel", "a good conclusion about whoever sits behind the wheel must be", "a good conclusion about the wheel behind which the person must sit", "to conclude that whoever sits behind the wheel must be doing well"], answer: 3 },
+                        { instruction: ins3, text: "", options: ["who have committed a disproportionate share of their monthly pay", "a disproportionate share of whose monthly pay is committed", "whose monthly pay is disproportionately committed to sharing", "who are committed to sharing their monthly pay disproportionately"], answer: 0 },
+                        { instruction: ins3, text: "", options: ["You know that it is beyond nothing at all", "Beyond your knowledge, that is nothing", "Beyond that, you know nothing at all", "Beyond that, nothing is unknown to you"], answer: 2 },
+                        { instruction: ins3, text: "", options: ["so we instead rely on their outward appearances", "instead they rely on the appearances on the outside", "instead of their reliable outward appearances", "yet they appear reliable on the outside instead"], answer: 0 },
+                        { instruction: ins3, text: "", options: ["Indeed, wealth in reality is advertised as the refusal of authenticity itself", "However, the reality is that authentic wealth refuses to advertise itself", "Real wealth itself, in reality, is advertised to refuse to be authentic", "Authentic advertisements are, therefore, the refusal of real wealth itself"], answer: 1 },
+
+                        // PART 4: READING COMPREHENSION 1
+                        { instruction: ins4, passage: "It is important to stress that environmental services have costs, even when they are produced without any human input. All costs ought to be measured as opportunity costs. The opportunity cost for environmental services is the net benefit forgone because the resources providing the service can no longer be used in the next most beneficial way. Resources are not free if they can be put to alternative uses.\n\nConsider a stretch of river that can be used either for white-water canoeing or for electric power generation. Because the dam that generates the power would flood the rapids, the two uses are incompatible. The opportunity cost of saving the river for white-water canoeing is the net benefit taken out – after accounting for the cost of generation and distribution – for electricity. Conversely, the opportunity cost of building the dam is everything the unspoiled river would have produced: the recreation, the wildlife, the scenery, and whatever value future generations might place upon experiencing the rapids themselves.\n\nThis insight has far-reaching implications for development policy. [I] Many decisions that appear at first to be costless choices in favour of growth turn out, on closer inspection, to be choices against something else. [II] Cutting down a forest for cropland is not free; it is paid for in carbon storage, biodiversity, and the regulating services the forest performed silently. [III] Diverting a river to irrigate fields is not free; the price is whatever the river was doing before the diversion. [IV] Even leaving land untouched is not free, for the income that intensive use might have generated is traded off as well.\n\nEconomic development, in this view, is never simply a question of whether a project yields a positive return. It is a question of whether the return exceeds the value of what must be relinquished. Policies that recognise this – by attaching prices to scarce environmental services, or by requiring decision-makers to weigh both sides of the account – do not stand against development. They insist that the development chosen be worth what it truly costs. The danger lies not in counting too much, but in counting too little.",
+                          text: "The word forgone in paragraph 1 is closest in meaning to ______.", options: ["given up", "ended up", "filled up", "made up"], answer: 0 },
+                        { instruction: ins4, text: "According to paragraph 1, the costs of environmental services are ______.", options: ["calculated based on the direct financial input provided for natural resources", "determined by the market value of the natural resources themselves", "insignificant as these services require almost no human labour to produce", "present whether or not human effort is involved in creating these services"], answer: 3 },
+                        { instruction: ins4, text: "Which of the following is NOT implied in paragraph 2?", options: ["Hydroelectric generation and white-water canoeing cannot coexist on the same stretch of river.", "The opportunity cost of the dam construction includes intangible benefits that are sacrificed.", "Recreational activities and power generation impose equal environmental burdens on the river.", "The intrinsic value attached to the river may extend beyond its potential use for hydroelectric generation."], answer: 2 },
+                        { instruction: ins4, text: "Where in paragraph 3 does the following sentence best fit?\n\"Such hidden costs become apparent only when one pauses to consider what nature was quietly doing on its own.\"", options: ["[III]", "[II]", "[IV]", "[I]"], answer: 1 },
+                        { instruction: ins4, text: "Which of the following best summarises paragraph 3?", options: ["Policymakers should take the management of natural resources into consideration.", "Initiatives that are perceived as harmless may actually involve underlying sacrifices.", "Long-term ecological balance usually takes precedence over immediate financial gain.", "Economic growth schemes should be halted once ecological disruption is detected."], answer: 1 },
+                        { instruction: ins4, text: "The word They in paragraph 4 refers to ______.", options: ["services", "policies", "prices", "sides"], answer: 1 },
+                        { instruction: ins4, text: "What conclusion can be drawn from paragraph 4?", options: ["Deducting the hidden costs is obligatory after a project claims to have a positive return.", "Regulations pricing natural resources are inherently harmful to growth.", "Damage caused by intentional ignorance regarding environmental costs is permanent.", "Considering opportunity costs ensures that development is truly justified."], answer: 3 },
+                        { instruction: ins4, text: "Which of the following is true according to the passage?", options: ["Opportunity costs are determined by the going rate for environmental services.", "Financial gain is the primary criterion for evaluating development projects.", "The true value of a project is measured not merely by its economic benefits.", "Preserving land in its natural state is economically sound as it consumes no resources."], answer: 2 },
+                        { instruction: ins4, text: "Which of the following can be inferred from the passage?", options: ["Policies that price environmental services are intended to restrict the scope of economic development.", "The benefits of industrial development generally exceed the value of preserved environmental services.", "Projects are forced to compensate for the economic losses in return for environmental preservation.", "The net gains produced by development projects overlooking opportunity costs tend to be overestimated."], answer: 3 },
+                        { instruction: ins4, text: "Which of the following would be the best title for the passage?", options: ["Environmental Policies in the Firing Line", "Natural Preservation: Ushering in a New Era", "Development: Factoring in Sacrifices", "Economic Development on the Line"], answer: 2 },
+
+                        // PART 5: ADVERTISEMENT CLOZE
+                        { instruction: ins5, passage: "SUMMER PART-TIME JOBS FOR UNDERGRADUATES\n\nTechworld Magazine is delighted to announce two IT assistant vacancies up for (27)______ this summer. The better understanding of STEM you have, (28)______ likely you are to be selected! Successful applicants will get plenty of hands-on experience, good pay, and access to the local STEM community. (29)______, we offer flexible working hours and remote options for those living far away. On top of that, (30)______ position requires previous experience as new recruits are provided with in-service training sessions. Applications (31)______ be submitted to us at info@techworldmagazine.com by 30 June. Never before has there been such a(n) (32)______ opportunity to kick-start your career in STEM. Don't let this chance slip through your fingers – apply today!",
+                          text: "", options: ["grasp", "gift", "grips", "grabs"], answer: 3 },
+                        { instruction: ins5, text: "", options: ["the most", "most", "more", "the more"], answer: 3 },
+                        { instruction: ins5, text: "", options: ["Additionally", "Consequently", "Subsequently", "Finally"], answer: 0 },
+                        { instruction: ins5, text: "", options: ["neither", "both", "none", "either"], answer: 0 },
+                        { instruction: ins5, text: "", options: ["ought", "should", "ought not", "should not"], answer: 1 },
+                        { instruction: ins5, text: "", options: ["lively", "active", "golden", "private"], answer: 2 },
+
+                        // PART 6: READING COMPREHENSION 2
+                        { instruction: ins6, passage: "For decades, students have been convinced that academic success is largely dependent upon meticulous notetaking. What has changed in recent years is not the importance of the practice but the tools used to perform it. The keyboard has subtly supplanted the pen, and with it, the nature of how information is recorded during a lecture has shifted unbeknownst to students.\n\nResearchers in cognitive psychology have begun to examine what this change has cost learners. In a series of comparative studies, students taking notes by hand consistently outperformed those using laptops on questions that demanded conceptual understanding, even when both groups had access to the same material. The reason, according to the researchers, lies less in the technology itself than in what each method asks of the brain. Typing rewards speed; handwriting forces selection.\n\nThe act of writing by hand is slower, and that slowness appears to be its hidden virtue. Unable to capture every word, students are obliged to listen, decide what matters and condense ideas into their own phrasing. This continuous filtering, referred to as encoding by psychologists, turns out to be instrumental in aiding long-term recall. One lecturer summarised the striking contrast after reviewing her students' work: the laptops, she said, had produced transcripts, while the notebooks had produced understanding.\n\nIt would be misleading, of course, to claim that handwriting is inherently superior or that all keyboards undermine learning. Hard-working typists can summarise, while indolent writers can drift. What the research highlights is not a conclusion on devices but a question about effort: which tool, in a given context, asks more of the learner. As a ban on students' use of laptops in classrooms remains a bone of contention among tertiary institutions, the deeper challenge may be helping students recognise that what feels easier in the moment is not always what serves them best afterwards.",
+                          text: "In paragraph 1, the writer is ______.", options: ["introducing a recent change in the way students take notes", "challenging a long-held assumption about academic success", "promoting the use of technology in recording lectures", "questioning the significance of notetaking in education"], answer: 0 },
+                        { instruction: ins6, text: "The word those in paragraph 2 refers to ______.", options: ["students", "researchers", "studies", "notes"], answer: 0 },
+                        { instruction: ins6, text: "Which of the following best paraphrases the underlined sentence in paragraph 2? (Typing rewards speed; handwriting forces selection.)", options: ["The modern device, along with the mental requirements of each method for the brain, is responsible for the difference in student performance.", "What explains the difference in student performance is the mental work that each method of notetaking demands, rather than the technology.", "The difference in student performance is attributable to the modern technology instead of the mental work that each method of notetaking requires.", "Regardless of the method of notetaking, the effects on the brain exhibit little difference as long as technology is involved in student performance."], answer: 1 },
+                        { instruction: ins6, text: "The word instrumental in paragraph 3 is OPPOSITE in meaning to ______.", options: ["trivial", "specific", "dramatic", "central"], answer: 0 },
+                        { instruction: ins6, text: "The word indolent in paragraph 4 is closest in meaning to ______.", options: ["serious", "lazy", "careful", "active"], answer: 1 },
+                        { instruction: ins6, text: "Which of the following statements would the writer NOT agree with?", options: ["Handwritten and typed notes led to varied degrees of conceptual understanding.", "The slow speed of writing by hand turns out to be an advantage over typing.", "Students are unaware of the change in notetaking methods in class.", "Universities generally approve of prohibiting laptop use in classrooms."], answer: 3 },
+                        { instruction: ins6, text: "In which paragraph does the writer mention a cognitive process?", options: ["Paragraph 2", "Paragraph 1", "Paragraph 3", "Paragraph 4"], answer: 2 },
+                        { instruction: ins6, text: "In which paragraph does the writer warn against an overgeneralisation?", options: ["Paragraph 2", "Paragraph 1", "Paragraph 3", "Paragraph 4"], answer: 3 }
+                    ], 
+                    2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [] // Thầy có thể copy/paste tương tự vào đây
                 },
-                2: { 1: [], 2: [], /*... đến 10*/ }, // Unit 2
-                // ... Các Unit từ 3 đến 10 thầy tạo mảng trống tương tự
+                2: { 1: [], 2: [] }, // Các Unit khác...
             },
-            11: {
-                1: { 1: [] } // Khối 11
-            },
-            12: {
-                1: { 1: [] } // Khối 12
-            }
+            11: { 1: { 1: [] } },
+            12: { 1: { 1: [] } }
         };
 
-        /* 
-        HƯỚNG DẪN THÊM ĐỀ THI:
-        Để thêm bài, thầy chỉ cần copy mảng các câu hỏi ở (Lớp 10, Unit 1, Test 1), 
-        sau đó dán vào vị trí ngoặc vuông [] của Test 2, Test 3... hoặc các Unit khác.
-        */
-
         /* =========================================================================
-           STATE & LOGIC
+           STATE & LOGIC XỬ LÝ
         ========================================================================= */
         let currentGrade = 10;
         let currentUnit = 1;
         let currentTest = 1;
         let timerInterval = null;
-        let secondsElapsed = 0;
+        let timeLeft = 50 * 60; // 50 phút
         let isSubmitted = false;
 
-        // Khởi tạo
         document.addEventListener('DOMContentLoaded', () => {
             renderSidebar();
         });
 
-        // Xử lý chuyển khối (Grade)
         function selectGrade(grade) {
-            // Kiểm tra phân quyền: Chỉ cho phép Lớp 10 được click tự do
-            if (grade !== 10) {
-                showPasswordModal();
-                return;
-            }
-
+            if (grade !== 10) { showPasswordModal(); return; }
             currentGrade = grade;
             
-            // Cập nhật UI Tabs
             [10, 11, 12].forEach(g => {
                 const btn = document.getElementById(`tab-grade-${g}`);
                 if (g === grade) {
-                    btn.classList.replace('bg-blue-600', 'bg-white');
-                    btn.classList.replace('text-white', 'text-blue-700');
-                    btn.classList.add('hover:bg-blue-500'); // xóa hover
+                    btn.classList.replace('bg-blue-700', 'bg-white');
+                    btn.classList.replace('text-white', 'text-blue-800');
+                    btn.classList.remove('hover:bg-blue-600');
                 } else {
-                    btn.classList.replace('bg-white', 'bg-blue-600');
-                    btn.classList.replace('text-blue-700', 'text-white');
+                    btn.classList.replace('bg-white', 'bg-blue-700');
+                    btn.classList.replace('text-blue-800', 'text-white');
+                    btn.classList.add('hover:bg-blue-600');
                 }
             });
 
@@ -196,29 +229,26 @@
             document.getElementById('welcome-screen').classList.remove('hidden-element');
         }
 
-        // Render Menu Unit và Test
         function renderSidebar() {
             const container = document.getElementById('units-container');
             container.innerHTML = '';
 
-            // Render 10 Units
             for (let u = 1; u <= 10; u++) {
                 const unitDiv = document.createElement('div');
                 unitDiv.className = 'border rounded-md overflow-hidden';
                 
                 const unitHeader = document.createElement('div');
-                unitHeader.className = 'bg-gray-100 px-3 py-2 font-semibold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-gray-200';
-                unitHeader.innerHTML = `<span>Unit ${u}</span> <span>▼</span>`;
-                unitHeader.onclick = () => toggleUnit(u, unitDiv);
+                unitHeader.className = 'bg-blue-50 px-3 py-2 font-bold text-blue-900 cursor-pointer flex justify-between items-center hover:bg-blue-100 border-b';
+                unitHeader.innerHTML = `<span>Unit ${u}</span> <span class="text-xs">▼</span>`;
+                unitHeader.onclick = () => toggleUnit(u);
                 
                 const testsContainer = document.createElement('div');
                 testsContainer.id = `unit-${u}-tests`;
                 testsContainer.className = 'hidden-element flex flex-col bg-white';
                 
-                // Render 10 Tests per Unit
                 for (let t = 1; t <= 10; t++) {
                     const testBtn = document.createElement('button');
-                    testBtn.className = 'text-left px-6 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 border-t';
+                    testBtn.className = 'text-left px-6 py-2 text-sm text-gray-700 font-medium hover:bg-blue-600 hover:text-white border-b border-gray-100 transition-colors';
                     testBtn.innerText = `Test ${t}`;
                     testBtn.onclick = () => selectTest(u, t);
                     testsContainer.appendChild(testBtn);
@@ -230,30 +260,19 @@
             }
         }
 
-        function toggleUnit(unit, element) {
-            // Khóa Unit khác Unit 1
+        function toggleUnit(unit) {
             if (currentGrade !== 10 || unit !== 1) {
-                showPasswordModal();
-                return;
+                showPasswordModal(); return;
             }
             const testsDiv = document.getElementById(`unit-${unit}-tests`);
-            if (testsDiv.classList.contains('hidden-element')) {
-                testsDiv.classList.remove('hidden-element');
-            } else {
-                testsDiv.classList.add('hidden-element');
-            }
+            testsDiv.classList.toggle('hidden-element');
         }
 
         function selectTest(unit, test) {
-            // Khóa chéo bảo mật
             if (currentGrade !== 10 || unit !== 1) {
-                showPasswordModal();
-                return;
+                showPasswordModal(); return;
             }
-
-            currentUnit = unit;
-            currentTest = test;
-            isSubmitted = false;
+            currentUnit = unit; currentTest = test; isSubmitted = false;
 
             document.getElementById('welcome-screen').classList.add('hidden-element');
             document.getElementById('result-screen').classList.add('hidden-element');
@@ -262,21 +281,17 @@
             document.getElementById('current-test-title').innerText = `Lớp ${currentGrade} - Unit ${currentUnit} - Test ${currentTest}`;
             
             renderTestContent();
-            resetTimer();
-            startTimer();
+            resetTimer(); startTimer();
         }
 
         function renderTestContent() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
-
             let questions = [];
-            try {
-                questions = examDatabase[currentGrade][currentUnit][currentTest] || [];
-            } catch(e) {}
+            try { questions = examDatabase[currentGrade][currentUnit][currentTest] || []; } catch(e) {}
 
             if (questions.length === 0) {
-                container.innerHTML = '<p class="text-gray-500 italic">Nội dung đề thi này đang được cập nhật...</p>';
+                container.innerHTML = '<p class="text-gray-500 italic font-medium p-4 text-center">Nội dung đề thi này đang được cập nhật...</p>';
                 document.getElementById('submit-btn').classList.add('hidden-element');
                 return;
             }
@@ -285,32 +300,44 @@
             let currentInstruction = '';
 
             questions.forEach((q, index) => {
-                // Hiển thị instruction nếu thay đổi (nhóm câu hỏi)
+                // In instruction
                 if (q.instruction !== currentInstruction) {
-                    html += `<div class="font-bold text-gray-800 mt-6 mb-2 underline">${q.instruction}</div>`;
+                    html += `<div class="font-bold text-gray-800 mt-10 mb-4 uppercase border-b-2 border-blue-500 pb-2 text-sm md:text-base leading-relaxed tracking-wide">${q.instruction}</div>`;
                     currentInstruction = q.instruction;
+                }
+
+                // In Reading Passage
+                if (q.passage) {
+                    const formattedPassage = q.passage.replace(/\n/g, '<br>');
+                    html += `<div class="reading-passage bg-white border-2 border-gray-300 p-5 md:p-8 rounded-lg mb-6 text-gray-900 text-justify leading-relaxed text-lg shadow-sm">${formattedPassage}</div>`;
                 }
 
                 const labels = ['A', 'B', 'C', 'D'];
                 let optionsHtml = '';
                 q.options.forEach((opt, oIdx) => {
                     optionsHtml += `
-                        <label class="option-label flex items-start space-x-3 p-2 rounded-lg border border-transparent hover:bg-gray-100 transition-colors w-full">
-                            <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-4 h-4 text-blue-600 focus:ring-blue-500">
-                            <span class="flex-grow p-1 rounded-md border border-transparent" id="span_q_${index}_opt_${oIdx}">
-                                <strong class="mr-1">${labels[oIdx]}.</strong> ${opt}
+                        <label class="option-label flex items-start space-x-3 p-3 rounded-lg border border-transparent hover:bg-gray-100 transition-colors w-full cursor-pointer">
+                            <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-5 h-5 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                            <span class="flex-grow p-1 rounded-md border border-transparent text-gray-800" id="span_q_${index}_opt_${oIdx}">
+                                <strong class="mr-2 text-blue-900 font-bold">${labels[oIdx]}.</strong> ${opt}
                             </span>
                         </label>
                     `;
                 });
 
+                let qTextHtml = q.text ? q.text.replace(/\n/g, '<br>') : '';
+                let questionNumberDisplay = `<span class="font-bold text-blue-800 whitespace-nowrap text-lg">Question ${index + 1}:</span>`;
+
                 html += `
-                    <div class="question-box bg-white p-4 rounded-xl border border-gray-200 shadow-sm" id="qbox_${index}">
-                        <div class="flex space-x-2 mb-3">
-                            <span class="font-bold text-blue-700 whitespace-nowrap">Question ${index + 1}:</span>
-                            <span class="text-gray-800">${q.text}</span>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 ml-4">
+                    <div class="question-box bg-white p-5 rounded-xl border border-gray-200 shadow-sm mb-4" id="qbox_${index}">
+                        ${qTextHtml ? 
+                            `<div class="mb-4 text-gray-900 leading-relaxed font-medium">
+                                ${questionNumberDisplay}
+                                <div class="mt-2 ml-2 md:ml-4 border-l-4 border-blue-100 pl-3">${qTextHtml}</div>
+                            </div>` 
+                            : `<div class="mb-2 text-gray-900">${questionNumberDisplay}</div>`
+                        }
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 ml-2 md:ml-6 mt-3">
                             ${optionsHtml}
                         </div>
                     </div>
@@ -320,10 +347,9 @@
             container.innerHTML = html;
         }
 
-        // Xử lý nộp bài
+        // Logic chấm điểm
         function submitTest() {
             if(isSubmitted) return;
-            
             clearInterval(timerInterval);
             isSubmitted = true;
             document.getElementById('submit-btn').classList.add('hidden-element');
@@ -335,10 +361,8 @@
                 const selected = document.querySelector(`input[name="q_${index}"]:checked`);
                 const correctAnsIdx = q.answer;
                 
-                // Vô hiệu hóa radio buttons
                 document.querySelectorAll(`input[name="q_${index}"]`).forEach(input => input.disabled = true);
 
-                // Đánh dấu đáp án đúng
                 const correctSpan = document.getElementById(`span_q_${index}_opt_${correctAnsIdx}`);
                 if(correctSpan) correctSpan.classList.add('correct-ans');
 
@@ -347,42 +371,33 @@
                     if (selectedIdx === correctAnsIdx) {
                         correctCount++;
                     } else {
-                        // Đánh dấu sai
                         const wrongSpan = document.getElementById(`span_q_${index}_opt_${selectedIdx}`);
                         if(wrongSpan) wrongSpan.classList.add('wrong-ans');
                     }
                 }
             });
 
-            // Hiện điểm
             document.getElementById('score-display').innerText = `${correctCount}/${questions.length}`;
             document.getElementById('result-screen').classList.remove('hidden-element');
             window.scrollTo({ top: document.getElementById('result-screen').offsetTop, behavior: 'smooth' });
         }
 
-        // Timer
+        // Đồng hồ đếm ngược 50 phút
         function startTimer() {
             timerInterval = setInterval(() => {
-                secondsElapsed++;
-                const m = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
-                const s = (secondsElapsed % 60).toString().padStart(2, '0');
+                if(timeLeft <= 0) { clearInterval(timerInterval); submitTest(); return; }
+                timeLeft--;
+                const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+                const s = (timeLeft % 60).toString().padStart(2, '0');
                 document.getElementById('timer-display').innerText = `${m}:${s}`;
             }, 1000);
         }
-
-        function resetTimer() {
-            clearInterval(timerInterval);
-            secondsElapsed = 0;
-            document.getElementById('timer-display').innerText = `00:00`;
-        }
+        function resetTimer() { clearInterval(timerInterval); timeLeft = 50 * 60; document.getElementById('timer-display').innerText = `50:00`; }
 
         /* =========================================================================
-           SECURITY LOGIC
+           SECURITY LOGIC - BẢO MẬT KHÓA ỨNG DỤNG
         ========================================================================= */
-        function continueAfterResult() {
-            // Theo yêu cầu: Ngay sau khi nộp bài Unit 1 và xem điểm xong -> Hiện form mật khẩu
-            showPasswordModal();
-        }
+        function continueAfterResult() { showPasswordModal(); }
 
         function showPasswordModal() {
             document.getElementById('password-modal').classList.remove('hidden-element');
@@ -394,27 +409,27 @@
         function checkPassword() {
             const pwd = document.getElementById('password-input').value.trim();
             if (pwd === "tienhuong28011981") {
-                // ĐÚNG MẬT KHẨU -> Kích hoạt cơ chế khóa chặn như yêu cầu
                 triggerFinalBlock();
             } else {
-                // Sai mật khẩu
                 document.getElementById('password-error').classList.remove('hidden-element');
             }
         }
 
         function triggerFinalBlock() {
-            // Xóa sạch / ẩn toàn bộ giao diện app
             document.getElementById('app-container').remove();
             document.getElementById('password-modal').remove();
             
-            // Hiển thị màn hình block cứng
             const blockScreen = document.getElementById('block-screen');
             blockScreen.classList.remove('hidden-element');
             
-            // Vô hiệu hóa phím F5, chuột phải (cơ bản để cản học sinh thao tác linh tinh)
+            // Chặn phím tắt / chuột phải
             document.addEventListener('contextmenu', event => event.preventDefault());
+            document.onkeydown = function(e) {
+                if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+                    return false;
+                }
+            }
         }
-
     </script>
 </body>
 </html>
