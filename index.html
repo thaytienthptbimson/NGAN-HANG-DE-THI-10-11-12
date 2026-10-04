@@ -16,8 +16,8 @@
         .wrong-ans { background-color: #fed7d7 !important; border-color: #e53e3e !important; }
         .reading-passage { font-family: 'Times New Roman', Times, serif; }
         
-        /* Tùy chỉnh thanh cuộn cho khu vực bài đọc nếu quá dài */
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        /* Tùy chỉnh thanh cuộn cho khu vực bài đọc */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
@@ -31,17 +31,17 @@
         <header class="bg-blue-800 text-white shadow-md sticky top-0 z-20">
             <div class="max-w-[1400px] mx-auto px-4 py-4 relative flex items-center justify-center">
                 <!-- Tiêu đề căn giữa -->
-                <h1 class="text-xl md:text-2xl font-bold uppercase text-center w-full truncate px-20">Ngân hàng đề thi Tiếng Anh 2026</h1>
+                <h1 class="text-xl md:text-3xl font-bold uppercase text-center w-full truncate px-20">Ngân hàng đề thi Tiếng Anh 2026</h1>
                 <!-- Đồng hồ góc phải -->
-                <div class="text-lg font-bold bg-blue-900 px-3 py-1 md:px-4 rounded shadow-inner absolute right-4" id="timer-display">
+                <div class="text-lg md:text-xl font-bold bg-blue-900 px-4 py-1 rounded shadow-inner absolute right-4" id="timer-display">
                     50:00
                 </div>
             </div>
             <!-- Grade Tabs -->
             <div class="max-w-[1400px] mx-auto px-4 flex space-x-1 mt-2 overflow-x-auto">
-                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-6 py-2 bg-white text-blue-800 font-bold rounded-t-lg transition-colors">Lớp 10</button>
-                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-6 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 11</button>
-                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-6 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 12</button>
+                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-8 py-2 bg-white text-blue-800 font-bold rounded-t-lg transition-colors">Lớp 10</button>
+                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-8 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 11</button>
+                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-8 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 12</button>
             </div>
         </header>
 
@@ -56,70 +56,66 @@
                 </div>
             </aside>
 
-            <!-- Main Content Area (Mở rộng tối đa) -->
-            <main class="w-full flex-grow min-w-0 bg-white rounded-lg shadow p-4 md:p-6 border border-gray-200">
+            <!-- Main Content Area -->
+            <main class="w-full flex-grow min-w-0 bg-white rounded-lg shadow p-4 md:p-8 border border-gray-200">
                 
-                <div id="welcome-screen" class="text-center py-12">
-                    <h2 class="text-2xl font-bold text-gray-700 mb-4">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
-                    <p class="text-gray-600">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
+                <div id="welcome-screen" class="text-center py-16">
+                    <h2 class="text-3xl font-bold text-gray-700 mb-4">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
+                    <p class="text-lg text-gray-600">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
                 </div>
 
                 <div id="test-screen" class="hidden-element">
-                    <div class="flex justify-between items-end border-b pb-4 mb-6">
+                    <div class="flex justify-between items-end border-b pb-4 mb-8">
                         <div>
-                            <h2 class="text-2xl font-bold text-blue-800" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
-                            <p class="text-sm text-gray-500 mt-1 font-semibold">Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026</p>
+                            <h2 class="text-3xl font-bold text-blue-800" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
+                            <p class="text-base text-gray-500 mt-2 font-semibold">Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026</p>
                         </div>
                     </div>
                     
-                    <!-- Khung chứa toàn bộ bài thi theo dạng 2 Cột -->
+                    <!-- Khung chứa toàn bộ bài thi -->
                     <div id="questions-container" class="space-y-8">
                         <!-- Code render câu hỏi nằm ở đây -->
                     </div>
 
-                    <div class="mt-8 pt-6 border-t flex justify-center">
-                        <button onclick="submitTest()" id="submit-btn" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-12 text-lg rounded-lg shadow-md transition-transform transform hover:scale-105">
+                    <div class="mt-10 pt-8 border-t flex justify-center">
+                        <button onclick="submitTest()" id="submit-btn" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-16 text-xl rounded-xl shadow-lg transition-transform transform hover:scale-105">
                             Nộp bài & Xem điểm
                         </button>
                     </div>
                 </div>
 
                 <!-- Result Screen -->
-                <div id="result-screen" class="hidden-element text-center py-8">
-                    <h2 class="text-3xl font-bold text-green-600 mb-2">Hoàn thành bài thi!</h2>
-                    <div class="text-6xl font-black text-blue-800 my-6" id="score-display">10/10</div>
-                    <p class="text-gray-600 mb-8 font-medium">Bạn có thể cuộn lên trên để xem lại đáp án chi tiết.</p>
-                    <button onclick="continueAfterResult()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-md">
+                <div id="result-screen" class="hidden-element text-center py-10">
+                    <h2 class="text-4xl font-bold text-green-600 mb-4">Hoàn thành bài thi!</h2>
+                    <div class="text-7xl font-black text-blue-800 my-8" id="score-display">10/10</div>
+                    <p class="text-lg text-gray-600 mb-10 font-medium">Bạn có thể cuộn lên trên để xem lại đáp án chi tiết của từng câu hỏi.</p>
+                    <button onclick="continueAfterResult()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-10 text-lg rounded-lg shadow-md">
                         Tiếp tục hệ thống
                     </button>
                 </div>
             </main>
         </div>
 
-        <footer class="bg-gray-900 text-center p-4 text-gray-300 mt-auto">
-            <p class="font-bold">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
-            <p class="text-sm mt-1">Bản quyền thuộc về số ĐT: 0943.930.787</p>
+        <footer class="bg-gray-900 text-center p-5 text-gray-300 mt-auto">
+            <p class="font-bold text-lg">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
+            <p class="text-base mt-2 text-yellow-400 font-semibold">Bản quyền thuộc về số ĐT chính chủ: 0943930787</p>
         </footer>
     </div>
 
     <!-- PASSWORD MODAL -->
     <div id="password-modal" class="hidden-element fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4">
-        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Yêu cầu quyền truy cập</h3>
-            <p class="text-gray-600 mb-6 text-center text-sm">Các bài thi tiếp theo đã bị khóa. Vui lòng nhập mật khẩu học sinh để tiếp tục.</p>
-            <input type="password" id="password-input" class="w-full border-2 border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 mb-4" placeholder="Nhập mật khẩu...">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Mở khóa nội dung</h3>
+            <p class="text-gray-600 mb-6 text-center">Đề thi này thuộc hệ thống nâng cao. Vui lòng nhập mật khẩu để mở khóa toàn bộ các đề thi tiếp theo.</p>
+            <input type="password" id="password-input" class="w-full border-2 border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 mb-4 text-lg" placeholder="Nhập mật khẩu...">
             <p id="password-error" class="text-red-500 text-sm mb-4 hidden-element text-center font-bold">Mật khẩu không chính xác!</p>
-            <button onclick="checkPassword()" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-lg transition-colors">
-                Xác nhận
+            <button onclick="checkPassword()" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 text-lg rounded-lg transition-colors">
+                Xác nhận mở khóa
+            </button>
+            <button onclick="closeModal()" class="w-full mt-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 rounded-lg transition-colors">
+                Hủy
             </button>
         </div>
-    </div>
-
-    <!-- FINAL BLOCK SCREEN -->
-    <div id="block-screen" class="hidden-element fixed inset-0 bg-white z-[9999] flex justify-center items-center p-4">
-        <h1 class="text-3xl md:text-5xl font-black text-red-600 text-center leading-relaxed max-w-4xl border-4 border-red-600 p-10 rounded-2xl shadow-2xl">
-            LH Thầy Tiến qua điện thoại<br>0943930787 để làm tiếp.
-        </h1>
     </div>
 
     <script>
@@ -205,13 +201,23 @@
         let timerInterval = null;
         let timeLeft = 50 * 60; // 50 phút
         let isSubmitted = false;
+        
+        // Cờ trạng thái đã nhập mật khẩu hay chưa (Mặc định: false)
+        let isUnlocked = false; 
+        // Lưu trữ lại hành động dang dở khi bị chặn bởi form mật khẩu
+        let pendingAction = null; 
 
         document.addEventListener('DOMContentLoaded', () => {
             renderSidebar();
         });
 
         function selectGrade(grade) {
-            if (grade !== 10) { showPasswordModal(); return; }
+            if (!isUnlocked && grade !== 10) { 
+                pendingAction = { type: 'grade', val: grade };
+                showPasswordModal(); 
+                return; 
+            }
+            
             currentGrade = grade;
             
             [10, 11, 12].forEach(g => {
@@ -265,16 +271,20 @@
         }
 
         function toggleUnit(unit) {
-            if (currentGrade !== 10 || unit !== 1) {
-                showPasswordModal(); return;
+            if (!isUnlocked && (currentGrade !== 10 || unit !== 1)) {
+                pendingAction = { type: 'unit', val: unit };
+                showPasswordModal(); 
+                return;
             }
             const testsDiv = document.getElementById(`unit-${unit}-tests`);
             testsDiv.classList.toggle('hidden-element');
         }
 
         function selectTest(unit, test) {
-            if (currentGrade !== 10 || unit !== 1) {
-                showPasswordModal(); return;
+            if (!isUnlocked && (currentGrade !== 10 || unit !== 1)) {
+                pendingAction = { type: 'test', unit: unit, test: test };
+                showPasswordModal(); 
+                return;
             }
             currentUnit = unit; currentTest = test; isSubmitted = false;
 
@@ -288,7 +298,9 @@
             resetTimer(); startTimer();
         }
 
-        // HÀM RENDER ĐƯỢC THIẾT KẾ LẠI ĐỂ TẠO BỐ CỤC 2 CỘT
+        /* =========================================================================
+           THUẬT TOÁN RENDER BỐ CỤC THÔNG MINH
+        ========================================================================= */
         function renderTestContent() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -302,19 +314,14 @@
                 return;
             }
 
-            // Tiền xử lý: Nhóm các câu hỏi theo Instruction
+            // Phân nhóm câu hỏi theo Instruction
             const groups = [];
             let currentGroup = null;
             
             questions.forEach((q, originalIndex) => {
-                q.originalIndex = originalIndex; // Giữ lại index gốc để chấm điểm
-                
+                q.originalIndex = originalIndex; 
                 if (!currentGroup || q.instruction !== currentGroup.instruction) {
-                    currentGroup = {
-                        instruction: q.instruction,
-                        passage: q.passage || null,
-                        questions: []
-                    };
+                    currentGroup = { instruction: q.instruction, passage: q.passage || null, questions: [] };
                     groups.push(currentGroup);
                 } else if (q.passage && !currentGroup.passage) {
                     currentGroup.passage = q.passage;
@@ -324,70 +331,91 @@
 
             let html = '';
 
-            // Render từng nhóm ra giao diện 2 cột
-            groups.forEach((group, gIdx) => {
+            groups.forEach((group) => {
+                // Kiểm tra dạng bài dựa trên cấu trúc
+                const isReading = !!group.passage;
+                // Nhận diện bài sắp xếp hội thoại bằng từ khóa tiếng Anh
+                const isArrangement = group.instruction.toLowerCase().includes("arrangement");
+
                 let questionsHtml = '';
-                
                 group.questions.forEach((q) => {
                     const index = q.originalIndex;
                     const labels = ['A', 'B', 'C', 'D'];
                     let optionsHtml = '';
+                    
                     q.options.forEach((opt, oIdx) => {
                         optionsHtml += `
-                            <label class="option-label flex items-start space-x-2 p-2 rounded-lg border border-transparent hover:bg-gray-100 transition-colors w-full cursor-pointer">
-                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-4 h-4 text-blue-600 focus:ring-blue-500 cursor-pointer flex-shrink-0">
-                                <span class="flex-grow p-1 rounded-md border border-transparent text-gray-800 text-sm md:text-base" id="span_q_${index}_opt_${oIdx}">
-                                    <strong class="mr-1 text-blue-900 font-bold">${labels[oIdx]}.</strong> ${opt}
+                            <label class="option-label flex items-start space-x-2 p-3 rounded-lg border border-transparent hover:bg-gray-100 transition-colors w-full cursor-pointer">
+                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-5 h-5 text-blue-600 focus:ring-blue-500 cursor-pointer flex-shrink-0">
+                                <span class="flex-grow p-1 rounded-md border border-transparent text-gray-800 text-base" id="span_q_${index}_opt_${oIdx}">
+                                    <strong class="mr-2 text-blue-900 font-bold">${labels[oIdx]}.</strong> ${opt}
                                 </span>
                             </label>
                         `;
                     });
 
                     let qTextHtml = q.text ? q.text.replace(/\n/g, '<br>') : '';
-                    let questionNumberDisplay = `<span class="font-bold text-blue-800 whitespace-nowrap text-base">Question ${index + 1}:</span>`;
+                    
+                    // Style riêng làm NỔI BẬT câu sắp xếp hội thoại
+                    let questionTextClass = "text-gray-900 leading-relaxed font-medium text-lg";
+                    if (isArrangement) {
+                        questionTextClass = "text-xl font-bold text-gray-800 leading-relaxed bg-blue-50 p-5 rounded-xl border-2 border-blue-200 shadow-sm mt-3 mb-4 block";
+                    }
 
                     questionsHtml += `
-                        <div class="question-box bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-4" id="qbox_${index}">
+                        <div class="question-box bg-white p-5 md:p-6 rounded-xl border border-gray-200 shadow-sm mb-5" id="qbox_${index}">
                             ${qTextHtml ? 
-                                `<div class="mb-3 text-gray-900 leading-relaxed font-medium">
-                                    ${questionNumberDisplay}
-                                    <div class="mt-2 ml-1 md:ml-2 pl-2">${qTextHtml}</div>
+                                `<div class="mb-4">
+                                    <span class="font-bold text-blue-800 whitespace-nowrap text-xl block mb-2">Question ${index + 1}:</span>
+                                    <div class="${questionTextClass}">${qTextHtml}</div>
                                 </div>` 
-                                : `<div class="mb-2 text-gray-900">${questionNumberDisplay}</div>`
+                                : `<div class="mb-3"><span class="font-bold text-blue-800 whitespace-nowrap text-xl">Question ${index + 1}:</span></div>`
                             }
-                            <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-2 gap-y-1 mt-2">
+                            <!-- Bố cục 2 cột cho các đáp án nếu màn hình đủ lớn -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 mt-4 ml-0 md:ml-4">
                                 ${optionsHtml}
                             </div>
                         </div>
                     `;
                 });
 
-                // Format Passage (Phần thông tin bên trái)
-                let passageHtml = '';
-                if (group.passage) {
-                    const formattedPassage = group.passage.replace(/\n/g, '<br>');
-                    passageHtml = `<div class="reading-passage bg-blue-50/40 border border-blue-200 p-4 md:p-5 rounded-lg mt-4 text-gray-900 text-justify leading-relaxed text-base shadow-inner overflow-y-auto custom-scrollbar max-h-[60vh]">${formattedPassage}</div>`;
-                }
-
-                // Cấu trúc 2 cột: lg:w-2/5 bên trái và lg:w-3/5 bên phải
-                html += `
-                    <div class="flex flex-col lg:flex-row gap-6 mb-8 pb-8 border-b-2 border-dashed border-gray-300">
-                        <!-- CỘT TRÁI: Instruction & Passage (Sticky) -->
-                        <div class="lg:w-2/5 flex flex-col h-full">
-                            <div class="sticky top-[120px]">
-                                <div class="font-bold text-blue-900 uppercase text-sm md:text-base leading-relaxed tracking-wide border-l-4 border-blue-600 pl-3">
-                                    ${group.instruction}
+                // PHÂN NHÁNH RENDER GIAO DIỆN
+                if (isReading) {
+                    // LAYOUT 2 CỘT CHO BÀI ĐỌC HIỂU/ĐIỀN TỪ
+                    const formattedPassage = group.passage.replace(/\n/g, '<br><br>');
+                    html += `
+                        <div class="flex flex-col lg:flex-row gap-8 mb-12 pb-12 border-b-2 border-dashed border-gray-300">
+                            <!-- CỘT TRÁI (BÀI ĐỌC): Rộng 7/12, Cố định vị trí -->
+                            <div class="lg:w-7/12 flex flex-col h-full">
+                                <div class="sticky top-[120px]">
+                                    <div class="font-bold text-white bg-blue-700 uppercase text-sm md:text-base px-5 py-3 rounded-t-xl shadow">
+                                        ${group.instruction}
+                                    </div>
+                                    <div class="reading-passage bg-blue-50/40 border-2 border-blue-200 border-t-0 p-6 md:p-8 rounded-b-xl text-gray-900 text-justify leading-relaxed text-lg md:text-xl shadow-inner overflow-y-auto custom-scrollbar max-h-[75vh]">
+                                        ${formattedPassage}
+                                    </div>
                                 </div>
-                                ${passageHtml}
+                            </div>
+                            
+                            <!-- CỘT PHẢI (CÂU HỎI): Rộng 5/12 -->
+                            <div class="lg:w-5/12">
+                                ${questionsHtml}
                             </div>
                         </div>
-                        
-                        <!-- CỘT PHẢI: Questions -->
-                        <div class="lg:w-3/5">
-                            ${questionsHtml}
+                    `;
+                } else {
+                    // LAYOUT 1 CỘT RỘNG CHO CÁC PHẦN KHÁC (Sắp xếp, Trắc nghiệm đơn)
+                    html += `
+                        <div class="mb-12 pb-12 border-b-2 border-dashed border-gray-300">
+                            <div class="font-bold text-blue-900 uppercase text-base md:text-lg leading-relaxed tracking-wide border-l-4 border-blue-600 pl-4 mb-6">
+                                ${group.instruction}
+                            </div>
+                            <div class="w-full">
+                                ${questionsHtml}
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
             });
 
             container.innerHTML = html;
@@ -428,7 +456,7 @@
             window.scrollTo({ top: document.getElementById('result-screen').offsetTop, behavior: 'smooth' });
         }
 
-        // Đồng hồ đếm ngược 50 phút
+        // Đồng hồ đếm ngược
         function startTimer() {
             timerInterval = setInterval(() => {
                 if(timeLeft <= 0) { clearInterval(timerInterval); submitTest(); return; }
@@ -441,9 +469,21 @@
         function resetTimer() { clearInterval(timerInterval); timeLeft = 50 * 60; document.getElementById('timer-display').innerText = `50:00`; }
 
         /* =========================================================================
-           SECURITY LOGIC - BẢO MẬT KHÓA ỨNG DỤNG
+           SECURITY LOGIC - BẢO MẬT & MỞ KHÓA
         ========================================================================= */
-        function continueAfterResult() { showPasswordModal(); }
+        function continueAfterResult() { 
+            if (!isUnlocked) {
+                // Nếu chưa mở khóa thì hiện popup nhắc nhập pass
+                pendingAction = null;
+                showPasswordModal(); 
+            } else {
+                // Đã mở khóa rồi thì quay về màn hình chờ
+                document.getElementById('test-screen').classList.add('hidden-element');
+                document.getElementById('result-screen').classList.add('hidden-element');
+                document.getElementById('welcome-screen').classList.remove('hidden-element');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
 
         function showPasswordModal() {
             document.getElementById('password-modal').classList.remove('hidden-element');
@@ -452,28 +492,35 @@
             document.getElementById('password-input').focus();
         }
 
+        function closeModal() {
+            document.getElementById('password-modal').classList.add('hidden-element');
+            pendingAction = null;
+        }
+
         function checkPassword() {
             const pwd = document.getElementById('password-input').value.trim();
             if (pwd === "tienhuong28011981") {
-                triggerFinalBlock();
-            } else {
-                document.getElementById('password-error').classList.remove('hidden-element');
-            }
-        }
-
-        function triggerFinalBlock() {
-            document.getElementById('app-container').remove();
-            document.getElementById('password-modal').remove();
-            
-            const blockScreen = document.getElementById('block-screen');
-            blockScreen.classList.remove('hidden-element');
-            
-            // Chặn phím tắt / chuột phải
-            document.addEventListener('contextmenu', event => event.preventDefault());
-            document.onkeydown = function(e) {
-                if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
-                    return false;
+                // Nhập đúng mật khẩu
+                isUnlocked = true;
+                document.getElementById('password-modal').classList.add('hidden-element');
+                alert("Mật khẩu chính xác! Bạn đã được cấp quyền làm toàn bộ kho đề thi.");
+                
+                // Thực thi lại hành động đang bị dở dang (ví dụ click vào Unit 2)
+                if (pendingAction) {
+                    if (pendingAction.type === 'grade') selectGrade(pendingAction.val);
+                    else if (pendingAction.type === 'unit') toggleUnit(pendingAction.val);
+                    else if (pendingAction.type === 'test') selectTest(pendingAction.unit, pendingAction.test);
+                    pendingAction = null;
+                } else {
+                    // Nếu ấn từ nút "Tiếp tục hệ thống"
+                    document.getElementById('test-screen').classList.add('hidden-element');
+                    document.getElementById('result-screen').classList.add('hidden-element');
+                    document.getElementById('welcome-screen').classList.remove('hidden-element');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
+            } else {
+                // Sai mật khẩu
+                document.getElementById('password-error').classList.remove('hidden-element');
             }
         }
     </script>
