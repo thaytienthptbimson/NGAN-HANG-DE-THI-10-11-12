@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGÂN HÀNG ĐỀ THI TIẾNG ANH 10-11-12</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hidden-element { display: none !important; }
+        .question-box { transition: all 0.3s ease; }
+        .question-box:hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .option-label { cursor: pointer; }
+        .option-label input:checked + span { background-color: #ebf8ff; border-color: #3182ce; font-weight: bold;}
+        .correct-ans { background-color: #c6f6d5 !important; border-color: #38a169 !important; }
+        .wrong-ans { background-color: #fed7d7 !important; border-color: #e53e3e !important; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="flex-grow flex flex-col">
+        <!-- Header -->
+        <header class="bg-blue-700 text-white shadow-md sticky top-0 z-10">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 class="text-xl md:text-2xl font-bold">NGÂN HÀNG ĐỀ THI TIẾNG ANH</h1>
+                <div class="text-lg font-semibold bg-blue-800 px-3 py-1 rounded" id="timer-display">
+                    00:00
+                </div>
+            </div>
+            <!-- Grade Tabs -->
+            <div class="max-w-7xl mx-auto px-4 flex space-x-1 mt-2 overflow-x-auto">
+                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-6 py-2 bg-white text-blue-700 font-bold rounded-t-lg transition-colors">Lớp 10</button>
+                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 font-bold rounded-t-lg transition-colors">Lớp 11</button>
+                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 font-bold rounded-t-lg transition-colors">Lớp 12</button>
+            </div>
+        </header>
+
+        <div class="max-w-7xl mx-auto w-full flex-grow flex flex-col md:flex-row p-4 gap-6">
+            <!-- Sidebar (Units & Tests) -->
+            <aside class="md:w-1/4 bg-white rounded-lg shadow-sm p-4 border border-gray-200 h-fit">
+                <h2 class="text-lg font-bold text-gray-800 mb-4 border-b pb-2" id="sidebar-title">Danh sách bài thi</h2>
+                <div id="units-container" class="space-y-2">
+                    <!-- Units and tests will be rendered here by JS -->
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="md:w-3/4 bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+                <div id="welcome-screen" class="text-center py-12">
+                    <h2 class="text-2xl font-bold text-gray-700 mb-4">Chào mừng đến với hệ thống ôn tập</h2>
+                    <p class="text-gray-600">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
+                </div>
+
+                <div id="test-screen" class="hidden-element">
+                    <div class="flex justify-between items-end border-b pb-4 mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-700" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
+                            <p class="text-sm text-gray-500 mt-1">Định dạng cấu trúc đề thi Tốt nghiệp THPT 2026</p>
+                        </div>
+                    </div>
+                    
+                    <div id="questions-container" class="space-y-6">
+                        <!-- Questions rendered by JS -->
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t flex justify-center">
+                        <button onclick="submitTest()" id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                            Nộp bài & Xem điểm
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Result Screen -->
+                <div id="result-screen" class="hidden-element text-center py-8">
+                    <h2 class="text-3xl font-bold text-green-600 mb-2">Hoàn thành bài thi!</h2>
+                    <div class="text-6xl font-black text-blue-700 my-6" id="score-display">10/10</div>
+                    <p class="text-gray-600 mb-8">Kéo lên trên để xem chi tiết đáp án của từng câu hỏi.</p>
+                    <button onclick="continueAfterResult()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-md">
+                        Tiếp tục
+                    </button>
+                </div>
+            </main>
+        </div>
+
+        <footer class="bg-gray-800 text-center p-4 text-gray-300 mt-auto">
+            <p>Hệ thống Ngân hàng Đề thi Tiếng Anh THPT</p>
+            <p class="text-sm mt-1">Bản quyền thuộc về số ĐT: 0943.930.787</p>
+        </footer>
+    </div>
+
+    <!-- PASSWORD MODAL -->
+    <div id="password-modal" class="hidden-element fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full animate-bounce-short">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Yêu cầu quyền truy cập</h3>
+            <p class="text-gray-600 mb-6 text-center text-sm">Nội dung này đã bị khóa. Vui lòng nhập mật khẩu để tiếp tục.</p>
+            <input type="password" id="password-input" class="w-full border-2 border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 mb-4" placeholder="Nhập mật khẩu...">
+            <p id="password-error" class="text-red-500 text-sm mb-4 hidden-element text-center">Mật khẩu không chính xác!</p>
+            <button onclick="checkPassword()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-colors">
+                Xác nhận
+            </button>
+        </div>
+    </div>
+
+    <!-- BLOCK SCREEN -->
+    <div id="block-screen" class="hidden-element fixed inset-0 bg-white z-[9999] flex justify-center items-center p-4">
+        <h1 class="text-4xl md:text-6xl font-black text-red-600 text-center leading-tight">
+            LH Thầy Tiến qua điện thoại<br>0943930787 để làm tiếp.
+        </h1>
+    </div>
+
+    <script>
+        /* =========================================================================
+           DATABASE (JSON/Object)
+           Định dạng đề thi Tốt nghiệp THPT 2026 môn Tiếng Anh.
+           - Mỗi câu hỏi có: id, text (nội dung), options (mảng 4 đáp án), answer (index 0-3 của đáp án đúng).
+        ========================================================================= */
+        const examDatabase = {
+            10: { // LỚP 10
+                1: { // UNIT 1
+                    1: [ // TEST 1 (MẪU)
+                        // PHẦN I: Ngữ âm
+                        { id: 1, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the word whose underlined part differs from the other three in pronunciation.", text: "A. w<u>a</u>sh B. p<u>a</u>rt C. p<u>a</u>ss D. f<u>a</u>ther", options: ["wash", "part", "pass", "father"], answer: 0 },
+                        { id: 2, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the word that differs from the other three in the position of primary stress.", text: "A. family B. chore C. routine D. duty", options: ["family", "routine", "duty", "housewife"], answer: 1 },
+                        // PHẦN II: Từ vựng & Ngữ pháp (Trắc nghiệm)
+                        { id: 3, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the correct answer to each of the following questions.", text: "My mother is responsible for ________ the cooking and grocery shopping.", options: ["doing", "making", "taking", "getting"], answer: 0 },
+                        { id: 4, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the correct answer to each of the following questions.", text: "When everyone contributes to household chores, it creates a positive family ________.", options: ["atmosphere", "weather", "climate", "condition"], answer: 0 },
+                        { id: 5, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the correct answer to each of the following questions.", text: "Look at those dark clouds! It ________ rain soon.", options: ["is going to", "will", "is raining", "rains"], answer: 0 },
+                        // PHẦN III: Đọc điền khuyết (Cloze Test) - Form 2026 thường cấu trúc theo đoạn văn
+                        { id: 6, type: "multiple_choice", instruction: "Read the following passage and mark the letter A, B, C, or D to indicate the correct word or phrase that best fits each of the numbered blanks.", text: "Family life has changed significantly over the last few decades. In the past, the father was typically the breadwinner, (6) _______ the mother stayed at home to take care of the children.", options: ["while", "because", "despite", "therefore"], answer: 0 },
+                        { id: 7, type: "multiple_choice", instruction: "Read the following passage and mark the letter A, B, C, or D to indicate the correct word or phrase that best fits each of the numbered blanks.", text: "Today, many families are dual-income families, meaning both parents (7) _______ out of the home.", options: ["work", "works", "working", "worked"], answer: 0 },
+                        // PHẦN IV: Sắp xếp câu / Viết lại câu (Form 2026 có thể hỏi trắc nghiệm cách sắp xếp đúng)
+                        { id: 8, type: "multiple_choice", instruction: "Mark the letter A, B, C, or D to indicate the sentence that is closest in meaning to the given sentence.", text: "\"I will help you with the dishes,\" said my brother.", options: ["My brother offered to help me with the dishes.", "My brother denied helping me with the dishes.", "My brother admitted helping me with the dishes.", "My brother promised not to help me with the dishes."], answer: 0 },
+                    ],
+                    2: [], // Để trống, thầy tự copy format của Test 1 và dán vào đây
+                    3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [] // ... Test 3 đến 10
+                },
+                2: { 1: [], 2: [], /*... đến 10*/ }, // Unit 2
+                // ... Các Unit từ 3 đến 10 thầy tạo mảng trống tương tự
+            },
+            11: {
+                1: { 1: [] } // Khối 11
+            },
+            12: {
+                1: { 1: [] } // Khối 12
+            }
+        };
+
+        /* 
+        HƯỚNG DẪN THÊM ĐỀ THI:
+        Để thêm bài, thầy chỉ cần copy mảng các câu hỏi ở (Lớp 10, Unit 1, Test 1), 
+        sau đó dán vào vị trí ngoặc vuông [] của Test 2, Test 3... hoặc các Unit khác.
+        */
+
+        /* =========================================================================
+           STATE & LOGIC
+        ========================================================================= */
+        let currentGrade = 10;
+        let currentUnit = 1;
+        let currentTest = 1;
+        let timerInterval = null;
+        let secondsElapsed = 0;
+        let isSubmitted = false;
+
+        // Khởi tạo
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSidebar();
+        });
+
+        // Xử lý chuyển khối (Grade)
+        function selectGrade(grade) {
+            // Kiểm tra phân quyền: Chỉ cho phép Lớp 10 được click tự do
+            if (grade !== 10) {
+                showPasswordModal();
+                return;
+            }
+
+            currentGrade = grade;
+            
+            // Cập nhật UI Tabs
+            [10, 11, 12].forEach(g => {
+                const btn = document.getElementById(`tab-grade-${g}`);
+                if (g === grade) {
+                    btn.classList.replace('bg-blue-600', 'bg-white');
+                    btn.classList.replace('text-white', 'text-blue-700');
+                    btn.classList.add('hover:bg-blue-500'); // xóa hover
+                } else {
+                    btn.classList.replace('bg-white', 'bg-blue-600');
+                    btn.classList.replace('text-blue-700', 'text-white');
+                }
+            });
+
+            renderSidebar();
+            document.getElementById('test-screen').classList.add('hidden-element');
+            document.getElementById('result-screen').classList.add('hidden-element');
+            document.getElementById('welcome-screen').classList.remove('hidden-element');
+        }
+
+        // Render Menu Unit và Test
+        function renderSidebar() {
+            const container = document.getElementById('units-container');
+            container.innerHTML = '';
+
+            // Render 10 Units
+            for (let u = 1; u <= 10; u++) {
+                const unitDiv = document.createElement('div');
+                unitDiv.className = 'border rounded-md overflow-hidden';
+                
+                const unitHeader = document.createElement('div');
+                unitHeader.className = 'bg-gray-100 px-3 py-2 font-semibold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-gray-200';
+                unitHeader.innerHTML = `<span>Unit ${u}</span> <span>▼</span>`;
+                unitHeader.onclick = () => toggleUnit(u, unitDiv);
+                
+                const testsContainer = document.createElement('div');
+                testsContainer.id = `unit-${u}-tests`;
+                testsContainer.className = 'hidden-element flex flex-col bg-white';
+                
+                // Render 10 Tests per Unit
+                for (let t = 1; t <= 10; t++) {
+                    const testBtn = document.createElement('button');
+                    testBtn.className = 'text-left px-6 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 border-t';
+                    testBtn.innerText = `Test ${t}`;
+                    testBtn.onclick = () => selectTest(u, t);
+                    testsContainer.appendChild(testBtn);
+                }
+
+                unitDiv.appendChild(unitHeader);
+                unitDiv.appendChild(testsContainer);
+                container.appendChild(unitDiv);
+            }
+        }
+
+        function toggleUnit(unit, element) {
+            // Khóa Unit khác Unit 1
+            if (currentGrade !== 10 || unit !== 1) {
+                showPasswordModal();
+                return;
+            }
+            const testsDiv = document.getElementById(`unit-${unit}-tests`);
+            if (testsDiv.classList.contains('hidden-element')) {
+                testsDiv.classList.remove('hidden-element');
+            } else {
+                testsDiv.classList.add('hidden-element');
+            }
+        }
+
+        function selectTest(unit, test) {
+            // Khóa chéo bảo mật
+            if (currentGrade !== 10 || unit !== 1) {
+                showPasswordModal();
+                return;
+            }
+
+            currentUnit = unit;
+            currentTest = test;
+            isSubmitted = false;
+
+            document.getElementById('welcome-screen').classList.add('hidden-element');
+            document.getElementById('result-screen').classList.add('hidden-element');
+            document.getElementById('test-screen').classList.remove('hidden-element');
+            document.getElementById('submit-btn').classList.remove('hidden-element');
+            document.getElementById('current-test-title').innerText = `Lớp ${currentGrade} - Unit ${currentUnit} - Test ${currentTest}`;
+            
+            renderTestContent();
+            resetTimer();
+            startTimer();
+        }
+
+        function renderTestContent() {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+
+            let questions = [];
+            try {
+                questions = examDatabase[currentGrade][currentUnit][currentTest] || [];
+            } catch(e) {}
+
+            if (questions.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 italic">Nội dung đề thi này đang được cập nhật...</p>';
+                document.getElementById('submit-btn').classList.add('hidden-element');
+                return;
+            }
+
+            let html = '';
+            let currentInstruction = '';
+
+            questions.forEach((q, index) => {
+                // Hiển thị instruction nếu thay đổi (nhóm câu hỏi)
+                if (q.instruction !== currentInstruction) {
+                    html += `<div class="font-bold text-gray-800 mt-6 mb-2 underline">${q.instruction}</div>`;
+                    currentInstruction = q.instruction;
+                }
+
+                const labels = ['A', 'B', 'C', 'D'];
+                let optionsHtml = '';
+                q.options.forEach((opt, oIdx) => {
+                    optionsHtml += `
+                        <label class="option-label flex items-start space-x-3 p-2 rounded-lg border border-transparent hover:bg-gray-100 transition-colors w-full">
+                            <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-4 h-4 text-blue-600 focus:ring-blue-500">
+                            <span class="flex-grow p-1 rounded-md border border-transparent" id="span_q_${index}_opt_${oIdx}">
+                                <strong class="mr-1">${labels[oIdx]}.</strong> ${opt}
+                            </span>
+                        </label>
+                    `;
+                });
+
+                html += `
+                    <div class="question-box bg-white p-4 rounded-xl border border-gray-200 shadow-sm" id="qbox_${index}">
+                        <div class="flex space-x-2 mb-3">
+                            <span class="font-bold text-blue-700 whitespace-nowrap">Question ${index + 1}:</span>
+                            <span class="text-gray-800">${q.text}</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 ml-4">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Xử lý nộp bài
+        function submitTest() {
+            if(isSubmitted) return;
+            
+            clearInterval(timerInterval);
+            isSubmitted = true;
+            document.getElementById('submit-btn').classList.add('hidden-element');
+
+            const questions = examDatabase[currentGrade][currentUnit][currentTest] || [];
+            let correctCount = 0;
+
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q_${index}"]:checked`);
+                const correctAnsIdx = q.answer;
+                
+                // Vô hiệu hóa radio buttons
+                document.querySelectorAll(`input[name="q_${index}"]`).forEach(input => input.disabled = true);
+
+                // Đánh dấu đáp án đúng
+                const correctSpan = document.getElementById(`span_q_${index}_opt_${correctAnsIdx}`);
+                if(correctSpan) correctSpan.classList.add('correct-ans');
+
+                if (selected) {
+                    const selectedIdx = parseInt(selected.value);
+                    if (selectedIdx === correctAnsIdx) {
+                        correctCount++;
+                    } else {
+                        // Đánh dấu sai
+                        const wrongSpan = document.getElementById(`span_q_${index}_opt_${selectedIdx}`);
+                        if(wrongSpan) wrongSpan.classList.add('wrong-ans');
+                    }
+                }
+            });
+
+            // Hiện điểm
+            document.getElementById('score-display').innerText = `${correctCount}/${questions.length}`;
+            document.getElementById('result-screen').classList.remove('hidden-element');
+            window.scrollTo({ top: document.getElementById('result-screen').offsetTop, behavior: 'smooth' });
+        }
+
+        // Timer
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                const m = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+                const s = (secondsElapsed % 60).toString().padStart(2, '0');
+                document.getElementById('timer-display').innerText = `${m}:${s}`;
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            secondsElapsed = 0;
+            document.getElementById('timer-display').innerText = `00:00`;
+        }
+
+        /* =========================================================================
+           SECURITY LOGIC
+        ========================================================================= */
+        function continueAfterResult() {
+            // Theo yêu cầu: Ngay sau khi nộp bài Unit 1 và xem điểm xong -> Hiện form mật khẩu
+            showPasswordModal();
+        }
+
+        function showPasswordModal() {
+            document.getElementById('password-modal').classList.remove('hidden-element');
+            document.getElementById('password-error').classList.add('hidden-element');
+            document.getElementById('password-input').value = '';
+            document.getElementById('password-input').focus();
+        }
+
+        function checkPassword() {
+            const pwd = document.getElementById('password-input').value.trim();
+            if (pwd === "tienhuong28011981") {
+                // ĐÚNG MẬT KHẨU -> Kích hoạt cơ chế khóa chặn như yêu cầu
+                triggerFinalBlock();
+            } else {
+                // Sai mật khẩu
+                document.getElementById('password-error').classList.remove('hidden-element');
+            }
+        }
+
+        function triggerFinalBlock() {
+            // Xóa sạch / ẩn toàn bộ giao diện app
+            document.getElementById('app-container').remove();
+            document.getElementById('password-modal').remove();
+            
+            // Hiển thị màn hình block cứng
+            const blockScreen = document.getElementById('block-screen');
+            blockScreen.classList.remove('hidden-element');
+            
+            // Vô hiệu hóa phím F5, chuột phải (cơ bản để cản học sinh thao tác linh tinh)
+            document.addEventListener('contextmenu', event => event.preventDefault());
+        }
+
+    </script>
+</body>
+</html>
