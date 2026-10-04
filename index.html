@@ -6,115 +6,174 @@
     <title>NGÂN HÀNG ĐỀ THI TIẾNG ANH 10-11-12 (FORMAT 2026)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { 
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f0f4f8; /* Màu nền xám xanh dịu nhẹ */
+        }
         .hidden-element { display: none !important; }
-        .question-box { transition: all 0.3s ease; }
-        .question-box:hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-        .option-label { cursor: pointer; }
-        .option-label input:checked + span { background-color: #ebf8ff; border-color: #3182ce; font-weight: bold;}
-        .correct-ans { background-color: #c6f6d5 !important; border-color: #38a169 !important; }
-        .wrong-ans { background-color: #fed7d7 !important; border-color: #e53e3e !important; }
+        
+        /* Hiệu ứng mượt mà cho các khối */
+        .question-box { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .question-box:hover { transform: translateY(-2px); box-shadow: 0 12px 20px -5px rgba(59, 130, 246, 0.15); }
+        
+        /* Chỉnh style cho thẻ chứa đáp án */
+        .option-label { cursor: pointer; transition: all 0.2s; }
+        .option-label:hover span { background-color: #f8fafc; border-color: #cbd5e1; }
+        
+        /* Hiệu ứng khi được chọn - Bóng bẩy, nổi bật */
+        .option-label input:checked + span { 
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-color: #3b82f6; 
+            color: #1e40af;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+            transform: scale(1.01);
+        }
+        
+        /* Đáp án đúng/sai khi nộp bài */
+        .correct-ans { 
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%) !important; 
+            border-color: #22c55e !important; 
+            color: #166534 !important;
+            box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3) !important;
+        }
+        .wrong-ans { 
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%) !important; 
+            border-color: #ef4444 !important; 
+            color: #991b1b !important;
+        }
+        
         .reading-passage { font-family: 'Times New Roman', Times, serif; }
         
-        /* Tùy chỉnh thanh cuộn cho khu vực bài đọc */
+        /* Tùy chỉnh thanh cuộn siêu mượt, hiện đại */
         .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #93c5fd, #60a5fa); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: linear-gradient(to bottom, #60a5fa, #3b82f6); }
+        
+        /* Nền header bóng bẩy */
+        .glass-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+        }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col text-gray-800">
 
     <!-- MAIN APP CONTAINER -->
     <div id="app-container" class="flex-grow flex flex-col">
         <!-- Header -->
-        <header class="bg-blue-800 text-white shadow-md sticky top-0 z-20">
-            <div class="max-w-[1400px] mx-auto px-4 py-4 relative flex items-center justify-center">
-                <!-- Tiêu đề căn giữa -->
-                <h1 class="text-xl md:text-3xl font-bold uppercase text-center w-full truncate px-20">Ngân hàng đề thi Tiếng Anh 2026</h1>
-                <!-- Đồng hồ góc phải -->
-                <div class="text-lg md:text-xl font-bold bg-blue-900 px-4 py-1 rounded shadow-inner absolute right-4" id="timer-display">
+        <header class="glass-header text-white sticky top-0 z-30">
+            <div class="max-w-[1400px] mx-auto px-4 py-5 relative flex items-center justify-center">
+                <h1 class="text-2xl md:text-3xl font-extrabold uppercase text-center w-full truncate px-24 tracking-wide drop-shadow-md">
+                    Ngân hàng đề thi Tiếng Anh 2026
+                </h1>
+                <div class="text-xl md:text-2xl font-black bg-white/20 backdrop-blur-md px-5 py-2 rounded-xl border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.3)] absolute right-4 tracking-wider" id="timer-display">
                     50:00
                 </div>
             </div>
-            <!-- Grade Tabs -->
-            <div class="max-w-[1400px] mx-auto px-4 flex space-x-1 mt-2 overflow-x-auto">
-                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-8 py-2 bg-white text-blue-800 font-bold rounded-t-lg transition-colors">Lớp 10</button>
-                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-8 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 11</button>
-                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-8 py-2 bg-blue-700 hover:bg-blue-600 font-bold rounded-t-lg transition-colors">Lớp 12</button>
+            
+            <!-- Grade Tabs - Dạng vây cá mập bo tròn -->
+            <div class="max-w-[1400px] mx-auto px-4 flex space-x-2 mt-2 overflow-x-auto">
+                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-8 py-3 bg-gray-50 text-blue-700 font-extrabold rounded-t-2xl shadow-[0_-4px_10px_rgba(0,0,0,0.1)] transition-all">Lớp 10</button>
+                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-8 py-3 bg-blue-800/50 hover:bg-white/90 hover:text-blue-700 text-white font-bold rounded-t-2xl transition-all">Lớp 11</button>
+                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-8 py-3 bg-blue-800/50 hover:bg-white/90 hover:text-blue-700 text-white font-bold rounded-t-2xl transition-all">Lớp 12</button>
             </div>
         </header>
 
         <!-- Main Layout (Sidebar + Content) -->
-        <div class="max-w-[1400px] mx-auto w-full flex-grow flex flex-col lg:flex-row p-4 gap-6 items-start">
+        <div class="max-w-[1400px] mx-auto w-full flex-grow flex flex-col lg:flex-row p-4 md:p-6 gap-8 items-start">
             
             <!-- Sidebar (Thu nhỏ và Fix kích thước) -->
-            <aside class="w-full lg:w-[260px] flex-shrink-0 bg-white rounded-lg shadow p-4 border border-gray-200 lg:sticky lg:top-[120px]">
-                <h2 class="text-lg font-bold text-gray-800 mb-4 border-b pb-2">Danh sách bài thi</h2>
-                <div id="units-container" class="space-y-2 max-h-[60vh] overflow-y-auto custom-scrollbar pr-1">
+            <aside class="w-full lg:w-[280px] flex-shrink-0 bg-white rounded-3xl shadow-xl shadow-blue-900/5 p-5 border border-gray-100 lg:sticky lg:top-[140px] z-20">
+                <h2 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 mb-5 border-b-2 border-gray-100 pb-3 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                    Danh sách bài thi
+                </h2>
+                <div id="units-container" class="space-y-3 max-h-[60vh] overflow-y-auto custom-scrollbar pr-2">
                     <!-- Được sinh bằng JS -->
                 </div>
             </aside>
 
             <!-- Main Content Area -->
-            <main class="w-full flex-grow min-w-0 bg-white rounded-lg shadow p-4 md:p-8 border border-gray-200">
+            <main class="w-full flex-grow min-w-0 bg-white rounded-3xl shadow-xl shadow-blue-900/5 p-5 md:p-10 border border-gray-100 relative">
                 
-                <div id="welcome-screen" class="text-center py-16">
-                    <h2 class="text-3xl font-bold text-gray-700 mb-4">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
-                    <p class="text-lg text-gray-600">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
+                <div id="welcome-screen" class="text-center py-20">
+                    <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-blue-100 to-indigo-50 mb-6 shadow-inner">
+                        <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-800 mb-4">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
+                    <p class="text-lg text-gray-500 font-medium">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu bài làm.</p>
                 </div>
 
                 <div id="test-screen" class="hidden-element">
-                    <div class="flex justify-between items-end border-b pb-4 mb-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b-2 border-gray-100 pb-6 mb-8 gap-4">
                         <div>
-                            <h2 class="text-3xl font-bold text-blue-800" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
-                            <p class="text-base text-gray-500 mt-2 font-semibold">Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026</p>
+                            <h2 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-purple-600" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
+                            <p class="text-base text-indigo-500 mt-2 font-bold flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                                Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026
+                            </p>
                         </div>
                     </div>
                     
                     <!-- Khung chứa toàn bộ bài thi -->
-                    <div id="questions-container" class="space-y-8">
+                    <div id="questions-container" class="space-y-10">
                         <!-- Code render câu hỏi nằm ở đây -->
                     </div>
 
-                    <div class="mt-10 pt-8 border-t flex justify-center">
-                        <button onclick="submitTest()" id="submit-btn" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-16 text-xl rounded-xl shadow-lg transition-transform transform hover:scale-105">
-                            Nộp bài & Xem điểm
+                    <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-200 flex justify-center">
+                        <button onclick="submitTest()" id="submit-btn" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-4 px-16 text-xl rounded-2xl shadow-[0_10px_20px_rgba(79,70,229,0.3)] transition-all transform hover:-translate-y-1">
+                            NỘP BÀI & XEM ĐIỂM
                         </button>
                     </div>
                 </div>
 
                 <!-- Result Screen -->
-                <div id="result-screen" class="hidden-element text-center py-10">
-                    <h2 class="text-4xl font-bold text-green-600 mb-4">Hoàn thành bài thi!</h2>
-                    <div class="text-7xl font-black text-blue-800 my-8" id="score-display">10/10</div>
-                    <p class="text-lg text-gray-600 mb-10 font-medium">Bạn có thể cuộn lên trên để xem lại đáp án chi tiết của từng câu hỏi.</p>
-                    <button onclick="continueAfterResult()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-10 text-lg rounded-lg shadow-md">
+                <div id="result-screen" class="hidden-element text-center py-16">
+                    <div class="inline-flex items-center justify-center w-28 h-28 rounded-full bg-green-100 mb-6 shadow-inner">
+                        <svg class="w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h2 class="text-4xl font-black text-gray-800 mb-4">Hoàn thành bài thi!</h2>
+                    <div class="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 my-8 drop-shadow-sm" id="score-display">10/10</div>
+                    <p class="text-lg text-gray-500 mb-10 font-medium">Bạn có thể cuộn lên trên để xem lại đáp án chi tiết của từng câu hỏi.</p>
+                    <button onclick="continueAfterResult()" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold py-3 px-10 text-lg rounded-xl shadow-lg transition-transform transform hover:-translate-y-1">
                         Tiếp tục hệ thống
                     </button>
                 </div>
             </main>
         </div>
 
-        <footer class="bg-gray-900 text-center p-5 text-gray-300 mt-auto">
-            <p class="font-bold text-lg">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
-            <p class="text-base mt-2 text-yellow-400 font-semibold">Bản quyền thuộc về số ĐT chính chủ: 0943930787</p>
+        <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-center p-6 mt-auto border-t-4 border-blue-500 shadow-inner">
+            <p class="font-bold text-lg text-white tracking-wide">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
+            <p class="text-base mt-2 text-yellow-400 font-semibold bg-gray-800/50 inline-block px-4 py-1 rounded-full">Bản quyền thuộc về số ĐT chính chủ: 0943.930.787</p>
         </footer>
     </div>
 
     <!-- PASSWORD MODAL -->
-    <div id="password-modal" class="hidden-element fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4">
-        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Mở khóa nội dung</h3>
-            <p class="text-gray-600 mb-6 text-center">Đề thi này thuộc hệ thống nâng cao. Vui lòng nhập mật khẩu để mở khóa toàn bộ các đề thi tiếp theo.</p>
-            <input type="password" id="password-input" class="w-full border-2 border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 mb-4 text-lg" placeholder="Nhập mật khẩu...">
-            <p id="password-error" class="text-red-500 text-sm mb-4 hidden-element text-center font-bold">Mật khẩu không chính xác!</p>
-            <button onclick="checkPassword()" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 text-lg rounded-lg transition-colors">
-                Xác nhận mở khóa
-            </button>
-            <button onclick="closeModal()" class="w-full mt-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 rounded-lg transition-colors">
-                Hủy
-            </button>
+    <div id="password-modal" class="hidden-element fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex justify-center items-center z-[100] p-4 transition-opacity">
+        <div class="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-10 max-w-md w-full border border-gray-100 transform scale-100 transition-transform relative overflow-hidden">
+            <!-- Hình trang trí góc -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+            
+            <div class="relative z-10">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm border border-blue-100">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-black text-gray-800 mb-3 text-center">Mở khóa nội dung</h3>
+                <p class="text-gray-500 mb-8 text-center text-sm font-medium">Bạn cần nhập mật khẩu học sinh để được cấp quyền làm toàn bộ các đề thi trên hệ thống.</p>
+                <div class="relative mb-6">
+                    <input type="password" id="password-input" class="w-full bg-gray-50 border-2 border-gray-200 px-5 py-4 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all text-lg font-medium text-center" placeholder="Nhập mật khẩu...">
+                </div>
+                <p id="password-error" class="text-red-500 text-sm mb-6 hidden-element text-center font-bold bg-red-50 py-2 rounded-lg border border-red-100 animate-pulse">Mật khẩu không chính xác!</p>
+                <button onclick="checkPassword()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 text-lg rounded-xl shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
+                    Xác nhận mở khóa
+                </button>
+                <button onclick="closeModal()" class="w-full mt-3 bg-white border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 text-gray-600 font-bold py-3 rounded-xl transition-colors">
+                    Hủy bỏ
+                </button>
+            </div>
         </div>
     </div>
 
@@ -202,9 +261,7 @@
         let timeLeft = 50 * 60; // 50 phút
         let isSubmitted = false;
         
-        // Cờ trạng thái đã nhập mật khẩu hay chưa (Mặc định: false)
         let isUnlocked = false; 
-        // Lưu trữ lại hành động dang dở khi bị chặn bởi form mật khẩu
         let pendingAction = null; 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -223,13 +280,17 @@
             [10, 11, 12].forEach(g => {
                 const btn = document.getElementById(`tab-grade-${g}`);
                 if (g === grade) {
-                    btn.classList.replace('bg-blue-700', 'bg-white');
-                    btn.classList.replace('text-white', 'text-blue-800');
-                    btn.classList.remove('hover:bg-blue-600');
+                    btn.classList.replace('bg-blue-800/50', 'bg-gray-50');
+                    btn.classList.replace('text-white', 'text-blue-700');
+                    btn.classList.replace('font-bold', 'font-extrabold');
+                    btn.classList.add('shadow-[0_-4px_10px_rgba(0,0,0,0.1)]');
+                    btn.classList.remove('hover:bg-white/90', 'hover:text-blue-700');
                 } else {
-                    btn.classList.replace('bg-white', 'bg-blue-700');
-                    btn.classList.replace('text-blue-800', 'text-white');
-                    btn.classList.add('hover:bg-blue-600');
+                    btn.classList.replace('bg-gray-50', 'bg-blue-800/50');
+                    btn.classList.replace('text-blue-700', 'text-white');
+                    btn.classList.replace('font-extrabold', 'font-bold');
+                    btn.classList.remove('shadow-[0_-4px_10px_rgba(0,0,0,0.1)]');
+                    btn.classList.add('hover:bg-white/90', 'hover:text-blue-700');
                 }
             });
 
@@ -245,21 +306,24 @@
 
             for (let u = 1; u <= 10; u++) {
                 const unitDiv = document.createElement('div');
-                unitDiv.className = 'border rounded-md overflow-hidden';
+                unitDiv.className = 'border border-gray-100 rounded-xl overflow-hidden transition-all duration-300 bg-gray-50/50 hover:shadow-md';
                 
                 const unitHeader = document.createElement('div');
-                unitHeader.className = 'bg-blue-50 px-3 py-2 font-bold text-blue-900 cursor-pointer flex justify-between items-center hover:bg-blue-100 border-b';
-                unitHeader.innerHTML = `<span>Unit ${u}</span> <span class="text-xs">▼</span>`;
+                unitHeader.className = 'bg-white px-4 py-3 font-extrabold text-blue-900 cursor-pointer flex justify-between items-center transition-colors hover:bg-blue-50';
+                unitHeader.innerHTML = `<span class="flex items-center"><span class="w-1.5 h-4 bg-blue-500 rounded-full mr-2"></span>Unit ${u}</span> <span class="text-[10px] text-gray-400">▼</span>`;
                 unitHeader.onclick = () => toggleUnit(u);
                 
                 const testsContainer = document.createElement('div');
                 testsContainer.id = `unit-${u}-tests`;
-                testsContainer.className = 'hidden-element flex flex-col bg-white';
+                testsContainer.className = 'hidden-element flex flex-col bg-white/50 border-t border-gray-100';
                 
                 for (let t = 1; t <= 10; t++) {
                     const testBtn = document.createElement('button');
-                    testBtn.className = 'text-left px-6 py-2 text-sm text-gray-700 font-medium hover:bg-blue-600 hover:text-white border-b border-gray-100 transition-colors';
-                    testBtn.innerText = `Test ${t}`;
+                    testBtn.className = 'text-left px-8 py-2.5 text-sm font-semibold text-gray-600 hover:bg-blue-100 hover:text-blue-700 border-b border-gray-100/50 transition-colors last:border-b-0 relative group overflow-hidden';
+                    testBtn.innerHTML = `
+                        <span class="relative z-10">Test ${t}</span>
+                        <div class="absolute inset-0 h-full w-0 bg-blue-50/50 z-0 transition-all duration-300 ease-out group-hover:w-full"></div>
+                    `;
                     testBtn.onclick = () => selectTest(u, t);
                     testsContainer.appendChild(testBtn);
                 }
@@ -299,7 +363,7 @@
         }
 
         /* =========================================================================
-           THUẬT TOÁN RENDER BỐ CỤC THÔNG MINH
+           THUẬT TOÁN RENDER BỐ CỤC THÔNG MINH (ĐÃ SỬA LỖI STICKY)
         ========================================================================= */
         function renderTestContent() {
             const container = document.getElementById('questions-container');
@@ -309,12 +373,15 @@
             try { questions = examDatabase[currentGrade][currentUnit][currentTest] || []; } catch(e) {}
 
             if (questions.length === 0) {
-                container.innerHTML = '<p class="text-gray-500 italic font-medium p-4 text-center">Nội dung đề thi này đang được cập nhật...</p>';
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-20 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
+                        <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        <p class="text-gray-500 font-bold text-lg">Nội dung đề thi này đang được cập nhật...</p>
+                    </div>`;
                 document.getElementById('submit-btn').classList.add('hidden-element');
                 return;
             }
 
-            // Phân nhóm câu hỏi theo Instruction
             const groups = [];
             let currentGroup = null;
             
@@ -332,9 +399,7 @@
             let html = '';
 
             groups.forEach((group) => {
-                // Kiểm tra dạng bài dựa trên cấu trúc
                 const isReading = !!group.passage;
-                // Nhận diện bài sắp xếp hội thoại bằng từ khóa tiếng Anh
                 const isArrangement = group.instruction.toLowerCase().includes("arrangement");
 
                 let questionsHtml = '';
@@ -345,10 +410,10 @@
                     
                     q.options.forEach((opt, oIdx) => {
                         optionsHtml += `
-                            <label class="option-label flex items-start space-x-2 p-3 rounded-lg border border-transparent hover:bg-gray-100 transition-colors w-full cursor-pointer">
-                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-5 h-5 text-blue-600 focus:ring-blue-500 cursor-pointer flex-shrink-0">
-                                <span class="flex-grow p-1 rounded-md border border-transparent text-gray-800 text-base" id="span_q_${index}_opt_${oIdx}">
-                                    <strong class="mr-2 text-blue-900 font-bold">${labels[oIdx]}.</strong> ${opt}
+                            <label class="option-label flex items-start space-x-3 p-3.5 rounded-xl border border-gray-100 hover:border-blue-200 transition-all w-full cursor-pointer bg-gray-50/50 hover:bg-blue-50/30 group">
+                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1.5 w-5 h-5 text-blue-600 focus:ring-blue-500 cursor-pointer flex-shrink-0 border-gray-300">
+                                <span class="flex-grow p-1 rounded-md text-gray-700 text-base font-medium transition-colors" id="span_q_${index}_opt_${oIdx}">
+                                    <strong class="mr-2 text-blue-800 font-black inline-block w-6 bg-blue-100/80 rounded text-center group-hover:bg-blue-200">${labels[oIdx]}</strong> ${opt}
                                 </span>
                             </label>
                         `;
@@ -356,58 +421,56 @@
 
                     let qTextHtml = q.text ? q.text.replace(/\n/g, '<br>') : '';
                     
-                    // Style riêng làm NỔI BẬT câu sắp xếp hội thoại
-                    let questionTextClass = "text-gray-900 leading-relaxed font-medium text-lg";
+                    // Style làm nổi bật bài Sắp xếp hội thoại
+                    let questionTextClass = "text-gray-800 leading-relaxed font-semibold text-lg ml-1 md:ml-3 mt-3 border-l-4 border-blue-200 pl-3";
                     if (isArrangement) {
-                        questionTextClass = "text-xl font-bold text-gray-800 leading-relaxed bg-blue-50 p-5 rounded-xl border-2 border-blue-200 shadow-sm mt-3 mb-4 block";
+                        questionTextClass = "text-xl font-extrabold text-blue-900 leading-loose bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-2xl border border-blue-200 shadow-sm mt-4 mb-5 block";
                     }
 
                     questionsHtml += `
-                        <div class="question-box bg-white p-5 md:p-6 rounded-xl border border-gray-200 shadow-sm mb-5" id="qbox_${index}">
+                        <div class="question-box bg-white p-6 md:p-7 rounded-2xl border border-gray-100 shadow-[0_4px_15px_rgba(0,0,0,0.03)] mb-6" id="qbox_${index}">
                             ${qTextHtml ? 
-                                `<div class="mb-4">
-                                    <span class="font-bold text-blue-800 whitespace-nowrap text-xl block mb-2">Question ${index + 1}:</span>
+                                `<div class="mb-5">
+                                    <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 text-xl block mb-2 uppercase tracking-wide">Question ${index + 1}</span>
                                     <div class="${questionTextClass}">${qTextHtml}</div>
                                 </div>` 
-                                : `<div class="mb-3"><span class="font-bold text-blue-800 whitespace-nowrap text-xl">Question ${index + 1}:</span></div>`
+                                : `<div class="mb-4"><span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 text-xl uppercase tracking-wide">Question ${index + 1}</span></div>`
                             }
-                            <!-- Bố cục 2 cột cho các đáp án nếu màn hình đủ lớn -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 mt-4 ml-0 md:ml-4">
+                            <!-- Lưới chia cột đáp án -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mt-5 md:ml-2">
                                 ${optionsHtml}
                             </div>
                         </div>
                     `;
                 });
 
-                // PHÂN NHÁNH RENDER GIAO DIỆN
+                // CHÌA KHÓA FIX STICKY NẰM Ở ĐÂY: `items-start` trên container `.flex-row`
                 if (isReading) {
-                    // LAYOUT 2 CỘT CHO BÀI ĐỌC HIỂU/ĐIỀN TỪ
                     const formattedPassage = group.passage.replace(/\n/g, '<br><br>');
                     html += `
-                        <div class="flex flex-col lg:flex-row gap-8 mb-12 pb-12 border-b-2 border-dashed border-gray-300">
-                            <!-- CỘT TRÁI (BÀI ĐỌC): Rộng 7/12, Cố định vị trí -->
-                            <div class="lg:w-7/12 flex flex-col h-full">
-                                <div class="sticky top-[120px]">
-                                    <div class="font-bold text-white bg-blue-700 uppercase text-sm md:text-base px-5 py-3 rounded-t-xl shadow">
-                                        ${group.instruction}
-                                    </div>
-                                    <div class="reading-passage bg-blue-50/40 border-2 border-blue-200 border-t-0 p-6 md:p-8 rounded-b-xl text-gray-900 text-justify leading-relaxed text-lg md:text-xl shadow-inner overflow-y-auto custom-scrollbar max-h-[75vh]">
-                                        ${formattedPassage}
-                                    </div>
+                        <div class="flex flex-col lg:flex-row gap-8 mb-16 pb-16 border-b-2 border-dashed border-gray-200 items-start">
+                            
+                            <!-- CỘT TRÁI (BÀI ĐỌC): Flex item trở thành sticky, giới hạn chiều cao max-h -->
+                            <div class="lg:w-7/12 sticky top-[100px] z-10 transition-all duration-300 w-full self-start">
+                                <div class="font-black text-white bg-gradient-to-r from-indigo-600 to-blue-600 uppercase text-sm md:text-base px-6 py-4 rounded-t-2xl shadow-lg">
+                                    ${group.instruction}
+                                </div>
+                                <div class="reading-passage bg-[#fbfdf8] border-x border-b border-gray-200 p-6 md:p-10 rounded-b-2xl text-gray-800 text-justify leading-loose text-lg md:text-xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-y-auto custom-scrollbar" style="max-height: calc(100vh - 150px);">
+                                    ${formattedPassage}
                                 </div>
                             </div>
                             
-                            <!-- CỘT PHẢI (CÂU HỎI): Rộng 5/12 -->
-                            <div class="lg:w-5/12">
+                            <!-- CỘT PHẢI (CÂU HỎI) -->
+                            <div class="lg:w-5/12 w-full mt-6 lg:mt-0">
                                 ${questionsHtml}
                             </div>
                         </div>
                     `;
                 } else {
-                    // LAYOUT 1 CỘT RỘNG CHO CÁC PHẦN KHÁC (Sắp xếp, Trắc nghiệm đơn)
+                    // CỘT RỘNG CHO CÁC BÀI KHÁC
                     html += `
-                        <div class="mb-12 pb-12 border-b-2 border-dashed border-gray-300">
-                            <div class="font-bold text-blue-900 uppercase text-base md:text-lg leading-relaxed tracking-wide border-l-4 border-blue-600 pl-4 mb-6">
+                        <div class="mb-14 pb-14 border-b-2 border-dashed border-gray-200">
+                            <div class="font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-600 uppercase text-base md:text-lg leading-relaxed tracking-wide border-l-[6px] border-blue-500 pl-4 mb-8">
                                 ${group.instruction}
                             </div>
                             <div class="w-full">
@@ -438,7 +501,7 @@
                 document.querySelectorAll(`input[name="q_${index}"]`).forEach(input => input.disabled = true);
 
                 const correctSpan = document.getElementById(`span_q_${index}_opt_${correctAnsIdx}`);
-                if(correctSpan) correctSpan.classList.add('correct-ans');
+                if(correctSpan) correctSpan.classList.add('correct-ans', 'font-black');
 
                 if (selected) {
                     const selectedIdx = parseInt(selected.value);
@@ -453,10 +516,9 @@
 
             document.getElementById('score-display').innerText = `${correctCount}/${questions.length}`;
             document.getElementById('result-screen').classList.remove('hidden-element');
-            window.scrollTo({ top: document.getElementById('result-screen').offsetTop, behavior: 'smooth' });
+            window.scrollTo({ top: document.getElementById('result-screen').offsetTop - 50, behavior: 'smooth' });
         }
 
-        // Đồng hồ đếm ngược
         function startTimer() {
             timerInterval = setInterval(() => {
                 if(timeLeft <= 0) { clearInterval(timerInterval); submitTest(); return; }
@@ -469,15 +531,13 @@
         function resetTimer() { clearInterval(timerInterval); timeLeft = 50 * 60; document.getElementById('timer-display').innerText = `50:00`; }
 
         /* =========================================================================
-           SECURITY LOGIC - BẢO MẬT & MỞ KHÓA
+           SECURITY LOGIC - MỞ KHÓA MỀM (KHÔNG BLOCK MÀN HÌNH)
         ========================================================================= */
         function continueAfterResult() { 
             if (!isUnlocked) {
-                // Nếu chưa mở khóa thì hiện popup nhắc nhập pass
                 pendingAction = null;
                 showPasswordModal(); 
             } else {
-                // Đã mở khóa rồi thì quay về màn hình chờ
                 document.getElementById('test-screen').classList.add('hidden-element');
                 document.getElementById('result-screen').classList.add('hidden-element');
                 document.getElementById('welcome-screen').classList.remove('hidden-element');
@@ -500,26 +560,22 @@
         function checkPassword() {
             const pwd = document.getElementById('password-input').value.trim();
             if (pwd === "tienhuong28011981") {
-                // Nhập đúng mật khẩu
                 isUnlocked = true;
                 document.getElementById('password-modal').classList.add('hidden-element');
                 alert("Mật khẩu chính xác! Bạn đã được cấp quyền làm toàn bộ kho đề thi.");
                 
-                // Thực thi lại hành động đang bị dở dang (ví dụ click vào Unit 2)
                 if (pendingAction) {
                     if (pendingAction.type === 'grade') selectGrade(pendingAction.val);
                     else if (pendingAction.type === 'unit') toggleUnit(pendingAction.val);
                     else if (pendingAction.type === 'test') selectTest(pendingAction.unit, pendingAction.test);
                     pendingAction = null;
                 } else {
-                    // Nếu ấn từ nút "Tiếp tục hệ thống"
                     document.getElementById('test-screen').classList.add('hidden-element');
                     document.getElementById('result-screen').classList.add('hidden-element');
                     document.getElementById('welcome-screen').classList.remove('hidden-element');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             } else {
-                // Sai mật khẩu
                 document.getElementById('password-error').classList.remove('hidden-element');
             }
         }
