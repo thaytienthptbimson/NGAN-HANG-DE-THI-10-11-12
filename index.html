@@ -3,183 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGÂN HÀNG ĐỀ THI TIẾNG ANH 10-11-12 (FORMAT 2026)</title>
+    <title>NGÂN HÀNG ĐỀ THI TIẾNG ANH 10-11-12</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { 
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f0f4f8; /* Màu nền xám xanh dịu nhẹ */
+            background-color: #f4f7f9; 
         }
         .hidden-element { display: none !important; }
         
-        /* Hiệu ứng mượt mà cho các khối */
-        .question-box { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .question-box:hover { transform: translateY(-2px); box-shadow: 0 12px 20px -5px rgba(59, 130, 246, 0.15); }
+        /* Hiệu ứng tương tác mượt mà */
+        .question-box { transition: all 0.2s ease-in-out; }
+        .question-box:hover { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1); border-color: #bfdbfe; }
         
-        /* Chỉnh style cho thẻ chứa đáp án */
         .option-label { cursor: pointer; transition: all 0.2s; }
         .option-label:hover span { background-color: #f8fafc; border-color: #cbd5e1; }
         
-        /* Hiệu ứng khi được chọn - Bóng bẩy, nổi bật */
+        /* Đáp án khi được chọn */
         .option-label input:checked + span { 
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            background: linear-gradient(to right, #eff6ff, #dbeafe);
             border-color: #3b82f6; 
             color: #1e40af;
-            font-weight: 700;
-            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
-            transform: scale(1.01);
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
         }
         
-        /* Đáp án đúng/sai khi nộp bài */
-        .correct-ans { 
-            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%) !important; 
-            border-color: #22c55e !important; 
-            color: #166534 !important;
-            box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3) !important;
-        }
-        .wrong-ans { 
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%) !important; 
-            border-color: #ef4444 !important; 
-            color: #991b1b !important;
-        }
+        /* Đáp án đúng/sai */
+        .correct-ans { background: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .wrong-ans { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
         
         .reading-passage { font-family: 'Times New Roman', Times, serif; }
         
-        /* Tùy chỉnh thanh cuộn siêu mượt, hiện đại */
-        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #93c5fd, #60a5fa); border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: linear-gradient(to bottom, #60a5fa, #3b82f6); }
+        /* Thanh cuộn siêu mỏng hiện đại */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
         
-        /* Nền header bóng bẩy */
+        /* Header mỏng bóng bẩy */
         .glass-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+            background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #1e3a8a 100%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col text-gray-800">
 
-    <!-- MAIN APP CONTAINER -->
-    <div id="app-container" class="flex-grow flex flex-col">
-        <!-- Header -->
-        <header class="glass-header text-white sticky top-0 z-30">
-            <div class="max-w-[1400px] mx-auto px-4 py-5 relative flex items-center justify-center">
-                <h1 class="text-2xl md:text-3xl font-extrabold uppercase text-center w-full truncate px-24 tracking-wide drop-shadow-md">
-                    Ngân hàng đề thi Tiếng Anh 2026
-                </h1>
-                <div class="text-xl md:text-2xl font-black bg-white/20 backdrop-blur-md px-5 py-2 rounded-xl border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.3)] absolute right-4 tracking-wider" id="timer-display">
-                    50:00
-                </div>
+    <!-- HEADER SIÊU GỌN (Tất cả chung 1 hàng) -->
+    <header class="glass-header text-white sticky top-0 z-40 h-[56px] flex items-center">
+        <div class="max-w-[1500px] w-full mx-auto px-4 flex justify-between items-center">
+            
+            <!-- Tabs Lớp học (Thu gọn) -->
+            <div class="flex space-x-1">
+                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-5 py-1.5 bg-gray-50 text-blue-800 font-bold rounded-md shadow-sm text-sm transition-colors">Lớp 10</button>
+                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-5 py-1.5 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-sm transition-colors">Lớp 11</button>
+                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-5 py-1.5 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-sm transition-colors">Lớp 12</button>
             </div>
             
-            <!-- Grade Tabs - Dạng vây cá mập bo tròn -->
-            <div class="max-w-[1400px] mx-auto px-4 flex space-x-2 mt-2 overflow-x-auto">
-                <button onclick="selectGrade(10)" id="tab-grade-10" class="px-8 py-3 bg-gray-50 text-blue-700 font-extrabold rounded-t-2xl shadow-[0_-4px_10px_rgba(0,0,0,0.1)] transition-all">Lớp 10</button>
-                <button onclick="selectGrade(11)" id="tab-grade-11" class="px-8 py-3 bg-blue-800/50 hover:bg-white/90 hover:text-blue-700 text-white font-bold rounded-t-2xl transition-all">Lớp 11</button>
-                <button onclick="selectGrade(12)" id="tab-grade-12" class="px-8 py-3 bg-blue-800/50 hover:bg-white/90 hover:text-blue-700 text-white font-bold rounded-t-2xl transition-all">Lớp 12</button>
-            </div>
-        </header>
-
-        <!-- Main Layout (Sidebar + Content) -->
-        <div class="max-w-[1400px] mx-auto w-full flex-grow flex flex-col lg:flex-row p-4 md:p-6 gap-8 items-start">
+            <!-- Tiêu đề chính -->
+            <h1 class="text-sm md:text-lg lg:text-xl font-bold uppercase tracking-wider hidden sm:block truncate px-4 drop-shadow-md">
+                Ngân hàng đề thi Tiếng Anh 2026
+            </h1>
             
-            <!-- Sidebar (Thu nhỏ và Fix kích thước) -->
-            <aside class="w-full lg:w-[280px] flex-shrink-0 bg-white rounded-3xl shadow-xl shadow-blue-900/5 p-5 border border-gray-100 lg:sticky lg:top-[140px] z-20">
-                <h2 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 mb-5 border-b-2 border-gray-100 pb-3 flex items-center">
-                    <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
-                    Danh sách bài thi
-                </h2>
-                <div id="units-container" class="space-y-3 max-h-[60vh] overflow-y-auto custom-scrollbar pr-2">
-                    <!-- Được sinh bằng JS -->
-                </div>
-            </aside>
+            <!-- Đồng hồ -->
+            <div class="text-base md:text-lg font-black bg-white/20 backdrop-blur-md px-4 py-1 rounded border border-white/30 shadow-inner flex-shrink-0 tracking-widest" id="timer-display">
+                50:00
+            </div>
+        </div>
+    </header>
 
-            <!-- Main Content Area -->
-            <main class="w-full flex-grow min-w-0 bg-white rounded-3xl shadow-xl shadow-blue-900/5 p-5 md:p-10 border border-gray-100 relative">
+    <!-- MAIN LAYOUT -->
+    <div class="max-w-[1500px] mx-auto w-full flex-grow flex flex-col md:flex-row p-3 gap-4 items-start">
+        
+        <!-- SIDEBAR (Menu Unit & Test) -->
+        <aside class="w-full md:w-[240px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-gray-200 md:sticky md:top-[70px] z-20 overflow-hidden">
+            <h2 class="text-base font-bold text-blue-900 bg-blue-50/50 p-3 border-b border-gray-200 flex items-center">
+                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                Danh sách bài thi
+            </h2>
+            <div id="units-container" class="max-h-[calc(100vh-140px)] overflow-y-auto custom-scrollbar bg-gray-50/30">
+                <!-- Được sinh bằng JS -->
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT (Khung làm bài) -->
+        <main class="w-full flex-grow min-w-0 bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 relative">
+            
+            <div id="welcome-screen" class="text-center py-16">
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-50 mb-4 border border-blue-100">
+                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
+                <p class="text-gray-500 font-medium">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
+            </div>
+
+            <div id="test-screen" class="hidden-element">
+                <div class="flex justify-between items-end border-b border-gray-200 pb-3 mb-5">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-blue-800" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
+                        <p class="text-sm text-indigo-600 mt-1 font-semibold">Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026</p>
+                    </div>
+                </div>
                 
-                <div id="welcome-screen" class="text-center py-20">
-                    <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-blue-100 to-indigo-50 mb-6 shadow-inner">
-                        <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-black text-gray-800 mb-4">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
-                    <p class="text-lg text-gray-500 font-medium">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu bài làm.</p>
+                <!-- Khung chứa bài thi -->
+                <div id="questions-container" class="space-y-6">
+                    <!-- Sinh bằng JS -->
                 </div>
 
-                <div id="test-screen" class="hidden-element">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b-2 border-gray-100 pb-6 mb-8 gap-4">
-                        <div>
-                            <h2 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-purple-600" id="current-test-title">Lớp 10 - Unit 1 - Test 1</h2>
-                            <p class="text-base text-indigo-500 mt-2 font-bold flex items-center">
-                                <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-                                Định dạng đề thi Tốt nghiệp THPT môn Tiếng Anh năm 2026
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Khung chứa toàn bộ bài thi -->
-                    <div id="questions-container" class="space-y-10">
-                        <!-- Code render câu hỏi nằm ở đây -->
-                    </div>
-
-                    <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-200 flex justify-center">
-                        <button onclick="submitTest()" id="submit-btn" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-4 px-16 text-xl rounded-2xl shadow-[0_10px_20px_rgba(79,70,229,0.3)] transition-all transform hover:-translate-y-1">
-                            NỘP BÀI & XEM ĐIỂM
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Result Screen -->
-                <div id="result-screen" class="hidden-element text-center py-16">
-                    <div class="inline-flex items-center justify-center w-28 h-28 rounded-full bg-green-100 mb-6 shadow-inner">
-                        <svg class="w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                    <h2 class="text-4xl font-black text-gray-800 mb-4">Hoàn thành bài thi!</h2>
-                    <div class="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 my-8 drop-shadow-sm" id="score-display">10/10</div>
-                    <p class="text-lg text-gray-500 mb-10 font-medium">Bạn có thể cuộn lên trên để xem lại đáp án chi tiết của từng câu hỏi.</p>
-                    <button onclick="continueAfterResult()" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold py-3 px-10 text-lg rounded-xl shadow-lg transition-transform transform hover:-translate-y-1">
-                        Tiếp tục hệ thống
+                <div class="mt-8 pt-6 border-t border-gray-200 flex justify-center">
+                    <button onclick="submitTest()" id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 text-lg rounded-lg shadow-md transition-all">
+                        NỘP BÀI & XEM ĐIỂM
                     </button>
                 </div>
-            </main>
-        </div>
+            </div>
 
-        <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-center p-6 mt-auto border-t-4 border-blue-500 shadow-inner">
-            <p class="font-bold text-lg text-white tracking-wide">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
-            <p class="text-base mt-2 text-yellow-400 font-semibold bg-gray-800/50 inline-block px-4 py-1 rounded-full">Bản quyền thuộc về số ĐT chính chủ: 0943.930.787</p>
-        </footer>
-    </div>
-
-    <!-- PASSWORD MODAL -->
-    <div id="password-modal" class="hidden-element fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex justify-center items-center z-[100] p-4 transition-opacity">
-        <div class="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-10 max-w-md w-full border border-gray-100 transform scale-100 transition-transform relative overflow-hidden">
-            <!-- Hình trang trí góc -->
-            <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
-            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
-            
-            <div class="relative z-10">
-                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm border border-blue-100">
-                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
-                </div>
-                <h3 class="text-2xl font-black text-gray-800 mb-3 text-center">Mở khóa nội dung</h3>
-                <p class="text-gray-500 mb-8 text-center text-sm font-medium">Bạn cần nhập mật khẩu học sinh để được cấp quyền làm toàn bộ các đề thi trên hệ thống.</p>
-                <div class="relative mb-6">
-                    <input type="password" id="password-input" class="w-full bg-gray-50 border-2 border-gray-200 px-5 py-4 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all text-lg font-medium text-center" placeholder="Nhập mật khẩu...">
-                </div>
-                <p id="password-error" class="text-red-500 text-sm mb-6 hidden-element text-center font-bold bg-red-50 py-2 rounded-lg border border-red-100 animate-pulse">Mật khẩu không chính xác!</p>
-                <button onclick="checkPassword()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 text-lg rounded-xl shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
-                    Xác nhận mở khóa
-                </button>
-                <button onclick="closeModal()" class="w-full mt-3 bg-white border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 text-gray-600 font-bold py-3 rounded-xl transition-colors">
-                    Hủy bỏ
+            <!-- Màn hình kết quả -->
+            <div id="result-screen" class="hidden-element text-center py-10">
+                <h2 class="text-3xl font-bold text-green-600 mb-2">Hoàn thành bài thi!</h2>
+                <div class="text-6xl font-black text-blue-700 my-6" id="score-display">10/10</div>
+                <p class="text-gray-600 mb-8 font-medium">Bạn có thể cuộn lên trên để xem lại chi tiết đáp án.</p>
+                <button onclick="continueAfterResult()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-8 rounded-lg shadow">
+                    Tiếp tục hệ thống
                 </button>
             </div>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-center py-4 mt-auto border-t-2 border-blue-500 shadow-inner">
+        <p class="font-bold text-white text-sm">Hệ thống Ngân hàng Đề thi Tiếng Anh THPT - Định dạng 2026</p>
+        <p class="text-sm mt-1 text-yellow-400 font-semibold">Bản quyền thuộc về số ĐT chính chủ: 0943930787</p>
+    </footer>
+
+    <!-- PASSWORD MODAL (Mở khóa mềm) -->
+    <div id="password-modal" class="hidden-element fixed inset-0 bg-gray-900/70 backdrop-blur-sm flex justify-center items-center z-[100] p-4">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full border border-gray-100 relative">
+            <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Mở khóa nội dung</h3>
+            <p class="text-gray-500 mb-6 text-center text-sm">Nhập mật khẩu học sinh để làm toàn bộ các đề thi tiếp theo.</p>
+            <input type="password" id="password-input" class="w-full bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 transition-all text-center mb-2 font-medium" placeholder="Mật khẩu...">
+            <p id="password-error" class="text-red-500 text-xs mb-4 hidden-element text-center font-bold">Mật khẩu không chính xác!</p>
+            <button onclick="checkPassword()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg shadow-sm mt-2 transition-all">
+                Xác nhận
+            </button>
+            <button onclick="closeModal()" class="w-full mt-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg transition-colors text-sm">
+                Hủy
+            </button>
         </div>
     </div>
 
     <script>
         /* =========================================================================
-           DATABASE ĐỀ THI - FORMAT 2026
+           DATABASE ĐỀ THI - FORMAT 2026 (Giữ nguyên)
         ========================================================================= */
         const ins1 = "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.";
         const ins2 = "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a cohesive and coherent exchange or text in each of the following questions from 7 to 11.";
@@ -191,9 +165,8 @@
         const examDatabase = {
             10: { 
                 1: { 
-                    1: [ // TEST 1 - LỚP 10 - UNIT 1
-                        { instruction: ins1, passage: "GREEN HANDS CAMPAIGN\n\nThe School Youth Union is officially launching the \"Green Hands\" eco-friendly campaign. We invite every student to participate in this vital project. If everyone (1)______ together, we will make a difference at our school. The primary goal is to expand students' (2)______ of plastic pollution. To achieve this, the school will have colour-coded bins (3)______ in the schoolyard. Also, waste-disposal workshops will be held to teach students to (4)______ out plastics properly. These sessions ensure resources are reused effectively. We aim to (5)______ sustainable habits through consistent daily activities. We firmly believe that small individual efforts will turn into long-lasting changes. Volunteers will help remove plastics from every corner of the schoolyard. Please sign up online. Your (6)______ is essential for success. Don't miss out – join hands with us today!",
-                          text: "", options: ["work", "worked", "have worked", "works"], answer: 3 },
+                    1: [
+                        { instruction: ins1, passage: "GREEN HANDS CAMPAIGN\n\nThe School Youth Union is officially launching the \"Green Hands\" eco-friendly campaign. We invite every student to participate in this vital project. If everyone (1)______ together, we will make a difference at our school. The primary goal is to expand students' (2)______ of plastic pollution. To achieve this, the school will have colour-coded bins (3)______ in the schoolyard. Also, waste-disposal workshops will be held to teach students to (4)______ out plastics properly. These sessions ensure resources are reused effectively. We aim to (5)______ sustainable habits through consistent daily activities. We firmly believe that small individual efforts will turn into long-lasting changes. Volunteers will help remove plastics from every corner of the schoolyard. Please sign up online. Your (6)______ is essential for success. Don't miss out – join hands with us today!", text: "", options: ["work", "worked", "have worked", "works"], answer: 3 },
                         { instruction: ins1, text: "", options: ["focus", "attention", "emphasis", "knowledge"], answer: 3 },
                         { instruction: ins1, text: "", options: ["install", "being installed", "installed", "installing"], answer: 2 },
                         { instruction: ins1, text: "", options: ["catch", "check", "fill", "sort"], answer: 3 },
@@ -206,15 +179,13 @@
                         { instruction: ins2, text: "a. Celine: Why do you say so?\nb. Celine: I've been considering taking a gap year. What's your view?\nc. Celine: Thanks. I'll think about it.\nd. Steward: The thing is, your studies won't be interrupted.\ne. Steward: If I were you, I would go to university right after graduating from high school.", options: ["b - e - a - d - c", "b - d - a - e - c", "a - d - b - e - c", "a - e - b - d - c"], answer: 0 },
                         { instruction: ins2, text: "a. Early data from the first quarter revealed a fifteen percent reduction in peak-hour delays and noticeably cleaner air across central wards.\nb. Motorists entering the central zone had to pay a fee, with the generated revenue allocated for cycle lanes and bus routes.\nc. Years of unchecked expansion of private vehicle ownership had rendered the commute in Stoneville the slowest in the region.\nd. The encouraging outcomes suggested that the scheme would be expanded to other districts.\ne. The city authorities implemented a simple yet controversial intervention: charging a congestion fee.", options: ["b - a - d - e - c", "c - e - b - a - d", "e - b - d - c - a", "a - e - d - c - b"], answer: 1 },
 
-                        { instruction: ins3, passage: "Among the many paradoxes surrounding money, one deserves particular attention: the wealth that truly counts is precisely the wealth you cannot observe. When a sleek Lamborghini glides past, it is normal _______(12). Closer inspection often tells a different story. A large number of those who drive luxury vehicles are, in fact, only modest earners ________(13) to the privilege of being seen in such a car. It is uncertain to say whether someone driving a car worth one hundred thousand pounds is affluent. Yet the certain thing is that they have one hundred thousand pounds less than they did before they got the car, or one hundred thousand pounds more in debt. (14)______.\n\nWe tend to judge wealth by what we see as visible details are the only evidence we have access to. Nobody walks around displaying a printout of their savings, (15)______ – handbags, holiday villas, posts on social networks – to decide who is prospering. Contemporary marketing has fed this habit, packaging the illusion of success as a saleable product. (16)______. It hides in the upgrade declined, the jewellery left in the display case, the watch never bought, the wardrobe never expanded and the business-class seat politely waved away.\n\nIn short, wealth is whatever money has not yet been swapped for tangible goods. That is why distinguishing wealthy from rich deserves careful thought; mistaking one for the other has quietly ruined many a budget.",
-                          text: "", options: ["for concluding that the person must be doing well behind the wheel", "a good conclusion about whoever sits behind the wheel must be", "a good conclusion about the wheel behind which the person must sit", "to conclude that whoever sits behind the wheel must be doing well"], answer: 3 },
+                        { instruction: ins3, passage: "Among the many paradoxes surrounding money, one deserves particular attention: the wealth that truly counts is precisely the wealth you cannot observe. When a sleek Lamborghini glides past, it is normal _______(12). Closer inspection often tells a different story. A large number of those who drive luxury vehicles are, in fact, only modest earners ________(13) to the privilege of being seen in such a car. It is uncertain to say whether someone driving a car worth one hundred thousand pounds is affluent. Yet the certain thing is that they have one hundred thousand pounds less than they did before they got the car, or one hundred thousand pounds more in debt. (14)______.\n\nWe tend to judge wealth by what we see as visible details are the only evidence we have access to. Nobody walks around displaying a printout of their savings, (15)______ – handbags, holiday villas, posts on social networks – to decide who is prospering. Contemporary marketing has fed this habit, packaging the illusion of success as a saleable product. (16)______. It hides in the upgrade declined, the jewellery left in the display case, the watch never bought, the wardrobe never expanded and the business-class seat politely waved away.\n\nIn short, wealth is whatever money has not yet been swapped for tangible goods. That is why distinguishing wealthy from rich deserves careful thought; mistaking one for the other has quietly ruined many a budget.", text: "", options: ["for concluding that the person must be doing well behind the wheel", "a good conclusion about whoever sits behind the wheel must be", "a good conclusion about the wheel behind which the person must sit", "to conclude that whoever sits behind the wheel must be doing well"], answer: 3 },
                         { instruction: ins3, text: "", options: ["who have committed a disproportionate share of their monthly pay", "a disproportionate share of whose monthly pay is committed", "whose monthly pay is disproportionately committed to sharing", "who are committed to sharing their monthly pay disproportionately"], answer: 0 },
                         { instruction: ins3, text: "", options: ["You know that it is beyond nothing at all", "Beyond your knowledge, that is nothing", "Beyond that, you know nothing at all", "Beyond that, nothing is unknown to you"], answer: 2 },
                         { instruction: ins3, text: "", options: ["so we instead rely on their outward appearances", "instead they rely on the appearances on the outside", "instead of their reliable outward appearances", "yet they appear reliable on the outside instead"], answer: 0 },
                         { instruction: ins3, text: "", options: ["Indeed, wealth in reality is advertised as the refusal of authenticity itself", "However, the reality is that authentic wealth refuses to advertise itself", "Real wealth itself, in reality, is advertised to refuse to be authentic", "Authentic advertisements are, therefore, the refusal of real wealth itself"], answer: 1 },
 
-                        { instruction: ins4, passage: "It is important to stress that environmental services have costs, even when they are produced without any human input. All costs ought to be measured as opportunity costs. The opportunity cost for environmental services is the net benefit forgone because the resources providing the service can no longer be used in the next most beneficial way. Resources are not free if they can be put to alternative uses.\n\nConsider a stretch of river that can be used either for white-water canoeing or for electric power generation. Because the dam that generates the power would flood the rapids, the two uses are incompatible. The opportunity cost of saving the river for white-water canoeing is the net benefit taken out – after accounting for the cost of generation and distribution – for electricity. Conversely, the opportunity cost of building the dam is everything the unspoiled river would have produced: the recreation, the wildlife, the scenery, and whatever value future generations might place upon experiencing the rapids themselves.\n\nThis insight has far-reaching implications for development policy. [I] Many decisions that appear at first to be costless choices in favour of growth turn out, on closer inspection, to be choices against something else. [II] Cutting down a forest for cropland is not free; it is paid for in carbon storage, biodiversity, and the regulating services the forest performed silently. [III] Diverting a river to irrigate fields is not free; the price is whatever the river was doing before the diversion. [IV] Even leaving land untouched is not free, for the income that intensive use might have generated is traded off as well.\n\nEconomic development, in this view, is never simply a question of whether a project yields a positive return. It is a question of whether the return exceeds the value of what must be relinquished. Policies that recognise this – by attaching prices to scarce environmental services, or by requiring decision-makers to weigh both sides of the account – do not stand against development. They insist that the development chosen be worth what it truly costs. The danger lies not in counting too much, but in counting too little.",
-                          text: "The word forgone in paragraph 1 is closest in meaning to ______.", options: ["given up", "ended up", "filled up", "made up"], answer: 0 },
+                        { instruction: ins4, passage: "It is important to stress that environmental services have costs, even when they are produced without any human input. All costs ought to be measured as opportunity costs. The opportunity cost for environmental services is the net benefit forgone because the resources providing the service can no longer be used in the next most beneficial way. Resources are not free if they can be put to alternative uses.\n\nConsider a stretch of river that can be used either for white-water canoeing or for electric power generation. Because the dam that generates the power would flood the rapids, the two uses are incompatible. The opportunity cost of saving the river for white-water canoeing is the net benefit taken out – after accounting for the cost of generation and distribution – for electricity. Conversely, the opportunity cost of building the dam is everything the unspoiled river would have produced: the recreation, the wildlife, the scenery, and whatever value future generations might place upon experiencing the rapids themselves.\n\nThis insight has far-reaching implications for development policy. [I] Many decisions that appear at first to be costless choices in favour of growth turn out, on closer inspection, to be choices against something else. [II] Cutting down a forest for cropland is not free; it is paid for in carbon storage, biodiversity, and the regulating services the forest performed silently. [III] Diverting a river to irrigate fields is not free; the price is whatever the river was doing before the diversion. [IV] Even leaving land untouched is not free, for the income that intensive use might have generated is traded off as well.\n\nEconomic development, in this view, is never simply a question of whether a project yields a positive return. It is a question of whether the return exceeds the value of what must be relinquished. Policies that recognise this – by attaching prices to scarce environmental services, or by requiring decision-makers to weigh both sides of the account – do not stand against development. They insist that the development chosen be worth what it truly costs. The danger lies not in counting too much, but in counting too little.", text: "The word forgone in paragraph 1 is closest in meaning to ______.", options: ["given up", "ended up", "filled up", "made up"], answer: 0 },
                         { instruction: ins4, text: "According to paragraph 1, the costs of environmental services are ______.", options: ["calculated based on the direct financial input provided for natural resources", "determined by the market value of the natural resources themselves", "insignificant as these services require almost no human labour to produce", "present whether or not human effort is involved in creating these services"], answer: 3 },
                         { instruction: ins4, text: "Which of the following is NOT implied in paragraph 2?", options: ["Hydroelectric generation and white-water canoeing cannot coexist on the same stretch of river.", "The opportunity cost of the dam construction includes intangible benefits that are sacrificed.", "Recreational activities and power generation impose equal environmental burdens on the river.", "The intrinsic value attached to the river may extend beyond its potential use for hydroelectric generation."], answer: 2 },
                         { instruction: ins4, text: "Where in paragraph 3 does the following sentence best fit?\n\"Such hidden costs become apparent only when one pauses to consider what nature was quietly doing on its own.\"", options: ["[III]", "[II]", "[IV]", "[I]"], answer: 1 },
@@ -225,16 +196,14 @@
                         { instruction: ins4, text: "Which of the following can be inferred from the passage?", options: ["Policies that price environmental services are intended to restrict the scope of economic development.", "The benefits of industrial development generally exceed the value of preserved environmental services.", "Projects are forced to compensate for the economic losses in return for environmental preservation.", "The net gains produced by development projects overlooking opportunity costs tend to be overestimated."], answer: 3 },
                         { instruction: ins4, text: "Which of the following would be the best title for the passage?", options: ["Environmental Policies in the Firing Line", "Natural Preservation: Ushering in a New Era", "Development: Factoring in Sacrifices", "Economic Development on the Line"], answer: 2 },
 
-                        { instruction: ins5, passage: "SUMMER PART-TIME JOBS FOR UNDERGRADUATES\n\nTechworld Magazine is delighted to announce two IT assistant vacancies up for (27)______ this summer. The better understanding of STEM you have, (28)______ likely you are to be selected! Successful applicants will get plenty of hands-on experience, good pay, and access to the local STEM community. (29)______, we offer flexible working hours and remote options for those living far away. On top of that, (30)______ position requires previous experience as new recruits are provided with in-service training sessions. Applications (31)______ be submitted to us at info@techworldmagazine.com by 30 June. Never before has there been such a(n) (32)______ opportunity to kick-start your career in STEM. Don't let this chance slip through your fingers – apply today!",
-                          text: "", options: ["grasp", "gift", "grips", "grabs"], answer: 3 },
+                        { instruction: ins5, passage: "SUMMER PART-TIME JOBS FOR UNDERGRADUATES\n\nTechworld Magazine is delighted to announce two IT assistant vacancies up for (27)______ this summer. The better understanding of STEM you have, (28)______ likely you are to be selected! Successful applicants will get plenty of hands-on experience, good pay, and access to the local STEM community. (29)______, we offer flexible working hours and remote options for those living far away. On top of that, (30)______ position requires previous experience as new recruits are provided with in-service training sessions. Applications (31)______ be submitted to us at info@techworldmagazine.com by 30 June. Never before has there been such a(n) (32)______ opportunity to kick-start your career in STEM. Don't let this chance slip through your fingers – apply today!", text: "", options: ["grasp", "gift", "grips", "grabs"], answer: 3 },
                         { instruction: ins5, text: "", options: ["the most", "most", "more", "the more"], answer: 3 },
                         { instruction: ins5, text: "", options: ["Additionally", "Consequently", "Subsequently", "Finally"], answer: 0 },
                         { instruction: ins5, text: "", options: ["neither", "both", "none", "either"], answer: 0 },
                         { instruction: ins5, text: "", options: ["ought", "should", "ought not", "should not"], answer: 1 },
                         { instruction: ins5, text: "", options: ["lively", "active", "golden", "private"], answer: 2 },
 
-                        { instruction: ins6, passage: "For decades, students have been convinced that academic success is largely dependent upon meticulous notetaking. What has changed in recent years is not the importance of the practice but the tools used to perform it. The keyboard has subtly supplanted the pen, and with it, the nature of how information is recorded during a lecture has shifted unbeknownst to students.\n\nResearchers in cognitive psychology have begun to examine what this change has cost learners. In a series of comparative studies, students taking notes by hand consistently outperformed those using laptops on questions that demanded conceptual understanding, even when both groups had access to the same material. The reason, according to the researchers, lies less in the technology itself than in what each method asks of the brain. Typing rewards speed; handwriting forces selection.\n\nThe act of writing by hand is slower, and that slowness appears to be its hidden virtue. Unable to capture every word, students are obliged to listen, decide what matters and condense ideas into their own phrasing. This continuous filtering, referred to as encoding by psychologists, turns out to be instrumental in aiding long-term recall. One lecturer summarised the striking contrast after reviewing her students' work: the laptops, she said, had produced transcripts, while the notebooks had produced understanding.\n\nIt would be misleading, of course, to claim that handwriting is inherently superior or that all keyboards undermine learning. Hard-working typists can summarise, while indolent writers can drift. What the research highlights is not a conclusion on devices but a question about effort: which tool, in a given context, asks more of the learner. As a ban on students' use of laptops in classrooms remains a bone of contention among tertiary institutions, the deeper challenge may be helping students recognise that what feels easier in the moment is not always what serves them best afterwards.",
-                          text: "In paragraph 1, the writer is ______.", options: ["introducing a recent change in the way students take notes", "challenging a long-held assumption about academic success", "promoting the use of technology in recording lectures", "questioning the significance of notetaking in education"], answer: 0 },
+                        { instruction: ins6, passage: "For decades, students have been convinced that academic success is largely dependent upon meticulous notetaking. What has changed in recent years is not the importance of the practice but the tools used to perform it. The keyboard has subtly supplanted the pen, and with it, the nature of how information is recorded during a lecture has shifted unbeknownst to students.\n\nResearchers in cognitive psychology have begun to examine what this change has cost learners. In a series of comparative studies, students taking notes by hand consistently outperformed those using laptops on questions that demanded conceptual understanding, even when both groups had access to the same material. The reason, according to the researchers, lies less in the technology itself than in what each method asks of the brain. Typing rewards speed; handwriting forces selection.\n\nThe act of writing by hand is slower, and that slowness appears to be its hidden virtue. Unable to capture every word, students are obliged to listen, decide what matters and condense ideas into their own phrasing. This continuous filtering, referred to as encoding by psychologists, turns out to be instrumental in aiding long-term recall. One lecturer summarised the striking contrast after reviewing her students' work: the laptops, she said, had produced transcripts, while the notebooks had produced understanding.\n\nIt would be misleading, of course, to claim that handwriting is inherently superior or that all keyboards undermine learning. Hard-working typists can summarise, while indolent writers can drift. What the research highlights is not a conclusion on devices but a question about effort: which tool, in a given context, asks more of the learner. As a ban on students' use of laptops in classrooms remains a bone of contention among tertiary institutions, the deeper challenge may be helping students recognise that what feels easier in the moment is not always what serves them best afterwards.", text: "In paragraph 1, the writer is ______.", options: ["introducing a recent change in the way students take notes", "challenging a long-held assumption about academic success", "promoting the use of technology in recording lectures", "questioning the significance of notetaking in education"], answer: 0 },
                         { instruction: ins6, text: "The word those in paragraph 2 refers to ______.", options: ["students", "researchers", "studies", "notes"], answer: 0 },
                         { instruction: ins6, text: "Which of the following best paraphrases the underlined sentence in paragraph 2? (Typing rewards speed; handwriting forces selection.)", options: ["The modern device, along with the mental requirements of each method for the brain, is responsible for the difference in student performance.", "What explains the difference in student performance is the mental work that each method of notetaking demands, rather than the technology.", "The difference in student performance is attributable to the modern technology instead of the mental work that each method of notetaking requires.", "Regardless of the method of notetaking, the effects on the brain exhibit little difference as long as technology is involved in student performance."], answer: 1 },
                         { instruction: ins6, text: "The word instrumental in paragraph 3 is OPPOSITE in meaning to ______.", options: ["trivial", "specific", "dramatic", "central"], answer: 0 },
@@ -252,7 +221,7 @@
         };
 
         /* =========================================================================
-           STATE & LOGIC XỬ LÝ
+           LOGIC XỬ LÝ
         ========================================================================= */
         let currentGrade = 10;
         let currentUnit = 1;
@@ -264,36 +233,26 @@
         let isUnlocked = false; 
         let pendingAction = null; 
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderSidebar();
-        });
+        document.addEventListener('DOMContentLoaded', () => { renderSidebar(); });
 
         function selectGrade(grade) {
             if (!isUnlocked && grade !== 10) { 
                 pendingAction = { type: 'grade', val: grade };
-                showPasswordModal(); 
-                return; 
+                showPasswordModal(); return; 
             }
-            
             currentGrade = grade;
-            
             [10, 11, 12].forEach(g => {
                 const btn = document.getElementById(`tab-grade-${g}`);
                 if (g === grade) {
-                    btn.classList.replace('bg-blue-800/50', 'bg-gray-50');
-                    btn.classList.replace('text-white', 'text-blue-700');
-                    btn.classList.replace('font-bold', 'font-extrabold');
-                    btn.classList.add('shadow-[0_-4px_10px_rgba(0,0,0,0.1)]');
-                    btn.classList.remove('hover:bg-white/90', 'hover:text-blue-700');
+                    btn.classList.replace('bg-white/20', 'bg-gray-50');
+                    btn.classList.replace('text-white', 'text-blue-800');
+                    btn.classList.replace('font-semibold', 'font-bold');
                 } else {
-                    btn.classList.replace('bg-gray-50', 'bg-blue-800/50');
-                    btn.classList.replace('text-blue-700', 'text-white');
-                    btn.classList.replace('font-extrabold', 'font-bold');
-                    btn.classList.remove('shadow-[0_-4px_10px_rgba(0,0,0,0.1)]');
-                    btn.classList.add('hover:bg-white/90', 'hover:text-blue-700');
+                    btn.classList.replace('bg-gray-50', 'bg-white/20');
+                    btn.classList.replace('text-blue-800', 'text-white');
+                    btn.classList.replace('font-bold', 'font-semibold');
                 }
             });
-
             renderSidebar();
             document.getElementById('test-screen').classList.add('hidden-element');
             document.getElementById('result-screen').classList.add('hidden-element');
@@ -303,31 +262,26 @@
         function renderSidebar() {
             const container = document.getElementById('units-container');
             container.innerHTML = '';
-
             for (let u = 1; u <= 10; u++) {
                 const unitDiv = document.createElement('div');
-                unitDiv.className = 'border border-gray-100 rounded-xl overflow-hidden transition-all duration-300 bg-gray-50/50 hover:shadow-md';
+                unitDiv.className = 'border-b border-gray-200 last:border-b-0';
                 
                 const unitHeader = document.createElement('div');
-                unitHeader.className = 'bg-white px-4 py-3 font-extrabold text-blue-900 cursor-pointer flex justify-between items-center transition-colors hover:bg-blue-50';
-                unitHeader.innerHTML = `<span class="flex items-center"><span class="w-1.5 h-4 bg-blue-500 rounded-full mr-2"></span>Unit ${u}</span> <span class="text-[10px] text-gray-400">▼</span>`;
+                unitHeader.className = 'px-4 py-2.5 font-bold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-blue-50 transition-colors text-sm';
+                unitHeader.innerHTML = `<span>Unit ${u}</span> <span class="text-[10px] text-gray-400">▼</span>`;
                 unitHeader.onclick = () => toggleUnit(u);
                 
                 const testsContainer = document.createElement('div');
                 testsContainer.id = `unit-${u}-tests`;
-                testsContainer.className = 'hidden-element flex flex-col bg-white/50 border-t border-gray-100';
+                testsContainer.className = 'hidden-element flex flex-col bg-white border-t border-gray-100';
                 
                 for (let t = 1; t <= 10; t++) {
                     const testBtn = document.createElement('button');
-                    testBtn.className = 'text-left px-8 py-2.5 text-sm font-semibold text-gray-600 hover:bg-blue-100 hover:text-blue-700 border-b border-gray-100/50 transition-colors last:border-b-0 relative group overflow-hidden';
-                    testBtn.innerHTML = `
-                        <span class="relative z-10">Test ${t}</span>
-                        <div class="absolute inset-0 h-full w-0 bg-blue-50/50 z-0 transition-all duration-300 ease-out group-hover:w-full"></div>
-                    `;
+                    testBtn.className = 'text-left px-6 py-2 text-sm text-gray-600 hover:bg-blue-100 hover:text-blue-700 border-b border-gray-50 transition-colors last:border-b-0';
+                    testBtn.innerText = `Test ${t}`;
                     testBtn.onclick = () => selectTest(u, t);
                     testsContainer.appendChild(testBtn);
                 }
-
                 unitDiv.appendChild(unitHeader);
                 unitDiv.appendChild(testsContainer);
                 container.appendChild(unitDiv);
@@ -336,9 +290,7 @@
 
         function toggleUnit(unit) {
             if (!isUnlocked && (currentGrade !== 10 || unit !== 1)) {
-                pendingAction = { type: 'unit', val: unit };
-                showPasswordModal(); 
-                return;
+                pendingAction = { type: 'unit', val: unit }; showPasswordModal(); return;
             }
             const testsDiv = document.getElementById(`unit-${unit}-tests`);
             testsDiv.classList.toggle('hidden-element');
@@ -346,9 +298,7 @@
 
         function selectTest(unit, test) {
             if (!isUnlocked && (currentGrade !== 10 || unit !== 1)) {
-                pendingAction = { type: 'test', unit: unit, test: test };
-                showPasswordModal(); 
-                return;
+                pendingAction = { type: 'test', unit: unit, test: test }; showPasswordModal(); return;
             }
             currentUnit = unit; currentTest = test; isSubmitted = false;
 
@@ -362,9 +312,7 @@
             resetTimer(); startTimer();
         }
 
-        /* =========================================================================
-           THUẬT TOÁN RENDER BỐ CỤC THÔNG MINH (ĐÃ SỬA LỖI STICKY)
-        ========================================================================= */
+        /* THUẬT TOÁN BỐ CỤC: HÀNG NGANG & STICKY */
         function renderTestContent() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -373,18 +321,12 @@
             try { questions = examDatabase[currentGrade][currentUnit][currentTest] || []; } catch(e) {}
 
             if (questions.length === 0) {
-                container.innerHTML = `
-                    <div class="flex flex-col items-center justify-center py-20 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
-                        <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                        <p class="text-gray-500 font-bold text-lg">Nội dung đề thi này đang được cập nhật...</p>
-                    </div>`;
-                document.getElementById('submit-btn').classList.add('hidden-element');
-                return;
+                container.innerHTML = `<p class="text-gray-500 font-bold text-center py-10">Nội dung đề thi này đang được cập nhật...</p>`;
+                document.getElementById('submit-btn').classList.add('hidden-element'); return;
             }
 
             const groups = [];
             let currentGroup = null;
-            
             questions.forEach((q, originalIndex) => {
                 q.originalIndex = originalIndex; 
                 if (!currentGroup || q.instruction !== currentGroup.instruction) {
@@ -410,67 +352,68 @@
                     
                     q.options.forEach((opt, oIdx) => {
                         optionsHtml += `
-                            <label class="option-label flex items-start space-x-3 p-3.5 rounded-xl border border-gray-100 hover:border-blue-200 transition-all w-full cursor-pointer bg-gray-50/50 hover:bg-blue-50/30 group">
-                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1.5 w-5 h-5 text-blue-600 focus:ring-blue-500 cursor-pointer flex-shrink-0 border-gray-300">
-                                <span class="flex-grow p-1 rounded-md text-gray-700 text-base font-medium transition-colors" id="span_q_${index}_opt_${oIdx}">
-                                    <strong class="mr-2 text-blue-800 font-black inline-block w-6 bg-blue-100/80 rounded text-center group-hover:bg-blue-200">${labels[oIdx]}</strong> ${opt}
+                            <label class="option-label flex items-center space-x-2 p-2 rounded border border-transparent hover:bg-gray-50 transition-colors w-full cursor-pointer">
+                                <input type="radio" name="q_${index}" value="${oIdx}" class="w-4 h-4 text-blue-600 cursor-pointer">
+                                <span class="flex-grow p-1 rounded text-gray-700 text-sm md:text-base transition-colors" id="span_q_${index}_opt_${oIdx}">
+                                    <strong class="text-blue-800">${labels[oIdx]}.</strong> ${opt}
                                 </span>
                             </label>
                         `;
                     });
 
                     let qTextHtml = q.text ? q.text.replace(/\n/g, '<br>') : '';
+                    let questionTextClass = "text-gray-800 font-medium text-base ml-1 mt-1";
                     
-                    // Style làm nổi bật bài Sắp xếp hội thoại
-                    let questionTextClass = "text-gray-800 leading-relaxed font-semibold text-lg ml-1 md:ml-3 mt-3 border-l-4 border-blue-200 pl-3";
                     if (isArrangement) {
-                        questionTextClass = "text-xl font-extrabold text-blue-900 leading-loose bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-2xl border border-blue-200 shadow-sm mt-4 mb-5 block";
+                        questionTextClass = "text-lg font-bold text-blue-900 bg-blue-50 p-4 rounded-lg border border-blue-100 shadow-sm mt-2 mb-3 block leading-relaxed";
                     }
 
+                    // Tùy chỉnh Layout ngang cho các đáp án
+                    // Nếu là phần đọc hiểu (cột bé) -> 2 cột. Nếu phần thường (full width) -> 4 cột.
+                    const gridClass = isReading ? "grid-cols-1 xl:grid-cols-2" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-4";
+
                     questionsHtml += `
-                        <div class="question-box bg-white p-6 md:p-7 rounded-2xl border border-gray-100 shadow-[0_4px_15px_rgba(0,0,0,0.03)] mb-6" id="qbox_${index}">
+                        <div class="question-box bg-white p-4 md:p-5 rounded-xl border border-gray-100 shadow-sm mb-4" id="qbox_${index}">
                             ${qTextHtml ? 
-                                `<div class="mb-5">
-                                    <span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 text-xl block mb-2 uppercase tracking-wide">Question ${index + 1}</span>
+                                `<div class="mb-3">
+                                    <span class="font-bold text-blue-700 text-base">Question ${index + 1}:</span>
                                     <div class="${questionTextClass}">${qTextHtml}</div>
                                 </div>` 
-                                : `<div class="mb-4"><span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 text-xl uppercase tracking-wide">Question ${index + 1}</span></div>`
+                                : `<div class="mb-2"><span class="font-bold text-blue-700 text-base">Question ${index + 1}:</span></div>`
                             }
-                            <!-- Lưới chia cột đáp án -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mt-5 md:ml-2">
+                            <div class="grid ${gridClass} gap-1 mt-2 md:ml-2">
                                 ${optionsHtml}
                             </div>
                         </div>
                     `;
                 });
 
-                // CHÌA KHÓA FIX STICKY NẰM Ở ĐÂY: `items-start` trên container `.flex-row`
                 if (isReading) {
                     const formattedPassage = group.passage.replace(/\n/g, '<br><br>');
+                    // FIX LỖI STICKY: items-start và max-height
                     html += `
-                        <div class="flex flex-col lg:flex-row gap-8 mb-16 pb-16 border-b-2 border-dashed border-gray-200 items-start">
+                        <div class="flex flex-col md:flex-row gap-5 mb-10 pb-8 border-b border-dashed border-gray-300 items-start">
                             
-                            <!-- CỘT TRÁI (BÀI ĐỌC): Flex item trở thành sticky, giới hạn chiều cao max-h -->
-                            <div class="lg:w-7/12 sticky top-[100px] z-10 transition-all duration-300 w-full self-start">
-                                <div class="font-black text-white bg-gradient-to-r from-indigo-600 to-blue-600 uppercase text-sm md:text-base px-6 py-4 rounded-t-2xl shadow-lg">
+                            <!-- BÀI ĐỌC (BÊN TRÁI - STICKY) -->
+                            <div class="md:w-[55%] sticky top-[70px] z-10 w-full self-start">
+                                <div class="font-bold text-white bg-blue-600 text-xs md:text-sm px-4 py-2 rounded-t-lg shadow-sm">
                                     ${group.instruction}
                                 </div>
-                                <div class="reading-passage bg-[#fbfdf8] border-x border-b border-gray-200 p-6 md:p-10 rounded-b-2xl text-gray-800 text-justify leading-loose text-lg md:text-xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-y-auto custom-scrollbar" style="max-height: calc(100vh - 150px);">
+                                <div class="reading-passage bg-blue-50/30 border border-blue-100 p-4 md:p-6 rounded-b-lg text-gray-900 text-justify leading-relaxed text-base md:text-lg overflow-y-auto custom-scrollbar" style="max-height: calc(100vh - 90px);">
                                     ${formattedPassage}
                                 </div>
                             </div>
                             
-                            <!-- CỘT PHẢI (CÂU HỎI) -->
-                            <div class="lg:w-5/12 w-full mt-6 lg:mt-0">
+                            <!-- CÂU HỎI (BÊN PHẢI) -->
+                            <div class="md:w-[45%] w-full mt-4 md:mt-0">
                                 ${questionsHtml}
                             </div>
                         </div>
                     `;
                 } else {
-                    // CỘT RỘNG CHO CÁC BÀI KHÁC
                     html += `
-                        <div class="mb-14 pb-14 border-b-2 border-dashed border-gray-200">
-                            <div class="font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-600 uppercase text-base md:text-lg leading-relaxed tracking-wide border-l-[6px] border-blue-500 pl-4 mb-8">
+                        <div class="mb-10 pb-8 border-b border-dashed border-gray-300">
+                            <div class="font-bold text-gray-700 text-sm md:text-base border-l-4 border-blue-500 pl-3 mb-5">
                                 ${group.instruction}
                             </div>
                             <div class="w-full">
@@ -484,7 +427,6 @@
             container.innerHTML = html;
         }
 
-        // Logic chấm điểm
         function submitTest() {
             if(isSubmitted) return;
             clearInterval(timerInterval);
@@ -499,9 +441,8 @@
                 const correctAnsIdx = q.answer;
                 
                 document.querySelectorAll(`input[name="q_${index}"]`).forEach(input => input.disabled = true);
-
                 const correctSpan = document.getElementById(`span_q_${index}_opt_${correctAnsIdx}`);
-                if(correctSpan) correctSpan.classList.add('correct-ans', 'font-black');
+                if(correctSpan) correctSpan.classList.add('correct-ans');
 
                 if (selected) {
                     const selectedIdx = parseInt(selected.value);
@@ -530,13 +471,10 @@
         }
         function resetTimer() { clearInterval(timerInterval); timeLeft = 50 * 60; document.getElementById('timer-display').innerText = `50:00`; }
 
-        /* =========================================================================
-           SECURITY LOGIC - MỞ KHÓA MỀM (KHÔNG BLOCK MÀN HÌNH)
-        ========================================================================= */
+        /* MỞ KHÓA MỀM */
         function continueAfterResult() { 
             if (!isUnlocked) {
-                pendingAction = null;
-                showPasswordModal(); 
+                pendingAction = null; showPasswordModal(); 
             } else {
                 document.getElementById('test-screen').classList.add('hidden-element');
                 document.getElementById('result-screen').classList.add('hidden-element');
@@ -563,7 +501,6 @@
                 isUnlocked = true;
                 document.getElementById('password-modal').classList.add('hidden-element');
                 alert("Mật khẩu chính xác! Bạn đã được cấp quyền làm toàn bộ kho đề thi.");
-                
                 if (pendingAction) {
                     if (pendingAction.type === 'grade') selectGrade(pendingAction.val);
                     else if (pendingAction.type === 'unit') toggleUnit(pendingAction.val);
