@@ -12,15 +12,12 @@
         }
         .hidden-element { display: none !important; }
         
-        /* Hiệu ứng tương tác mượt mà */
         .question-box { transition: all 0.2s ease-in-out; }
         .question-box:hover { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1); border-color: #bfdbfe; }
         
-        /* Cải tiến hiển thị đáp án thành từng khối riêng biệt */
         .option-label { cursor: pointer; transition: all 0.2s; }
         .option-label:hover { background-color: #eff6ff; border-color: #bfdbfe; }
         
-        /* Đáp án khi được chọn */
         .option-label input:checked + span { 
             color: #1e40af;
             font-weight: bold;
@@ -31,7 +28,6 @@
             box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
         }
         
-        /* Đáp án đúng/sai */
         .correct-ans-box { background: #dcfce7 !important; border-color: #22c55e !important; }
         .correct-ans-text { color: #166534 !important; font-weight: bold !important; }
         
@@ -40,13 +36,11 @@
         
         .reading-passage { font-family: 'Times New Roman', Times, serif; }
         
-        /* Thanh cuộn siêu mỏng hiện đại */
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
         
-        /* Header mỏng bóng bẩy */
         .glass-header {
             background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #1e3a8a 100%);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
@@ -79,10 +73,10 @@
     <div class="max-w-[1500px] mx-auto w-full flex-grow flex flex-col lg:flex-row p-3 gap-4 items-start">
         
         <!-- SIDEBAR -->
-        <aside class="w-full lg:w-[240px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-gray-200 lg:sticky lg:top-[70px] z-20 overflow-hidden">
+        <aside class="w-full lg:w-[260px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-gray-200 lg:sticky lg:top-[70px] z-20 overflow-hidden">
             <h2 class="text-base font-bold text-blue-900 bg-blue-50/50 p-3 border-b border-gray-200 flex items-center">
-                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
-                Danh sách bài thi
+                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                Thành tích làm bài
             </h2>
             <div id="units-container" class="max-h-[30vh] lg:max-h-[calc(100vh-140px)] overflow-y-auto custom-scrollbar bg-gray-50/30">
                 <!-- Sinh bằng JS -->
@@ -97,7 +91,8 @@
                     <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 </div>
                 <h2 class="text-2xl font-bold text-gray-800 mb-2">Hệ thống Luyện thi Tiếng Anh chuẩn 2026</h2>
-                <p class="text-gray-500 font-medium text-sm md:text-base">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu. <br><span class="text-blue-600">(Lớp 10 Unit 1 Test 1 và Lớp 12 Unit 1 Test 1 đã có sẵn dữ liệu)</span></p>
+                <p class="text-gray-500 font-medium text-sm md:text-base mb-2">Vui lòng chọn Unit và Đề thi ở menu bên trái để bắt đầu.</p>
+                <p class="text-blue-600 font-semibold text-sm">(Lớp 10 Unit 1 Test 1 và Lớp 12 Unit 1 Test 1 đã có sẵn dữ liệu demo)</p>
             </div>
 
             <div id="test-screen" class="hidden-element">
@@ -117,13 +112,39 @@
                 </div>
             </div>
 
-            <!-- Kết quả -->
-            <div id="result-screen" class="hidden-element text-center py-10">
-                <h2 class="text-3xl font-bold text-green-600 mb-2">Hoàn thành bài thi!</h2>
-                <div class="text-6xl font-black text-blue-700 my-6" id="score-display">10/10</div>
-                <p class="text-gray-600 mb-8 font-medium">Bạn có thể cuộn lên trên để xem lại chi tiết đáp án.</p>
-                <button onclick="continueAfterResult()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-8 rounded-lg shadow">
-                    Tiếp tục hệ thống
+            <!-- BẢNG ĐIỂM & ĐỘNG VIÊN SAU KHI NỘP BÀI -->
+            <div id="result-screen" class="hidden-element text-center py-6 md:py-10">
+                <h2 class="text-3xl md:text-4xl font-black text-green-600 mb-2">Hoàn thành bài thi!</h2>
+                
+                <!-- Bảng thống kê chi tiết -->
+                <div class="bg-gradient-to-b from-blue-50 to-white border border-blue-100 rounded-2xl p-6 md:p-8 max-w-3xl mx-auto my-6 shadow-lg shadow-blue-900/5">
+                    
+                    <div class="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-6 drop-shadow-sm" id="score-display">0/40</div>
+                    
+                    <div class="grid grid-cols-3 gap-3 md:gap-6 mb-6">
+                        <div class="bg-green-50 border border-green-200 p-3 md:p-4 rounded-xl shadow-sm">
+                            <div class="text-green-600 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Số câu đúng</div>
+                            <div class="text-3xl font-black text-green-700" id="correct-display">0</div>
+                        </div>
+                        <div class="bg-red-50 border border-red-200 p-3 md:p-4 rounded-xl shadow-sm">
+                            <div class="text-red-600 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Số câu sai</div>
+                            <div class="text-3xl font-black text-red-700" id="wrong-display">0</div>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 p-3 md:p-4 rounded-xl shadow-sm">
+                            <div class="text-purple-600 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Tỷ lệ chính xác</div>
+                            <div class="text-3xl font-black text-purple-700" id="percent-display">0%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lời động viên -->
+                    <div id="motivation-message" class="text-lg md:text-xl font-bold text-gray-800 mt-6 pt-6 border-t border-gray-200 italic">
+                        <!-- Gen bằng JS -->
+                    </div>
+                </div>
+
+                <p class="text-gray-500 mb-8 font-medium">Lướt lên trên để xem chi tiết những câu làm sai và rút kinh nghiệm nhé!</p>
+                <button onclick="continueAfterResult()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 text-base md:text-lg rounded-xl shadow transition-transform transform hover:-translate-y-1">
+                    Trở về danh mục Đề thi
                 </button>
             </div>
         </main>
@@ -154,7 +175,6 @@
     <script>
         /* =========================================================================
            DATABASE ĐỀ THI - FORMAT 2026 
-           (Giữ nguyên 100% dữ liệu đề thi Lớp 10 và Lớp 12 của thầy)
         ========================================================================= */
         const ins1 = "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.";
         const ins2 = "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a cohesive and coherent exchange or text in each of the following questions from 7 to 11.";
@@ -281,6 +301,20 @@
         let isUnlocked = false; 
         let pendingAction = null; 
 
+        // Hàm liên quan đến Local Storage
+        function saveProgress(grade, unit, test, correct, total, percent) {
+            let data = JSON.parse(localStorage.getItem('thaytien_english_progress')) || {};
+            const key = `${grade}-${unit}-${test}`;
+            data[key] = { correct, total, percent, date: new Date().toISOString() };
+            localStorage.setItem('thaytien_english_progress', JSON.stringify(data));
+            renderSidebar(); // Cập nhật lại sidebar để hiện %
+        }
+
+        function getProgress(grade, unit, test) {
+            let data = JSON.parse(localStorage.getItem('thaytien_english_progress')) || {};
+            return data[`${grade}-${unit}-${test}`] || null;
+        }
+
         document.addEventListener('DOMContentLoaded', () => { renderSidebar(); });
 
         function selectGrade(grade) {
@@ -312,18 +346,31 @@
                 unitDiv.className = 'border-b border-gray-200';
                 
                 const unitHeader = document.createElement('div');
-                unitHeader.className = 'px-4 py-2.5 font-bold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-blue-50';
+                unitHeader.className = 'px-4 py-3 font-bold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-blue-50';
                 unitHeader.innerHTML = `<span>Unit ${u}</span> <span class="text-[10px] text-gray-400">▼</span>`;
                 unitHeader.onclick = () => toggleUnit(u);
                 
                 const testsContainer = document.createElement('div');
                 testsContainer.id = `unit-${u}-tests`;
-                testsContainer.className = 'hidden-element flex flex-col bg-white border-t border-gray-100';
+                // Tự động mở Unit đang chọn
+                testsContainer.className = (u === currentUnit) ? 'flex flex-col bg-white border-t border-gray-100' : 'hidden-element flex flex-col bg-white border-t border-gray-100';
                 
                 for (let t = 1; t <= 10; t++) {
+                    const progress = getProgress(currentGrade, u, t);
+                    let badgeHtml = '';
+                    if (progress) {
+                        let colorClass = progress.percent >= 80 ? 'bg-green-100 text-green-700 border-green-200' : 
+                                         (progress.percent >= 50 ? 'bg-yellow-100 text-yellow-700 border-yellow-200' : 'bg-red-100 text-red-700 border-red-200');
+                        badgeHtml = `<span class="px-2 py-0.5 text-[11px] font-bold rounded-full border ${colorClass}">${progress.percent}%</span>`;
+                    }
+
                     const testBtn = document.createElement('button');
-                    testBtn.className = 'text-left px-6 py-2.5 text-sm text-gray-600 hover:bg-blue-100 hover:text-blue-700 border-b border-gray-50';
-                    testBtn.innerText = `Test ${t}`;
+                    // Đánh dấu Test đang làm
+                    const isActive = (u === currentUnit && t === currentTest && !document.getElementById('test-screen').classList.contains('hidden-element'));
+                    const activeClass = isActive ? 'bg-blue-50 border-l-4 border-blue-500 text-blue-800 font-bold' : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700';
+
+                    testBtn.className = `flex justify-between items-center px-6 py-3 text-sm border-b border-gray-50 transition-colors ${activeClass}`;
+                    testBtn.innerHTML = `<span>Test ${t}</span> ${badgeHtml}`;
                     testBtn.onclick = () => selectTest(u, t);
                     testsContainer.appendChild(testBtn);
                 }
@@ -354,10 +401,11 @@
             document.getElementById('current-test-title').innerText = `Lớp ${currentGrade} - Unit ${currentUnit} - Test ${currentTest}`;
             
             renderTestContent();
+            renderSidebar(); // Update active class
             resetTimer(); startTimer();
         }
 
-        /* THUẬT TOÁN BỐ CỤC: HÀNG NGANG & STICKY */
+        /* RENDER BỐ CỤC */
         function renderTestContent() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -366,7 +414,7 @@
             try { questions = examDatabase[currentGrade][currentUnit][currentTest] || []; } catch(e) {}
 
             if (questions.length === 0) {
-                container.innerHTML = `<p class="text-gray-500 font-bold text-center py-10">Nội dung đề thi này đang được cập nhật...</p>`;
+                container.innerHTML = `<div class="bg-gray-50 rounded-xl py-12 text-center border-2 border-dashed border-gray-300"><p class="text-gray-500 font-bold text-lg">Nội dung đề thi này đang được cập nhật...</p></div>`;
                 document.getElementById('submit-btn').classList.add('hidden-element'); return;
             }
 
@@ -398,8 +446,8 @@
                     q.options.forEach((opt, oIdx) => {
                         optionsHtml += `
                             <label class="option-label flex items-start space-x-2 p-3 rounded-lg border border-gray-200 bg-white w-full h-full cursor-pointer relative" id="box_q_${index}_opt_${oIdx}">
-                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-1 w-5 h-5 text-blue-600 flex-shrink-0 cursor-pointer">
-                                <span class="flex-grow text-gray-800 text-sm md:text-base transition-colors leading-snug break-words">
+                                <input type="radio" name="q_${index}" value="${oIdx}" class="mt-0.5 w-5 h-5 text-blue-600 flex-shrink-0 cursor-pointer">
+                                <span class="flex-grow text-gray-800 text-sm md:text-base transition-colors leading-snug break-words" id="span_q_${index}_opt_${oIdx}">
                                     <strong class="text-blue-800 font-bold mr-1">${labels[oIdx]}.</strong> ${opt}
                                 </span>
                             </label>
@@ -413,9 +461,6 @@
                         questionTextClass = "text-base md:text-lg font-bold text-blue-900 bg-blue-50 p-4 rounded-lg border border-blue-100 shadow-sm mt-3 mb-4 block leading-relaxed";
                     }
 
-                    // Tùy chỉnh Layout ngang cho đáp án:
-                    // Điện thoại (isReading hay không): LUÔN LÀ 1 CỘT (grid-cols-1) ĐỂ MỖI ĐÁP ÁN 1 DÒNG.
-                    // Màn hình lớn: Bài đọc -> 1 cột hoặc 2 cột. Bài thường -> 4 cột.
                     const gridClass = isReading ? "grid-cols-1 lg:grid-cols-1 xl:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4";
 
                     questionsHtml += `
@@ -427,7 +472,6 @@
                                 </div>` 
                                 : `<div class="mb-3"><span class="font-bold text-blue-700 text-lg">Question ${index + 1}:</span></div>`
                             }
-                            <!-- Khu vực đáp án sử dụng Grid, trên điện thoại chắc chắn là grid-cols-1 -->
                             <div class="grid ${gridClass} gap-3 md:ml-1 mt-2">
                                 ${optionsHtml}
                             </div>
@@ -437,12 +481,8 @@
 
                 if (isReading) {
                     const formattedPassage = group.passage.replace(/\n/g, '<br><br>');
-                    // ĐỔI lg:flex-row và lg:sticky ĐỂ FIX LỖI STICKY TRÊN ĐIỆN THOẠI
                     html += `
                         <div class="flex flex-col lg:flex-row gap-5 lg:gap-8 mb-10 pb-8 border-b border-dashed border-gray-300 items-start">
-                            
-                            <!-- BÀI ĐỌC (BÊN TRÁI) -->
-                            <!-- Trên đt: không sticky, max height 50vh. Trên máy tính: sticky, max height 100vh-90px -->
                             <div class="lg:w-[55%] lg:sticky lg:top-[70px] z-10 w-full self-start">
                                 <div class="font-bold text-white bg-blue-600 text-xs md:text-sm px-4 py-2 rounded-t-lg shadow-sm">
                                     ${group.instruction}
@@ -451,8 +491,6 @@
                                     ${formattedPassage}
                                 </div>
                             </div>
-                            
-                            <!-- CÂU HỎI (BÊN PHẢI) -->
                             <div class="lg:w-[45%] w-full mt-2 lg:mt-0">
                                 ${questionsHtml}
                             </div>
@@ -482,6 +520,7 @@
             document.getElementById('submit-btn').classList.add('hidden-element');
 
             const questions = examDatabase[currentGrade][currentUnit][currentTest] || [];
+            const total = questions.length;
             let correctCount = 0;
 
             questions.forEach((q, index) => {
@@ -490,7 +529,6 @@
                 
                 document.querySelectorAll(`input[name="q_${index}"]`).forEach(input => input.disabled = true);
                 
-                // Đổi màu cả khối đáp án đúng
                 const correctBox = document.getElementById(`box_q_${index}_opt_${correctAnsIdx}`);
                 const correctSpan = document.getElementById(`span_q_${index}_opt_${correctAnsIdx}`);
                 if(correctBox) {
@@ -503,7 +541,6 @@
                     if (selectedIdx === correctAnsIdx) {
                         correctCount++;
                     } else {
-                        // Đổi màu cả khối đáp án sai
                         const wrongBox = document.getElementById(`box_q_${index}_opt_${selectedIdx}`);
                         const wrongSpan = document.getElementById(`span_q_${index}_opt_${selectedIdx}`);
                         if(wrongBox) {
@@ -514,7 +551,28 @@
                 }
             });
 
-            document.getElementById('score-display').innerText = `${correctCount}/${questions.length}`;
+            const wrongCount = total - correctCount;
+            const percent = Math.round((correctCount / total) * 100);
+
+            // Cập nhật giao diện điểm
+            document.getElementById('score-display').innerText = `${correctCount}/${total}`;
+            document.getElementById('correct-display').innerText = correctCount;
+            document.getElementById('wrong-display').innerText = wrongCount;
+            document.getElementById('percent-display').innerText = `${percent}%`;
+
+            // Sinh lời động viên
+            let msg = "";
+            if (percent === 100) msg = "🎯 Tuyệt vời! Bạn đã đạt điểm tuyệt đối. Khả năng ngoại ngữ của bạn cực kỳ xuất sắc!";
+            else if (percent >= 80) msg = "🌟 Rất tốt! Kiến thức của bạn rất vững. Cố gắng thêm một chút nữa để đạt điểm tuyệt đối nhé!";
+            else if (percent >= 60) msg = "👍 Khá khen! Bạn đã nắm được kiến thức cơ bản. Hãy xem lại các câu sai để hoàn thiện hơn.";
+            else if (percent >= 40) msg = "💪 Bạn cần cố gắng hơn. Hãy đọc kỹ lại bài hoặc nhờ Thầy Tiến hỗ trợ thêm nhé!";
+            else msg = "❤️ Đừng nản chí! Học ngoại ngữ cần sự kiên trì. Thất bại là mẹ thành công, hãy làm lại bài thi nhiều lần để ghi nhớ!";
+            
+            document.getElementById('motivation-message').innerText = msg;
+
+            // Lưu thành tích
+            saveProgress(currentGrade, currentUnit, currentTest, correctCount, total, percent);
+
             document.getElementById('result-screen').classList.remove('hidden-element');
             window.scrollTo({ top: document.getElementById('result-screen').offsetTop - 50, behavior: 'smooth' });
         }
@@ -560,6 +618,10 @@
                 isUnlocked = true;
                 document.getElementById('password-modal').classList.add('hidden-element');
                 alert("Mật khẩu chính xác! Bạn đã được cấp quyền làm toàn bộ kho đề thi.");
+                
+                // Mở khóa xong render lại sidebar để bỏ chặn các Unit/Test
+                renderSidebar();
+                
                 if (pendingAction) {
                     if (pendingAction.type === 'grade') selectGrade(pendingAction.val);
                     else if (pendingAction.type === 'unit') toggleUnit(pendingAction.val);
