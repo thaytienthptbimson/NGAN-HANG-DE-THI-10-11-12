@@ -132,11 +132,11 @@
                 </div>
             </div>
             
-            <!-- Cụm Phải: Trạng thái Bản quyền (Dùng thử 10 ngày / VIP 365 ngày) + Đồng hồ -->
+            <!-- Cụm Phải: Trạng thái Bản quyền (Miễn phí Unit 1 - Test 1 / VIP 365 ngày) + Đồng hồ -->
             <div class="flex items-center gap-2 md:gap-3">
                 <button onclick="showPasswordModal()" id="unlock-status-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 border border-amber-300/30 transition-all" title="Nhấp để xem thời hạn hoặc nhập mật khẩu kích hoạt 365 ngày">
-                    <span id="unlock-status-icon">⏳</span>
-                    <span id="unlock-status-text">Dùng thử: 10 ngày</span>
+                    <span id="unlock-status-icon">🔓</span>
+                    <span id="unlock-status-text">Miễn phí • Nhập MK</span>
                 </button>
 
                 <!-- Đồng hồ đếm ngược -->
@@ -192,19 +192,19 @@
             <!-- MÀN HÌNH CHÀO MỪNG (DASHBOARD) -->
             <div id="welcome-screen" class="py-6 md:py-10 px-2 max-w-4xl mx-auto">
                 
-                <!-- Banner thông báo trạng thái Bản quyền / Dùng thử -->
+                <!-- Banner thông báo trạng thái Bản quyền / Bản miễn phí -->
                 <div id="license-banner" class="mb-8 p-4 rounded-2xl border bg-gradient-to-r from-amber-50 via-white to-blue-50 border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
                     <div class="flex items-center gap-3">
                         <div id="banner-icon-box" class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-lg flex-shrink-0">
-                            ⏳
+                            🔓
                         </div>
                         <div class="text-left">
-                            <h4 id="banner-title" class="text-sm font-extrabold text-slate-800">Chế độ Dùng thử 10 ngày đang hoạt động</h4>
-                            <p id="banner-desc" class="text-xs text-slate-500">Bạn được trải nghiệm toàn bộ tính năng. Nhập mật khẩu để kích hoạt bản quyền 365 ngày.</p>
+                            <h4 id="banner-title" class="text-sm font-extrabold text-slate-800">Bản miễn phí: chỉ làm được Unit 1 - Test 1 của mỗi khối</h4>
+                            <p id="banner-desc" class="text-xs text-slate-500">Nhập mật khẩu để mở khóa toàn bộ 10 Unit × 10 Test của Lớp 10, 11, 12 (sử dụng 365 ngày).</p>
                         </div>
                     </div>
                     <button onclick="showPasswordModal()" id="banner-action-btn" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs whitespace-nowrap shadow-sm transition-all">
-                        Kích hoạt 365 ngày
+                        Nhập mật khẩu mở khóa
                     </button>
                 </div>
 
@@ -438,15 +438,15 @@
         </div>
     </footer>
 
-    <!-- MODAL KÍCH HOẠT BẢN QUYỀN 365 NGÀY -->
+    <!-- MODAL MỞ KHÓA TOÀN BỘ ĐỀ THI (MẬT KHẨU, 365 NGÀY) -->
     <div id="password-modal" class="hidden-element fixed inset-0 bg-slate-900/80 backdrop-blur-sm flex justify-center items-center z-[100] p-4">
         <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full border border-slate-100 relative">
             <div id="modal-icon-container" class="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4 text-2xl">
                 🔑
             </div>
-            <h3 id="modal-title" class="text-xl font-extrabold text-slate-900 mb-1 text-center">Kích hoạt Bản quyền 365 ngày</h3>
+            <h3 id="modal-title" class="text-xl font-extrabold text-slate-900 mb-1 text-center">Mở khóa toàn bộ đề thi</h3>
             <p id="modal-subtitle" class="text-slate-500 mb-4 text-center text-xs md:text-sm leading-relaxed">
-                Nhập mật khẩu cấp quyền để sử dụng toàn bộ kho đề thi trong vòng <strong>365 ngày</strong>.
+                Bản miễn phí chỉ gồm Unit 1 - Test 1. Nhập mật khẩu để dùng toàn bộ kho đề thi trong vòng <strong>365 ngày</strong>.
             </p>
 
             <!-- Thông tin trạng thái hiện tại -->
@@ -1158,12 +1158,14 @@
 
     <script>
         /* =========================================================================
-           CẤU HÌNH BẢN QUYỀN: DÙNG THỬ 10 NGÀY -> MẬT KHẨU KÍCH HOẠT 365 NGÀY
+           CẤU HÌNH BẢN QUYỀN: BẢN MIỄN PHÍ (CHỈ UNIT 1 - TEST 1 CỦA CẢ 3 KHỐI 10-11-12)
+           -> NHẬP MẬT KHẨU ĐỂ MỞ KHÓA TOÀN BỘ ĐỀ THI TRONG 365 NGÀY
         ========================================================================= */
         const LICENSE_STORAGE_KEY = 'thaytien_english_license_v2026';
-        const TRIAL_DAYS = 10;
         const VIP_DAYS = 365;
-        const ACTIVATION_PASSWORD = 'tien@12345';
+        const ACTIVATION_PASSWORD = 'tien@1234';
+        const FREE_UNIT = 1;   // Unit được dùng miễn phí
+        const FREE_TEST = 1;   // Test được dùng miễn phí (áp dụng cho cả Lớp 10, 11, 12)
         const DAY_MS = 24 * 60 * 60 * 1000;
 
         let currentGrade = 10;
@@ -1184,13 +1186,8 @@
                 raw = JSON.parse(localStorage.getItem(LICENSE_STORAGE_KEY));
             } catch (e) {}
 
-            if (!raw || typeof raw !== 'object' || !raw.trialStart) {
-                raw = {
-                    trialStart: now,
-                    vipStart: null,
-                    vipExpire: null,
-                    lastSeen: now
-                };
+            if (!raw || typeof raw !== 'object') {
+                raw = { vipStart: null, vipExpire: null, lastSeen: now };
                 try { localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(raw)); } catch (e) {}
             } else {
                 // Chống chỉnh lùi đồng hồ hệ thống: nếu thời gian hiện tại nhỏ hơn lastSeen thì dùng lastSeen
@@ -1202,56 +1199,44 @@
             return raw;
         }
 
-        // Tính toán trạng thái bản quyền hiện tại
+        // Tính toán trạng thái bản quyền hiện tại.
+        // active = true  -> đã nhập mật khẩu, còn hạn: dùng được TOÀN BỘ đề.
+        // active = false -> bản miễn phí (mode 'free') hoặc đã hết hạn 365 ngày (mode 'vip_expired'): chỉ dùng được Unit 1 - Test 1.
         function evaluateLicense() {
             const data = getLicenseData();
             const effectiveNow = Math.max(Date.now(), data.lastSeen || Date.now());
 
-            // 1. Kiểm tra nếu đã kích hoạt VIP 365 ngày
             if (data.vipStart && data.vipExpire) {
                 const remainingMs = data.vipExpire - effectiveNow;
-                const daysLeft = Math.ceil(remainingMs / DAY_MS);
                 if (remainingMs > 0) {
                     return {
                         mode: 'vip',
                         active: true,
-                        daysLeft: daysLeft,
-                        startDate: new Date(data.vipStart),
-                        expireDate: new Date(data.vipExpire)
-                    };
-                } else {
-                    return {
-                        mode: 'vip_expired',
-                        active: false,
-                        daysLeft: 0,
+                        daysLeft: Math.ceil(remainingMs / DAY_MS),
                         startDate: new Date(data.vipStart),
                         expireDate: new Date(data.vipExpire)
                     };
                 }
-            }
-
-            // 2. Kiểm tra chế độ Dùng thử 10 ngày
-            const trialExpire = data.trialStart + TRIAL_DAYS * DAY_MS;
-            const remainingMs = trialExpire - effectiveNow;
-            const daysLeft = Math.ceil(remainingMs / DAY_MS);
-
-            if (remainingMs > 0) {
                 return {
-                    mode: 'trial',
-                    active: true,
-                    daysLeft: daysLeft,
-                    startDate: new Date(data.trialStart),
-                    expireDate: new Date(trialExpire)
-                };
-            } else {
-                return {
-                    mode: 'trial_expired',
+                    mode: 'vip_expired',
                     active: false,
                     daysLeft: 0,
-                    startDate: new Date(data.trialStart),
-                    expireDate: new Date(trialExpire)
+                    startDate: new Date(data.vipStart),
+                    expireDate: new Date(data.vipExpire)
                 };
             }
+
+            return { mode: 'free', active: false, daysLeft: 0, startDate: null, expireDate: null };
+        }
+
+        // Đề miễn phí: Unit 1 - Test 1 (của mọi khối)
+        function isFreeTest(unit, test) {
+            return Number(unit) === FREE_UNIT && Number(test) === FREE_TEST;
+        }
+
+        // Được phép làm đề (unit, test) không: đề miễn phí, hoặc đã mở khóa bằng mật khẩu
+        function canAccess(unit, test) {
+            return isFreeTest(unit, test) || evaluateLicense().active;
         }
 
         function formatDateVN(dateObj) {
@@ -1293,24 +1278,8 @@
                     bannerBtn.innerText = 'Xem thông tin';
                     bannerBtn.className = 'px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs whitespace-nowrap shadow-sm transition-all';
                 }
-            } else if (status.mode === 'trial') {
-                if (unlockBtn) unlockBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 border border-amber-300/30 transition-all';
-                if (unlockIcon) unlockIcon.innerText = '⏳';
-                if (unlockText) unlockText.innerText = `Dùng thử: còn ${status.daysLeft} ngày`;
-
-                if (banner) banner.className = 'mb-8 p-4 rounded-2xl border bg-gradient-to-r from-amber-50 via-white to-blue-50 border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm';
-                if (bannerIcon) {
-                    bannerIcon.className = 'w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-lg flex-shrink-0';
-                    bannerIcon.innerText = '⏳';
-                }
-                if (bannerTitle) bannerTitle.innerText = `Chế độ Dùng thử 10 ngày (Còn ${status.daysLeft} ngày — hết hạn ${formatDateVN(status.expireDate)})`;
-                if (bannerDesc) bannerDesc.innerText = `Sau 10 ngày dùng thử, vui lòng nhập mật khẩu để kích hoạt sử dụng trong 365 ngày.`;
-                if (bannerBtn) {
-                    bannerBtn.innerText = 'Nhập mật khẩu 365 ngày';
-                    bannerBtn.className = 'px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs whitespace-nowrap shadow-sm transition-all';
-                }
-            } else {
-                // Hết hạn Dùng thử 10 ngày hoặc hết hạn VIP 365 ngày
+            } else if (status.mode === 'vip_expired') {
+                // Hết hạn 365 ngày: quay về bản miễn phí (chỉ Unit 1 - Test 1), nhập lại mật khẩu để gia hạn
                 if (unlockBtn) unlockBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-rose-500/30 hover:bg-rose-500/40 text-rose-200 border border-rose-400/40 transition-all animate-pulse';
                 if (unlockIcon) unlockIcon.innerText = '🔒';
                 if (unlockText) unlockText.innerText = 'Đã hết hạn • Nhập MK';
@@ -1320,19 +1289,42 @@
                     bannerIcon.className = 'w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-black text-lg flex-shrink-0';
                     bannerIcon.innerText = '🔒';
                 }
-                if (bannerTitle) bannerTitle.innerText = status.mode === 'trial_expired' ? 'Đã hết 10 ngày dùng thử miễn phí!' : 'Thời hạn bản quyền 365 ngày đã kết thúc!';
-                if (bannerDesc) bannerDesc.innerText = 'Vui lòng nhập mật khẩu bản quyền để mở khóa và tiếp tục sử dụng trong 365 ngày.';
+                if (bannerTitle) bannerTitle.innerText = 'Thời hạn bản quyền 365 ngày đã kết thúc!';
+                if (bannerDesc) bannerDesc.innerText = 'Hiện chỉ còn dùng được Unit 1 - Test 1 của mỗi khối. Nhập mật khẩu để gia hạn thêm 365 ngày.';
                 if (bannerBtn) {
-                    bannerBtn.innerText = 'Mở khóa 365 ngày ngay';
+                    bannerBtn.innerText = 'Gia hạn 365 ngày';
                     bannerBtn.className = 'px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs whitespace-nowrap shadow-sm transition-all';
+                }
+            } else {
+                // Bản miễn phí: chỉ Unit 1 - Test 1 của cả 3 khối
+                if (unlockBtn) unlockBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 border border-amber-300/30 transition-all';
+                if (unlockIcon) unlockIcon.innerText = '🔓';
+                if (unlockText) unlockText.innerText = 'Miễn phí • Nhập MK';
+
+                if (banner) banner.className = 'mb-8 p-4 rounded-2xl border bg-gradient-to-r from-amber-50 via-white to-blue-50 border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm';
+                if (bannerIcon) {
+                    bannerIcon.className = 'w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-lg flex-shrink-0';
+                    bannerIcon.innerText = '🔓';
+                }
+                if (bannerTitle) bannerTitle.innerText = 'Bản miễn phí: chỉ làm được Unit 1 - Test 1 của mỗi khối';
+                if (bannerDesc) bannerDesc.innerText = 'Nhập mật khẩu để mở khóa toàn bộ 10 Unit × 10 Test của Lớp 10, 11, 12 (sử dụng 365 ngày).';
+                if (bannerBtn) {
+                    bannerBtn.innerText = 'Nhập mật khẩu mở khóa';
+                    bannerBtn.className = 'px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs whitespace-nowrap shadow-sm transition-all';
                 }
             }
 
             renderSidebar();
 
-            // Nếu đã hết hạn thì bật ngay hộp thoại yêu cầu nhập mật khẩu
-            if (!status.active) {
-                showPasswordModal(true);
+            // Đang làm một đề đã bị khóa (ví dụ hết hạn 365 ngày giữa chừng): đưa về trang chủ và hỏi mật khẩu
+            const testScreen = document.getElementById('test-screen');
+            if (!status.active && testScreen && !testScreen.classList.contains('hidden-element') && !isFreeTest(currentUnit, currentTest)) {
+                clearInterval(timerInterval);
+                testScreen.classList.add('hidden-element');
+                document.getElementById('result-screen').classList.add('hidden-element');
+                document.getElementById('welcome-screen').classList.remove('hidden-element');
+                pendingAction = null;
+                showPasswordModal();
             }
         }
 
@@ -1394,12 +1386,6 @@
         }
 
         function selectGrade(grade) {
-            const status = evaluateLicense();
-            if (!status.active) {
-                pendingAction = { type: 'grade', val: grade };
-                showPasswordModal(true);
-                return;
-            }
             currentGrade = grade;
             [10, 11, 12].forEach(g => {
                 const btn = document.getElementById(`tab-grade-${g}`);
@@ -1439,7 +1425,7 @@
                 const unitDiv = document.createElement('div');
                 unitDiv.className = 'border-b border-slate-100';
                 
-                const isUnitLocked = !isUnlocked;
+                const isUnitLocked = !isUnlocked && u !== FREE_UNIT;
                 const unitHeader = document.createElement('div');
                 unitHeader.className = 'px-4 py-3 font-bold text-slate-700 cursor-pointer flex justify-between items-center hover:bg-blue-50/60 transition-colors select-none';
                 unitHeader.innerHTML = `
@@ -1460,7 +1446,7 @@
                 
                 for (let t = 1; t <= 10; t++) {
                     const progress = getProgress(currentGrade, u, t);
-                    const isTestLocked = !isUnlocked;
+                    const isTestLocked = !isUnlocked && !isFreeTest(u, t);
                     let badgeHtml = '';
                     if (progress) {
                         let colorClass = progress.percent >= 80 ? 'bg-emerald-100 text-emerald-700 border-emerald-200' : 
@@ -1468,6 +1454,8 @@
                         badgeHtml = `<span class="px-2 py-0.5 text-[11px] font-bold rounded-full border ${colorClass}">${progress.percent}%</span>`;
                     } else if (isTestLocked) {
                         badgeHtml = `<span class="text-[11px] text-slate-400">🔒</span>`;
+                    } else if (!isUnlocked) {
+                        badgeHtml = `<span class="text-[11px] font-bold text-emerald-600">Miễn phí</span>`;
                     }
 
                     const testBtn = document.createElement('button');
@@ -1498,10 +1486,9 @@
         }
 
         function toggleUnit(unit) {
-            const status = evaluateLicense();
-            if (!status.active) {
+            if (unit !== FREE_UNIT && !evaluateLicense().active) {
                 pendingAction = { type: 'unit', val: unit };
-                showPasswordModal(true);
+                showPasswordModal();
                 return;
             }
             const testsDiv = document.getElementById(`unit-${unit}-tests`);
@@ -1509,10 +1496,9 @@
         }
 
         function selectTest(unit, test) {
-            const status = evaluateLicense();
-            if (!status.active) {
+            if (!canAccess(unit, test)) {
                 pendingAction = { type: 'test', unit: unit, test: test };
-                showPasswordModal(true);
+                showPasswordModal();
                 return;
             }
             currentUnit = unit; currentTest = test; isSubmitted = false;
@@ -1861,19 +1847,13 @@
 
         /* QUẢN LÝ HỘP THOẠI MẬT KHẨU & BẢN QUYỀN */
         function continueAfterResult() { 
-            const status = evaluateLicense();
-            if (!status.active) {
-                pendingAction = null;
-                showPasswordModal(true);
-            } else {
-                document.getElementById('test-screen').classList.add('hidden-element');
-                document.getElementById('result-screen').classList.add('hidden-element');
-                document.getElementById('welcome-screen').classList.remove('hidden-element');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            document.getElementById('test-screen').classList.add('hidden-element');
+            document.getElementById('result-screen').classList.add('hidden-element');
+            document.getElementById('welcome-screen').classList.remove('hidden-element');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showPasswordModal(forceLock) {
+        function showPasswordModal() {
             const status = evaluateLicense();
             const modal = document.getElementById('password-modal');
             const infoBox = document.getElementById('modal-license-info');
@@ -1886,6 +1866,7 @@
             modal.classList.remove('hidden-element');
             document.getElementById('password-error').classList.add('hidden-element');
             document.getElementById('password-input').value = '';
+            closeBtn.classList.remove('hidden-element');
 
             if (status.mode === 'vip') {
                 iconBox.innerText = '👑';
@@ -1898,38 +1879,31 @@
                     <div class="flex justify-between"><span>Thời gian còn lại:</span> <strong class="text-blue-700">${status.daysLeft} ngày</strong></div>
                 `;
                 formArea.classList.add('hidden-element');
-                closeBtn.classList.remove('hidden-element');
-            } else if (status.mode === 'trial') {
-                iconBox.innerText = '⏳';
-                titleEl.innerText = 'Kích hoạt Bản quyền 365 ngày';
-                subEl.innerText = 'Bạn đang trong 10 ngày dùng thử. Nhập mật khẩu dưới đây nếu muốn kích hoạt ngay gói 365 ngày.';
-                infoBox.innerHTML = `
-                    <div class="flex justify-between"><span>Chế độ hiện tại:</span> <strong class="text-amber-700">Dùng thử 10 ngày</strong></div>
-                    <div class="flex justify-between"><span>Ngày bắt đầu:</span> <strong>${formatDateVN(status.startDate)}</strong></div>
-                    <div class="flex justify-between"><span>Hết hạn dùng thử:</span> <strong>${formatDateVN(status.expireDate)} (còn ${status.daysLeft} ngày)</strong></div>
-                `;
-                formArea.classList.remove('hidden-element');
-                closeBtn.classList.remove('hidden-element');
-                setTimeout(() => document.getElementById('password-input').focus(), 50);
-            } else {
-                // Đã hết hạn 10 ngày dùng thử hoặc hết hạn 365 ngày -> Bắt buộc nhập mật khẩu
+            } else if (status.mode === 'vip_expired') {
                 iconBox.innerText = '🔒';
-                titleEl.innerText = status.mode === 'trial_expired' ? 'Đã hết 10 ngày dùng thử!' : 'Bản quyền 365 ngày đã hết hạn!';
-                subEl.innerText = 'Vui lòng nhập mật khẩu kích hoạt để tiếp tục sử dụng toàn bộ hệ thống trong 365 ngày.';
+                titleEl.innerText = 'Bản quyền 365 ngày đã hết hạn!';
+                subEl.innerText = 'Hiện chỉ dùng được Unit 1 - Test 1 của mỗi khối. Nhập mật khẩu để tiếp tục sử dụng toàn bộ hệ thống trong 365 ngày.';
                 infoBox.innerHTML = `
-                    <div class="flex justify-between"><span>Trạng thái:</span> <strong class="text-rose-600">Đã hết hạn sử dụng</strong></div>
+                    <div class="flex justify-between"><span>Trạng thái:</span> <strong class="text-rose-600">Đã hết hạn (chỉ dùng Unit 1 - Test 1)</strong></div>
                     <div class="flex justify-between"><span>Ngày hết hạn:</span> <strong>${formatDateVN(status.expireDate)}</strong></div>
                 `;
                 formArea.classList.remove('hidden-element');
-                // Ẩn nút Đóng nếu đã hết hạn hoàn toàn để buộc nhập mật khẩu
-                closeBtn.classList.toggle('hidden-element', !!forceLock || !status.active);
+                setTimeout(() => document.getElementById('password-input').focus(), 50);
+            } else {
+                iconBox.innerText = '🔑';
+                titleEl.innerText = 'Mở khóa toàn bộ đề thi';
+                subEl.innerText = 'Bản miễn phí chỉ gồm Unit 1 - Test 1 của Lớp 10, 11, 12. Nhập mật khẩu để dùng đầy đủ 10 Unit × 10 Test mỗi khối trong 365 ngày.';
+                infoBox.innerHTML = `
+                    <div class="flex justify-between"><span>Chế độ hiện tại:</span> <strong class="text-amber-700">Miễn phí (Unit 1 - Test 1)</strong></div>
+                    <div class="flex justify-between"><span>Đề được dùng:</span> <strong>3 / 300 đề</strong></div>
+                    <div class="flex justify-between"><span>Sau khi nhập mật khẩu:</span> <strong class="text-emerald-700">Toàn bộ 300 đề</strong></div>
+                `;
+                formArea.classList.remove('hidden-element');
                 setTimeout(() => document.getElementById('password-input').focus(), 50);
             }
         }
 
         function closeModal() {
-            const status = evaluateLicense();
-            if (!status.active) return; // Không cho đóng nếu đã hết hạn
             document.getElementById('password-modal').classList.add('hidden-element');
             pendingAction = null;
         }
@@ -3009,9 +2983,8 @@
 
             /* ---------- Hàm công khai: xuất .DOCX và .DOC ---------- */
             window.exportDocx = async function (withAnswersOrOpts) {
-                const status = evaluateLicense();
-                if (!status.active) {
-                    showPasswordModal(true);
+                if (!canAccess(currentUnit, currentTest)) {
+                    showPasswordModal();
                     return;
                 }
                 const questions = getCurrentQuestions();
@@ -3039,9 +3012,8 @@
             };
 
             window.exportDoc = function (withAnswersOrOpts) {
-                const status = evaluateLicense();
-                if (!status.active) {
-                    showPasswordModal(true);
+                if (!canAccess(currentUnit, currentTest)) {
+                    showPasswordModal();
                     return;
                 }
                 const questions = getCurrentQuestions();
@@ -3194,9 +3166,8 @@
             };
 
             window.openExportSettingsModal = function () {
-                const status = evaluateLicense();
-                if (!status.active) {
-                    showPasswordModal(true);
+                if (!canAccess(currentUnit, currentTest)) {
+                    showPasswordModal();
                     return;
                 }
                 syncModalFromPrefs();
