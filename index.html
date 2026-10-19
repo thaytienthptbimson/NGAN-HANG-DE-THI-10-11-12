@@ -293,14 +293,21 @@
                         <h2 class="text-2xl md:text-3xl font-black text-slate-900" id="current-test-title">Đề thi</h2>
                     </div>
 
-                    <!-- XUẤT FILE WORD (.docx) THEO QUY CHUẨN ĐỀ MẪU -->
+                    <!-- XUẤT FILE WORD (.DOCX / .DOC) SIÊU TIẾT KIỆM GIẤY & CHUẨN ĐẸP -->
                     <div id="export-bar" class="flex flex-wrap items-center gap-2">
-                        <button onclick="exportDocx(true)" class="docx-export-btn inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-3.5 text-xs md:text-sm rounded-xl shadow-sm transition-all hover:shadow">
+                        <button onclick="exportDocx(true)" class="docx-export-btn inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-3.5 text-xs md:text-sm rounded-xl shadow-sm transition-all hover:shadow" title="Tải ngay file .docx (Đề + Đáp án) theo chế độ tiết kiệm giấy đang chọn">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            Xuất Word (Đề + Đáp án)
+                            <span>Xuất Word (Đề + Đáp án)</span>
                         </button>
-                        <button onclick="exportDocx(false)" class="docx-export-btn inline-flex items-center gap-1.5 bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-600 font-bold py-2 px-3.5 text-xs md:text-sm rounded-xl shadow-sm transition-all">
-                            Chỉ xuất đề
+                        <button onclick="exportDocx(false)" class="docx-export-btn inline-flex items-center gap-1.5 bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-600 font-bold py-2 px-3 text-xs md:text-sm rounded-xl shadow-sm transition-all" title="Chỉ xuất đề thi (không kèm đáp án) phát cho học sinh">
+                            <span>Chỉ xuất đề</span>
+                        </button>
+                        <button onclick="exportDoc(true)" class="docx-export-btn inline-flex items-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-300 font-bold py-2 px-3 text-xs md:text-sm rounded-xl shadow-sm transition-all" title="Xuất định dạng .DOC (Word 97-2003) tương thích mọi máy tính, không cần mạng">
+                            <span>Xuất .DOC</span>
+                        </button>
+                        <button onclick="openExportSettingsModal()" class="inline-flex items-center gap-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 font-bold py-2 px-3 text-xs md:text-sm rounded-xl shadow-sm transition-all" title="Tùy chỉnh chế độ tiết kiệm giấy (1 cột / 2 cột in 1 tờ A4, cỡ chữ, lề, tiêu đề)">
+                            <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                            <span id="export-preset-badge">Căn trang &amp; Tiết kiệm giấy</span>
                         </button>
                     </div>
                 </div>
@@ -409,8 +416,14 @@
                     <button onclick="continueAfterResult()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 text-sm md:text-base rounded-xl shadow-md transition-all transform hover:-translate-y-0.5">
                         Trở về danh mục Đề thi
                     </button>
-                    <button onclick="exportDocx(true)" class="docx-export-btn bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-7 text-sm md:text-base rounded-xl shadow-md transition-all transform hover:-translate-y-0.5">
+                    <button onclick="exportDocx(true)" class="docx-export-btn bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 text-sm md:text-base rounded-xl shadow-md transition-all transform hover:-translate-y-0.5">
                         Tải đề + đáp án (Word)
+                    </button>
+                    <button onclick="exportDoc(true)" class="docx-export-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-5 text-sm md:text-base rounded-xl shadow-md transition-all transform hover:-translate-y-0.5">
+                        Tải file .DOC
+                    </button>
+                    <button onclick="openExportSettingsModal()" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-5 text-sm md:text-base rounded-xl shadow-md transition-all transform hover:-translate-y-0.5">
+                        ⚙ Tùy chỉnh in tiết kiệm giấy
                     </button>
                 </div>
             </div>
@@ -459,10 +472,689 @@
         </div>
     </div>
 
-    <!-- Kho ngân hàng đề thi được tách riêng theo khối (cùng thư mục với index.html) -->
-    <script src="khoi10.js"></script>
-    <script src="khoi11.js"></script>
-    <script src="khoi12.js"></script>
+    <!-- MODAL TÙY CHỈNH XUẤT WORD (.DOCX / .DOC) & TIẾT KIỆM GIẤY TỐI ĐA -->
+    <div id="export-settings-modal" class="hidden-element fixed inset-0 bg-slate-900/75 backdrop-blur-sm flex justify-center items-center z-[105] p-3 md:p-5 overflow-y-auto">
+        <div class="bg-white rounded-3xl shadow-2xl p-5 md:p-7 max-w-2xl w-full border border-slate-200 my-auto max-h-[94vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-start justify-between gap-3 border-b border-slate-200 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-xl flex-shrink-0">
+                        📄
+                    </div>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-black text-slate-900">Xuất Đề Thi Word (.DOCX / .DOC) &amp; Tiết Kiệm Giấy</h3>
+                        <p class="text-xs text-slate-500 font-medium">Tối ưu dàn trang chuẩn in ấn A4, căn cột thẳng hàng tuyệt đối, tiết kiệm tối đa số tờ giấy in</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeExportSettingsModal()" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm">✕</button>
+            </div>
+
+            <!-- 1. Chọn Chế độ dàn trang (Presets) -->
+            <div class="mb-5">
+                <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-600 mb-2">1. Chọn chế độ dàn trang &amp; tiết kiệm giấy</label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <button type="button" onclick="applyExportPreset('compact')" id="preset-btn-compact" class="text-left p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/70 transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-extrabold text-emerald-800">⚡ Siêu gọn 1 cột</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-600 text-white">Khuyên dùng</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-snug">Chữ 10pt, lề 0.75cm, gộp dòng thông minh, giải thích 2 cột (~3–4 trang/đề).</p>
+                    </button>
+
+                    <button type="button" onclick="applyExportPreset('twocol')" id="preset-btn-twocol" class="text-left p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-400 bg-white transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-extrabold text-slate-800">📰 Chia 2 cột (1 tờ A4)</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">Siêu tiết kiệm</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-snug">Chia 2 cột báo chí có vạch ngăn, chữ 9pt, lề 0.65cm. Đề + bảng đáp án vừa 2 trang (1 tờ A4).</p>
+                    </button>
+
+                    <button type="button" onclick="applyExportPreset('standard')" id="preset-btn-standard" class="text-left p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-400 bg-white transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-extrabold text-slate-800">🏛️ Chuẩn Bộ GD&amp;ĐT</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">1 cột thoáng</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-snug">Chữ 11pt, lề chuẩn 1.2cm, giãn dòng thoáng, sang trang riêng cho Đáp án (~5 trang).</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. Chọn nội dung xuất -->
+            <div class="mb-5">
+                <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-600 mb-2">2. Nội dung xuất ra file Word</label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50/70 cursor-pointer hover:bg-blue-50/40">
+                        <input type="radio" name="exp_answer_mode" value="full" checked onchange="updateExportEstimate()" class="accent-emerald-600">
+                        <div class="leading-tight">
+                            <span class="block text-xs font-bold text-slate-800">Đề + Đáp án + Giải thích</span>
+                            <span class="text-[10px] text-slate-500">Đầy đủ bảng đáp án &amp; lời giải</span>
+                        </div>
+                    </label>
+                    <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50/70 cursor-pointer hover:bg-blue-50/40">
+                        <input type="radio" name="exp_answer_mode" value="key_only" onchange="updateExportEstimate()" class="accent-emerald-600">
+                        <div class="leading-tight">
+                            <span class="block text-xs font-bold text-slate-800">Đề + Bảng đáp án gọn</span>
+                            <span class="text-[10px] text-slate-500">Bảng 20 cột × 2 dòng siêu gọn</span>
+                        </div>
+                    </label>
+                    <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50/70 cursor-pointer hover:bg-blue-50/40">
+                        <input type="radio" name="exp_answer_mode" value="none" onchange="updateExportEstimate()" class="accent-emerald-600">
+                        <div class="leading-tight">
+                            <span class="block text-xs font-bold text-slate-800">Chỉ xuất Đề thi</span>
+                            <span class="text-[10px] text-slate-500">Bản in phát trực tiếp cho học sinh</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 3. Tùy chỉnh chi tiết Cỡ chữ, Căn lề, Số cột -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+                <div>
+                    <label for="exp-font-size" class="block text-xs font-bold text-slate-700 mb-1">Cỡ chữ (Times New Roman)</label>
+                    <select id="exp-font-size" onchange="updateExportEstimate()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800">
+                        <option value="9">9 pt (Siêu nhỏ gọn - 2 cột)</option>
+                        <option value="9.5">9.5 pt (Nhỏ gọn)</option>
+                        <option value="10" selected>10 pt (Tiết kiệm giấy chuẩn)</option>
+                        <option value="10.5">10.5 pt (Vừa vặn, dễ đọc)</option>
+                        <option value="11">11 pt (Chuẩn đề thi THPT)</option>
+                        <option value="11.5">11.5 pt (Chữ lớn rõ nét)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="exp-margin" class="block text-xs font-bold text-slate-700 mb-1">Căn lề trang giấy A4</label>
+                    <select id="exp-margin" onchange="updateExportEstimate()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800">
+                        <option value="ultra">Siêu hẹp (Trên/Dưới 0.65cm, Trái/Phải 0.7cm)</option>
+                        <option value="compact" selected>Hẹp tiết kiệm (Trên/Dưới 0.75cm, Trái/Phải 0.8cm)</option>
+                        <option value="standard">Chuẩn (Trên/Dưới/Trái/Phải 1.2cm)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="exp-columns" class="block text-xs font-bold text-slate-700 mb-1">Bố cục cột phần Đề thi</label>
+                    <select id="exp-columns" onchange="updateExportEstimate()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800">
+                        <option value="1" selected>1 cột truyền thống</option>
+                        <option value="2">2 cột báo chí (có đường kẻ giữa)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 4. Thông tin Tiêu đề & Tùy chọn tiết kiệm giấy -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <div>
+                    <label for="exp-school-name" class="block text-[11px] font-bold text-slate-600 mb-1">Tên Sở / Trường / Đơn vị trên tiêu đề</label>
+                    <input type="text" id="exp-school-name" value="NGÂN HÀNG ĐỀ THI THPT QUỐC GIA" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-800">
+                </div>
+                <div>
+                    <label for="exp-exam-code" class="block text-[11px] font-bold text-slate-600 mb-1">Mã đề thi</label>
+                    <div class="flex gap-1.5">
+                        <input type="text" id="exp-exam-code" value="101" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-800">
+                        <button type="button" onclick="randomizeExamCode()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 border border-slate-300 rounded-lg text-xs font-bold text-slate-700 whitespace-nowrap" title="Tạo mã đề ngẫu nhiên">🎲 Đổi mã</button>
+                    </div>
+                </div>
+                <label class="flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer">
+                    <input type="checkbox" id="exp-show-header" checked onchange="updateExportEstimate()" class="accent-emerald-600 rounded">
+                    <span>In khung tiêu đề đề thi &amp; mục Họ tên, SBD</span>
+                </label>
+                <label class="flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer">
+                    <input type="checkbox" id="exp-twocol-exp" checked onchange="updateExportEstimate()" class="accent-emerald-600 rounded">
+                    <span>Chia 2 cột phần Giải thích chi tiết (giảm 50% trang)</span>
+                </label>
+                <label class="flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer">
+                    <input type="checkbox" id="exp-compact-blanks" checked onchange="updateExportEstimate()" class="accent-emerald-600 rounded">
+                    <span>Tối ưu khoảng trống (1) ____ &amp; gộp dòng phương án</span>
+                </label>
+                <label class="flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer">
+                    <input type="checkbox" id="exp-pagebreak-ans" onchange="updateExportEstimate()" class="accent-emerald-600 rounded">
+                    <span>Ngắt sang trang mới riêng cho phần Đáp án</span>
+                </label>
+            </div>
+
+            <!-- Thanh ước tính số trang in -->
+            <div class="mb-5 p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2 text-xs">
+                <div class="flex items-center gap-2 text-emerald-900 font-semibold">
+                    <span class="text-base">🌱</span>
+                    <span id="exp-estimate-text">Ước tính: <strong>~3–4 trang A4</strong> (2 tờ in 2 mặt) — Tiết kiệm ~40% giấy in</span>
+                </div>
+                <span class="text-[11px] font-bold text-emerald-700 bg-white px-2.5 py-1 rounded-lg border border-emerald-200 whitespace-nowrap">Chuẩn in A4</span>
+            </div>
+
+            <!-- Nút tải xuống .DOCX và .DOC -->
+            <div class="flex flex-col sm:flex-row items-center justify-end gap-2.5 pt-3 border-t border-slate-200">
+                <button type="button" onclick="closeExportSettingsModal()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs md:text-sm">
+                    Lưu cấu hình &amp; Đóng
+                </button>
+                <button type="button" onclick="triggerExportFromModal('doc')" class="docx-export-btn w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs md:text-sm shadow-sm transition-all">
+                    <span>Tải file .DOC (Word 97-2003)</span>
+                </button>
+                <button type="button" onclick="triggerExportFromModal('docx')" class="docx-export-btn w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs md:text-sm shadow-md transition-all">
+                    <span>Tải file .DOCX (Chuẩn Word)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HỘP THOẠI THÔNG BÁO NHANH (TOAST) -->
+    <div id="app-toast" class="hidden-element fixed bottom-5 right-5 z-[120] max-w-sm bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl border border-white/15 flex items-center gap-3 text-xs md:text-sm font-semibold transition-all">
+        <span id="app-toast-icon" class="text-base">✅</span>
+        <span id="app-toast-msg">Thông báo</span>
+    </div>
+
+    <!-- Kho ngân hàng đề thi được tách riêng theo khối (cùng thư mục với index.html) + Dữ liệu mẫu dự phòng -->
+    <script>
+        window.__fallbackSampleTest = [
+  {
+    "instruction": "Read the following advertisement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+    "passage": "DISCOVER ECO-TOURISM IN HA LONG BAY\nAre you looking for an (1) ________ holiday this summer? Join our Eco-Ha Long Tour, (2) ________ offers breathtaking views of limestone islands while protecting the local marine ecosystem. Visitors are encouraged to bring reusable water bottles instead of (3) ________ plastic ones. By booking early, you can take advantage (4) ________ a 20% discount for student groups. Our experienced guides will help you (5) ________ kayaking through hidden caves and visit traditional floating villages. Don't miss this chance (6) ________ nature responsibly!\n(Adapted from Vietnam Travel Guide)",
+    "text": "",
+    "options": [
+      "unforgettable",
+      "unforgettably",
+      "forgetful",
+      "forget"
+    ],
+    "answer": 0,
+    "explanation": "Sau mạo từ 'an' và trước danh từ 'holiday' cần một tính từ: 'unforgettable' (đáng nhớ)."
+  },
+  {
+    "instruction": "Read the following advertisement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+    "text": "",
+    "options": [
+      "who",
+      "which",
+      "whom",
+      "whose"
+    ],
+    "answer": 1,
+    "explanation": "Đại từ quan hệ 'which' thay thế cho danh từ chỉ vật 'Eco-Ha Long Tour' và làm chủ ngữ cho động từ 'offers'."
+  },
+  {
+    "instruction": "Read the following advertisement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+    "text": "",
+    "options": [
+      "single-use",
+      "long-term",
+      "well-known",
+      "high-speed"
+    ],
+    "answer": 0,
+    "explanation": "'single-use plastic ones' = chai nhựa dùng một lần."
+  },
+  {
+    "instruction": "Read the following advertisement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+    "text": "",
+    "options": [
+      "in",
+      "on",
+      "of",
+      "for"
+    ],
+    "answer": 2,
+    "explanation": "Cụm cố định: 'take advantage of sth' (tận dụng cái gì)."
+  },
+  {
+    "instruction": "Read the following advertisement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+    "text": "",
+    "options": [
+      "go",
+      "do",
+      "make",
+      "take"
+    ],
+    "answer": 0,
+    "explanation": "Cụm từ 'go kayaking' (đi chèo thuyền kayak)."
+  },
+  {
+    "instruction": "Read the following advertisement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+    "text": "",
+    "options": [
+      "explore",
+      "to explore",
+      "exploring",
+      "explored"
+    ],
+    "answer": 1,
+    "explanation": "Cấu trúc 'chance to V' (cơ hội để làm gì)."
+  },
+  {
+    "instruction": "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+    "passage": "SMART STUDY HABITS FOR HIGH SCHOOL STUDENTS\nPreparing for national exams requires more than just staying up late. While some students prefer studying alone, (7) ________ find group discussions much more effective. First, set up a daily schedule and (8) ________ distractions such as social media notifications. Second, review your notes regularly to strengthen memory (9) ________. (10) ________ cramming everything the night before, break your study material into smaller chunks. Make sure to drink plenty of water and get a (11) ________ of sleep each night so your brain stays sharp and focused on exam (12) ________.\n(Adapted from Student Success Weekly)",
+    "text": "",
+    "options": [
+      "other",
+      "others",
+      "another",
+      "the other"
+    ],
+    "answer": 1,
+    "explanation": "'others' (= other students) đóng vai trò đại từ làm chủ ngữ đối lập với 'some students'."
+  },
+  {
+    "instruction": "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+    "text": "",
+    "options": [
+      "cut down on",
+      "look up to",
+      "put up with",
+      "get along with"
+    ],
+    "answer": 0,
+    "explanation": "'cut down on' = cắt giảm các yếu tố gây xao nhãng."
+  },
+  {
+    "instruction": "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+    "text": "",
+    "options": [
+      "retention",
+      "intention",
+      "attention",
+      "extension"
+    ],
+    "answer": 0,
+    "explanation": "'memory retention' = khả năng ghi nhớ, lưu giữ thông tin."
+  },
+  {
+    "instruction": "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+    "text": "",
+    "options": [
+      "Instead of",
+      "Because of",
+      "In spite of",
+      "On account of"
+    ],
+    "answer": 0,
+    "explanation": "'Instead of' = Thay vì học nhồi nhét vào đêm trước kỳ thi."
+  },
+  {
+    "instruction": "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+    "text": "",
+    "options": [
+      "good amount",
+      "large number",
+      "wide range",
+      "great variety"
+    ],
+    "answer": 0,
+    "explanation": "'sleep' là danh từ không đếm được nên đi với 'a good amount of'."
+  },
+  {
+    "instruction": "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+    "text": "",
+    "options": [
+      "tasks",
+      "days",
+      "rules",
+      "grades"
+    ],
+    "answer": 1,
+    "explanation": "'on exam days' = vào những ngày thi."
+  },
+  {
+    "instruction": "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a meaningful exchange or text in each of the following questions from 13 to 17.",
+    "text": "a. Mai: Hi, Nam! Have you signed up for the school volunteer club yet?\nb. Nam: Yes, I registered yesterday. Are you joining too?\nc. Mai: Definitely! Let's go to the orientation meeting together this Friday.",
+    "options": [
+      "a - b - c",
+      "b - a - c",
+      "c - a - b",
+      "a - c - b"
+    ],
+    "answer": 0,
+    "explanation": "Trình tự hội thoại hợp lý: Mai hỏi Nam (a) -> Nam trả lời và hỏi lại (b) -> Mai xác nhận và rủ đi họp (c)."
+  },
+  {
+    "instruction": "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a meaningful exchange or text in each of the following questions from 13 to 17.",
+    "text": "a. Lan: I'm thinking of taking an online coding course this semester.\nb. Minh: Why coding? I thought you wanted to study graphic design.\nc. Lan: Well, basic programming skills are really helpful for web designers too.\nd. Minh: That makes sense! Which platform are you going to use?\ne. Lan: Probably Coursera, because they offer financial aid for students.",
+    "options": [
+      "a - b - c - d - e",
+      "b - a - d - c - e",
+      "a - c - b - d - e",
+      "c - b - a - e - d"
+    ],
+    "answer": 0,
+    "explanation": "Mở đầu Lan nêu ý định (a) -> Minh hỏi lý do (b) -> Lan giải thích (c) -> Minh hỏi nền tảng học (d) -> Lan trả lời (e)."
+  },
+  {
+    "instruction": "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a meaningful exchange or text in each of the following questions from 13 to 17.",
+    "text": "Dear Ms. Parker,\na. I would be grateful if you could let me know whether there are still slots available for the Saturday morning class.\nb. I am writing to inquire about the Academic Writing workshop advertised on the community center's website.\nc. Currently, I am a twelfth-grade student preparing for my university entrance essays.\nd. Thank you very much for your time and assistance.\ne. Therefore, I believe this course would help me organize my arguments more effectively.\nYours sincerely, Minh Anh",
+    "options": [
+      "b - c - e - a - d",
+      "b - a - c - e - d",
+      "c - b - e - a - d",
+      "a - b - c - d - e"
+    ],
+    "answer": 0,
+    "explanation": "Thư hỏi thông tin: Nêu mục đích viết thư (b) -> Giới thiệu bản thân (c) -> Lý do khóa học phù hợp (e) -> Hỏi chỗ trống (a) -> Cảm ơn (d)."
+  },
+  {
+    "instruction": "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a meaningful exchange or text in each of the following questions from 13 to 17.",
+    "text": "a. First, doing household chores teaches teenagers essential life skills such as cooking, cleaning, and time management.\nb. Sharing family responsibilities plays a vital role in a child's personal development.\nc. In conclusion, regular participation in housework prepares young people for independent living in the future.\nd. Moreover, working together on daily tasks strengthens family bonds and mutual respect among family members.\ne. When children help their parents, they also learn to appreciate the effort required to maintain a comfortable home.",
+    "options": [
+      "b - a - d - e - c",
+      "a - b - d - e - c",
+      "b - d - a - c - e",
+      "c - b - a - d - e"
+    ],
+    "answer": 0,
+    "explanation": "Câu chủ đề (b) -> Luận điểm 1: First (a) -> Luận điểm 2: Moreover (d) -> Phát triển ý (e) -> Kết luận: In conclusion (c)."
+  },
+  {
+    "instruction": "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a meaningful exchange or text in each of the following questions from 13 to 17.",
+    "text": "a. Consequently, average commute times during rush hours have decreased by nearly fifteen percent over the past year.\nb. Over the last five years, the city has invested heavily in electric buses and elevated metro lines.\nc. Despite initial skepticism from commuters, ridership on public transit has grown steadily each quarter.\nd. This shift toward green public transport has also significantly reduced carbon emissions in the downtown area.\ne. To encourage adoption, authorities introduced a unified smart card that works across all bus and train routes.",
+    "options": [
+      "b - e - c - a - d",
+      "b - c - e - d - a",
+      "e - b - c - a - d",
+      "a - b - e - c - d"
+    ],
+    "answer": 0,
+    "explanation": "Bối cảnh đầu tư (b) -> Giải pháp thẻ thông minh (e) -> Lượng khách tăng (c) -> Kết quả giảm thời gian đi lại (a) -> Tác động giảm khí thải (d)."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 18 to 22.",
+    "passage": "Artificial intelligence is rapidly transforming modern classrooms around the world. Adaptive learning platforms, (18) ________, can analyze each student's strengths and weaknesses in real time. Instead of following a rigid one-size-fits-all curriculum, students receive personalized exercises tailored to their individual pace. (19) ________. Teachers, freed from repetitive grading tasks, can devote more energy to mentoring students and fostering critical thinking. However, experts warn that (20) ________. Schools must establish clear guidelines on data privacy and academic integrity, ensuring that technology serves as a supportive tool rather than a replacement for genuine human inquiry. Equipped with proper digital literacy training, (21) ________, preparing themselves for a rapidly evolving job market (22) ________.",
+    "text": "",
+    "options": [
+      "which are powered by advanced machine-learning algorithms",
+      "powering by advanced machine-learning algorithms in education",
+      "that were powered by advanced machine-learning algorithms",
+      "whose advanced machine-learning algorithms are powering them"
+    ],
+    "answer": 0,
+    "explanation": "Mệnh đề quan hệ không xác định sau dấu phẩy bổ nghĩa cho 'Adaptive learning platforms' dùng 'which are powered...'."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 18 to 22.",
+    "text": "",
+    "options": [
+      "This individualized approach helps struggling learners build confidence without holding back advanced peers",
+      "Struggling learners build confidence so that advanced peers are held back by this individualized approach",
+      "Without building confidence, this individualized approach holds back both struggling and advanced learners",
+      "Advanced peers are held back because struggling learners receive this individualized approach"
+    ],
+    "answer": 0,
+    "explanation": "Câu liên kết mạch lạc với câu trước về lợi ích của bài tập cá nhân hóa."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 18 to 22.",
+    "text": "",
+    "options": [
+      "over-reliance on automated tools may weaken students' independent problem-solving abilities",
+      "students' independent problem-solving abilities may strengthen over-reliance on automated tools",
+      "automated tools may rely too much on weakening students' independent problem-solving abilities",
+      "weakening independent problem-solving abilities is the main goal of automated classroom tools"
+    ],
+    "answer": 0,
+    "explanation": "Sau 'warn that' là mệnh đề cảnh báo tác hại của việc phụ thuộc quá mức vào công cụ tự động."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 18 to 22.",
+    "text": "",
+    "options": [
+      "both educators and learners can harness AI responsibly",
+      "AI can be harnessed responsibly by neither educators nor classrooms",
+      "responsible AI harnesses both educators and learners in training",
+      "digital literacy training can be equipped by educators and learners"
+    ],
+    "answer": 0,
+    "explanation": "Rút gọn mệnh đề cùng chủ ngữ với phân từ quá khứ 'Equipped with...', chủ ngữ chính phải là 'both educators and learners'."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 18 to 22.",
+    "text": "",
+    "options": [
+      "where adaptability and creativity remain irreplaceable",
+      "which adaptability and creativity remain irreplaceable",
+      "in where adaptability and creativity remain irreplaceable",
+      "that adaptability and creativity remain irreplaceable"
+    ],
+    "answer": 0,
+    "explanation": "Trạng từ quan hệ 'where' (= in which) bổ nghĩa cho 'a rapidly evolving job market'."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": "URBAN GREEN SPACES AND MENTAL WELL-BEING\nIn recent decades, rapid urbanization has transformed landscapes worldwide, replacing forests and meadows with concrete high-rises and congested highways. While cities offer economic opportunities and cultural vibrancy, urban residents often experience elevated levels of stress, anxiety, and mental fatigue. Fortunately, urban planners and public health researchers have increasingly recognized a simple yet powerful remedy: accessible green spaces.\nCommunity parks, tree-lined avenues, and rooftop gardens do far more than beautify neighborhoods. Studies conducted across major metropolitan areas reveal that spending just twenty minutes a day in a natural setting significantly lowers cortisol—the body's primary stress hormone. Furthermore, green corridors encourage physical activity such as jogging and cycling while providing shaded gathering spots that foster social cohesion among neighbors.\nTo maximize these benefits, cities such as Singapore and Copenhagen have integrated 'pocket parks' and vertical forests directly into high-density residential zones. Rather than treating nature as a luxury reserved for suburban outskirts, forward-thinking municipalities view urban greenery as essential public health infrastructure.",
+    "text": "Which of the following is NOT mentioned in paragraph 1 as a feature or consequence of urbanization?",
+    "options": [
+      "concrete high-rises",
+      "congested highways",
+      "elevated stress levels",
+      "declining birth rates"
+    ],
+    "answer": 3,
+    "explanation": "Đoạn 1 nhắc tới concrete high-rises, congested highways, elevated levels of stress; không nhắc tới declining birth rates."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": null,
+    "text": "The word 'remedy' in paragraph 1 is closest in meaning to ________.",
+    "options": [
+      "solution",
+      "obstacle",
+      "symptom",
+      "complaint"
+    ],
+    "answer": 0,
+    "explanation": "'remedy' = giải pháp, phương thuốc chữa trị (= solution)."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": null,
+    "text": "The word 'foster' in paragraph 2 is OPPOSITE in meaning to ________.",
+    "options": [
+      "promote",
+      "discourage",
+      "support",
+      "cultivate"
+    ],
+    "answer": 1,
+    "explanation": "'foster' (thúc đẩy, nuôi dưỡng) >< 'discourage' (làm cản trở, làm nản lòng)."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": null,
+    "text": "According to paragraph 2, spending twenty minutes daily in nature helps ________.",
+    "options": [
+      "reduce the body's main stress hormone",
+      "eliminate all traffic noise in cities",
+      "double the property value of apartments",
+      "replace the need for regular exercise"
+    ],
+    "answer": 0,
+    "explanation": "Đoạn 2 nêu: 'spending just twenty minutes a day in a natural setting significantly lowers cortisol—the body's primary stress hormone'."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": null,
+    "text": "Which of the following best paraphrases the final sentence of paragraph 3?",
+    "options": [
+      "Progressive cities regard urban nature as vital health infrastructure rather than an optional suburban privilege.",
+      "Suburban residents enjoy fewer health benefits from green spaces than people living in high-density cities.",
+      "Municipalities should relocate all public health facilities to suburban forests and meadows.",
+      "Vertical forests are too expensive to be considered essential infrastructure in modern cities."
+    ],
+    "answer": 0,
+    "explanation": "Câu cuối đoạn 3 khẳng định các đô thị tiên tiến coi cây xanh đô thị là hạ tầng y tế thiết yếu chứ không phải thứ xa xỉ ở ngoại ô."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": null,
+    "text": "Which of the following is TRUE according to the passage?",
+    "options": [
+      "Green corridors help promote both physical exercise and neighborhood interaction.",
+      "Only large national parks outside cities can reduce cortisol levels.",
+      "Singapore has banned high-density residential zones to plant forests.",
+      "Urbanization has completely eliminated cultural vibrancy in modern cities."
+    ],
+    "answer": 0,
+    "explanation": "Đoạn 2 chỉ rõ hành lang xanh vừa khuyến khích vận động vừa gắn kết cộng đồng."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": null,
+    "text": "In which paragraph does the writer mention specific cities that have incorporated small green areas into crowded neighborhoods?",
+    "options": [
+      "Paragraph 1",
+      "Paragraph 2",
+      "Paragraph 3",
+      "None of the paragraphs"
+    ],
+    "answer": 2,
+    "explanation": "Đoạn 3 nêu rõ Singapore và Copenhagen tích hợp pocket parks vào khu dân cư mật độ cao."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+    "passage": null,
+    "text": "In which paragraph does the writer explain the physiological effect of nature on human stress?",
+    "options": [
+      "Paragraph 1",
+      "Paragraph 2",
+      "Paragraph 3",
+      "All paragraphs"
+    ],
+    "answer": 1,
+    "explanation": "Đoạn 2 giải thích tác động giảm hormone cortisol."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": "THE RISE OF CIRCULAR ECONOMY IN MANUFACTURING\nFor over a century, global industry has operated on a linear 'take-make-dispose' model: raw materials are extracted, manufactured into products, sold to consumers, and eventually discarded as waste. While this approach fueled unprecedented economic growth, it has also depleted finite natural resources and generated mountains of non-biodegradable trash. In response, economists and engineers are championing a transition toward a circular economy—an industrial system designed to eliminate waste through continual reuse, repair, and remanufacturing.\nAt the core of circular manufacturing is 'design for disassembly.' Instead of gluing or welding components permanently together, companies engineer electronics, appliances, and furniture with modular parts that can be easily separated, upgraded, or recycled at the end of their service life. For instance, modular smartphones allow users to replace a worn-out battery or camera module without discarding the entire device. Similarly, apparel brands are experimenting with mono-material fabrics that can be shredded and spun into new yarn without losing fiber quality.\nHowever, shifting from linear to circular production requires more than technical innovation. Reverse logistics—the process of collecting used products from consumers and transporting them back to refurbishment facilities—remains costly and complex. Without financial incentives such as deposit-refund schemes or extended producer responsibility laws, many manufacturers find virgin raw materials cheaper than recycled alternatives. Ultimately, building a truly circular economy demands coordinated action from policymakers, businesses, and conscious consumers alike.",
+    "text": "What is the main topic of the passage?",
+    "options": [
+      "The principles, innovations, and challenges of transitioning to a circular economy",
+      "A historical biography of nineteenth-century industrial engineers",
+      "Why consumers prefer buying disposable electronics over modular phones",
+      "How to calculate transportation taxes for international shipping companies"
+    ],
+    "answer": 0,
+    "explanation": "Bài đọc bàn về nguyên lý, giải pháp thiết kế và thách thức khi chuyển sang nền kinh tế tuần hoàn."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "The word 'depleted' in paragraph 1 is closest in meaning to ________.",
+    "options": [
+      "exhausted",
+      "multiplied",
+      "preserved",
+      "discovered"
+    ],
+    "answer": 0,
+    "explanation": "'depleted' = làm cạn kiệt (= exhausted)."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "The word 'their' in paragraph 2 refers to ________.",
+    "options": [
+      "modular parts",
+      "electronics, appliances, and furniture",
+      "economists and engineers",
+      "consumers"
+    ],
+    "answer": 1,
+    "explanation": "'their service life' chỉ vòng đời sử dụng của electronics, appliances, and furniture."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "According to paragraph 2, how do modular smartphones reduce electronic waste?",
+    "options": [
+      "Users can swap individual faulty components instead of throwing away the whole phone.",
+      "They are made entirely from biodegradable paper and wood.",
+      "They never require battery charging or software updates.",
+      "Manufacturers collect and melt them every six months."
+    ],
+    "answer": 0,
+    "explanation": "Đoạn 2 nêu người dùng có thể thay pin/camera hỏng mà không phải vứt cả thiết bị."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "The phrase 'Reverse logistics' in paragraph 3 refers to ________.",
+    "options": [
+      "retrieving used items from customers for repair or recycling",
+      "delivering newly manufactured goods from factories to retail stores",
+      "advertising eco-friendly products on television",
+      "training factory workers to assemble smartphones faster"
+    ],
+    "answer": 0,
+    "explanation": "Đoạn 3 định nghĩa ngay sau dấu gạch ngang: thu hồi sản phẩm cũ từ người tiêu dùng về cơ sở tái chế."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "Why do many manufacturers still prefer virgin raw materials over recycled ones?",
+    "options": [
+      "New raw materials are often less expensive when policy incentives are absent.",
+      "Recycled materials are illegal in most developed countries.",
+      "Consumers refuse to buy products that can be repaired.",
+      "Modular designs cannot be used for furniture or clothing."
+    ],
+    "answer": 0,
+    "explanation": "Đoạn 3 nêu thiếu ưu đãi tài chính và luật ràng buộc khiến nguyên liệu nguyên sinh rẻ hơn nguyên liệu tái chế."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "Which of the following is NOT true according to the passage?",
+    "options": [
+      "The linear 'take-make-dispose' model has completely eliminated global waste.",
+      "Mono-material fabrics make textile recycling more effective.",
+      "Design for disassembly avoids permanently gluing components together.",
+      "Extended producer responsibility laws can encourage circular manufacturing."
+    ],
+    "answer": 0,
+    "explanation": "Mô hình tuyến tính tạo ra núi rác thải chứ không phải xóa bỏ rác thải."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "What can be inferred from the passage about achieving a circular economy?",
+    "options": [
+      "Technological design alone is insufficient without supportive policies and consumer participation.",
+      "Only smartphone manufacturers can benefit from circular production models.",
+      "Governments should ban all recycling facilities to save logistics costs.",
+      "The circular economy will immediately lower the cost of reverse logistics to zero."
+    ],
+    "answer": 0,
+    "explanation": "Đoạn 3 nhấn mạnh ngoài đổi mới kỹ thuật còn cần chính sách, doanh nghiệp và người tiêu dùng."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "Where in the passage does the author exemplify circular design in the fashion industry?",
+    "options": [
+      "At the end of paragraph 2",
+      "At the beginning of paragraph 1",
+      "In the middle of paragraph 3",
+      "Nowhere in the passage"
+    ],
+    "answer": 0,
+    "explanation": "Cuối đoạn 2 nêu ví dụ các hãng thời trang thử nghiệm vải đơn chất liệu (mono-material fabrics)."
+  },
+  {
+    "instruction": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+    "passage": null,
+    "text": "Which of the following best summarizes the passage?",
+    "options": [
+      "While circular design offers a sustainable alternative to linear manufacturing, overcoming logistical and economic barriers requires collective effort.",
+      "Linear manufacturing remains the most sustainable economic model because virgin materials are limitless and inexpensive.",
+      "Modular smartphones have solved the global waste crisis without needing government regulations.",
+      "Apparel brands are solely responsible for global resource depletion and must be replaced by tech companies."
+    ],
+    "answer": 0,
+    "explanation": "Tóm tắt trọn vẹn 3 đoạn của bài đọc."
+  }
+];
+        (function() {
+            var files = ['khoi10', 'khoi11', 'khoi12'];
+            for (var i = 0; i < files.length; i++) {
+                var s = document.createElement('script');
+                s.src = files[i] + '.js';
+                s.async = false;
+                s.onload = function() {
+                    if (typeof renderSidebar === 'function') renderSidebar();
+                };
+                document.head.appendChild(s);
+            }
+        })();
+    </script>
 
     <script>
         /* =========================================================================
@@ -499,12 +1191,12 @@
                     vipExpire: null,
                     lastSeen: now
                 };
-                localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(raw));
+                try { localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(raw)); } catch (e) {}
             } else {
                 // Chống chỉnh lùi đồng hồ hệ thống: nếu thời gian hiện tại nhỏ hơn lastSeen thì dùng lastSeen
                 if (now > (raw.lastSeen || 0)) {
                     raw.lastSeen = now;
-                    localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(raw));
+                    try { localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(raw)); } catch (e) {}
                 }
             }
             return raw;
@@ -646,19 +1338,47 @@
 
         // Lưu kết quả làm bài vào LocalStorage
         function saveProgress(grade, unit, test, correct, total, percent) {
-            let data = JSON.parse(localStorage.getItem('thaytien_english_progress')) || {};
+            let data = {}; try { data = JSON.parse(localStorage.getItem('thaytien_english_progress')) || {}; } catch (e) {}
             const key = `${grade}-${unit}-${test}`;
             data[key] = { correct, total, percent, date: new Date().toISOString() };
-            localStorage.setItem('thaytien_english_progress', JSON.stringify(data));
+            try { localStorage.setItem('thaytien_english_progress', JSON.stringify(data)); } catch (e) {}
             renderSidebar();
         }
 
         function getProgress(grade, unit, test) {
-            let data = JSON.parse(localStorage.getItem('thaytien_english_progress')) || {};
+            let data = {}; try { data = JSON.parse(localStorage.getItem('thaytien_english_progress')) || {}; } catch (e) {}
             return data[`${grade}-${unit}-${test}`] || null;
         }
 
+        function ensureFallbackDatabase() {
+            if (typeof window.examDatabase === 'undefined' || !window.examDatabase) {
+                window.examDatabase = { 10: {}, 11: {}, 12: {} };
+            }
+            [10, 11, 12].forEach(g => {
+                if (!window.examDatabase[g]) window.examDatabase[g] = {};
+                if (!window.examDatabase[g][1]) window.examDatabase[g][1] = {};
+                if (!window.examDatabase[g][1][1] || !window.examDatabase[g][1][1].length) {
+                    window.examDatabase[g][1][1] = window.__fallbackSampleTest || [];
+                }
+            });
+        }
+
+        function showToast(msg, icon) {
+            const toast = document.getElementById('app-toast');
+            const msgEl = document.getElementById('app-toast-msg');
+            const iconEl = document.getElementById('app-toast-icon');
+            if (!toast || !msgEl) return;
+            msgEl.innerText = msg;
+            if (iconEl) iconEl.innerText = icon || '✅';
+            toast.classList.remove('hidden-element');
+            clearTimeout(window.__toastTimer);
+            window.__toastTimer = setTimeout(() => {
+                toast.classList.add('hidden-element');
+            }, 4000);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            ensureFallbackDatabase();
             refreshLicenseUI();
             // Kiểm tra định kỳ mỗi 60 giây xem thời hạn còn hiệu lực không
             setInterval(() => {
@@ -1222,12 +1942,12 @@
                 data.vipStart = now;
                 data.vipExpire = now + VIP_DAYS * DAY_MS;
                 data.lastSeen = now;
-                localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(data));
+                try { localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
 
                 document.getElementById('password-modal').classList.add('hidden-element');
                 refreshLicenseUI();
 
-                alert(`Kích hoạt thành công! Bạn được quyền sử dụng toàn bộ hệ thống trong ${VIP_DAYS} ngày (đến ngày ${formatDateVN(new Date(data.vipExpire))}).`);
+                showToast(`Kích hoạt thành công! Hạn sử dụng ${VIP_DAYS} ngày (đến ${formatDateVN(new Date(data.vipExpire))}).`, '👑');
                 
                 if (pendingAction) {
                     if (pendingAction.type === 'grade') selectGrade(pendingAction.val);
@@ -1242,350 +1962,1269 @@
     </script>
     <script>
         /* =========================================================================
-           XUẤT FILE WORD (.docx) THEO QUY CHUẨN ĐỀ THI MẪU "DE_THI_THU_TN_SO_1.docx"
-           - Khổ A4, lề trên/dưới 1,5 cm - trái/phải 1 cm, Times New Roman 11 pt
-           - PHẦN I: đề thi (lệnh đề, bài đọc, câu hỏi, 4 phương án xếp 1 hàng / 2 hàng / mỗi dòng 1 phương án)
-           - PHẦN II: bảng đáp án (10 cột) + giải thích chi tiết (nếu dữ liệu câu hỏi có trường explanation)
-           - Chân trang: "Trang N" căn giữa, cỡ 9
-           Thư viện JSZip được nạp tự động (có dự phòng nhiều CDN) ở lần xuất đầu tiên.
+           HỆ THỐNG XUẤT ĐỀ THI RA FILE WORD (.DOCX & .DOC) CHUẨN ĐẸP & SIÊU TIẾT KIỆM GIẤY
+           - Hỗ trợ xuất cả 2 định dạng: .DOCX (OpenXML Word 2007-2026) và .DOC (Word 97-2003)
+           - Tích hợp bộ đóng gói ZIP/Deflate nội bộ hoạt động 100% offline không phụ thuộc CDN
+           - 3 chế độ dàn trang:
+             1) Siêu gọn 1 cột (compact): Chữ 10pt, lề 0.75cm, gộp dòng Question N. & phương án,
+                bảng đáp án 20 cột × 2 hàng, lời giải chia 2 cột cân đối (~3-4 trang A4/đề).
+             2) Siêu tiết kiệm 2 cột (twocol): Chia 2 cột báo chí có đường kẻ dọc ở giữa, chữ 9pt,
+                lề 0.65cm. Đề + bảng đáp án gói gọn chỉ trong 2 trang A4 (1 tờ A4 in 2 mặt).
+             3) Chuẩn Bộ GD&ĐT (standard): Chữ 11pt, lề 1.2cm, giãn dòng thoáng, ngắt trang đáp án.
         ========================================================================= */
         (function () {
-            const PAGE = { w: 11907, h: 16840, top: 850, bottom: 850, left: 567, right: 567, header: 426, footer: 400 };
-            const TEXT_W = PAGE.w - PAGE.left - PAGE.right;           // 10773 twips
-            const COL4 = [2693, 5386, 8079];                           // tab 4 phương án / 1 hàng
-            const COL4_INLINE = [1400, 3900, 6400, 8900];              // tab khi "Question N." cùng hàng với 4 phương án
-            const COL2 = [5386];                                       // tab 2 phương án / 1 hàng
-            const GAP = 220;                                           // khoảng trống tối thiểu giữa 2 phương án (twips)
+            const EXPORT_PREFS_KEY = 'thaytien_word_export_prefs_v2026';
 
-            /* ---------- Bề rộng chữ Times New Roman (đơn vị 1/1000 em, ký tự ASCII 32..126) ---------- */
-            const TNR = [250,333,408,500,500,833,778,333,333,333,500,564,250,333,250,278,
-                         500,500,500,500,500,500,500,500,500,500,278,278,564,564,564,444,
-                         921,722,667,667,722,611,556,722,722,333,389,722,611,889,722,722,
-                         556,722,667,556,611,722,722,944,722,722,611,333,278,333,469,500,
-                         333,444,500,444,500,444,333,500,500,278,278,500,278,778,500,500,
-                         500,500,333,389,278,500,500,722,500,500,444,480,200,480,541];
-            function textWidthTw(s, bold) {            // ước lượng bề rộng (twips) của chuỗi ở cỡ 11 pt
-                let u = 0;
-                for (const ch of s) {
-                    const c = ch.codePointAt(0);
-                    u += (c >= 32 && c <= 126) ? TNR[c - 32] : (c === 9 ? 0 : 500);
-                }
-                return Math.ceil(u * 11 * 20 / 1000 * (bold ? 1.04 : 1));
+            const defaultExportPrefs = {
+                preset: 'compact',        // 'compact' | 'twocol' | 'standard'
+                fontPt: 10,
+                marginPreset: 'compact',  // 'ultra' | 'compact' | 'standard'
+                columns: 1,
+                answerMode: 'full',       // 'full' | 'key_only' | 'none'
+                twoColExplanations: true,
+                compactBlanks: true,
+                showHeader: true,
+                pageBreakAnswer: false,
+                schoolName: 'NGÂN HÀNG ĐỀ THI THPT QUỐC GIA',
+                examCode: '101'
+            };
+
+            function loadExportPrefs() {
+                try {
+                    const saved = JSON.parse(localStorage.getItem(EXPORT_PREFS_KEY));
+                    if (saved && typeof saved === 'object') {
+                        return Object.assign({}, defaultExportPrefs, saved);
+                    }
+                } catch (e) {}
+                return Object.assign({}, defaultExportPrefs);
             }
 
-            /* ---------- Tiện ích XML ---------- */
-            const esc = s => String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '')
-                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            function saveExportPrefs(prefs) {
+                try {
+                    localStorage.setItem(EXPORT_PREFS_KEY, JSON.stringify(prefs));
+                } catch (e) {}
+            }
 
-            /* ---------- Phân tích HTML nội tuyến (<b>, <strong>, <u>, <i>, <em>, <sup>, <sub>, <span ...>) ---------- */
-            function normalizeMarkup(s) {
-                return String(s == null ? '' : s)
+            let exportPrefs = loadExportPrefs();
+
+            /* ---------- Bảng bề rộng ký tự Times New Roman (1/1000 em cho ASCII 32..126) ---------- */
+            const TNR = [
+                250,333,408,500,500,833,778,333,333,333,500,564,250,333,250,278,
+                500,500,500,500,500,500,500,500,500,500,278,278,564,564,564,444,
+                921,722,667,667,722,611,556,722,722,333,389,722,611,889,722,722,
+                556,722,667,556,611,722,722,944,722,722,611,333,278,333,469,500,
+                333,444,500,444,500,444,333,500,500,278,278,500,278,778,500,500,
+                500,500,333,389,278,500,500,722,500,500,444,480,200,480,541
+            ];
+
+            function textWidthTw(s, fontPt, bold) {
+                let u = 0;
+                const str = String(s || '');
+                for (let i = 0; i < str.length; i++) {
+                    const c = str.codePointAt(i);
+                    if (c >= 32 && c <= 126) u += TNR[c - 32];
+                    else if (c === 9) u += 0;
+                    else u += 515;
+                }
+                return Math.ceil((u * fontPt * 20) / 1000 * (bold ? 1.05 : 1.0));
+            }
+
+            function runsWidthTw(runs, fontPt) {
+                let total = 0;
+                for (let i = 0; i < runs.length; i++) {
+                    total += textWidthTw(runs[i].t, fontPt, !!runs[i].b);
+                }
+                return total;
+            }
+
+            /* ---------- Xử lý chuỗi XML & HTML nội tuyến ---------- */
+            const esc = s => String(s == null ? '' : s)
+                .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            function decodeEntities(str) {
+                const map = {
+                    '&nbsp;': ' ', '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"',
+                    '&#39;': "'", '&apos;': "'", '&ndash;': '–', '&mdash;': '—',
+                    '&lsquo;': '‘', '&rsquo;': '’', '&ldquo;': '“', '&rdquo;': '”', '&hellip;': '…'
+                };
+                return String(str || '').replace(/&[a-zA-Z0-9#]+;/g, m => {
+                    if (map[m]) return map[m];
+                    if (m.startsWith('&#x') || m.startsWith('&#X')) {
+                        const code = parseInt(m.slice(3, -1), 16);
+                        return !isNaN(code) ? String.fromCodePoint(code) : m;
+                    }
+                    if (m.startsWith('&#')) {
+                        const code = parseInt(m.slice(2, -1), 10);
+                        return !isNaN(code) ? String.fromCodePoint(code) : m;
+                    }
+                    return m;
+                });
+            }
+
+            function normalizeMarkup(s, compactBlanks) {
+                let out = String(s == null ? '' : s)
                     .replace(/\r\n?/g, '\n')
-                    .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')          // hỗ trợ **in đậm** dạng markdown
+                    .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
                     .replace(/<br\s*\/?>/gi, '\n')
                     .replace(/<\/(p|div|li|h[1-6])>/gi, '\n');
-            }
-            function inlineRuns(html) {                          // -> [{t, b, i, u, sup, sub}]
-                const doc = new DOMParser().parseFromString('<body>' + html + '</body>', 'text/html');
-                const out = [];
-                (function walk(node, f) {
-                    node.childNodes.forEach(n => {
-                        if (n.nodeType === 3) { if (n.nodeValue) out.push(Object.assign({ t: n.nodeValue }, f)); return; }
-                        if (n.nodeType !== 1) return;
-                        const tag = n.tagName.toLowerCase();
-                        const g = Object.assign({}, f);
-                        if (tag === 'b' || tag === 'strong' || /^h[1-6]$/.test(tag)) g.b = true;
-                        if (tag === 'i' || tag === 'em') g.i = true;
-                        if (tag === 'u' || tag === 'ins') g.u = true;
-                        if (tag === 'sup') g.sup = true;
-                        if (tag === 'sub') g.sub = true;
-                        const cls = n.getAttribute('class') || '', st = (n.getAttribute('style') || '').toLowerCase();
-                        if (/\bfont-(bold|semibold|extrabold|black)\b/.test(cls) || /font-weight:\s*(bold|[6-9]00)/.test(st)) g.b = true;
-                        if (/\bunderline\b/.test(cls) || /text-decoration[^;]*underline/.test(st)) g.u = true;
-                        if (/\bitalic\b/.test(cls) || /font-style:\s*italic/.test(st)) g.i = true;
-                        walk(n, g);
-                    });
-                })(doc.body, {});
+                if (compactBlanks) {
+                    out = out.replace(/\(\s*(\d{1,2})\s*\)\s*([_…\.]{3,})/g, '<b>($1)</b> ____');
+                    out = out.replace(/_{5,}/g, '____');
+                }
                 return out;
             }
-            function toLines(html) {                              // tách thành các dòng, mỗi dòng là mảng run
-                return normalizeMarkup(html).split('\n')
-                    .map(l => inlineRuns(l.replace(/\u00a0/g, ' ')))
+
+            function inlineRuns(html) {
+                const out = [];
+                const stack = [{}];
+                const tokenRe = /(<\/?[a-zA-Z][^>]*>)|([^<]+)/g;
+                let m;
+                while ((m = tokenRe.exec(html)) !== null) {
+                    if (m[2]) {
+                        const txt = decodeEntities(m[2]).replace(/\u00a0/g, ' ');
+                        if (txt) out.push(Object.assign({ t: txt }, stack[stack.length - 1]));
+                    } else if (m[1]) {
+                        const rawTag = m[1];
+                        if (rawTag.startsWith('</')) {
+                            if (stack.length > 1) stack.pop();
+                        } else if (!rawTag.endsWith('/>')) {
+                            const tagMatch = /^<([a-zA-Z0-9]+)/.exec(rawTag);
+                            const tag = tagMatch ? tagMatch[1].toLowerCase() : '';
+                            const cur = Object.assign({}, stack[stack.length - 1]);
+                            if (tag === 'b' || tag === 'strong' || /^h[1-6]$/.test(tag)) cur.b = true;
+                            if (tag === 'i' || tag === 'em') cur.i = true;
+                            if (tag === 'u' || tag === 'ins') cur.u = true;
+                            if (tag === 'sup') cur.sup = true;
+                            if (tag === 'sub') cur.sub = true;
+                            const clsMatch = /class\s*=\s*["']([^"']*)["']/i.exec(rawTag);
+                            const stMatch = /style\s*=\s*["']([^"']*)["']/i.exec(rawTag);
+                            const cls = clsMatch ? clsMatch[1] : '';
+                            const st = stMatch ? stMatch[1].toLowerCase() : '';
+                            if (/\bfont-(bold|semibold|extrabold|black)\b/.test(cls) || /font-weight:\s*(bold|[6-9]00)/.test(st)) cur.b = true;
+                            if (/\bunderline\b/.test(cls) || /text-decoration[^;]*underline/.test(st)) cur.u = true;
+                            if (/\bitalic\b/.test(cls) || /font-style:\s*italic/.test(st)) cur.i = true;
+                            stack.push(cur);
+                        }
+                    }
+                }
+                return out;
+            }
+
+            function toLines(html, compactBlanks) {
+                return normalizeMarkup(html, compactBlanks)
+                    .split('\n')
+                    .map(l => inlineRuns(l.trim()))
                     .filter(rs => rs.some(r => r.t.trim() !== ''));
             }
+
             const plain = runs => runs.map(r => r.t).join('');
 
-            /* ---------- Dựng run / paragraph ---------- */
-            function runXml(r, base) {
-                const f = Object.assign({}, base || {}, r);
-                let pr = '';
-                if (f.b) pr += '<w:b/><w:bCs/>';
-                if (f.i) pr += '<w:i/><w:iCs/>';
-                if (f.sz) pr += `<w:sz w:val="${f.sz}"/><w:szCs w:val="${f.sz}"/>`;
-                if (f.u) pr += '<w:u w:val="single"/>';
-                if (f.sup) pr += '<w:vertAlign w:val="superscript"/>';
-                if (f.sub) pr += '<w:vertAlign w:val="subscript"/>';
-                const parts = String(f.t).split('\t');
-                const inner = parts.map((s, i) => (i ? '<w:tab/>' : '') + (s ? `<w:t xml:space="preserve">${esc(s)}</w:t>` : '')).join('');
-                return `<w:r>${pr ? `<w:rPr>${pr}</w:rPr>` : ''}${inner}</w:r>`;
-            }
-            const runsXml = (runs, base) => runs.map(r => runXml(r, base)).join('');
-            const tabsXml = pos => pos && pos.length ? '<w:tabs>' + pos.map(p => `<w:tab w:val="left" w:pos="${p}"/>`).join('') + '</w:tabs>' : '';
-
-            function P(content, o) {
-                o = o || {};
-                const pPr = (o.keepNext ? '<w:keepNext/>' : '') + '<w:keepLines/>' + (o.pageBreakBefore ? '<w:pageBreakBefore/>' : '') +
-                    tabsXml(o.tabs) + (o.before ? `<w:spacing w:before="${o.before}"/>` : '') + '<w:contextualSpacing/>' +
-                    (o.jc ? `<w:jc w:val="${o.jc}"/>` : '');
-                return `<w:p><w:pPr>${pPr}</w:pPr>${content}</w:p>`;
-            }
-            const B = (t, extra) => runXml(Object.assign({ t, b: true }, extra || {}));
-
-            /* ---------- Bố cục phương án A-B-C-D (giống file mẫu) ---------- */
-            function optionParagraphs(optRuns, inlineLabelXml) {
-                // optRuns: 4 mảng run (đã có tiền tố "A. ")
-                const widths = optRuns.map(rs => textWidthTw(plain(rs)));
-                const wMax = Math.max.apply(null, widths);
-                const cell = rs => runsXml(rs);
-                // Trường hợp "Question N." cùng hàng với 4 phương án ngắn (cloze)
-                if (inlineLabelXml !== undefined && wMax <= 2500 - GAP) {
-                    return [P(inlineLabelXml + optRuns.map(rs => '<w:r><w:tab/></w:r>' + cell(rs)).join(''), { tabs: COL4_INLINE })];
-                }
-                const label = inlineLabelXml !== undefined ? [P(inlineLabelXml, { keepNext: true })] : [];
-                // Câu điền từ (không có đề dẫn) mà phương án dài hơn 1 cột: mỗi phương án 1 dòng (đúng như mẫu Q12-Q16)
-                if (inlineLabelXml === undefined) {
-                    if (wMax <= COL4[0] - GAP) {                      // 4 phương án ngắn / 1 hàng
-                        return [P(optRuns.map((rs, i) => (i ? '<w:r><w:tab/></w:r>' : '') + cell(rs)).join(''), { tabs: COL4 })];
-                    }
-                    if (wMax <= COL2[0] - GAP) {                      // phương án vừa: 2 hàng x 2 cột
-                        return [
-                            P(cell(optRuns[0]) + '<w:r><w:tab/></w:r>' + cell(optRuns[1]), { tabs: COL2, keepNext: true }),
-                            P(cell(optRuns[2]) + '<w:r><w:tab/></w:r>' + cell(optRuns[3]), { tabs: COL2 })
-                        ];
-                    }
-                }
-                return label.concat(optRuns.map((rs, i) => P(cell(rs), { keepNext: i < 3 })));
-            }
-
-            /* ---------- Nhận diện dòng tiêu đề / nguồn trong bài đọc ---------- */
-            function isTitleLine(runs) {
-                const s = plain(runs).trim();
-                if (!s || s.length > 100 || /\(\s*\d+\s*\)\s*[_…\.]{2,}/.test(s) || /_{3,}/.test(s)) return false;
-                const letters = s.replace(/[^A-Za-zÀ-ỹ]/g, '');
-                const allCaps = letters.length >= 3 && letters === letters.toUpperCase();
-                const allBold = runs.every(r => r.t.trim() === '' || r.b);
-                return allCaps || (allBold && !/[.!?:,;]$/.test(s));
-            }
-            const isSourceLine = s => /^\(\s*(adapted|source|sources|retrieved|nguồn)\b/i.test(s.trim());
-
-            /* ---------- Dựng nội dung PHẦN I ---------- */
-            function buildPartI(questions) {
-                const out = [P(B('PHẦN I: ĐỀ THI TRẮC NGHIỆM', { sz: 26 }), { jc: 'center' })];
-
-                // gom nhóm giống hàm renderTestContent() của ứng dụng
-                const groups = []; let cur = null;
-                questions.forEach((q, idx) => {
-                    if (!cur || q.instruction !== cur.instruction) {
-                        cur = { instruction: q.instruction || '', passage: q.passage || null, items: [] };
-                        groups.push(cur);
-                    } else if (q.passage && !cur.passage) cur.passage = q.passage;
-                    cur.items.push({ q, idx });
-                });
-
-                groups.forEach(g => {
-                    const insLines = toLines(g.instruction);
-                    if (insLines.length) out.push(P(runsXml(insLines[0], { b: true }), { keepNext: true, before: 140, jc: 'both' }));
-
-                    if (g.passage) {
-                        toLines(g.passage).forEach(rs => {
-                            const s = plain(rs);
-                            if (isSourceLine(s)) out.push(P(runsXml(rs)));
-                            else if (isTitleLine(rs)) out.push(P(runsXml(rs, { b: true }), { jc: 'center' }));
-                            else out.push(P(runsXml(rs), { jc: 'both' }));
-                        });
-                    }
-
-                    g.items.forEach(({ q, idx }) => {
-                        const label = B('Question ' + (idx + 1) + '.');
-                        const stem = toLines(q.text || '');
-                        const opts = (q.options || []).map((o, i) => {
-                            const rs = inlineRuns(normalizeMarkup(o).replace(/\n+/g, ' ').replace(/\u00a0/g, ' '));
-                            return [{ t: 'ABCD'[i] + '. ' }].concat(rs);
-                        });
-                        while (opts.length < 4) opts.push([{ t: 'ABCD'[opts.length] + '. ' }]);
-
-                        if (!stem.length) {                                   // câu điền từ: không có đề dẫn
-                            out.push.apply(out, optionParagraphs(opts, label));
-                        } else {
-                            const listLike = /^[a-e]\.\s/.test(plain(stem[0]).trim());   // câu sắp xếp: a. b. c. ...
-                            if (listLike) { out.push(P(label, { keepNext: true })); }
-                            else { out.push(P(label + runsXml([{ t: ' ' }].concat(stem[0])), { keepNext: true })); stem.shift(); }
-                            stem.forEach(rs => {
-                                const s = plain(rs).trim();
-                                const item = /^[a-e]\.\s/.test(s);                    // dòng a. b. c. ... của câu sắp xếp
-                                const dialogue = /^[a-e]\.\s+[^:]{1,25}:/.test(s);       // dạng hội thoại "a. Mai: ..." giữ căn trái như mẫu
-                                // Chỉ căn đều các dòng a. b. c. ... của đoạn văn sắp xếp (như mẫu Q9, Q11); thư/hội thoại giữ căn trái (Q7, Q8, Q10)
-                                out.push(P(runsXml(rs), { keepNext: true, jc: (listLike && item && !dialogue) ? 'both' : undefined }));
-                            });
-                            out.push.apply(out, optionParagraphs(opts));
-                        }
-                    });
-                });
-                return out;
-            }
-
-            /* ---------- PHẦN II: bảng đáp án + giải thích ---------- */
-            function ansLetter(q) {                               // answer là chỉ số 0-3 (như app) - cũng chấp nhận chữ A-D
+            function ansLetter(q) {
                 const a = q.answer;
                 if (typeof a === 'number' && a >= 0 && a <= 3) return 'ABCD'[a];
                 if (typeof a === 'string' && /^[A-Da-d]$/.test(a.trim())) return a.trim().toUpperCase();
                 if (typeof a === 'string' && /^[0-3]$/.test(a.trim())) return 'ABCD'[+a];
                 return '?';
             }
+
             function explanationOf(q) {
                 const v = q.explanation || q.explain || q.giaiThich || q.giai_thich || q.solution || q.huongDan || q.huong_dan || q.exp;
                 return (typeof v === 'string') ? v.trim() : '';
             }
-            function answerTable(questions) {
-                const COLS = 10, CW = 1077;
-                const border = '<w:top w:val="single" w:sz="4" w:space="0" w:color="999999"/><w:left w:val="single" w:sz="4" w:space="0" w:color="999999"/><w:bottom w:val="single" w:sz="4" w:space="0" w:color="999999"/><w:right w:val="single" w:sz="4" w:space="0" w:color="999999"/>';
-                const rows = Math.ceil(questions.length / COLS);
-                let x = '<w:tbl><w:tblPr><w:tblW w:w="10770" w:type="dxa"/><w:tblInd w:w="-15" w:type="dxa"/>' +
-                    '<w:tblBorders><w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/><w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/><w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/><w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/><w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto"/><w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto"/></w:tblBorders>' +
-                    '<w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="10" w:type="dxa"/><w:right w:w="10" w:type="dxa"/></w:tblCellMar><w:tblLook w:val="0000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="0"/></w:tblPr><w:tblGrid>' +
-                    '<w:gridCol w:w="1077"/>'.repeat(COLS) + '</w:tblGrid>';
-                for (let r = 0; r < rows; r++) {
-                    const fill = (r % 2 === 0) ? 'F2F2F2' : 'FFFFFF';
-                    x += '<w:tr><w:trPr><w:cantSplit/></w:trPr>';
-                    for (let c = 0; c < COLS; c++) {
-                        const i = r * COLS + c, q = questions[i];
-                        const para = q
-                            ? `<w:p><w:pPr><w:contextualSpacing/><w:jc w:val="center"/></w:pPr>${B((i + 1) + '.')}${runXml({ t: ' ' + ansLetter(q) })}</w:p>`
-                            : '<w:p><w:pPr><w:contextualSpacing/><w:jc w:val="center"/></w:pPr></w:p>';
-                        x += `<w:tc><w:tcPr><w:tcW w:w="${CW}" w:type="dxa"/><w:tcBorders>${border}</w:tcBorders><w:shd w:val="clear" w:color="auto" w:fill="${fill}"/><w:tcMar><w:top w:w="60" w:type="dxa"/><w:left w:w="80" w:type="dxa"/><w:bottom w:w="60" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tcMar></w:tcPr>${para}</w:tc>`;
-                    }
-                    x += '</w:tr>';
-                }
-                return x + '</w:tbl>';
+
+            function isTitleLine(runs) {
+                const s = plain(runs).trim();
+                if (!s || s.length > 105 || /\(\s*\d+\s*\)\s*[_…\.]{2,}/.test(s) || /_{3,}/.test(s)) return false;
+                const letters = s.replace(/[^A-Za-zÀ-ỹ]/g, '');
+                const allCaps = letters.length >= 3 && letters === letters.toUpperCase();
+                const allBold = runs.every(r => r.t.trim() === '' || r.b);
+                return allCaps || (allBold && !/[.!?:,;]$/.test(s));
             }
-            function buildPartII(questions) {
-                const out = [
-                    P(B('PHẦN II: ĐÁP ÁN VÀ GIẢI THÍCH CHI TIẾT', { sz: 26 }), { jc: 'center', pageBreakBefore: true }),
-                    P(B('1. Bảng đáp án'), { keepNext: true }),
-                    answerTable(questions),
-                    P('')
-                ];
-                const exps = questions.map(explanationOf);
-                if (exps.some(Boolean)) {
-                    out.push(P(B('2. Giải thích chi tiết'), { keepNext: true, before: 60 }));
-                    questions.forEach((q, i) => {
-                        if (!exps[i]) return;
-                        const lines = toLines(exps[i]);
-                        const head = B('Question ' + (i + 1) + '. Đáp án ' + ansLetter(q) + '.');
-                        out.push(P(head + runsXml([{ t: ' ' }].concat(lines[0] || [])), { jc: 'both' }));
-                        lines.slice(1).forEach(rs => out.push(P(runsXml(rs), { jc: 'both' })));
+
+            const isSourceLine = s => /^\(\s*(adapted|source|sources|retrieved|nguồn|theo)\b/i.test(s.trim());
+
+            function resolveConfig(rawOpts, title) {
+                const opts = Object.assign({}, exportPrefs, rawOpts || {});
+                const preset = opts.preset || 'compact';
+                const isTwoCol = Number(opts.columns) === 2;
+                const fontPt = Number(opts.fontPt) || (preset === 'twocol' ? 9 : (preset === 'compact' ? 10 : 11));
+                const sz = Math.round(fontPt * 2);
+                const marginPreset = opts.marginPreset || (preset === 'twocol' ? 'ultra' : (preset === 'compact' ? 'compact' : 'standard'));
+                let page;
+                if (marginPreset === 'ultra') {
+                    page = { w: 11907, h: 16840, top: 360, bottom: 360, left: 397, right: 397, header: 180, footer: 180 };
+                } else if (marginPreset === 'standard') {
+                    page = { w: 11907, h: 16840, top: 680, bottom: 680, left: 680, right: 680, header: 340, footer: 340 };
+                } else {
+                    page = { w: 11907, h: 16840, top: 425, bottom: 425, left: 454, right: 454, header: 200, footer: 200 };
+                }
+                const textW = page.w - page.left - page.right;
+                const colGap = 260;
+                const colW = isTwoCol ? Math.floor((textW - colGap) / 2) : textW;
+                const lineSpacing = preset === 'standard' ? 254 : (isTwoCol ? 206 : 228);
+                const paraAfter = preset === 'standard' ? 28 : (isTwoCol ? 2 : 6);
+                let answerMode = opts.answerMode;
+                if (rawOpts && rawOpts.withAnswers === false) answerMode = 'none';
+                else if (rawOpts && rawOpts.withAnswers === true && answerMode === 'none') answerMode = 'full';
+
+                return {
+                    preset,
+                    isTwoCol,
+                    fontPt,
+                    sz,
+                    marginPreset,
+                    page,
+                    textW,
+                    colGap,
+                    colW,
+                    lineSpacing,
+                    paraAfter,
+                    answerMode: answerMode || 'full',
+                    twoColExplanations: opts.twoColExplanations !== false,
+                    showHeader: opts.showHeader !== false,
+                    pageBreakAnswer: !!opts.pageBreakAnswer,
+                    schoolName: (opts.schoolName || 'NGÂN HÀNG ĐỀ THI THPT QUỐC GIA').trim(),
+                    examTitle: (title || `LỚP ${currentGrade} - UNIT ${currentUnit} - TEST ${currentTest}`).toUpperCase(),
+                    examCode: (opts.examCode || '101').trim(),
+                    duration: '50 phút',
+                    compactBlanks: opts.compactBlanks !== false
+                };
+            }
+
+            /* =========================================================================
+               1. BỘ DỰNG OPENXML (.DOCX) SIÊU GỌN & CĂN CỘT THẲNG HÀNG TUYỆT ĐỐI
+            ========================================================================= */
+            function buildDocxXmlParts(questions, rawOpts, title) {
+                const cfg = resolveConfig(rawOpts, title);
+                const { page, textW, colGap, colW, fontPt, sz, isTwoCol, lineSpacing, paraAfter } = cfg;
+                const GAP = isTwoCol ? 95 : 140;
+                const FIXED_LABEL_TAB = textWidthTw('Question 40.', fontPt, true) + (isTwoCol ? 65 : 95);
+
+                function runXml(r, base) {
+                    const f = Object.assign({}, base || {}, r);
+                    let pr = '';
+                    if (f.b) pr += '<w:b/><w:bCs/>';
+                    if (f.i) pr += '<w:i/><w:iCs/>';
+                    if (f.u) pr += '<w:u w:val="single"/>';
+                    if (f.color) pr += `<w:color w:val="${f.color}"/>`;
+                    if (f.sz && f.sz !== sz) pr += `<w:sz w:val="${f.sz}"/><w:szCs w:val="${f.sz}"/>`;
+                    if (f.sup) pr += '<w:vertAlign w:val="superscript"/>';
+                    if (f.sub) pr += '<w:vertAlign w:val="subscript"/>';
+                    const parts = String(f.t).split('\t');
+                    const inner = parts.map((s, idx) => (idx ? '<w:tab/>' : '') + (s ? `<w:t xml:space="preserve">${esc(s)}</w:t>` : '')).join('');
+                    return `<w:r>${pr ? `<w:rPr>${pr}</w:rPr>` : ''}${inner}</w:r>`;
+                }
+
+                const runsXml = (runs, base) => runs.map(r => runXml(r, base)).join('');
+                const B = (t, extra) => runXml(Object.assign({ t, b: true }, extra || {}));
+                const I = (t, extra) => runXml(Object.assign({ t, i: true }, extra || {}));
+
+                function tabsXml(tabs) {
+                    if (!tabs || !tabs.length) return '';
+                    return '<w:tabs>' + tabs.map(t => {
+                        if (typeof t === 'number') return `<w:tab w:val="left" w:pos="${t}"/>`;
+                        return `<w:tab w:val="${t.val || 'left'}" w:pos="${t.pos}"${t.leader ? ` w:leader="${t.leader}"` : ''}/>`;
+                    }).join('') + '</w:tabs>';
+                }
+
+                function P(content, o) {
+                    o = o || {};
+                    let pPr = '';
+                    if (o.keepNext) pPr += '<w:keepNext/>';
+                    if (o.keepLines !== false) pPr += '<w:keepLines/>';
+                    if (o.pageBreakBefore) pPr += '<w:pageBreakBefore/>';
+                    if (o.pBdrBottom) pPr += `<w:pBdr><w:bottom w:val="${o.pBdrBottom}" w:sz="6" w:space="1" w:color="444444"/></w:pBdr>`;
+                    pPr += tabsXml(o.tabs);
+                    const spBefore = o.before != null ? o.before : 0;
+                    const spAfter = o.after != null ? o.after : paraAfter;
+                    const spLine = o.line != null ? o.line : lineSpacing;
+                    pPr += `<w:spacing w:before="${spBefore}" w:after="${spAfter}" w:line="${spLine}" w:lineRule="auto"/>`;
+                    if (o.left != null || o.hanging != null || o.firstLine != null) {
+                        pPr += `<w:ind${o.left != null ? ` w:left="${o.left}"` : ''}${o.hanging != null ? ` w:hanging="${o.hanging}"` : ''}${o.firstLine != null ? ` w:firstLine="${o.firstLine}"` : ''}/>`;
+                    }
+                    if (o.jc) pPr += `<w:jc w:val="${o.jc}"/>`;
+                    if (o.sectPr) pPr += o.sectPr;
+                    return `<w:p><w:pPr>${pPr}</w:pPr>${content}</w:p>`;
+                }
+
+                function sectionBreak(cols, sep) {
+                    const colsTag = cols === 2
+                        ? `<w:cols w:num="2" w:space="${colGap}"${sep ? ' w:sep="1"' : ''}/>`
+                        : `<w:cols w:space="720"/>`;
+                    return P('', {
+                        before: 0, after: 0, line: 20,
+                        sectPr: `<w:sectPr><w:footerReference w:type="default" r:id="rId3"/><w:type w:val="continuous"/><w:pgSz w:w="${page.w}" w:h="${page.h}"/><w:pgMar w:top="${page.top}" w:right="${page.right}" w:bottom="${page.bottom}" w:left="${page.left}" w:header="${page.header}" w:footer="${page.footer}" w:gutter="0"/>${colsTag}<w:docGrid w:linePitch="240"/></w:sectPr>`
                     });
                 }
-                return out;
-            }
 
-            /* ---------- Các phần phụ của gói .docx ---------- */
-            const NS = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
-            const XML = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
-            function documentXml(bodyParts) {
-                return XML + `<w:document ${NS}><w:body>${bodyParts.join('')}` +
-                    `<w:sectPr><w:footerReference w:type="default" r:id="rId3"/><w:pgSz w:w="${PAGE.w}" w:h="${PAGE.h}"/>` +
-                    `<w:pgMar w:top="${PAGE.top}" w:right="${PAGE.right}" w:bottom="${PAGE.bottom}" w:left="${PAGE.left}" w:header="${PAGE.header}" w:footer="${PAGE.footer}" w:gutter="0"/>` +
-                    `<w:cols w:space="720"/><w:docGrid w:linePitch="360"/></w:sectPr></w:body></w:document>`;
-            }
-            const STYLES = XML + `<w:styles ${NS}><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/><w:lang w:val="en-US" w:eastAsia="en-US" w:bidi="ar-SA"/></w:rPr></w:rPrDefault><w:pPrDefault/></w:docDefaults>` +
-                `<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>` +
-                `<w:style w:type="character" w:default="1" w:styleId="DefaultParagraphFont"><w:name w:val="Default Paragraph Font"/><w:uiPriority w:val="1"/><w:semiHidden/><w:unhideWhenUsed/></w:style>` +
-                `<w:style w:type="table" w:default="1" w:styleId="TableNormal"><w:name w:val="Normal Table"/><w:uiPriority w:val="99"/><w:semiHidden/><w:unhideWhenUsed/><w:tblPr><w:tblInd w:w="0" w:type="dxa"/><w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:left w:w="108" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="108" w:type="dxa"/></w:tblCellMar></w:tblPr></w:style>` +
-                `<w:style w:type="numbering" w:default="1" w:styleId="NoList"><w:name w:val="No List"/><w:uiPriority w:val="99"/><w:semiHidden/><w:unhideWhenUsed/></w:style></w:styles>`;
-            const SETTINGS = XML + `<w:settings ${NS}><w:defaultTabStop w:val="720"/><w:characterSpacingControl w:val="doNotCompress"/><w:compat><w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat><w:themeFontLang w:val="en-US"/><w:decimalSymbol w:val="."/><w:listSeparator w:val=","/></w:settings>`;
-            const fr = t => `<w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>${t}</w:r>`;
-            const FOOTER = XML + `<w:ftr ${NS}><w:p><w:pPr><w:jc w:val="center"/></w:pPr>${fr('<w:t xml:space="preserve">Trang </w:t>')}${fr('<w:fldChar w:fldCharType="begin"/>')}${fr('<w:instrText xml:space="preserve"> PAGE </w:instrText>')}${fr('<w:fldChar w:fldCharType="separate"/>')}<w:r><w:rPr><w:noProof/><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t>1</w:t></w:r>${fr('<w:fldChar w:fldCharType="end"/>')}</w:p></w:ftr>`;
-            const CONTENT_TYPES = XML + '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>' +
-                '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>' +
-                '<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>' +
-                '<Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/>' +
-                '<Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>' +
-                '<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/>' +
-                '<Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>';
-            const ROOT_RELS = XML + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>';
-            const DOC_RELS = XML + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/></Relationships>';
-            const APP = XML + '<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>Microsoft Office Word</Application></Properties>';
-            const coreXml = title => XML + '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">' +
-                `<dc:title>${esc(title)}</dc:title><dc:creator>Ngân hàng đề thi Tiếng Anh THPT</dc:creator>` +
-                `<dcterms:created xsi:type="dcterms:W3CDTF">${new Date().toISOString().replace(/\.\d+Z$/, 'Z')}</dcterms:created></cp:coreProperties>`;
+                function buildHeaderBox() {
+                    const leftW = Math.floor(textW * 0.43);
+                    const rightW = textW - leftW;
+                    const smallSz = Math.max(17, sz - 2);
+                    const titleSz = sz + 1;
+                    const bdrNone = '<w:top w:val="none" w:sz="0" w:space="0" w:color="auto"/><w:left w:val="none" w:sz="0" w:space="0" w:color="auto"/><w:bottom w:val="none" w:sz="0" w:space="0" w:color="auto"/><w:right w:val="none" w:sz="0" w:space="0" w:color="auto"/>';
+                    const bdrBottom = '<w:top w:val="single" w:sz="4" w:space="0" w:color="BFBFBF"/><w:left w:val="none" w:sz="0" w:space="0" w:color="auto"/><w:bottom w:val="double" w:sz="6" w:space="0" w:color="333333"/><w:right w:val="none" w:sz="0" w:space="0" w:color="auto"/>';
 
-            /* ---------- Nạp JSZip (có dự phòng CDN) ---------- */
-            function loadScript(src) {
-                return new Promise((ok, fail) => {
-                    const s = document.createElement('script');
-                    s.src = src; s.onload = ok; s.onerror = () => { s.remove(); fail(new Error(src)); };
-                    document.head.appendChild(s);
+                    const leftCell = `<w:tc><w:tcPr><w:tcW w:w="${leftW}" w:type="dxa"/><w:tcBorders>${bdrNone}</w:tcBorders><w:tcMar><w:top w:w="10" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="30" w:type="dxa"/><w:right w:w="30" w:type="dxa"/></w:tcMar></w:tcPr>` +
+                        P(B(cfg.schoolName, { sz: smallSz }), { jc: 'center', after: 4, line: 220 }) +
+                        P(B(cfg.examTitle, { sz: sz, u: true }), { jc: 'center', after: 4, line: 220 }) +
+                        P(I(`(Đề thi có ${questions.length} câu trắc nghiệm)`, { sz: smallSz }), { jc: 'center', after: 0, line: 210 }) +
+                        `</w:tc>`;
+
+                    const rightCell = `<w:tc><w:tcPr><w:tcW w:w="${rightW}" w:type="dxa"/><w:tcBorders>${bdrNone}</w:tcBorders><w:tcMar><w:top w:w="10" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="30" w:type="dxa"/><w:right w:w="30" w:type="dxa"/></w:tcMar></w:tcPr>` +
+                        P(B('KỲ THI TỐT NGHIỆP THPT NĂM 2026', { sz: titleSz }), { jc: 'center', after: 4, line: 220 }) +
+                        P(B('Bài thi: NGOẠI NGỮ — Môn thi: TIẾNG ANH', { sz: sz }), { jc: 'center', after: 4, line: 220 }) +
+                        P(I(`Thời gian làm bài: ${cfg.duration} (không kể thời gian phát đề)`, { sz: smallSz }), { jc: 'center', after: 0, line: 210 }) +
+                        `</w:tc>`;
+
+                    const infoTabs = [
+                        { val: 'left', pos: Math.floor(textW * 0.56), leader: 'dot' },
+                        { val: 'left', pos: Math.floor(textW * 0.84), leader: 'dot' },
+                        { val: 'right', pos: textW - 60 }
+                    ];
+                    const infoRow = `<w:tr><w:trPr><w:cantSplit/></w:trPr><w:tc><w:tcPr><w:tcW w:w="${textW}" w:type="dxa"/><w:gridSpan w:val="2"/><w:tcBorders>${bdrBottom}</w:tcBorders><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="25" w:type="dxa"/><w:left w:w="30" w:type="dxa"/><w:right w:w="30" w:type="dxa"/></w:tcMar></w:tcPr>` +
+                        P(
+                            B('Họ và tên thí sinh: ', { sz: smallSz }) +
+                            runXml({ t: '\t', sz: smallSz }) +
+                            B(' Số báo danh: ', { sz: smallSz }) +
+                            runXml({ t: '\t', sz: smallSz }) +
+                            B(` Mã đề: ${cfg.examCode}`, { sz: smallSz }),
+                            { tabs: infoTabs, after: 0, line: 210 }
+                        ) +
+                        `</w:tc></w:tr>`;
+
+                    return `<w:tbl><w:tblPr><w:tblW w:w="${textW}" w:type="dxa"/><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid><w:gridCol w:w="${leftW}"/><w:gridCol w:w="${rightW}"/></w:tblGrid><w:tr><w:trPr><w:cantSplit/></w:trPr>${leftCell}${rightCell}</w:tr>${infoRow}</w:tbl>`;
+                }
+
+                function layoutOptions(optRuns, inlineLabelXml) {
+                    const widths = optRuns.map(rs => runsWidthTw(rs, fontPt));
+                    const cell = rs => runsXml(rs);
+                    const hasInline = inlineLabelXml !== undefined;
+                    const labelTab = hasInline ? FIXED_LABEL_TAB : 0;
+                    const availW = colW - labelTab;
+
+                    // 1. Lưới 4 phương án đều nhau trên 1 hàng
+                    const slot4 = Math.floor(availW / 4);
+                    const wMax = Math.max(widths[0], widths[1], widths[2], widths[3]);
+                    if (wMax <= slot4 - GAP) {
+                        if (hasInline) {
+                            const tabs4 = [labelTab, labelTab + slot4, labelTab + 2 * slot4, labelTab + 3 * slot4];
+                            return [P(inlineLabelXml + optRuns.map(rs => '<w:r><w:tab/></w:r>' + cell(rs)).join(''), { tabs: tabs4 })];
+                        } else {
+                            const tabs4 = [slot4, 2 * slot4, 3 * slot4];
+                            return [P(optRuns.map((rs, i) => (i ? '<w:r><w:tab/></w:r>' : '') + cell(rs)).join(''), { tabs: tabs4 })];
+                        }
+                    }
+
+                    // 1b. Tab thích ứng trên 1 hàng (nếu tổng độ rộng 4 phương án vẫn vừa khít 1 dòng)
+                    const total1Line = widths[0] + GAP + widths[1] + GAP + widths[2] + GAP + widths[3];
+                    if (total1Line <= availW - 20) {
+                        const extra = availW - 20 - total1Line;
+                        const pad = Math.floor(extra / 4);
+                        const t1 = labelTab + widths[0] + GAP + pad;
+                        const t2 = t1 + widths[1] + GAP + pad;
+                        const t3 = t2 + widths[2] + GAP + pad;
+                        if (hasInline) {
+                            return [P(inlineLabelXml + optRuns.map(rs => '<w:r><w:tab/></w:r>' + cell(rs)).join(''), { tabs: [labelTab, t1, t2, t3] })];
+                        } else {
+                            return [P(optRuns.map((rs, i) => (i ? '<w:r><w:tab/></w:r>' : '') + cell(rs)).join(''), { tabs: [t1, t2, t3] })];
+                        }
+                    }
+
+                    // 2. Lưới 2 hàng × 2 cột chuẩn
+                    const halfW = Math.floor(availW / 2);
+                    const leftMax = Math.max(widths[0], widths[2]);
+                    const rightMax = Math.max(widths[1], widths[3]);
+                    if (leftMax <= halfW - GAP && rightMax <= availW - halfW - 15) {
+                        const col2Pos = labelTab + halfW;
+                        if (hasInline) {
+                            return [
+                                P(inlineLabelXml + '<w:r><w:tab/></w:r>' + cell(optRuns[0]) + '<w:r><w:tab/></w:r>' + cell(optRuns[1]), { tabs: [labelTab, col2Pos], keepNext: true }),
+                                P('<w:r><w:tab/></w:r>' + cell(optRuns[2]) + '<w:r><w:tab/></w:r>' + cell(optRuns[3]), { tabs: [labelTab, col2Pos] })
+                            ];
+                        } else {
+                            return [
+                                P(cell(optRuns[0]) + '<w:r><w:tab/></w:r>' + cell(optRuns[1]), { tabs: [col2Pos], keepNext: true }),
+                                P(cell(optRuns[2]) + '<w:r><w:tab/></w:r>' + cell(optRuns[3]), { tabs: [col2Pos] })
+                            ];
+                        }
+                    }
+
+                    // 2b. Lưới 2 hàng × 2 cột thích ứng
+                    if (leftMax + GAP + rightMax <= availW - 15) {
+                        const col2Pos = labelTab + leftMax + GAP;
+                        if (hasInline) {
+                            return [
+                                P(inlineLabelXml + '<w:r><w:tab/></w:r>' + cell(optRuns[0]) + '<w:r><w:tab/></w:r>' + cell(optRuns[1]), { tabs: [labelTab, col2Pos], keepNext: true }),
+                                P('<w:r><w:tab/></w:r>' + cell(optRuns[2]) + '<w:r><w:tab/></w:r>' + cell(optRuns[3]), { tabs: [labelTab, col2Pos] })
+                            ];
+                        } else {
+                            return [
+                                P(cell(optRuns[0]) + '<w:r><w:tab/></w:r>' + cell(optRuns[1]), { tabs: [col2Pos], keepNext: true }),
+                                P(cell(optRuns[2]) + '<w:r><w:tab/></w:r>' + cell(optRuns[3]), { tabs: [col2Pos] })
+                            ];
+                        }
+                    }
+
+                    // 3. Phương án dài (1 dòng / phương án): gộp "Question N. A. ..." ngay trên dòng đầu
+                    if (hasInline) {
+                        return [
+                            P(inlineLabelXml + runXml({ t: ' ' }) + cell(optRuns[0]), { keepNext: true, jc: 'both' }),
+                            P(cell(optRuns[1]), { keepNext: true, jc: 'both' }),
+                            P(cell(optRuns[2]), { keepNext: true, jc: 'both' }),
+                            P(cell(optRuns[3]), { jc: 'both' })
+                        ];
+                    }
+
+                    return optRuns.map((rs, i) => P(cell(rs), { keepNext: i < 3, jc: 'both' }));
+                }
+
+                const bodyParts = [];
+
+                if (cfg.showHeader) {
+                    bodyParts.push(buildHeaderBox());
+                    if (isTwoCol) bodyParts.push(sectionBreak(1, false));
+                } else {
+                    bodyParts.push(P(B(`ĐỀ THI TRẮC NGHIỆM: ${cfg.examTitle}`, { sz: sz + 2 }), { jc: 'center', after: 20 }));
+                    if (isTwoCol) bodyParts.push(sectionBreak(1, false));
+                }
+
+                const groups = [];
+                let cur = null;
+                questions.forEach((q, idx) => {
+                    if (!cur || q.instruction !== cur.instruction) {
+                        cur = { instruction: q.instruction || '', passage: q.passage || null, items: [] };
+                        groups.push(cur);
+                    } else if (q.passage && !cur.passage) {
+                        cur.passage = q.passage;
+                    }
+                    cur.items.push({ q, idx });
                 });
-            }
-            async function ensureJSZip() {
-                if (window.JSZip) return;
-                const urls = [
-                    'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js',
-                    'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js',
-                    'https://unpkg.com/jszip@3.10.1/dist/jszip.min.js'
-                ];
-                for (const u of urls) { try { await loadScript(u); if (window.JSZip) return; } catch (e) { /* thử nguồn kế tiếp */ } }
-                throw new Error('Không tải được thư viện JSZip. Vui lòng kiểm tra kết nối mạng rồi thử lại.');
+
+                groups.forEach((g, gIdx) => {
+                    const insLines = toLines(g.instruction, false);
+                    if (insLines.length) {
+                        bodyParts.push(P(runsXml(insLines[0], { b: true, i: true }), {
+                            keepNext: true,
+                            before: gIdx === 0 ? 15 : (isTwoCol ? 30 : 50),
+                            after: 12,
+                            jc: 'both'
+                        }));
+                    }
+
+                    if (g.passage) {
+                        const pLines = toLines(g.passage, cfg.compactBlanks);
+                        pLines.forEach((rs, lIdx) => {
+                            const s = plain(rs);
+                            if (isSourceLine(s)) {
+                                bodyParts.push(P(runsXml(rs, { i: true, sz: Math.max(17, sz - 2) }), { jc: 'right', after: 12 }));
+                            } else if (lIdx === 0 && isTitleLine(rs)) {
+                                bodyParts.push(P(runsXml(rs, { b: true }), { jc: 'center', keepNext: true, before: 10, after: 10 }));
+                            } else {
+                                bodyParts.push(P(runsXml(rs), {
+                                    jc: 'both',
+                                    firstLine: isTwoCol ? 160 : 220,
+                                    after: 8
+                                }));
+                            }
+                        });
+                    }
+
+                    g.items.forEach(({ q, idx }) => {
+                        const labelStr = `Question ${idx + 1}.`;
+                        const labelXml = B(labelStr);
+                        const labelW = textWidthTw(labelStr, fontPt, true);
+                        const stem = toLines(q.text || '', cfg.compactBlanks);
+                        const isArrangementQ = stem.length > 1 && stem.some(rs => /^[a-e]\.\s/.test(plain(rs).trim()));
+
+                        const opts = (q.options || []).map((o, i) => {
+                            let normOpt = normalizeMarkup(o, false).replace(/\n+/g, ' ').replace(/\u00a0/g, ' ').trim();
+                            if (isArrangementQ && /^[a-f](\s*-\s*[a-f]){2,5}$/i.test(normOpt)) {
+                                normOpt = normOpt.replace(/\s*-\s*/g, '-');
+                            }
+                            const rs = inlineRuns(normOpt);
+                            return [{ t: 'ABCD'[i] + '. ', b: true }].concat(rs);
+                        });
+                        while (opts.length < 4) opts.push([{ t: 'ABCD'[opts.length] + '. ', b: true }]);
+
+                        if (!stem.length) {
+                            bodyParts.push.apply(bodyParts, layoutOptions(opts, labelXml));
+                        } else {
+                            const formattedStem = stem.map(rs => {
+                                const s = plain(rs).trim();
+                                if (/^[a-e]\.\s/.test(s)) {
+                                    const first = rs[0];
+                                    const m = /^([a-e]\.\s*)(.*)$/.exec(first.t);
+                                    if (m) {
+                                        return [{ t: m[1], b: true }, Object.assign({}, first, { t: m[2] })].concat(rs.slice(1));
+                                    }
+                                }
+                                return rs;
+                            });
+
+                            if (isArrangementQ) {
+                                bodyParts.push(P(
+                                    labelXml + runXml({ t: ' ' }) + runsXml(formattedStem[0]),
+                                    { keepNext: true, jc: 'both' }
+                                ));
+
+                                const rem = formattedStem.slice(1);
+                                let k = 0;
+                                while (k < rem.length) {
+                                    const curLine = rem[k];
+                                    const curText = plain(curLine).trim();
+                                    const isShortDialogue = /^[a-e]\.\s+[^:]{1,20}:/.test(curText);
+                                    if (isShortDialogue && k + 1 < rem.length) {
+                                        const nextLine = rem[k + 1];
+                                        const nextText = plain(nextLine).trim();
+                                        const isNextDialogue = /^[a-e]\.\s+[^:]{1,20}:/.test(nextText);
+                                        const wCur = runsWidthTw(curLine, fontPt);
+                                        const wNext = runsWidthTw(nextLine, fontPt);
+                                        const halfArr = Math.floor(colW / 2);
+                                        if (isNextDialogue && wCur <= halfArr - GAP && wNext <= colW - halfArr - 20) {
+                                            bodyParts.push(P(
+                                                runsXml(curLine) + '<w:r><w:tab/></w:r>' + runsXml(nextLine),
+                                                { tabs: [halfArr], keepNext: true }
+                                            ));
+                                            k += 2;
+                                            continue;
+                                        }
+                                    }
+                                    const isDialogue = /^[a-e]\.\s+[^:]{1,25}:/.test(curText);
+                                    bodyParts.push(P(runsXml(curLine), {
+                                        keepNext: true,
+                                        jc: isDialogue ? undefined : 'both'
+                                    }));
+                                    k++;
+                                }
+                                bodyParts.push.apply(bodyParts, layoutOptions(opts));
+                            } else {
+                                const firstLineRuns = [{ t: ' ' }].concat(formattedStem[0]);
+                                const stemLineW = labelW + runsWidthTw(firstLineRuns, fontPt);
+                                const optWidths = opts.map(rs => runsWidthTw(rs, fontPt));
+                                const totalOptsW = optWidths[0] + GAP + optWidths[1] + GAP + optWidths[2] + GAP + optWidths[3];
+
+                                if (formattedStem.length === 1 && stemLineW + GAP * 1.5 + totalOptsW <= colW - 30) {
+                                    const startTab = stemLineW + GAP;
+                                    const remW = colW - startTab;
+                                    const s4 = Math.floor(remW / 4);
+                                    const tTabs = (Math.max.apply(null, optWidths) <= s4 - GAP)
+                                        ? [startTab, startTab + s4, startTab + 2 * s4, startTab + 3 * s4]
+                                        : [startTab, startTab + optWidths[0] + GAP, startTab + optWidths[0] + GAP + optWidths[1] + GAP, startTab + optWidths[0] + GAP + optWidths[1] + GAP + optWidths[2] + GAP];
+                                    bodyParts.push(P(
+                                        labelXml + runsXml(firstLineRuns) + opts.map(rs => '<w:r><w:tab/></w:r>' + runsXml(rs)).join(''),
+                                        { tabs: tTabs }
+                                    ));
+                                } else {
+                                    bodyParts.push(P(labelXml + runsXml(firstLineRuns), { keepNext: true, jc: 'both' }));
+                                    formattedStem.slice(1).forEach(rs => {
+                                        bodyParts.push(P(runsXml(rs), { keepNext: true, jc: 'both' }));
+                                    });
+                                    bodyParts.push.apply(bodyParts, layoutOptions(opts));
+                                }
+                            }
+                        }
+                    });
+                });
+
+                bodyParts.push(P(B('— THE END —', { sz: Math.max(18, sz - 1) }), { jc: 'center', before: 25, after: 10 }));
+
+                if (isTwoCol) {
+                    bodyParts.push(sectionBreak(2, true));
+                }
+
+                // PHẦN II: BẢNG ĐÁP ÁN & HƯỚNG DẪN GIẢI CHI TIẾT
+                if (cfg.answerMode !== 'none') {
+                    const partIITitle = cfg.answerMode === 'key_only'
+                        ? 'BẢNG ĐÁP ÁN TRẮC NGHIỆM'
+                        : 'BẢNG ĐÁP ÁN & HƯỚNG DẪN GIẢI CHI TIẾT';
+                    bodyParts.push(P(
+                        B(partIITitle, { sz: sz + 1 }),
+                        {
+                            jc: 'center',
+                            pageBreakBefore: cfg.pageBreakAnswer,
+                            before: cfg.pageBreakAnswer ? 0 : 45,
+                            after: 18,
+                            pBdrBottom: 'single',
+                            keepNext: true
+                        }
+                    ));
+
+                    const COLS = (cfg.preset === 'standard' && questions.length <= 40) ? 10 : Math.min(20, Math.max(10, Math.ceil(questions.length / 2)));
+                    const CW = Math.floor(textW / COLS);
+                    const ansSz = COLS >= 15 ? Math.max(17, sz - 2) : Math.max(18, sz - 1);
+                    const border = '<w:top w:val="single" w:sz="4" w:space="0" w:color="888888"/><w:left w:val="single" w:sz="4" w:space="0" w:color="888888"/><w:bottom w:val="single" w:sz="4" w:space="0" w:color="888888"/><w:right w:val="single" w:sz="4" w:space="0" w:color="888888"/>';
+                    const rowsCount = Math.ceil(questions.length / COLS);
+
+                    let tbl = `<w:tbl><w:tblPr><w:tblW w:w="${CW * COLS}" w:type="dxa"/><w:tblBorders>${border}<w:insideH w:val="single" w:sz="4" w:space="0" w:color="888888"/><w:insideV w:val="single" w:sz="4" w:space="0" w:color="888888"/></w:tblBorders><w:tblLayout w:type="fixed"/><w:tblCellMar><w:top w:w="18" w:type="dxa"/><w:left w:w="14" w:type="dxa"/><w:bottom w:w="18" w:type="dxa"/><w:right w:w="14" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblGrid>${`<w:gridCol w:w="${CW}"/>`.repeat(COLS)}</w:tblGrid>`;
+                    for (let r = 0; r < rowsCount; r++) {
+                        const fill = (r % 2 === 0) ? 'F1F5F9' : 'FFFFFF';
+                        tbl += '<w:tr><w:trPr><w:cantSplit/></w:trPr>';
+                        for (let c = 0; c < COLS; c++) {
+                            const idx = r * COLS + c;
+                            const q = questions[idx];
+                            const cellPara = q
+                                ? P(B(`${idx + 1}.`, { sz: ansSz }) + B(ansLetter(q), { sz: ansSz, color: '1D4ED8' }), { jc: 'center', before: 0, after: 0, line: 205 })
+                                : P('', { jc: 'center', before: 0, after: 0, line: 205 });
+                            tbl += `<w:tc><w:tcPr><w:tcW w:w="${CW}" w:type="dxa"/><w:tcBorders>${border}</w:tcBorders><w:shd w:val="clear" w:color="auto" w:fill="${fill}"/></w:tcPr>${cellPara}</w:tc>`;
+                        }
+                        tbl += '</w:tr>';
+                    }
+                    tbl += '</w:tbl>';
+                    bodyParts.push(tbl);
+
+                    if (cfg.answerMode === 'full') {
+                        const exps = questions.map(explanationOf);
+                        if (exps.some(Boolean)) {
+                            const expSz = Math.max(18, sz - 1);
+                            bodyParts.push(P(B('Giải thích chi tiết:', { sz: expSz, u: true }), { keepNext: true, before: 28, after: 10 }));
+                            if (cfg.twoColExplanations) {
+                                bodyParts.push(sectionBreak(1, false));
+                            }
+                            questions.forEach((q, i) => {
+                                if (!exps[i]) return;
+                                const lines = toLines(exps[i], false);
+                                const head = B(`Câu ${i + 1} (${ansLetter(q)}): `, { sz: expSz });
+                                bodyParts.push(P(head + runsXml(lines[0] || [], { sz: expSz }), { jc: 'both', after: 6, line: 222 }));
+                                lines.slice(1).forEach(rs => bodyParts.push(P(runsXml(rs, { sz: expSz }), { jc: 'both', after: 6, line: 222 })));
+                            });
+                            if (cfg.twoColExplanations) {
+                                bodyParts.push(sectionBreak(2, true));
+                            }
+                        }
+                    }
+                }
+
+                const NS = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
+                const XML = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+
+                const documentXml = XML + `<w:document ${NS}><w:body>${bodyParts.join('')}` +
+                    `<w:sectPr><w:footerReference w:type="default" r:id="rId3"/><w:type w:val="continuous"/><w:pgSz w:w="${page.w}" w:h="${page.h}"/>` +
+                    `<w:pgMar w:top="${page.top}" w:right="${page.right}" w:bottom="${page.bottom}" w:left="${page.left}" w:header="${page.header}" w:footer="${page.footer}" w:gutter="0"/>` +
+                    `<w:cols w:space="720"/><w:docGrid w:linePitch="240"/></w:sectPr></w:body></w:document>`;
+
+                const stylesXml = XML + `<w:styles ${NS}><w:docDefaults><w:rPrDefault><w:rPr>` +
+                    `<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>` +
+                    `<w:sz w:val="${sz}"/><w:szCs w:val="${sz}"/><w:lang w:val="en-US" w:eastAsia="vi-VN" w:bidi="ar-SA"/></w:rPr></w:rPrDefault>` +
+                    `<w:pPrDefault><w:pPr><w:spacing w:before="0" w:after="${paraAfter}" w:line="${lineSpacing}" w:lineRule="auto"/><w:snapToGrid w:val="0"/></w:pPr></w:pPrDefault></w:docDefaults>` +
+                    `<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>` +
+                    `<w:style w:type="character" w:default="1" w:styleId="DefaultParagraphFont"><w:name w:val="Default Paragraph Font"/><w:uiPriority w:val="1"/><w:semiHidden/><w:unhideWhenUsed/></w:style>` +
+                    `<w:style w:type="table" w:default="1" w:styleId="TableNormal"><w:name w:val="Normal Table"/><w:uiPriority w:val="99"/><w:semiHidden/><w:unhideWhenUsed/><w:tblPr><w:tblInd w:w="0" w:type="dxa"/><w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:left w:w="80" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tblCellMar></w:tblPr></w:style></w:styles>`;
+
+                const settingsXml = XML + `<w:settings ${NS}><w:defaultTabStop w:val="720"/><w:characterSpacingControl w:val="doNotCompress"/><w:compat><w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat><w:themeFontLang w:val="en-US"/></w:settings>`;
+
+                const fr = t => `<w:r><w:rPr><w:sz w:val="17"/><w:szCs w:val="17"/><w:color w:val="555555"/></w:rPr>${t}</w:r>`;
+                const footerXml = XML + `<w:ftr ${NS}><w:p><w:pPr><w:pBdr><w:top w:val="single" w:sz="4" w:space="2" w:color="CCCCCC"/></w:pBdr><w:tabs><w:tab w:val="right" w:pos="${textW}"/></w:tabs><w:spacing w:before="0" w:after="0" w:line="210" w:lineRule="auto"/></w:pPr>` +
+                    `${fr(`<w:t xml:space="preserve">${esc(cfg.examTitle)} — Mã đề ${esc(cfg.examCode)}\tTrang </w:t>`)}` +
+                    `${fr('<w:fldChar w:fldCharType="begin"/>')}${fr('<w:instrText xml:space="preserve"> PAGE </w:instrText>')}${fr('<w:fldChar w:fldCharType="separate"/>')}${fr('<w:t>1</w:t>')}${fr('<w:fldChar w:fldCharType="end"/>')}` +
+                    `${fr('<w:t xml:space="preserve"> / </w:t>')}` +
+                    `${fr('<w:fldChar w:fldCharType="begin"/>')}${fr('<w:instrText xml:space="preserve"> NUMPAGES </w:instrText>')}${fr('<w:fldChar w:fldCharType="separate"/>')}${fr('<w:t>1</w:t>')}${fr('<w:fldChar w:fldCharType="end"/>')}` +
+                    `</w:p></w:ftr>`;
+
+                const contentTypesXml = XML + '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>' +
+                    '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>' +
+                    '<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>' +
+                    '<Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/>' +
+                    '<Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>' +
+                    '<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/>' +
+                    '<Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>';
+
+                const rootRelsXml = XML + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>';
+                const docRelsXml = XML + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/></Relationships>';
+                const appXml = XML + '<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>Microsoft Office Word</Application></Properties>';
+                const coreXml = XML + '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">' +
+                    `<dc:title>${esc(cfg.examTitle)}</dc:title><dc:creator>Ngân hàng đề thi Tiếng Anh THPT</dc:creator>` +
+                    `<dcterms:created xsi:type="dcterms:W3CDTF">${new Date().toISOString().replace(/\.\d+Z$/, 'Z')}</dcterms:created></cp:coreProperties>`;
+
+                return {
+                    '[Content_Types].xml': contentTypesXml,
+                    '_rels/.rels': rootRelsXml,
+                    'docProps/core.xml': coreXml,
+                    'docProps/app.xml': appXml,
+                    'word/document.xml': documentXml,
+                    'word/_rels/document.xml.rels': docRelsXml,
+                    'word/styles.xml': stylesXml,
+                    'word/settings.xml': settingsXml,
+                    'word/footer1.xml': footerXml
+                };
             }
 
-            /* ---------- Hàm công khai ---------- */
-            async function buildDocxBlob(questions, withAnswers, title) {
-                await ensureJSZip();
-                const body = buildPartI(questions);
-                if (withAnswers) body.push.apply(body, buildPartII(questions));
-                const zip = new JSZip();
-                zip.file('[Content_Types].xml', CONTENT_TYPES);
-                zip.file('_rels/.rels', ROOT_RELS);
-                zip.file('docProps/core.xml', coreXml(title));
-                zip.file('docProps/app.xml', APP);
-                zip.file('word/document.xml', documentXml(body));
-                zip.file('word/_rels/document.xml.rels', DOC_RELS);
-                zip.file('word/styles.xml', STYLES);
-                zip.file('word/settings.xml', SETTINGS);
-                zip.file('word/footer1.xml', FOOTER);
-                return zip.generateAsync({ type: 'blob', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', compression: 'DEFLATE' });
+            /* =========================================================================
+               2. BỘ ĐÓNG GÓI ZIP NỘI BỘ (HOẠT ĐỘNG 100% OFFLINE KHÔNG CẦN INTERNET/CDN)
+            ========================================================================= */
+            const CRC_TABLE = (function () {
+                const t = new Uint32Array(256);
+                for (let i = 0; i < 256; i++) {
+                    let c = i;
+                    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+                    t[i] = c >>> 0;
+                }
+                return t;
+            })();
+
+            function crc32(bytes) {
+                let c = 0xFFFFFFFF;
+                for (let i = 0; i < bytes.length; i++) {
+                    c = CRC_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+                }
+                return (c ^ 0xFFFFFFFF) >>> 0;
             }
-            function download(blob, name) {
+
+            async function deflateRawBytes(rawBytes) {
+                if (typeof CompressionStream !== 'undefined') {
+                    try {
+                        const cs = new CompressionStream('deflate-raw');
+                        const writer = cs.writable.getWriter();
+                        writer.write(rawBytes);
+                        writer.close();
+                        const reader = cs.readable.getReader();
+                        const chunks = [];
+                        let total = 0;
+                        while (true) {
+                            const { done, value } = await reader.read();
+                            if (done) break;
+                            chunks.push(value);
+                            total += value.length;
+                        }
+                        const out = new Uint8Array(total);
+                        let pos = 0;
+                        for (const ch of chunks) {
+                            out.set(ch, pos);
+                            pos += ch.length;
+                        }
+                        return { method: 8, bytes: out };
+                    } catch (e) {}
+                }
+                return { method: 0, bytes: rawBytes };
+            }
+
+            async function packZipBlobOffline(filesMap) {
+                const enc = new TextEncoder();
+                const entries = [];
+                let offset = 0;
+
+                for (const [name, content] of Object.entries(filesMap)) {
+                    const nameBytes = enc.encode(name);
+                    const rawBytes = enc.encode(content);
+                    const crc = crc32(rawBytes);
+                    const { method, bytes: compBytes } = await deflateRawBytes(rawBytes);
+
+                    const lh = new Uint8Array(30 + nameBytes.length);
+                    const lhv = new DataView(lh.buffer);
+                    lhv.setUint32(0, 0x04034b50, true);
+                    lhv.setUint16(4, 20, true);
+                    lhv.setUint16(6, 0x0800, true);
+                    lhv.setUint16(8, method, true);
+                    lhv.setUint16(10, 0, true);
+                    lhv.setUint16(12, 0, true);
+                    lhv.setUint32(14, crc, true);
+                    lhv.setUint32(18, compBytes.length, true);
+                    lhv.setUint32(22, rawBytes.length, true);
+                    lhv.setUint16(26, nameBytes.length, true);
+                    lhv.setUint16(28, 0, true);
+                    lh.set(nameBytes, 30);
+
+                    entries.push({ nameBytes, crc, method, compBytes, rawLen: rawBytes.length, lh, offset });
+                    offset += lh.length + compBytes.length;
+                }
+
+                const cdParts = [];
+                let cdLen = 0;
+                for (const e of entries) {
+                    const cd = new Uint8Array(46 + e.nameBytes.length);
+                    const cdv = new DataView(cd.buffer);
+                    cdv.setUint32(0, 0x02014b50, true);
+                    cdv.setUint16(4, 20, true);
+                    cdv.setUint16(6, 20, true);
+                    cdv.setUint16(8, 0x0800, true);
+                    cdv.setUint16(10, e.method, true);
+                    cdv.setUint16(12, 0, true);
+                    cdv.setUint16(14, 0, true);
+                    cdv.setUint32(16, e.crc, true);
+                    cdv.setUint32(20, e.compBytes.length, true);
+                    cdv.setUint32(24, e.rawLen, true);
+                    cdv.setUint16(28, e.nameBytes.length, true);
+                    cdv.setUint16(30, 0, true);
+                    cdv.setUint16(32, 0, true);
+                    cdv.setUint16(34, 0, true);
+                    cdv.setUint16(36, 0, true);
+                    cdv.setUint32(38, 0, true);
+                    cdv.setUint32(42, e.offset, true);
+                    cd.set(e.nameBytes, 46);
+                    cdParts.push(cd);
+                    cdLen += cd.length;
+                }
+
+                const eocd = new Uint8Array(22);
+                const ev = new DataView(eocd.buffer);
+                ev.setUint32(0, 0x06054b50, true);
+                ev.setUint16(4, 0, true);
+                ev.setUint16(6, 0, true);
+                ev.setUint16(8, entries.length, true);
+                ev.setUint16(10, entries.length, true);
+                ev.setUint32(12, cdLen, true);
+                ev.setUint32(16, offset, true);
+                ev.setUint16(20, 0, true);
+
+                const blobParts = [];
+                for (const e of entries) {
+                    blobParts.push(e.lh, e.compBytes);
+                }
+                for (const cd of cdParts) blobParts.push(cd);
+                blobParts.push(eocd);
+
+                return new Blob(blobParts, { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+            }
+
+            /* =========================================================================
+               3. BỘ DỰNG FILE .DOC (MICROSOFT WORD 97-2003 / MHTML PRINT LAYOUT)
+            ========================================================================= */
+            function buildDocBlob(questions, rawOpts, title) {
+                const cfg = resolveConfig(rawOpts, title);
+                const fontPt = cfg.fontPt;
+                const marginCm = cfg.marginPreset === 'ultra'
+                    ? '0.65cm 0.7cm 0.65cm 0.7cm'
+                    : (cfg.marginPreset === 'standard' ? '1.2cm 1.2cm 1.2cm 1.2cm' : '0.75cm 0.8cm 0.75cm 0.8cm');
+                const lineH = cfg.isTwoCol ? '1.05' : (cfg.preset === 'standard' ? '1.15' : '1.08');
+
+                function stripTags(h) {
+                    return String(h || '').replace(/<[^>]+>/g, '').trim();
+                }
+
+                function fmtInline(s, compactBlanks) {
+                    return normalizeMarkup(s, compactBlanks);
+                }
+
+                let html = '\uFEFF<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="ProgId" content="Word.Document"><meta name="Generator" content="Microsoft Word 15"><!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom><w:DoNotOptimizeForBrowser/></w:WordDocument></xml><![endif]-->';
+                html += `<style>
+                    @page WordSection1 { size: 21.0cm 29.7cm; margin: ${marginCm}; mso-header-margin: 0.35cm; mso-footer-margin: 0.35cm; }
+                    div.WordSection1 { page: WordSection1; }
+                    body, p, td, div { font-family: "Times New Roman", Times, serif; font-size: ${fontPt}pt; line-height: ${lineH}; color: #000000; }
+                    p { margin: 0pt 0pt 1.2pt 0pt; text-align: justify; }
+                    table.opt-tbl { width: 100%; table-layout: fixed; border-collapse: collapse; border: none; margin: 0pt 0pt 1.2pt 0pt; }
+                    table.opt-tbl td { padding: 0pt 3pt 0.5pt 0pt; border: none; vertical-align: top; text-align: left; }
+                    table.ans-tbl { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 2pt 0pt 4pt 0pt; }
+                    table.ans-tbl td { border: 0.5pt solid #666666; padding: 1.5pt 1pt; text-align: center; font-size: ${Math.max(8, fontPt - 1)}pt; }
+                </style></head><body><div class="WordSection1">`;
+
+                if (cfg.showHeader) {
+                    html += `<table width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed;border-collapse:collapse;border-bottom:1.5pt double #222;margin-bottom:3pt;">
+                        <tr>
+                            <td width="43%" style="text-align:center;vertical-align:top;padding-bottom:2pt;">
+                                <p style="text-align:center;margin:0;font-size:${fontPt - 0.5}pt;"><b>${esc(cfg.schoolName)}</b></p>
+                                <p style="text-align:center;margin:0;"><b><u>${esc(cfg.examTitle)}</u></b></p>
+                                <p style="text-align:center;margin:0;font-size:${fontPt - 1}pt;"><i>(Đề thi có ${questions.length} câu trắc nghiệm)</i></p>
+                            </td>
+                            <td width="57%" style="text-align:center;vertical-align:top;padding-bottom:2pt;">
+                                <p style="text-align:center;margin:0;font-size:${fontPt + 0.5}pt;"><b>KỲ THI TỐT NGHIỆP THPT NĂM 2026</b></p>
+                                <p style="text-align:center;margin:0;"><b>Bài thi: NGOẠI NGỮ — Môn thi: TIẾNG ANH</b></p>
+                                <p style="text-align:center;margin:0;font-size:${fontPt - 1}pt;"><i>Thời gian làm bài: ${esc(cfg.duration)} (không kể thời gian phát đề)</i></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="border-top:0.5pt solid #999;padding:2pt 0;font-size:${fontPt - 0.5}pt;">
+                                <b>Họ và tên thí sinh:</b> ........................................................................ <b>Số báo danh:</b> .............................. <b>Mã đề: ${esc(cfg.examCode)}</b>
+                            </td>
+                        </tr>
+                    </table>`;
+                } else {
+                    html += `<p style="text-align:center;font-size:${fontPt + 1}pt;margin-bottom:3pt;"><b>ĐỀ THI TRẮC NGHIỆM: ${esc(cfg.examTitle)}</b></p>`;
+                }
+
+                // Render question blocks
+                const groups = [];
+                let cur = null;
+                questions.forEach((q, idx) => {
+                    if (!cur || q.instruction !== cur.instruction) {
+                        cur = { instruction: q.instruction || '', passage: q.passage || null, items: [] };
+                        groups.push(cur);
+                    } else if (q.passage && !cur.passage) {
+                        cur.passage = q.passage;
+                    }
+                    cur.items.push({ q, idx });
+                });
+
+                function renderGroupHtml(g) {
+                    let s = '';
+                    if (g.instruction) {
+                        s += `<p style="margin-top:2.5pt;margin-bottom:1pt;"><b><i>${fmtInline(g.instruction, false)}</i></b></p>`;
+                    }
+                    if (g.passage) {
+                        const lines = fmtInline(g.passage, cfg.compactBlanks).split('\n').map(l => l.trim()).filter(Boolean);
+                        lines.forEach((line, lIdx) => {
+                            const pl = stripTags(line);
+                            if (isSourceLine(pl)) {
+                                s += `<p style="text-align:right;font-size:${fontPt - 1}pt;"><i>${line}</i></p>`;
+                            } else if (lIdx === 0 && pl.length < 100 && pl === pl.toUpperCase()) {
+                                s += `<p style="text-align:center;"><b>${line}</b></p>`;
+                            } else {
+                                s += `<p style="text-indent:0.4cm;">${line}</p>`;
+                            }
+                        });
+                    }
+                    g.items.forEach(({ q, idx }) => {
+                        const qNum = idx + 1;
+                        const stemLines = fmtInline(q.text || '', cfg.compactBlanks).split('\n').map(l => l.trim()).filter(Boolean);
+                        const isArr = stemLines.length > 1 && stemLines.some(l => /^[a-e]\.\s/.test(stripTags(l)));
+                        const opts = (q.options || []).map((o, i) => {
+                            let txt = fmtInline(o, false).replace(/\n+/g, ' ').trim();
+                            if (isArr && /^[a-f](\s*-\s*[a-f]){2,5}$/i.test(stripTags(txt))) {
+                                txt = txt.replace(/\s*-\s*/g, '-');
+                            }
+                            return { html: `<b>${'ABCD'[i]}.</b> ${txt}`, len: stripTags(txt).length + 3 };
+                        });
+                        while (opts.length < 4) opts.push({ html: `<b>${'ABCD'[opts.length]}.</b> `, len: 3 });
+                        const maxLen = Math.max(opts[0].len, opts[1].len, opts[2].len, opts[3].len);
+                        const lim4 = cfg.isTwoCol ? 13 : 21;
+                        const lim2 = cfg.isTwoCol ? 27 : 45;
+
+                        if (!stemLines.length) {
+                            if (maxLen <= lim4) {
+                                s += `<table class="opt-tbl"><tr><td width="13%"><b>Question ${qNum}.</b></td><td width="21.75%">${opts[0].html}</td><td width="21.75%">${opts[1].html}</td><td width="21.75%">${opts[2].html}</td><td width="21.75%">${opts[3].html}</td></tr></table>`;
+                            } else if (maxLen <= lim2) {
+                                s += `<table class="opt-tbl"><tr><td width="13%" rowspan="2"><b>Question ${qNum}.</b></td><td width="43.5%">${opts[0].html}</td><td width="43.5%">${opts[1].html}</td></tr><tr><td>${opts[2].html}</td><td>${opts[3].html}</td></tr></table>`;
+                            } else {
+                                s += `<p><b>Question ${qNum}.</b> ${opts[0].html}</p><p>${opts[1].html}</p><p>${opts[2].html}</p><p>${opts[3].html}</p>`;
+                            }
+                        } else {
+                            const formattedStem = stemLines.map(l => l.replace(/^([a-e]\.)(\s+)/, '<b>$1</b>$2'));
+                            s += `<p><b>Question ${qNum}.</b> ${formattedStem[0]}</p>`;
+                            formattedStem.slice(1).forEach(l => { s += `<p>${l}</p>`; });
+                            if (maxLen <= lim4 + 2) {
+                                s += `<table class="opt-tbl"><tr><td width="25%">${opts[0].html}</td><td width="25%">${opts[1].html}</td><td width="25%">${opts[2].html}</td><td width="25%">${opts[3].html}</td></tr></table>`;
+                            } else if (maxLen <= lim2 + 4) {
+                                s += `<table class="opt-tbl"><tr><td width="50%">${opts[0].html}</td><td width="50%">${opts[1].html}</td></tr><tr><td>${opts[2].html}</td><td>${opts[3].html}</td></tr></table>`;
+                            } else {
+                                opts.forEach(o => { s += `<p>${o.html}</p>`; });
+                            }
+                        }
+                    });
+                    return s;
+                }
+
+                if (cfg.isTwoCol && groups.length >= 2) {
+                    const mid = Math.ceil(groups.length / 2);
+                    const leftHtml = groups.slice(0, mid).map(renderGroupHtml).join('');
+                    const rightHtml = groups.slice(mid).map(renderGroupHtml).join('') + `<p style="text-align:center;margin-top:3pt;"><b>— THE END —</b></p>`;
+                    html += `<table width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed;border-collapse:collapse;border:none;"><tr>
+                        <td width="49%" style="vertical-align:top;padding-right:5pt;border-right:0.5pt solid #cbd5e1;">${leftHtml}</td>
+                        <td width="49%" style="vertical-align:top;padding-left:5pt;">${rightHtml}</td>
+                    </tr></table>`;
+                } else {
+                    html += groups.map(renderGroupHtml).join('');
+                    html += `<p style="text-align:center;margin-top:3pt;"><b>— THE END —</b></p>`;
+                }
+
+                if (cfg.answerMode !== 'none') {
+                    const partTitle = cfg.answerMode === 'key_only' ? 'BẢNG ĐÁP ÁN TRẮC NGHIỆM' : 'BẢNG ĐÁP ÁN & HƯỚNG DẪN GIẢI CHI TIẾT';
+                    html += `<p style="text-align:center;margin-top:5pt;border-bottom:0.75pt solid #444;${cfg.pageBreakAnswer ? 'page-break-before:always;' : ''}"><b>${partTitle}</b></p>`;
+                    const cols = (cfg.preset === 'standard' && questions.length <= 40) ? 10 : 20;
+                    const rows = Math.ceil(questions.length / cols);
+                    html += `<table class="ans-tbl">`;
+                    for (let r = 0; r < rows; r++) {
+                        const bg = r % 2 === 0 ? '#f1f5f9' : '#ffffff';
+                        html += `<tr style="background:${bg};">`;
+                        for (let c = 0; c < cols; c++) {
+                            const i = r * cols + c;
+                            const q = questions[i];
+                            html += `<td>${q ? `<b>${i + 1}.</b><b style="color:#1d4ed8;">${ansLetter(q)}</b>` : ''}</td>`;
+                        }
+                        html += `</tr>`;
+                    }
+                    html += `</table>`;
+
+                    if (cfg.answerMode === 'full') {
+                        const expItems = [];
+                        questions.forEach((q, i) => {
+                            const exp = explanationOf(q);
+                            if (exp) {
+                                expItems.push(`<p style="font-size:${Math.max(8.5, fontPt - 0.5)}pt;margin-bottom:1pt;"><b>Câu ${i + 1} (${ansLetter(q)}):</b> ${fmtInline(exp, false).replace(/\n+/g, ' ')}</p>`);
+                            }
+                        });
+                        if (expItems.length) {
+                            html += `<p style="margin-top:2.5pt;"><b><u>Giải thích chi tiết:</u></b></p>`;
+                            if (cfg.twoColExplanations && expItems.length >= 6) {
+                                const half = Math.ceil(expItems.length / 2);
+                                html += `<table width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed;border-collapse:collapse;border:none;"><tr>
+                                    <td width="49%" style="vertical-align:top;padding-right:5pt;border-right:0.5pt solid #cbd5e1;">${expItems.slice(0, half).join('')}</td>
+                                    <td width="49%" style="vertical-align:top;padding-left:5pt;">${expItems.slice(half).join('')}</td>
+                                </tr></table>`;
+                            } else {
+                                html += expItems.join('');
+                            }
+                        }
+                    }
+                }
+
+                html += `</div></body></html>`;
+                return new Blob([html], { type: 'application/msword;charset=utf-8' });
+            }
+
+            /* ---------- Đóng gói .DOCX (ưu tiên bộ nén nội bộ + hỗ trợ JSZip nếu có) ---------- */
+            async function buildDocxBlob(questions, withAnswersOrOpts, title) {
+                const rawOpts = (typeof withAnswersOrOpts === 'object' && withAnswersOrOpts !== null)
+                    ? withAnswersOrOpts
+                    : { withAnswers: withAnswersOrOpts !== false };
+                const xmlParts = buildDocxXmlParts(questions, rawOpts, title);
+                if (window.JSZip) {
+                    const zip = new window.JSZip();
+                    for (const [k, v] of Object.entries(xmlParts)) zip.file(k, v);
+                    return zip.generateAsync({
+                        type: 'blob',
+                        mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        compression: 'DEFLATE'
+                    });
+                }
+                return packZipBlobOffline(xmlParts);
+            }
+
+            function downloadBlob(blob, filename) {
                 const a = document.createElement('a');
-                a.href = URL.createObjectURL(blob); a.download = name;
-                document.body.appendChild(a); a.click(); a.remove();
+                a.href = URL.createObjectURL(blob);
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
                 setTimeout(() => URL.revokeObjectURL(a.href), 4000);
             }
 
-            window.exportDocx = async function (withAnswers) {
+            function getCurrentQuestions() {
+                if (typeof ensureFallbackDatabase === 'function') ensureFallbackDatabase();
+                try {
+                    return (examDatabase && examDatabase[currentGrade] && examDatabase[currentGrade][currentUnit] && examDatabase[currentGrade][currentUnit][currentTest]) || [];
+                } catch (e) {
+                    return [];
+                }
+            }
+
+            function buildFileName(ext, rawOpts) {
+                const cfg = resolveConfig(rawOpts);
+                const modeSuffix = cfg.answerMode === 'none' ? '_CHI_DE' : (cfg.answerMode === 'key_only' ? '_KEM_BANG_DAP_AN' : '_FULL_DAP_AN');
+                const colSuffix = cfg.isTwoCol ? '_2COT' : '';
+                return `DE_THI_TIENG_ANH_LOP${currentGrade}_UNIT${currentUnit}_TEST${currentTest}${colSuffix}${modeSuffix}.${ext}`;
+            }
+
+            /* ---------- Hàm công khai: xuất .DOCX và .DOC ---------- */
+            window.exportDocx = async function (withAnswersOrOpts) {
                 const status = evaluateLicense();
                 if (!status.active) {
                     showPasswordModal(true);
                     return;
                 }
-                let questions = [];
-                try { questions = examDatabase[currentGrade][currentUnit][currentTest] || []; } catch (e) { }
-                if (!questions.length) { alert('Đề thi này chưa có nội dung để xuất.'); return; }
+                const questions = getCurrentQuestions();
+                if (!questions.length) {
+                    showToast('Đề thi này chưa có nội dung để xuất.', '⚠️');
+                    return;
+                }
                 const btns = document.querySelectorAll('.docx-export-btn');
                 btns.forEach(b => { b.disabled = true; b.classList.add('opacity-60'); });
                 try {
                     const title = `Lớp ${currentGrade} - Unit ${currentUnit} - Test ${currentTest}`;
-                    const blob = await buildDocxBlob(questions, withAnswers !== false, title);
-                    download(blob, `DE_THI_TIENG_ANH_LOP${currentGrade}_UNIT${currentUnit}_TEST${currentTest}${withAnswers === false ? '_CHI_DE' : ''}.docx`);
+                    const rawOpts = (typeof withAnswersOrOpts === 'object' && withAnswersOrOpts !== null)
+                        ? withAnswersOrOpts
+                        : { withAnswers: withAnswersOrOpts !== false };
+                    const blob = await buildDocxBlob(questions, rawOpts, title);
+                    const fileName = buildFileName('docx', rawOpts);
+                    downloadBlob(blob, fileName);
+                    showToast(`Đã xuất file ${fileName} thành công!`, '📄');
                 } catch (e) {
                     console.error(e);
-                    alert('Xuất file Word không thành công: ' + (e && e.message ? e.message : e));
+                    showToast('Xuất file .DOCX không thành công: ' + (e && e.message ? e.message : e), '❌');
                 } finally {
                     btns.forEach(b => { b.disabled = false; b.classList.remove('opacity-60'); });
                 }
             };
+
+            window.exportDoc = function (withAnswersOrOpts) {
+                const status = evaluateLicense();
+                if (!status.active) {
+                    showPasswordModal(true);
+                    return;
+                }
+                const questions = getCurrentQuestions();
+                if (!questions.length) {
+                    showToast('Đề thi này chưa có nội dung để xuất.', '⚠️');
+                    return;
+                }
+                try {
+                    const title = `Lớp ${currentGrade} - Unit ${currentUnit} - Test ${currentTest}`;
+                    const rawOpts = (typeof withAnswersOrOpts === 'object' && withAnswersOrOpts !== null)
+                        ? withAnswersOrOpts
+                        : { withAnswers: withAnswersOrOpts !== false };
+                    const blob = buildDocBlob(questions, rawOpts, title);
+                    const fileName = buildFileName('doc', rawOpts);
+                    downloadBlob(blob, fileName);
+                    showToast(`Đã xuất file ${fileName} thành công!`, '📘');
+                } catch (e) {
+                    console.error(e);
+                    showToast('Xuất file .DOC không thành công: ' + (e && e.message ? e.message : e), '❌');
+                }
+            };
+
+            /* ---------- Quản lý Modal Tùy chỉnh & Tiết kiệm giấy ---------- */
+            function syncModalFromPrefs() {
+                const fontEl = document.getElementById('exp-font-size');
+                const marginEl = document.getElementById('exp-margin');
+                const colsEl = document.getElementById('exp-columns');
+                const schoolEl = document.getElementById('exp-school-name');
+                const codeEl = document.getElementById('exp-exam-code');
+                const headerEl = document.getElementById('exp-show-header');
+                const twoColExpEl = document.getElementById('exp-twocol-exp');
+                const blanksEl = document.getElementById('exp-compact-blanks');
+                const pbEl = document.getElementById('exp-pagebreak-ans');
+
+                if (fontEl) fontEl.value = String(exportPrefs.fontPt);
+                if (marginEl) marginEl.value = exportPrefs.marginPreset;
+                if (colsEl) colsEl.value = String(exportPrefs.columns);
+                if (schoolEl) schoolEl.value = exportPrefs.schoolName;
+                if (codeEl) codeEl.value = exportPrefs.examCode;
+                if (headerEl) headerEl.checked = !!exportPrefs.showHeader;
+                if (twoColExpEl) twoColExpEl.checked = !!exportPrefs.twoColExplanations;
+                if (blanksEl) blanksEl.checked = !!exportPrefs.compactBlanks;
+                if (pbEl) pbEl.checked = !!exportPrefs.pageBreakAnswer;
+
+                document.querySelectorAll('input[name="exp_answer_mode"]').forEach(r => {
+                    r.checked = (r.value === exportPrefs.answerMode);
+                });
+
+                highlightPresetButton(exportPrefs.preset);
+                updateExportEstimate();
+            }
+
+            function highlightPresetButton(preset) {
+                ['compact', 'twocol', 'standard'].forEach(p => {
+                    const btn = document.getElementById(`preset-btn-${p}`);
+                    if (!btn) return;
+                    if (p === preset) {
+                        btn.className = 'text-left p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/70 transition-all shadow-sm';
+                    } else {
+                        btn.className = 'text-left p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-400 bg-white transition-all';
+                    }
+                });
+                const badge = document.getElementById('export-preset-badge');
+                if (badge) {
+                    badge.innerText = preset === 'twocol'
+                        ? 'Căn trang: 2 cột (1 tờ A4)'
+                        : (preset === 'standard' ? 'Căn trang: Chuẩn THPT' : 'Căn trang: Siêu gọn 1 cột');
+                }
+            }
+
+            function readPrefsFromModal() {
+                const ansRadio = document.querySelector('input[name="exp_answer_mode"]:checked');
+                exportPrefs.fontPt = parseFloat((document.getElementById('exp-font-size') || {}).value) || 10;
+                exportPrefs.marginPreset = (document.getElementById('exp-margin') || {}).value || 'compact';
+                exportPrefs.columns = parseInt((document.getElementById('exp-columns') || {}).value, 10) || 1;
+                exportPrefs.answerMode = ansRadio ? ansRadio.value : 'full';
+                exportPrefs.schoolName = ((document.getElementById('exp-school-name') || {}).value || 'NGÂN HÀNG ĐỀ THI THPT QUỐC GIA').trim();
+                exportPrefs.examCode = ((document.getElementById('exp-exam-code') || {}).value || '101').trim();
+                exportPrefs.showHeader = !!(document.getElementById('exp-show-header') || {}).checked;
+                exportPrefs.twoColExplanations = !!(document.getElementById('exp-twocol-exp') || {}).checked;
+                exportPrefs.compactBlanks = !!(document.getElementById('exp-compact-blanks') || {}).checked;
+                exportPrefs.pageBreakAnswer = !!(document.getElementById('exp-pagebreak-ans') || {}).checked;
+                saveExportPrefs(exportPrefs);
+            }
+
+            window.applyExportPreset = function (preset) {
+                exportPrefs.preset = preset;
+                if (preset === 'twocol') {
+                    exportPrefs.fontPt = 9;
+                    exportPrefs.marginPreset = 'ultra';
+                    exportPrefs.columns = 2;
+                    exportPrefs.twoColExplanations = true;
+                    exportPrefs.compactBlanks = true;
+                    exportPrefs.pageBreakAnswer = false;
+                } else if (preset === 'standard') {
+                    exportPrefs.fontPt = 11;
+                    exportPrefs.marginPreset = 'standard';
+                    exportPrefs.columns = 1;
+                    exportPrefs.twoColExplanations = false;
+                    exportPrefs.compactBlanks = false;
+                    exportPrefs.pageBreakAnswer = true;
+                } else {
+                    exportPrefs.fontPt = 10;
+                    exportPrefs.marginPreset = 'compact';
+                    exportPrefs.columns = 1;
+                    exportPrefs.twoColExplanations = true;
+                    exportPrefs.compactBlanks = true;
+                    exportPrefs.pageBreakAnswer = false;
+                }
+                saveExportPrefs(exportPrefs);
+                syncModalFromPrefs();
+            };
+
+            window.updateExportEstimate = function () {
+                readPrefsFromModal();
+                const estEl = document.getElementById('exp-estimate-text');
+                if (!estEl) return;
+                const is2Col = exportPrefs.columns === 2;
+                const mode = exportPrefs.answerMode;
+                let pagesText = '';
+                let savingText = '';
+                if (is2Col) {
+                    if (mode === 'full') {
+                        pagesText = '~3 trang A4';
+                        savingText = 'Tiết kiệm ~50% giấy in (gồm cả 40 câu giải thích)';
+                    } else {
+                        pagesText = '~2 trang A4 (vừa khít 1 tờ A4 in 2 mặt)';
+                        savingText = 'Tiết kiệm tối đa ~65% giấy in!';
+                    }
+                } else if (exportPrefs.fontPt <= 10.5 && exportPrefs.marginPreset !== 'standard') {
+                    if (mode === 'full') {
+                        pagesText = '~4 trang A4 (2 tờ in 2 mặt)';
+                        savingText = 'Tiết kiệm ~35% giấy in (đã gồm 40 câu giải thích)';
+                    } else {
+                        pagesText = '~3 trang A4';
+                        savingText = 'Tiết kiệm ~40% giấy in so với đề thông thường';
+                    }
+                } else {
+                    pagesText = mode === 'full' ? '~5–6 trang A4' : '~4 trang A4';
+                    savingText = 'Bố cục thoáng chuẩn đề thi chính thức';
+                }
+                estEl.innerHTML = `Ước tính: <strong>${pagesText}</strong> — ${savingText}`;
+            };
+
+            window.randomizeExamCode = function () {
+                const code = String(Math.floor(100 + Math.random() * 900));
+                const el = document.getElementById('exp-exam-code');
+                if (el) el.value = code;
+                readPrefsFromModal();
+            };
+
+            window.openExportSettingsModal = function () {
+                const status = evaluateLicense();
+                if (!status.active) {
+                    showPasswordModal(true);
+                    return;
+                }
+                syncModalFromPrefs();
+                const m = document.getElementById('export-settings-modal');
+                if (m) m.classList.remove('hidden-element');
+            };
+
+            window.closeExportSettingsModal = function () {
+                readPrefsFromModal();
+                highlightPresetButton(exportPrefs.preset);
+                const m = document.getElementById('export-settings-modal');
+                if (m) m.classList.add('hidden-element');
+            };
+
+            window.triggerExportFromModal = function (format) {
+                readPrefsFromModal();
+                highlightPresetButton(exportPrefs.preset);
+                const m = document.getElementById('export-settings-modal');
+                if (m) m.classList.add('hidden-element');
+                if (format === 'doc') {
+                    window.exportDoc(exportPrefs);
+                } else {
+                    window.exportDocx(exportPrefs);
+                }
+            };
+
             window.__buildDocxBlob = buildDocxBlob;
+            window.__buildDocBlob = buildDocBlob;
         })();
     </script>
 </body>
