@@ -418,10 +418,10 @@ window.examDatabase[10] = {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
         "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Handwritten and typed notes led to varied degrees of conceptual understanding.",
-          "The slow speed of writing by hand turns out to be an advantage over typing.",
-          "Students are unaware of the change in notetaking methods in class.",
-          "Universities generally approve of prohibiting laptop use in classrooms."
+          "Taking notes by hand and by laptop can lead to different levels of conceptual understanding.",
+          "Writing slowly may benefit students because it makes them choose what is important.",
+          "Whether a note-taking tool helps depends on how much effort it demands from the learner.",
+          "Typing notes always leads to poorer learning than writing them by hand."
         ],
         "answer": 3
       },
@@ -863,14 +863,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain why people may not notice noise?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Many city residents have become so used to noise that they no longer notice it.",
+          "The ideal solution is for cities to eliminate every kind of sound.",
+          "Constant exposure to loud noise can harm both people's health and their learning.",
+          "Sounds from nature can have a calming effect on many listeners."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -1310,14 +1310,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer suggest an activity for parents of only children?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Only children often do at least as well at school as those with brothers or sisters.",
+          "All only children grow up lonely because they have no brothers or sisters.",
+          "Being an only child can bring pressure because all of the parents' hopes rest on one person.",
+          "The quality of family life matters more than the number of children in it."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -1757,14 +1757,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a way of deciding the rules together?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "All screen use harms children, no matter what they are watching.",
+          "The quality of screen time counts for more than the number of hours spent.",
+          "Families can decide together when and where screens may be used.",
+          "The way parents use their own devices influences their children."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -2204,14 +2204,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer suggest ways for parents to reduce rivalry?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Quarrels between brothers and sisters are a normal part of family life.",
+          "Siblings who are close in age tend to argue more often than those who are far apart.",
+          "Handling rivalry well can help children develop useful social skills.",
+          "Rivalry between siblings always ends by the time they reach adulthood."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -2651,14 +2651,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention older relatives who are unfamiliar with technology?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Regular video calls can help separated families feel closer to each other.",
+          "Some older relatives may feel left out because technology is unfamiliar to them.",
+          "Sharing small details of everyday life makes a call more meaningful.",
+          "Technology can completely replace being physically together for separated families."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -3098,14 +3098,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention sources such as certificates and newspapers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A family story that differs from official records has no value at all.",
+          "Questions about earlier generations often go unanswered because the people who knew the answers are gone.",
+          "Relatives may recall the same event differently, so several sources should be compared.",
+          "Knowing its past can make a family feel more united."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -3545,14 +3545,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a drawback of living in a multigenerational household?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 4",
-          "Paragraph 2",
-          "Paragraph 3"
+          "Cultural traditions in some communities have long favoured several generations living together.",
+          "Grandparents living with the family can provide trusted and affordable childcare.",
+          "Sharing a home can reduce the privacy and independence of family members.",
+          "Financial pressure is the only reason families choose to share one home."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -3992,14 +3992,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention the emotional difficulty of recording a recipe?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 2"
+          "Younger relatives usually manage to record a family recipe correctly on their first attempt.",
+          "Traditional family recipes are often kept in the cook's experience rather than written down.",
+          "Recording a grandmother's recipe can be hard because she judges amounts by feel.",
+          "Writing down a recipe can bring out family stories and memories."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -4439,12 +4439,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a benefit experienced by children?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Community gardens have become more than a way to save money on food.",
+          "Working in a garden gives neighbours a natural reason to talk to one another.",
+          "Community gardens succeed on their own without any rules or management.",
+          "Children who help grow vegetables may be more willing to try new foods."
         ],
         "answer": 2
       },
@@ -4888,14 +4888,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention rooftops and walls being turned into gardens?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "People who live near trees and gardens tend to be healthier and happier.",
+          "Green spaces can stay safe and tidy without any regular maintenance.",
+          "Trees can help cities stay cooler and cut the energy used for air conditioning.",
+          "Taking part in planting and looking after green spaces can strengthen community spirit."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -5335,14 +5335,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that families have long kept jars to catch rain?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Households that collect rainwater generally pay less for their water.",
+          "A rainwater system can do more harm than good if it is not maintained.",
+          "Rainwater tanks provide the same amount of water all year round.",
+          "Cities can encourage households to install tanks by offering financial support."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -5782,14 +5782,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a type of produce that still needs packaging?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Shops have found it easy to replace the packaging of every product.",
+          "Most customers soon get used to buying produce without plastic wrapping.",
+          "Some soft fruits still need protection because they bruise and spoil easily.",
+          "Pressure from environmentally conscious customers has been a major force behind the change."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -6229,12 +6229,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a concern raised by long-time residents?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 4"
+          "Every resident of the area welcomed the project without any concerns.",
+          "The park began as a gathering place for a small group of local gardeners.",
+          "Residents who were doubtful at first later became strong supporters of the park.",
+          "Years of patient community involvement mattered more than the structure itself."
         ],
         "answer": 0
       },
@@ -6676,14 +6676,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention the cost and resistance involved in adopting new methods?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Changing rainfall patterns have seriously disrupted farming in the region.",
+          "Drip irrigation has become standard practice across much of the region.",
+          "Farmers need both knowledge and financial support to adapt to a changing climate.",
+          "Farmers quickly welcomed the new methods as soon as they were introduced."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -7123,14 +7123,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the public initially reacted to the change?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Strong early opposition is a reliable sign that a new plan will fail.",
+          "The transformation began when car lanes were removed from a single central avenue.",
+          "Business owners feared that losing car access would damage their trade.",
+          "Opposition to the changes often weakened once residents experienced the results."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -7570,14 +7570,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer identify the main obstacle to expanding the recycling business?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 2",
-          "Paragraph 4"
+          "Valuable metals can be recovered from old circuit boards and sold to manufacturers.",
+          "The warehouse handles only a small share of the e-waste produced in its region.",
+          "Collecting enough discarded devices is the key to expanding such businesses.",
+          "The main obstacle to growth is that the recycling technology itself is inefficient."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -8017,14 +8017,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how early concerns about the system were addressed?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 2",
-          "Paragraph 4"
+          "The compost facility grew out of one resident's attempt to deal with her own food waste.",
+          "Residents found that changing their habits took less effort than they had expected.",
+          "All residents supported the project from the very beginning.",
+          "Covered bins and a rule about meat and dairy helped to calm early worries."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -8464,14 +8464,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how local businesses responded to the changes?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 2",
-          "Paragraph 4"
+          "The town combined many small measures instead of relying on one big project.",
+          "Fishermen and homeowners were given financial help to reduce their energy use.",
+          "Carbon neutrality does not necessarily require great wealth or heavy industry.",
+          "A single major project was responsible for most of the town's success."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -8911,14 +8911,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how early concerns about the bins were addressed?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 2",
-          "Paragraph 4"
+          "Residents found that sorting their recyclables demanded far more effort than they expected.",
+          "The network grew from one street's attempt to reduce overflowing bins.",
+          "Money from the collected materials pays for improvements in the neighbourhood.",
+          "Seeing recyclables as a shared resource helps to keep the network running."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -9360,14 +9360,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that therapists learn about a patient's tastes before choosing music?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Calming music may reduce patients' anxiety before an operation.",
+          "Songs from their youth can help elderly people with memory problems to recall past events.",
+          "Singing in a group can strengthen bonds and relieve stress.",
+          "Every patient reacts to the same piece of music in the same way."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -9807,14 +9807,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that a difficult piece can be divided into small sections?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Experienced musicians never feel nervous when they perform.",
+          "Regular short practice is more effective than occasional long sessions.",
+          "Setting goals gives practice a clear purpose.",
+          "Poor posture can cause pain that forces musicians to stop playing."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -10254,14 +10254,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the band first began performing?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The group first played in public simply to pass the time and earn some pocket money.",
+          "News of the band's performances spread mainly by word of mouth.",
+          "Turning up regularly mattered more to the band than raw talent.",
+          "The band became popular mainly through careful self-promotion."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -10701,14 +10701,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the teenager first began learning guitar?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "Learning from online tutorials always brings fast and visible progress.",
+          "She taught herself to play the guitar mainly through free online video lessons.",
+          "She improved by comparing recordings of herself with the tutorial videos.",
+          "She believes that consistent practice matters more than natural talent."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -11148,14 +11148,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the group first began playing together?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The orchestra grew out of a spontaneous decision by a few residents.",
+          "The members' shared rustiness made the group feel closer.",
+          "The group stays together mainly because its performances are so polished.",
+          "The first public performance was received more warmly than the musicians expected."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -11595,14 +11595,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the band first decided to enter the competition?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The students originally planned to perform only once at a school assembly.",
+          "Feeling underprepared made the band rehearse more intensively.",
+          "The band's enthusiasm and coordination impressed the audience despite their errors.",
+          "Judges in such competitions reward only flawless technical performance."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -12042,14 +12042,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the shop's unchanged appearance?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 2"
+          "The shop has deliberately kept its old-fashioned appearance.",
+          "The shop owes its success to modernising its lighting and payment systems.",
+          "Younger customers are often attracted by the shop's lack of polish.",
+          "The owner accepts records even when they are in poor condition."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -12489,12 +12489,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the coordinator personalised the music sessions?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Every resident reacted to the music from the very first session.",
+          "Residents responded to the music programme more enthusiastically than the coordinator expected.",
+          "The sessions were built around songs that mattered to individual residents.",
+          "The programme's effects were sometimes not visible straight away."
         ],
         "answer": 0
       },
@@ -12936,14 +12936,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student prepared for her audition?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "She prepared for the audition mainly with videos found online.",
+          "The judges were impressed by how genuinely she connected with her song.",
+          "Lacking formal training is not necessarily a disadvantage.",
+          "Judges at major auditions listen only for technical perfection."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -13383,12 +13383,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student almost withdrew her song?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "She entered the competition after being challenged by a friend.",
+          "Her teacher advised her to submit the song without making it less personal.",
+          "Judges in songwriting contests always prefer polished entries to personal ones.",
+          "Many classmates were deeply moved when the song was performed."
         ],
         "answer": 2
       },
@@ -13832,12 +13832,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that many city residents have little contact with their neighbours?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Landowners in cities are always happy to let their unused land be used for free.",
+          "Busy city life can leave neighbours with little contact and increase loneliness.",
+          "Gardening side by side often leads to friendships between neighbours.",
+          "Growing food locally reduces the need to transport vegetables over long distances."
         ],
         "answer": 0
       },
@@ -14279,14 +14279,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that funds are limited and books wear out?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Community libraries help village children who have few chances to read for pleasure.",
+          "A community library can also bring neighbours together.",
+          "Libraries tend to succeed when committed organisers and local supporters stand behind them.",
+          "Printed books have lost their appeal for children now that digital technology is available."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -14726,14 +14726,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the school first responded to the nurse's request?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The school's student council agreed to the nurse's request at once.",
+          "More students turned up on the first donation day than the hospital could handle at first.",
+          "The nurse believes that her own efforts, rather than the students' enthusiasm, deserve most of the credit.",
+          "Blood shortages became less serious during school terms than during holidays."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -15173,12 +15173,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's uncomfortable first visit?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A difficult first visit is a reliable sign that a volunteer will never get on with a resident.",
+          "The student joined the programme mainly to meet a community service requirement.",
+          "A photograph of her grandmother encouraged the resident to talk about her own family.",
+          "The student now visits regularly, even beyond what her assignment required."
         ],
         "answer": 0
       },
@@ -15620,12 +15620,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the tutor's uncertainty during the first session?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The tutor first spent time finding the basic concept that the child had never understood.",
+          "More practice with the current year's material is always the best way to help a struggling child.",
+          "The child caught up much faster than anyone had expected.",
+          "Finding an earlier gap in understanding can matter more than covering new content."
         ],
         "answer": 1
       },
@@ -16067,12 +16067,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the students gathered equipment for the clean-up?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 2"
+          "The students began the clean-up without waiting for official support.",
+          "Adult residents arrived to help during the morning.",
+          "The local ward office later offered the students proper equipment.",
+          "Young people cannot improve their neighbourhoods unless the authorities support them first."
         ],
         "answer": 3
       },
@@ -16514,14 +16514,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe why the teacher decided to change her approach?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Donations to the clothes drive had quietly fallen over the previous two drives.",
+          "Some students did not donate because they believed that only new clothing was accepted.",
+          "Clarifying the rules for donations led to a large increase in donated clothes.",
+          "Changing the collection dates and locations raised donations more than any other change."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -16961,14 +16961,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the boy's reaction during the first visit?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "The boy hardly reacted to the student during her first visit.",
+          "Every patient responds better and better with each visit from a volunteer.",
+          "The student kept reading without demanding any response from the boy.",
+          "Even silent sessions seemed to matter to the boy."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -17408,14 +17408,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the class decided on their stall idea?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 2"
+          "The class took on a stall at the fair because no other class had volunteered.",
+          "The students chose a simple idea that they could manage well.",
+          "Elaborate stalls always raise more money than simple ones.",
+          "The stall earned more than the students had expected."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -17855,14 +17855,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the younger student's behaviour during the first meeting?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The younger student gave only short, guarded answers at first.",
+          "The mentor encouraged her partner to open up by describing her own early struggles.",
+          "Polished advice builds trust more effectively than sharing one's own imperfect experience.",
+          "The younger student made new friends through the mentor's introduction."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -18304,14 +18304,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention power stations and wires?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Edison's achievement was to make a bulb that ordinary households could afford.",
+          "Sudden inspiration alone was enough for Edison to succeed.",
+          "Edison treated failed experiments as useful information about what did not work.",
+          "Building power stations and wires was part of Edison's success."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -18751,14 +18751,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer warn against toys that allow only one correct solution?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Play with simple materials helps develop creative thinking and problem-solving skills.",
+          "Tinkering allows children to learn from their own mistakes.",
+          "Many electronic games present a problem with only one correct solution.",
+          "Schools cannot start a maker space unless they buy expensive equipment."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -19198,14 +19198,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the team's first failed attempt?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "A failed first prototype usually means that the whole design is impossible to fix.",
+          "The team entered the contest because a teacher had encouraged them.",
+          "The team traced the failure of the prototype to a single faulty connection.",
+          "The judges noticed how calmly the team dealt with a malfunction during their run."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -19645,14 +19645,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student felt at the start of the workshop?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student felt out of place at the start of the workshop.",
+          "Only inventions that solve large-scale problems are worthwhile.",
+          "She chose to solve a small problem from her own daily life.",
+          "Several classmates showed interest in her prototype."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -20092,14 +20092,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the result of the student's first print?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "A failed first print shows that a beginner has no talent for design.",
+          "The student's first print came out warped and could not support a phone.",
+          "She researched why thin, flat shapes often warp before trying again.",
+          "Studying one failed print taught her a lot about structural stability."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -20539,12 +20539,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the team's initial disagreement?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The team first argued about which material would impress the judges most.",
+          "Listing the materials in their homes revealed an unexpected combination of items.",
+          "The judges praised the clever reuse of an existing mechanism.",
+          "Truly original ideas come only from a deliberate search for something special."
         ],
         "answer": 3
       },
@@ -20986,12 +20986,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student felt about her own idea initially?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "The student thought her idea was very basic compared with other possible entries.",
+          "She put more effort into explaining her idea than into the look of her sketches.",
+          "A modest idea can never be as competitive as an ambitious one.",
+          "The judges valued a clear focus on a real and common problem."
         ],
         "answer": 2
       },
@@ -21433,12 +21433,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student felt before attempting the repair?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Volunteers without formal expertise are unable to help worried owners.",
+          "The student had never tried to repair such items before the event.",
+          "He explained aloud what he was doing as he took the fan apart.",
+          "Visitors assumed that he had more expertise than he actually possessed."
         ],
         "answer": 0
       },
@@ -21880,14 +21880,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe why the student built the device?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "Judges are persuaded only by impressive technology, never by personal motivation.",
+          "The student designed the device to help her grandfather open his medication bottles.",
+          "She spent her interview explaining how the device had changed her grandfather's daily routine.",
+          "A judge said that her personal motivation made the device's value obvious."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -22327,14 +22327,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student felt about her own project initially?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student felt at first that her question was too ordinary to present.",
+          "She practised explaining her experiment to a family member.",
+          "Ordinary project ideas are always less competitive than ambitious ones.",
+          "She did well using only materials that were already in her kitchen."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -22776,12 +22776,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention toys given to boys and girls?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Girls lose interest in sport as teenagers because they have never enjoyed it.",
+          "The toys children are given can shape their ideas about what they are allowed to do.",
+          "Girls who play sport become fitter and gain confidence in their abilities.",
+          "Women's sport still receives less television coverage than men's."
         ],
         "answer": 0
       },
@@ -23223,14 +23223,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a way in which schools are trying to reduce bias?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Messages about gender received from an early age influence children's interests.",
+          "Teachers may treat boys and girls differently without meaning to.",
+          "Differences in subject choices are explained mainly by natural ability.",
+          "Some schools train teachers to recognise their own biases."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -23670,14 +23670,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the engineer's personal admission during the workshop?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 2",
-          "Paragraph 4"
+          "The student is now certain that she will pursue engineering as a career.",
+          "The student went to the workshop mainly because a friend persuaded her.",
+          "The engineer admitted that she had once doubted engineering was a realistic option for her.",
+          "The workshop gradually changed how the student thought about her future."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -24117,14 +24117,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the speaker felt before his talk?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "He agreed to speak because a former teacher asked him to share his experience.",
+          "His father was visibly disappointed when he announced his plan to study nursing.",
+          "General statements about equality change minds more effectively than personal stories.",
+          "Some students had assumed that nursing was not a realistic option for boys."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -24564,14 +24564,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to her initial research?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student felt overwhelmed by the number of studies with different conclusions.",
+          "She chose to report the disagreement that existed among researchers.",
+          "An audience trusts a confidently simplified claim more than an honest admission of uncertainty.",
+          "Her honesty about the issue's complexity made the topic seem more credible to classmates."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -25011,14 +25011,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the boy felt during the first practice session?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The boy joined the challenge because his friends' team needed a third member.",
+          "He chose to take responsibility for the most difficult step in the recipe.",
+          "His team finished among the top three in the competition.",
+          "Boys are naturally less suited to cooking than girls."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -25458,14 +25458,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student felt about her initial topic choice?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student chose to research her aunt instead of a famous international champion.",
+          "Famous international champions always make better presentation topics than relatives.",
+          "She learned that the race had only recently begun to allow women to compete.",
+          "Classmates felt that the story of a living relative made the topic more immediate."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -25905,14 +25905,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's expectation before seeing the results?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Percentages and averages leave a stronger impression on an audience than concrete examples.",
+          "The student expected the survey to show that chores were shared fairly.",
+          "She presented several overlooked tasks separately instead of one overall figure.",
+          "Naming particular tasks made the imbalance feel real to the audience."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -26352,12 +26352,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the friend's reaction to the original draft?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A friend could not tell what point the first draft of the poster was making.",
+          "Abstract designs always communicate a message better than personal ones.",
+          "The student redesigned the poster around a memory of being discouraged from joining a club.",
+          "A judge said that the redesigned poster's message was clear within seconds."
         ],
         "answer": 1
       },
@@ -26799,12 +26799,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's initial assumption about the issue?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student first believed that outdated attitudes were the main cause of the issue.",
+          "General statistics alone are always enough to change how an audience understands an issue.",
+          "Her interview with a scholarship recipient revealed more nuance than the statistics alone.",
+          "Hearing one family's circumstances made the broader statistics feel less abstract."
         ],
         "answer": 1
       },
@@ -27248,12 +27248,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention the care of wounded soldiers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Only people with special qualifications can take part in humanitarian work.",
+          "The movement began with the aim of caring for wounded soldiers on every side of a war.",
+          "Training villagers in advance helps them recover faster from disasters.",
+          "Neutrality allows the movement's workers to reach people in need on every side."
         ],
         "answer": 0
       },
@@ -27695,14 +27695,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a way of reducing the cost of international experiences?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Culture shock usually passes through several stages.",
+          "Preparing in advance helps students recover faster from culture shock.",
+          "Virtual exchanges are a complete substitute for living in another country.",
+          "A year abroad can improve a young person's chances of finding a good job."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -28142,14 +28142,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the student discovered her grandmother's connection to the topic?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The student expected her topic to feel distant to her classmates.",
+          "Her grandmother's account supplied details that no official report had mentioned.",
+          "Official historical records are always more memorable than a relative's personal account.",
+          "Classmates found the topic more immediate because of the family connection."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -28589,14 +28589,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the teacher's feedback on the group's early design?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The teacher criticised the early design for not explaining why the site had been recognised.",
+          "The group rebuilt their model around the conservation criteria the site had satisfied.",
+          "Judges are always satisfied by visually impressive models.",
+          "Judges praised how clearly the model showed the site's significance."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -29036,14 +29036,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the result of the student's first discussion attempt?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student's first discussion left the group feeling disengaged.",
+          "In her second session she began by asking students about their own experiences.",
+          "Students understood the material better when it followed from their own examples.",
+          "Starting with the formal wording of an agreement always engages an audience best."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -29483,14 +29483,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the teacher's reaction to the first draft?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "The student's first draft mostly apologised for her economy's small size.",
+          "She rebuilt her speech around the strengths of a smaller, more flexible economy.",
+          "Her teacher found the revised speech more convincing than the original.",
+          "Small economies inevitably have little leverage in trade negotiations."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -29930,12 +29930,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the coordinator's first instruction to the student?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student had expected the volunteer work to be mainly physical.",
+          "Sorting donations is purely mechanical work that needs no careful thought.",
+          "He compared donated items with a list of needs reported by affected families.",
+          "His careful checking prevented some unhelpful items from being sent."
         ],
         "answer": 1
       },
@@ -30377,12 +30377,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the coach's feedback on the first draft?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Judges are more convinced by a single emotional appeal than by balanced analysis.",
+          "The coach pointed out that the student's first argument ignored other effects of the agreement.",
+          "He rebuilt his argument around several industries and consumer groups.",
+          "Judges praised him for considering multiple affected groups."
         ],
         "answer": 0
       },
@@ -30824,14 +30824,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the teacher's feedback on the group's early design?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The teacher noted that the early display said nothing about conditions in the students' own town.",
+          "Global statistics alone are always enough to engage an audience.",
+          "The group researched local data such as food bank usage and affordable housing.",
+          "Judges praised how the display linked a global goal to local conditions."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -31271,14 +31271,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the grandmother's comment about the song?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student first planned to perform the song exactly as it appeared on an old recording.",
+          "She studied how the song had changed over several generations.",
+          "Audience members felt the tradition seemed more alive when its evolution was shown.",
+          "Every tradition has just one correct version that should never change."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -31720,14 +31720,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that marking can be difficult?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Students who work on projects tend to remember lessons longer than those who only study from textbooks.",
+          "Open tasks can seem daunting to some students because there is no single correct answer.",
+          "Successful projects usually begin with a clear question and include regular feedback.",
+          "Project-based learning needs little planning and fits easily into any timetable."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -32167,14 +32167,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer warn against the effects of habitual delay on sleep and worry?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Procrastination is usually caused by anxiety or boredom rather than laziness.",
+          "Dividing a large task into small steps can make it feel less overwhelming.",
+          "Harsh self-criticism is the most effective way to stop procrastinating.",
+          "Forgiving oneself for past delays makes it less likely that the behaviour will be repeated."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -32614,14 +32614,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's initial struggle with the new format?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "The student found it hard to stay focused when watching videos alone at home.",
+          "Watching home videos passively prepares students for class discussion as well as active summarising does.",
+          "She began pausing the videos to write short summaries of what she had learned.",
+          "Her teacher noticed that her contributions to discussion became more substantial."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -33061,14 +33061,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the outcome of the tutor's first session?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The tutor's first explanation merely repeated the wording of the textbook.",
+          "Knowing a subject well guarantees that a tutor can explain it clearly.",
+          "In his second session he asked the student which part of the concept was confusing.",
+          "A different, more concrete example finally helped the student understand."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -33508,14 +33508,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to her first VR session?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The student expected the headset simulation to feel as abstract as her textbook diagrams.",
+          "Students understand chemical mechanisms best by watching a VR simulation passively.",
+          "The design of the headset encouraged her to view the reaction from different angles.",
+          "The accuracy of her diagrams improved after the trial."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -33955,14 +33955,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's initial assumption about her class?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student first assumed that her classmates did not care about the subject.",
+          "A low ranking always shows that students are not putting in enough effort.",
+          "Many classmates found the app's interface confusing rather than the vocabulary difficult.",
+          "A lunchtime session helped the class to improve its position on the leaderboard."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -34402,14 +34402,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the group's reaction to the first recording?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The student's fully scripted introduction sounded stiff and unnatural.",
+          "Reading from a complete script is the best way to sound natural in a recording.",
+          "In his second attempt he spoke from a short list of key points.",
+          "His group found the second recording more engaging than the first."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -34849,14 +34849,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to the tool's unexpected comment?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The student had not expected the tool to comment on anything except grammar.",
+          "The tool's comment pointed to a genuine weakness in his introduction.",
+          "Students should ignore any comment from the tool that it cannot explain fully.",
+          "His teacher found his revised central argument much clearer."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -35296,14 +35296,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to his first test result?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student forgot much of what he had crammed within a few days of the test.",
+          "He divided the same revision time into six short sessions over two weeks.",
+          "A study habit that has been used for years is necessarily an effective one.",
+          "He could still recall details days after the following test."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -35743,14 +35743,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the parent's reaction to the opening video?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Online articles about modern classrooms accurately describe every school.",
+          "The parent was worried by articles claiming that schools relied almost entirely on screens.",
+          "The online platform was used only for short homework checks.",
+          "Visiting the open house gave the parent a more balanced picture than the online articles."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -36192,12 +36192,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention apps that connect customers with unsold meals?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A large share of wasted food is thrown away by shops, restaurants and households.",
+          "Food that rots in landfills releases methane, which contributes to global warming.",
+          "Small actions by households make no real difference to the amount of food wasted.",
+          "Households that plan their meals carefully usually waste less food."
         ],
         "answer": 2
       },
@@ -36639,14 +36639,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a way of reducing worry about the environment?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Social media allows young people to connect with like-minded people across continents.",
+          "Reading about environmental problems reduces worry more effectively than taking action.",
+          "Some young campaigners feel anxious about the state of the planet.",
+          "Adults who offer guidance can help teenagers become resilient and effective citizens."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -37086,14 +37086,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to the first week's results?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Clear labels alone did not stop classmates from putting the wrong items in the bin.",
+          "The student explained the sorting rules to classmates in person.",
+          "A clear label alone is enough to change established habits.",
+          "The amount of wrong items in the bin fell in the following weeks."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -37533,12 +37533,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's results from the first two weeks?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The student often forgot to bring his reusable container.",
+          "He solved the problem by keeping the container permanently in his school bag.",
+          "His use of the container improved dramatically in the following weeks.",
+          "A more expensive container is the best solution for forgetful students."
         ],
         "answer": 3
       },
@@ -37980,14 +37980,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the tree's condition after the first month?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The tree's leaves began to turn brown during a dry stretch of weeks.",
+          "Rainfall alone is usually enough to keep a newly planted tree alive.",
+          "The student began to check the dryness of the soil before watering.",
+          "His teacher praised his approach as more responsive to the tree's needs."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -38427,14 +38427,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to her first week's readings?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "Several empty classrooms had been left with lights and fans running.",
+          "Silently recording numbers is enough to change people's behaviour.",
+          "Leaving friendly notes was a more direct approach than recording numbers silently.",
+          "The notes produced a sharper improvement than her silent reports had."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -38874,14 +38874,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to his first hour's results?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student was unimpressed with what he collected in his first hour.",
+          "An experienced volunteer suggested that he examine the ground more closely.",
+          "A quick walk along the riverbank is enough to clean up a river.",
+          "Slowing down allowed him to find small plastic fragments."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -39321,12 +39321,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the teacher's feedback on the early sketch?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student first thought that using a single material would make designing easier.",
+          "Using just one discarded material always produces the most memorable result.",
+          "She combined curtain fabric with buttons from an old coat and trim from a torn bag.",
+          "The judges praised the unexpected combination of textures."
         ],
         "answer": 1
       },
@@ -39768,14 +39768,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to his teacher's calculation?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "The student first believed that a slow drip could not waste a meaningful amount of water.",
+          "A slow drip is always too small to waste a meaningful amount of water.",
+          "He also reported two other minor leaks that he had previously dismissed.",
+          "A staff member thanked him for reporting all three leaks together."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -40215,14 +40215,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the sorting team's reaction to the first week's collection?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The sorting team was frustrated by a single box containing mixed items.",
+          "The student set up three labelled containers for batteries, chargers and devices.",
+          "Collecting a large number of items matters more than sorting them correctly.",
+          "Sorting the items as they were collected saved the team a lot of processing time."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -40664,14 +40664,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention counting birds or recording the sounds of frogs?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Every wildlife attraction treats its animals well and deserves tourists' support.",
+          "Watching wildlife can inspire visitors to care more about nature.",
+          "Feeding wild animals may make them lose their natural fear of humans.",
+          "Part of the income from well-run tours pays for conservation work."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -41111,14 +41111,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a way of teaching visitors how to behave?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Most tourists who damage popular places do so on purpose.",
+          "Bad tourist behaviour often results from a lack of awareness rather than from intention.",
+          "People on holiday may feel freed from the rules they follow at home.",
+          "Friendly messages that give reasons work better than simple prohibitions."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -41558,14 +41558,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's initial reaction to the boat journey?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "The student found the slow boat journey tedious at first.",
+          "Scanning the horizon reveals more wildlife than looking closely at the water and roots.",
+          "The guide told her where wildlife tends to hide.",
+          "Her later notes recorded more species than her earlier ones."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -42005,14 +42005,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction during the first meal?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student was withdrawn during his first evening meal with the host family.",
+          "He decided to ask his hosts whenever he was unsure about a custom.",
+          "Silent politeness is the best way to build a warm relationship with a host family.",
+          "His hosts appreciated his curiosity more than silent politeness."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -42452,14 +42452,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to the guide's correction?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student nearly touched the coral without consciously noticing the impulse.",
+          "He practised slow, controlled fin movements to keep his balance.",
+          "A briefing alone is enough to stop snorkellers from touching coral.",
+          "His guide noticed that his fin technique was smoother by the end of the session."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -42899,14 +42899,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction during the first stretch?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Ignoring the discomfort silently is the best way to deal with unease in enclosed spaces.",
+          "The student found the cave more cramped and dim than the photographs had suggested.",
+          "She focused on the guide's explanations of the formations.",
+          "She stopped noticing the cramped space once she was absorbed in the formations' history."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -43346,12 +43346,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to her teacher's reminder?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 1",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The student first assumed that the farmer's talk would repeat what she already knew.",
+          "A local expert's talk never tells students anything that their textbook has not covered.",
+          "She asked the farmer how he knew when each terrace's water level was correct.",
+          "She learned something from the farmer that no book had covered."
         ],
         "answer": 1
       },
@@ -43793,12 +43793,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's feelings during the first part of the tour?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The student worried that photographing residents' homes might be intrusive.",
+          "He decided to ask the village guide directly whether a photograph would be welcome.",
+          "Residents preferred being asked to having visitors guess.",
+          "Silent caution is the only respectful way to behave in an unfamiliar community."
         ],
         "answer": 3
       },
@@ -44240,14 +44240,14 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to her first hour's results?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 4"
+          "The student recorded fewer species than her classmates during the first hour.",
+          "The guide explained that movement, not slowness, scared birds away.",
+          "Her final list was longer than almost anyone else's.",
+          "Constantly repositioning oneself is the most effective way to see birds."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -44687,12 +44687,12 @@ window.examDatabase[10] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the student's reaction to her first night's results?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4",
-          "Paragraph 1"
+          "The student found only one nest on her first night.",
+          "The ranger explained that a track's width and depth revealed the location of a nest.",
+          "Her final nest count was higher than almost anyone else's.",
+          "Covering as much ground as possible is the best way to locate nests."
         ],
         "answer": 3
       },

@@ -416,14 +416,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "What is the main characteristic of a 'smart city' according to paragraph 4?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "It is built entirely underground.",
-          "It bans all private vehicles.",
-          "It uses digital technology and data analysis to optimize functions.",
-          "It relies solely on agricultural economy."
+          "Cities generate most of the world's GDP and offer a wide variety of jobs.",
+          "Providing essential services is often more cost-effective in densely populated areas.",
+          "Rapid urbanisation can outstrip local governments' ability to provide adequate infrastructure.",
+          "Rapid urbanisation has brought benefits without creating any serious problems for sustainable development."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -863,14 +863,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention an activity students do instead of studying?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Psychologists increasingly see procrastination as a problem of managing emotions rather than time.",
+          "Dividing a large task into small, specific steps makes it less intimidating.",
+          "All forms of delay harm both a person's health and their results.",
+          "Some people delay deliberately and still complete their work on time."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -1310,14 +1310,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give examples of practical actions people can take?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "People who see failure as a step in learning are more likely to try again.",
+          "Many successful people were once reluctant to talk about their mistakes.",
+          "A setback has the same discouraging effect on everyone, whatever their attitude.",
+          "Lasting inspiration usually turns into concrete steps."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -1757,14 +1757,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention the careers that many teenagers dream of?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Many teenagers today would like to become influencers.",
+          "Admiring online personalities is always harmful to young people.",
+          "Some influencers use their fame for charity or to speak about mental health.",
+          "Online images often show only a polished and edited part of reality."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -2204,14 +2204,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer define resilience?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Resilience is the ability to recover and continue after misfortune.",
+          "Resilience can be learned and strengthened, much like a physical skill.",
+          "Children who are protected from every disappointment may never learn to deal with failure.",
+          "Anyone can recover from hardship through willpower alone, without outside help."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -2651,14 +2651,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give examples of lucky events in success stories?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Almost every success story contains some stroke of luck.",
+          "Accepting the role of luck may make successful people more willing to help others.",
+          "Talent and hard work are always sufficient to guarantee success.",
+          "Preparation increases the chance that a lucky moment will lead somewhere."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -3098,12 +3098,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention difficulties such as lost documents?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "History books tend to concentrate on kings, generals and famous scientists.",
+          "Students who take part in oral-history projects understand the past better than those who rely only on textbooks.",
+          "Official records give a complete picture of the past.",
+          "Some elderly people are reluctant to speak because they think their lives were not important."
         ],
         "answer": 2
       },
@@ -3545,14 +3545,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how former students view Mrs Vy?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 3",
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 4"
+          "Mrs Vy began the night class as a way to fill her evenings.",
+          "Within two years the class was holding three full sessions a week.",
+          "Mrs Vy regards herself as an exceptional teacher.",
+          "More than two hundred adults credit the class with helping them finish their secondary education."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -3992,14 +3992,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the reaction of a family member upon reading the letters?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 4",
-          "Paragraph 3"
+          "The letters in the box had never been posted.",
+          "The family has since discovered why the letters were never sent.",
+          "Most of the letters were written to a brother who had emigrated.",
+          "The writer's grandmother was as astonished as the rest of the family."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -4439,14 +4439,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how the breakthrough was eventually made?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The chemist kept an official notebook and an unofficial one.",
+          "She pursued her private research during evenings and weekends.",
+          "The breakthrough came while she was testing an unrelated idea.",
+          "Her colleagues recognised the value of her unofficial project from the outset."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -4888,14 +4888,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention immigrants who open small restaurants?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Everyone welcomes the changes made to traditional recipes in new countries.",
+          "Food is often the first aspect of a foreign culture that people try.",
+          "Cooks often adapt recipes to local ingredients, which produces fusion dishes.",
+          "Some communities feel that their traditional dishes are misrepresented when companies sell them."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -5335,14 +5335,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a thumbs-up gesture?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Punctuality is a sign of respect in some countries but not in others.",
+          "Travellers who learn a few local words are usually received more warmly.",
+          "A traveller's mistakes are never forgiven unless every custom is followed perfectly.",
+          "Etiquette varies over time and even within a single country."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -5782,14 +5782,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain why money can be a problem for organisers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A festival can help newcomers keep in touch with their roots.",
+          "Presenting a tradition through colourful costumes alone is enough to represent it fairly.",
+          "Festivals that invite many communities tend to attract larger and more varied audiences.",
+          "Many festivals now let each community plan its own programme."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -6229,14 +6229,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention that English is used in aviation?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "English is widely used in science, business, aviation and on the internet.",
+          "A person cannot value English and a native language at the same time.",
+          "Children who study in English from an early age may use their mother tongue less and less.",
+          "Bilingual people often find it easier to learn new languages."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -6676,14 +6676,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention language courses that are offered by city governments?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Staying within their own community makes it easier for newcomers to learn the local language.",
+          "Newcomers choose such neighbourhoods for familiar food, their own language and helpful advice.",
+          "Shops and restaurants run by migrants create jobs.",
+          "The children of migrants often move easily between two cultures."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -7123,14 +7123,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain how museums can become places of exchange?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The Viet Nam Museum of Ethnology displays items from all fifty-four ethnic groups.",
+          "Digital copies of fragile objects remain safe even if the originals are damaged.",
+          "Young people who learn about their heritage are more likely to continue it.",
+          "A digital image can fully replace seeing an object or watching a performance in person."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -7570,14 +7570,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that residents complain about losing enjoyment of their own neighbourhoods?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Large numbers of visitors may make life more expensive for local people.",
+          "Tourism brings only benefits to the communities that receive visitors.",
+          "Buying from local craftspeople keeps more of the money in the community.",
+          "Some national parks limit the number of daily visitors so that nature can recover."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -8017,12 +8017,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give an example of religious clothing worn as a costume?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Borrowing between cultures is a natural part of cultural exchange.",
+          "A single rule can settle where appreciation ends and appropriation begins in every case.",
+          "Wearing sacred clothing as a party costume can hurt people for whom it symbolises faith.",
+          "Cooperation with traditional artists is more likely to be welcomed by the communities concerned."
         ],
         "answer": 1
       },
@@ -8464,12 +8464,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that multicultural education is not limited to festivals and food?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Talking openly about cultural differences causes more conflicts in class.",
+          "Multicultural education uses examples and role models from many cultures.",
+          "Students who feel that their culture is respected tend to take a more active part in lessons.",
+          "Textbooks often present only one point of view."
         ],
         "answer": 0
       },
@@ -8911,12 +8911,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention joining an online discussion with classmates in another country?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Online videos show every aspect of a culture accurately.",
+          "Social media lets communities share their traditions with a wider audience.",
+          "Short videos may show only the most colourful side of a culture.",
+          "Users should check information from reliable sources."
         ],
         "answer": 0
       },
@@ -9360,14 +9360,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer suggest a meat-free day each week?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Flexitarians eat mainly vegetables but enjoy meat occasionally.",
+          "Producing beef requires far more resources than producing beans or lentils.",
+          "A plant-based diet is automatically good for the environment.",
+          "Vegetables flown in from another continent may use more energy than local produce."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -9807,12 +9807,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention solar panels and efficient appliances?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Large windows reduce the need for electric lighting.",
+          "In hot countries, traditional houses with natural ventilation can perform better than those that depend on machines.",
+          "The extra cost of green features is never recovered by the owners.",
+          "Smart meters can encourage families to waste less energy."
         ],
         "answer": 2
       },
@@ -10254,12 +10254,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer state that plastic stays in the environment for hundreds of years?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Recycling alone will solve the plastic problem.",
+          "The qualities that make plastic useful also make it a serious problem when it is thrown away.",
+          "Scientists are still studying how microplastics might affect people who eat seafood.",
+          "Reducing the amount of plastic produced is more effective than cleaning up afterwards."
         ],
         "answer": 0
       },
@@ -10701,12 +10701,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain that rotting food releases a gas that contributes to global warming?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Food that has passed its 'best before' date is always unsafe to eat.",
+          "Food that rots in landfills releases methane, which contributes to global warming.",
+          "Many products are still safe to eat after their 'best before' date has passed.",
+          "Composting programmes can make students more aware of the problem of food waste."
         ],
         "answer": 0
       },
@@ -11148,14 +11148,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention that food grown near homes needs less transport?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Vertical farming is inexpensive to run whatever the source of its energy.",
+          "Growing food near homes reduces the fuel and packaging needed for delivery.",
+          "Vertical farms need far less water than traditional fields.",
+          "Community gardens allow elderly residents to pass on their knowledge to young people."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -11595,14 +11595,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention residents who work as boat drivers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Ecotourism limits the number of visitors and uses its income to protect wildlife.",
+          "People who can earn a living from healthy forests have less reason to harm nature.",
+          "Every project labelled as ecotourism genuinely protects the environment.",
+          "Some companies use the word 'eco' only as a marketing tool."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -12042,14 +12042,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention collecting rainwater for the garden?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Households can do very little to save water, however they behave.",
+          "Only a small fraction of the water on Earth is suitable for drinking and farming.",
+          "A dripping tap can waste a large amount of water over a year.",
+          "Agriculture uses more fresh water than any other activity."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -12489,12 +12489,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer name plants from which bioplastics can be made?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "All bioplastics break down quickly in any environment.",
+          "Bioplastics can be made from plants such as corn, sugarcane and cassava.",
+          "Not every bioplastic is biodegradable.",
+          "Growing crops for plastic may compete with food production."
         ],
         "answer": 0
       },
@@ -12936,14 +12936,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer list examples of green jobs?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Green jobs include installing solar panels and managing recycling plants.",
+          "All green jobs are well paid and permanent.",
+          "Green jobs exist at every level of skill.",
+          "Governments can help workers whose old jobs are disappearing by supporting their training."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -13383,14 +13383,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention recycling as an example of a personal choice?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Some people believe that personal choices are the key to protecting the environment.",
+          "People can only choose among the options that laws and prices make available.",
+          "Environmental problems can be solved by individual choices alone.",
+          "Citizens can encourage governments and companies to act faster."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -13832,14 +13832,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention minimum standards for green space?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Public spaces are as important to a city's quality of life as housing and transport.",
+          "Public-space projects work best when planners decide what residents need without asking them.",
+          "People who live near parks tend to be more physically active.",
+          "Public space is often the first thing to disappear when land becomes expensive."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -14279,14 +14279,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention metro lines, bus lanes and bicycle paths?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Congestion raises the cost of doing business because vehicles and workers arrive late.",
+          "Building more roads rarely solves traffic problems for long.",
+          "Cities should improve the alternatives before introducing restrictions on drivers.",
+          "Building more roads is the most lasting solution to traffic jams."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -14726,14 +14726,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer name some sources of air pollution?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Children and older people suffer the most from polluted air.",
+          "Low-emission zones restrict the entry of the most polluting vehicles.",
+          "Traffic noise is harmless and cannot be regarded as pollution.",
+          "In some places, groups of citizens measure the pollution themselves."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -15173,14 +15173,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention shared rooms and high rents?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Migrant workers often send much of their wages home to support their families.",
+          "Many migrant workers share small rooms because rents are high.",
+          "Some experts think that cities should regard migrant workers as long-term residents.",
+          "Migrant workers benefit only the cities, not the countryside."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -15620,14 +15620,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention that parks in poor areas may be badly looked after?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "For many residents of crowded areas, a park is the only place with open space and fresh air.",
+          "Green space is shared equally between rich and poor districts.",
+          "Even a short visit to a park can help people feel calmer.",
+          "Poorer districts often have far fewer parks than wealthier ones."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -16067,14 +16067,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention the risk of floods and fires?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Many informal settlements lack clean water, toilets or a reliable electricity supply.",
+          "Residents without legal documents for their land live in fear of being forced to leave.",
+          "Projects that include local voices are more likely to succeed.",
+          "Forcing residents out is the best answer to informal settlements."
         ],
-        "answer": 1
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -16514,14 +16514,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention guarded entrances and cameras?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Tall buildings are unavoidably unfriendly places, whatever planners do.",
+          "A single tower uses much less land than the same number of separate houses.",
+          "A lift breakdown can be a serious inconvenience, especially for older people and families with small children.",
+          "Some new buildings include shared gardens and community rooms."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -16961,14 +16961,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer link loud sounds with poor sleep?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Long-term exposure to loud sounds has been linked with poor sleep and high blood pressure.",
+          "Many city dwellers know few of their neighbours.",
+          "Neighbourhood events help people to get to know one another.",
+          "People who are surrounded by crowds never feel lonely."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -17408,14 +17408,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain why cities are warmer than the countryside?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Dark surfaces such as asphalt absorb heat and keep it for hours after sunset.",
+          "Cooling measures are an optional extra in urban planning.",
+          "Higher temperatures can worsen air pollution because heat helps to form smog.",
+          "Roofs painted in light colours reflect more sunlight."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -17855,14 +17855,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer suggest letting communities choose their own projects?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Poorer districts often have far fewer services than wealthy ones.",
+          "Unreliable or expensive public transport can stop people from reaching jobs or hospitals.",
+          "Inequality is costly for the whole city, not just unfair.",
+          "Inequality affects only the poor residents of a city."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -18304,14 +18304,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say how long internships may last?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Internships allow young people to try out a career before committing to it.",
+          "Even a disappointing placement can help a student rule out a career.",
+          "All internships are well organised and teach interns a great deal.",
+          "Unpaid internships put students from poorer backgrounds at a disadvantage."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -18751,14 +18751,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a problem with the quality of training?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Apprentices are paid a wage and earn a recognised qualification.",
+          "Employers can train apprentices in exactly the skills their companies need.",
+          "Some employers use apprentices as cheap labour instead of giving them real training.",
+          "Apprenticeships are limited to traditional manual trades."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -19198,14 +19198,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer argue that diverse companies understand their customers better?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Gender inequalities at work have been completely eliminated.",
+          "Laws in many countries prohibit discrimination in hiring and promotion.",
+          "Career breaks taken to care for relatives help to explain why women earn less.",
+          "Teams with both men and women often make better decisions."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -19645,14 +19645,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer compare social enterprises with charities?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Social enterprises usually pay most of their profits to shareholders.",
+          "Social enterprises sell goods or services in order to solve a social or environmental problem.",
+          "A social enterprise earns its own income, whereas a charity depends mainly on donations.",
+          "Banks often consider social enterprises less likely to make large profits."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -20092,14 +20092,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain why some workplaces cannot easily reduce hours?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Working longer hours does not always mean working better.",
+          "Working longer hours always improves productivity.",
+          "Several companies decided to keep a shorter working week after a trial.",
+          "Hospitals, restaurants and shops need staff to be present at fixed times."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -20539,14 +20539,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that employers may look up candidates online?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Candidates can safely send the same CV to every employer.",
+          "Employers often use software to sort CVs automatically.",
+          "Genuine employers do not usually charge candidates for applying.",
+          "Employers may search for a candidate's name online before an interview."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -20986,14 +20986,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer suggest that colleagues should speak clearly to newcomers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Some people are sent abroad by their companies, while others move on their own.",
+          "Anyone who speaks the local language well has no communication problems at work.",
+          "Behaviour that is polite in one country may seem disrespectful in another.",
+          "Working abroad can make people more independent and confident."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -21433,14 +21433,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a mismatch between graduates and vacancies?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "The only effect of unemployment on young people is a loss of income.",
+          "Young people cannot gain experience without being given a job.",
+          "Courses that are not updated may not reflect changes in technology.",
+          "A long period without work can make it harder to find a job later."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -21880,12 +21880,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention heavy workloads and unclear instructions?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Once basic needs are met, factors other than pay become more significant.",
+          "Employees who can decide how to do their work tend to be more creative and committed.",
+          "A high salary is always the most important factor in enjoying one's work.",
+          "Unfair promotion decisions can lead to a high rate of people leaving the company."
         ],
         "answer": 2
       },
@@ -22327,14 +22327,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that older beginners may be refused by some employers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "No employer is willing to hire older beginners.",
+          "Longer working lives have encouraged more adults to change careers.",
+          "Adults who move into a new field may have to accept a lower salary at first.",
+          "Skills such as communication can often be transferred from one career to another."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -22776,14 +22776,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention fraudsters copying people's voices?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Detection tools now easily keep pace with the creators of false content.",
+          "Deepfakes can be entertaining when they are used in films or jokes.",
+          "False material can spread much faster than a correction can appear.",
+          "Schools can help by teaching media literacy as a core skill."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -23223,14 +23223,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give examples of machine learning in daily life?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A machine-learning program discovers rules for itself from a large number of examples.",
+          "Training data that is too small or contains mistakes can lead a program to wrong conclusions.",
+          "Engineers sometimes find it hard to say why a program has made a particular choice.",
+          "Machine-learning programs depend on programmers to write exact rules for every task."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -23670,12 +23670,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give examples of AI systems that produced unfair results?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "AI systems can repeat the prejudices contained in the data they learn from.",
+          "AI systems are always objective because they rely on numbers.",
+          "A recruitment program that learned from past records came to prefer male applicants.",
+          "Ordinary citizens, not just engineers, should take part in discussions about fairness."
         ],
         "answer": 1
       },
@@ -24117,14 +24117,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention how the technology has helped the police?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Facial recognition is used to unlock smartphones and to check passengers' identities at airports.",
+          "A person's face cannot be changed like a password.",
+          "Facial recognition is equally accurate for every group of people.",
+          "Some systems are less accurate for women and for people with darker skin."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -24564,14 +24564,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain what a smart home is?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A smart thermostat can adjust the temperature when it notices that nobody is at home.",
+          "Smart home devices are secure enough that buyers need not worry about hackers.",
+          "Sensors can alert relatives if an elderly person falls.",
+          "Old devices can become easy targets for hackers once manufacturers stop supporting them."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -25011,14 +25011,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe how modern translation systems learn?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Early translation programs translated texts word by word.",
+          "Machine translation is equally accurate for all languages.",
+          "Results are usually good for languages with a lot of online text.",
+          "Many professional translators use machine translation to produce a first draft."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -25458,14 +25458,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that companies should be open about their energy use?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Artificial intelligence helps the climate without any environmental cost of its own.",
+          "AI can analyse satellite images to monitor forests.",
+          "Software that predicts sunshine and wind can help operators use more renewable energy.",
+          "Data centres consume a great deal of electricity and water for cooling."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -25905,12 +25905,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain why it is difficult to detect deepfakes?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Film studios use similar techniques to make actors look younger.",
+          "Tips for spotting deepfakes soon become out of date as the software improves.",
+          "Deepfakes are always created in order to deceive people.",
+          "Shocking videos deserve extra care before being shared."
         ],
         "answer": 2
       },
@@ -26352,14 +26352,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention a concern about privacy?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Care robots can help nurses to lift patients safely.",
+          "Some studies suggest that companion robots may reduce stress in people with dementia.",
+          "Robots equipped with cameras and microphones raise questions about privacy.",
+          "Most researchers believe that robots will replace human carers."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -26799,14 +26799,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give examples of people whose work depends on understanding emotions?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Employers place analytical thinking, creativity and flexibility near the top of their lists.",
+          "AI can generate thousands of designs but does not know which will move people.",
+          "Group projects and debates can help students to develop these abilities.",
+          "Machines can fully replace human empathy and teamwork."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -27248,14 +27248,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention rules about influencers revealing payment?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Advertisers target young people because they influence what the family buys.",
+          "To protect themselves, young consumers must reject advertising completely.",
+          "Modern advertising often links a product with feelings such as happiness or success.",
+          "Rules requiring influencers to reveal payment are not always followed."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -27695,14 +27695,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that television channels have started their own streaming services?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Streaming lets viewers watch what they want, when they want and on any device.",
+          "Live events such as football matches still attract large television audiences.",
+          "Streaming services have completely replaced traditional television.",
+          "Streaming companies have begun to broadcast live sports and news."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -28142,12 +28142,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer tell victims to save the evidence?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Cyberbullying can follow its victims home at any hour of the day.",
+          "Attackers who hide behind false names may behave more cruelly than they would face to face.",
+          "Critics say that social media companies do not always apply their safety measures consistently.",
+          "The best response to cyberbullying is to reply angrily and delete the evidence."
         ],
         "answer": 3
       },
@@ -28589,14 +28589,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe what is attractive about specialist magazines?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Advertisers have shifted their money from magazines to websites and social media.",
+          "Some specialist magazines have loyal readers who enjoy the quality of the paper and photographs.",
+          "Studies have proved that people always understand long texts better on paper.",
+          "Studies disagree about whether people understand texts better on paper than on screens."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -29036,14 +29036,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain what cookies do?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Cookies can remember a visitor's language and the items in a shopping basket.",
+          "Targeted advertising is more efficient for businesses than showing everyone the same message.",
+          "When an app is free, its users pay nothing at all.",
+          "The GDPR requires companies to ask permission before collecting personal data."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -29483,12 +29483,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention that documentaries can change public opinion?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Documentaries can explain complicated topics in a way that is easy to grasp.",
+          "A documentary is a perfectly neutral mirror of reality.",
+          "Some documentaries have changed public attitudes.",
+          "Filmmakers choose what to show and what to leave out."
         ],
         "answer": 1
       },
@@ -29930,14 +29930,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention the financial problems of local newspapers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Journalism is a safe profession even for reporters who cover organised crime.",
+          "Journalists act as watchdogs by investigating those who hold power.",
+          "A responsible news organisation corrects its mistakes openly.",
+          "The closure of local newspapers leaves some communities with little coverage of local issues."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -30377,14 +30377,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain why errors are often corrected quickly?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Wikipedia is written and edited by volunteers from many countries.",
+          "Errors in Wikipedia articles are often corrected within minutes.",
+          "Students can rely on Wikipedia as a final authority.",
+          "Entries on less well-known topics may contain gaps or bias."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -30824,14 +30824,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention research on abbreviations and spelling?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Emojis first appeared on Japanese mobile phones in the late 1990s.",
+          "Emojis can signal that a comment is a joke and so prevent misunderstandings.",
+          "Research on abbreviations and spelling has produced inconsistent results.",
+          "Research has proved that texting damages students' spelling."
         ],
-        "answer": 2
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -31271,12 +31271,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention the high cost of making VR films?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Virtual reality lets viewers stand inside a scene instead of reading about it.",
+          "Producing a VR film is expensive and requires special equipment.",
+          "Immersive reports will inevitably replace written news.",
+          "Immersive reporting may sit alongside written news rather than replace it."
         ],
         "answer": 2
       },
@@ -31720,14 +31720,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention that customs officers are being trained?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Pangolins are often described as the most heavily trafficked wild mammal.",
+          "Strict laws alone are enough to protect pangolins from disappearing.",
+          "Pangolins breed slowly, so their populations cannot recover quickly.",
+          "Some consumers believe that pangolin scales have medical value, although tests have found no evidence of this."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -32167,14 +32167,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer mention diseases that can pass from animals to humans?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Wild animals keep their natural instincts even when they are raised from a very young age.",
+          "Wild animals make pets that are as suitable as cats and dogs.",
+          "Many animals taken from the wild die before they reach a buyer.",
+          "Pets that are released into the countryside can threaten local wildlife."
         ],
-        "answer": 2
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -32614,14 +32614,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that visitors may be fined at the airport?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Cane toads were brought to Australia in the hope that they would eat damaging beetles.",
+          "Invasive species are especially dangerous on islands.",
+          "Invasive species only ever arrive in new places by accident.",
+          "Prevention is the best strategy for dealing with invasive species."
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -33061,14 +33061,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer state how much of the seafloor reefs cover?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Coral reefs support about a quarter of all marine species.",
+          "Reefs protect coastlines by absorbing the energy of waves.",
+          "Fish populations can increase in marine protected areas where fishing is limited.",
+          "Local actions alone can save coral reefs from the effects of warming seas."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -33508,14 +33508,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe activities that an ecotour may include?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Ecotourism encourages visitors to learn about the environment and to leave as little damage as possible.",
+          "Entrance fees can pay for rangers and equipment.",
+          "Some companies use the word \"eco\" only to attract customers.",
+          "Ecotourism never harms the habitats that it is meant to protect."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -33955,14 +33955,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer identify sources of loud noise under the sea?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Whales depend on sound to find food, navigate and communicate.",
+          "Noise from ships can mask the calls of whales.",
+          "Shipping companies play no part in protecting whales.",
+          "Whales can become entangled in fishing nets and lines."
         ],
-        "answer": 1
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -34402,12 +34402,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain how pollen is carried from flower to flower?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Pollinators are in no danger anywhere in the world.",
+          "A large share of the world's food crops depends at least partly on pollination by insects.",
+          "Many wild plants rely on insects to reproduce, and other animals rely on those plants.",
+          "Climate change may disrupt the timing between the flowering of plants and the appearance of insects."
         ],
         "answer": 0
       },
@@ -34849,14 +34849,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer list animals that live in cities?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Foxes, pigeons and bats can be found in busy urban areas.",
+          "Cities offer nothing but danger to wild animals.",
+          "Some species that are becoming rare in the countryside find habitats in cities.",
+          "Artificial light can confuse nocturnal animals and migrating birds."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -35296,14 +35296,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain what overfishing means?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Overfishing means catching fish faster than they can reproduce.",
+          "Overfishing affects only the species that are being targeted.",
+          "Large fishing nets often catch other animals by accident.",
+          "Fishing rules work only if they are enforced, which is difficult on the open sea."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -35743,12 +35743,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain how photographs can be taken without disturbing animals?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Technology makes human experts unnecessary in conservation.",
+          "Camera traps can photograph animals without disturbing them.",
+          "Drones can count animals in areas that are too large or too dangerous to cover on foot.",
+          "DNA tests can reveal whether products sold in markets come from protected species."
         ],
         "answer": 0
       },
@@ -36192,12 +36192,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer suggest that schools invite people from different trades?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Parents often hope that their children will choose jobs that require a university degree.",
+          "Apprentices can start earning while they are still training.",
+          "Modern skilled trades require a strong knowledge of computers as well as practical skill.",
+          "Jobs that require a degree contribute more to society than skilled trades do."
         ],
         "answer": 3
       },
@@ -36639,12 +36639,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer list some jobs apart from doctors and nurses?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Telemedicine and artificial intelligence will soon replace healthcare workers.",
+          "Healthcare includes many professionals apart from doctors and nurses, such as pharmacists and physiotherapists.",
+          "Doctors usually study for six years or more at university.",
+          "Healthcare work can be physically and emotionally exhausting."
         ],
         "answer": 0
       },
@@ -37086,12 +37086,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the work of a video game artist?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Creative skills are useful only within traditional art fields.",
+          "A video game artist needs both drawing skills and technical knowledge of software.",
+          "A strong portfolio is often more important than a certificate for a creative career.",
+          "Many creative professionals are self-taught."
         ],
         "answer": 0
       },
@@ -37533,14 +37533,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain what a mentor is?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Mentors can benefit from explaining their ideas to others.",
+          "Regular short meetings are more effective than occasional long talks.",
+          "Some people benefit from having several mentors at the same time.",
+          "Good mentoring relationships develop naturally without any need for clear goals."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -37980,14 +37980,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give examples of completely new green jobs?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Solar panel installer and wind turbine technician are completely new kinds of job.",
+          "Some jobs in fossil fuel industries are likely to disappear.",
+          "Technicians and installers often learn through vocational courses or apprenticeships.",
+          "Every green job requires a university degree."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -38427,12 +38427,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give reasons why people change careers?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A mid-life career change never involves a fall in income.",
+          "People may change careers because their industry is declining or their interests have changed.",
+          "Skills such as communication and negotiation can be transferred to a new field.",
+          "Some employers are beginning to value people with varied experience."
         ],
         "answer": 0
       },
@@ -38874,14 +38874,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer list the types of skilled workers who put designs into practice?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Architects need to understand mathematics and materials as well as drawing.",
+          "Workers on a building site must follow strict safety rules.",
+          "The construction trades offer few prospects for advancement.",
+          "Prefabricated parts save time and reduce waste."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -39321,14 +39321,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer list airport jobs besides those of pilots?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Airlines and airports rely on many professionals in addition to pilots and cabin crew.",
+          "Pilot training is expensive, and some airlines pay part of the cost.",
+          "Human skills remain essential in an emergency.",
+          "The work of cabin crew is physically undemanding."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -39768,12 +39768,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe two different kinds of advice that people give?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A person's interests can never overlap with areas of strong demand.",
+          "Some advisers encourage young people to follow their passion.",
+          "Enthusiasm alone does not pay the bills if few employers need the skills involved.",
+          "Developing transferable skills helps people to adapt when circumstances change."
         ],
         "answer": 0
       },
@@ -40215,14 +40215,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain what networking is?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Networking can begin at school through clubs, volunteer projects and online communities.",
+          "A good network is built by showing real interest in other people.",
+          "A good network depends on collecting as many contacts as possible.",
+          "Employers may search for a candidate's name online before an interview."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -40664,14 +40664,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer suggest learning ten new words a day?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Adult learners can compare the grammar of a new language with that of their first language.",
+          "Adults are at a disadvantage compared with children in every aspect of language learning.",
+          "Some researchers believe that learning a language may help to delay age-related decline.",
+          "Adults may feel embarrassed when they make mistakes in a new language."
         ],
-        "answer": 3
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -41111,14 +41111,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain what is meant by a fixed mindset?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Learners with a growth mindset tend to persist longer when tasks become difficult.",
+          "Praising effort and strategy may help children to persevere.",
+          "The evidence for the benefits of a growth mindset is still debated.",
+          "A growth mindset is enough on its own to solve every learning problem."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -41558,14 +41558,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe what a study group is?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Explaining an idea to others shows learners which parts they have not understood.",
+          "Study groups work well whatever their size or organisation.",
+          "Some members of a study group may rely on others to do the work.",
+          "Face-to-face meetings are still valuable even when learners meet online."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -42005,14 +42005,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer give an example of learning something without attending a class?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Someone who wants to repair a bicycle may learn from videos, a manual and a friend.",
+          "Young learners usually need guidance before they can manage their own studies.",
+          "Many successful independent learners combine their own efforts with some form of guidance.",
+          "Independent learners face no risks and never need any guidance."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -42452,14 +42452,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain what is meant by the digital divide?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Many older adults are held back by a lack of confidence rather than by unwillingness to learn.",
+          "Video calls may reduce feelings of isolation among older adults.",
+          "Older people are sometimes targeted by criminals who send false messages.",
+          "Older adults are generally unwilling to learn digital technology."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -42899,14 +42899,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the strengths that adult learners have?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Adult learners usually understand why they are practising an instrument.",
+          "Adults are too old to benefit from learning a musical instrument.",
+          "Scientists are still investigating how large the benefits of learning music are.",
+          "Short, regular practice sessions are usually more effective than a single long one."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -43346,12 +43346,12 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that young people can explore activities before choosing a career?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Studies have proved that volunteering makes people more confident.",
+          "Volunteers often acquire skills that are rarely taught in classrooms.",
+          "It is difficult to prove that volunteering itself makes people more confident.",
+          "Reflecting on the experience can turn volunteering into a lasting lesson."
         ],
         "answer": 0
       },
@@ -43793,14 +43793,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer say that short trips near home can be educational?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Even short trips to nearby towns can be educational.",
+          "Travel is not automatically educational.",
+          "Travellers who put their phones away from time to time may notice more details.",
+          "Every trip is educational, whatever the traveller's attitude."
         ],
-        "answer": 0
+        "answer": 3
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -44240,14 +44240,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer describe the idea of learning styles?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "Many teachers say that they believe in learning styles.",
+          "The best method often depends on the subject being taught.",
+          "Research has confirmed that teaching students in their preferred style improves their results.",
+          "Presenting ideas in several ways can help all learners."
         ],
-        "answer": 0
+        "answer": 2
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
@@ -44687,14 +44687,14 @@ window.examDatabase[12] = {
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
-        "text": "In which paragraph does the writer explain why teachers need to keep learning?",
+        "text": "Which of the following statements would the writer NOT agree with?",
         "options": [
-          "Paragraph 1",
-          "Paragraph 2",
-          "Paragraph 3",
-          "Paragraph 4"
+          "A teacher who stops learning may find it hard to remain relevant to students.",
+          "Teachers can keep improving without being given any time or support.",
+          "Practical training that continues over time tends to be more effective than a single lecture.",
+          "Admitting that one does not know something sets a good example for students."
         ],
-        "answer": 0
+        "answer": 1
       },
       {
         "instruction": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 33 to 40.",
